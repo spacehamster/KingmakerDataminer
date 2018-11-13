@@ -27,7 +27,6 @@ namespace CustomRaces
                 (BlueprintFeatureBase)blueprints["03fd1e043fc678a4baf73fe67c3780ce"]  //ElvenWeaponFamiliarity
                 //SpellResistance()
             };
-            newRace.Features = elf.Features;
             Traverse.Create(newRace).Field("m_DisplayName").SetValue(RaceUtil.MakeLocalized("Drow"));
             Traverse.Create(newRace).Field("m_Description").SetValue(RaceUtil.MakeLocalized("Description Goes Here"));
             return newRace;

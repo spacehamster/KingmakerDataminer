@@ -50,8 +50,6 @@ namespace CustomRaces
                 modEntry.OnSaveGUI = OnSaveGUI;
                 modEntry.Logger.Log("Loaded CustomRaces");
                 logger = modEntry.Logger;
-                //Test.Bar();
-                Test2.Bar(harmony);
                 SceneManager.sceneLoaded += RaceManager.OnSceneManagerOnSceneLoaded;
             }
             catch (Exception e){
