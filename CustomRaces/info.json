@@ -1,0 +1,10 @@
+{
+  "Id": "CustomRaces",
+  "DisplayName": "Custom Races",
+  "Author": "spacehamster",
+  "Version": "1.0.0",
+  "ManagerVersion": "0.12.0",
+  "Requirements": [],
+  "AssemblyName": "CustomRaces.dll",
+  "EntryMethod": "CustomRaces.Main.Load"
+}
