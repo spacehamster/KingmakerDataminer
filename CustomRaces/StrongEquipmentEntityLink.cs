@@ -1,12 +1,5 @@
-﻿using Harmony12;
-using Kingmaker.Blueprints;
-using Kingmaker.ResourceLinks;
+﻿using Kingmaker.ResourceLinks;
 using Kingmaker.Visual.CharacterSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CustomRaces
 {

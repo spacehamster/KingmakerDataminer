@@ -1,26 +1,9 @@
 ﻿using UnityEngine;
 using Harmony12;
 using UnityModManagerNet;
-using Kingmaker.Blueprints;
 using System.Reflection;
 using System;
-using Debug = System.Diagnostics.Debug;
-using System.Diagnostics;
-using System.Linq;
-using Kingmaker.Visual.CharacterSystem;
-using System.Collections.Generic;
-using Kingmaker.Blueprints.Classes;
 using Kingmaker;
-using Kingmaker.EntitySystem.Entities;
-using Kingmaker.View;
-using Kingmaker.UnitLogic;
-using Kingmaker.UnitLogic.Class.LevelUp;
-using Kingmaker.Blueprints.CharGen;
-using Kingmaker.ResourceLinks;
-using Kingmaker.Blueprints.Root;
-using static Kingmaker.Visual.CharacterSystem.EquipmentEntity;
-using static CustomRaces.Settings;
-using System.Threading;
 using UnityEngine.SceneManagement;
 
 namespace CustomRaces

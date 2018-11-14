@@ -4,7 +4,6 @@ using Kingmaker.Blueprints.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using UnityEngine.SceneManagement;
 
 namespace CustomRaces
@@ -16,8 +15,6 @@ namespace CustomRaces
         static bool loaded = false;
         public static void Init()
         {
-            while (ResourcesLibrary.LibraryObject.BlueprintsByAssetId == null)
-                Thread.Sleep(1);
             var blueprints = ResourcesLibrary.LibraryObject.BlueprintsByAssetId;
             var goblinRace = (BlueprintRace)blueprints["9d168ca7100e9314385ce66852385451"];
             races.Add(goblinRace);

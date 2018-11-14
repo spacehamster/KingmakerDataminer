@@ -25,16 +25,14 @@ namespace CustomRaces
             var list = Traverse.Create(typeof(ResourcesLibrary)).Field("s_LoadedResources").GetValue<object>();
             Traverse.Create(list).Method("Add", new object[] { assetId, resource }).GetValue();
         }
-        public static void AddBlueprint(BlueprintScriptableObject obj, string assetId)
+        public static void AddBlueprint(BlueprintScriptableObject blueprint, string assetId)
         {
-            Traverse.Create(obj).Field("m_AssetGuid").SetValue(assetId);
-            Traverse.Create(ResourcesLibrary.LibraryObject.BlueprintsByAssetId)
-                .Method("Add", new object[] { assetId, obj })
-                .GetValue();
+            Traverse.Create(blueprint).Field("m_AssetGuid").SetValue(assetId);
+            ResourcesLibrary.LibraryObject.BlueprintsByAssetId[assetId] = blueprint;
             //This is not required, only used for debugging and ResourcesLibrary.GetBlueprints<BlueprintAreaPreset>() on gameload
             Traverse.Create(ResourcesLibrary.LibraryObject)
             .Field("m_AllBlueprints")
-            .Method("Add", new object[] { obj })
+            .Method("Add", new object[] { blueprint })
             .GetValue();
         }
         public static string GetDeterministicAssetID(string input)
