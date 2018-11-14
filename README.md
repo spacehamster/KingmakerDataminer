@@ -4,5 +4,5 @@ An experimental mod to add custom races to Pathfinder: Kingmaker. It is currentl
 * Determine a method of loading meshs and skeletons the game
 * Determine a method of changing race stats
 * Determine a method of adding new BlueprintFeatures
-* Look at creating new classes
+* Look at creating new character classes
 * Determine a suitable serialization format for classes and races
