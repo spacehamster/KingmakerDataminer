@@ -11,7 +11,6 @@ namespace CustomRaces
         {
             this.ee = ee;
             this.AssetId = assetID;
-            RaceManager.assets[this.AssetId] = ee;
             RaceUtil.AddResource(ee, this.AssetId);
 
         }

@@ -13,6 +13,7 @@ namespace CustomRaces
             var halforc = (BlueprintRace)blueprints["1dc20e195581a804890ddc74218bfd8e"];
             var newRace = RaceUtil.CopyRace(halforc, "c4f6a707e3ba4495a5b5693b42b20840");
             newRace.RaceId = Race.Halfling;
+            newRace.name = "SkeletonTestRace";
             for(int i = 0; i < newRace.Presets.Length && i < halfling.Presets.Length; i++)
             {
                 newRace.Presets[i].MaleSkeleton = halfling.Presets[i].MaleSkeleton;

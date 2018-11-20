@@ -87,15 +87,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AasimarFix.cs" />
     <Compile Include="Dhampir.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="MeshTestRace.cs" />
+    <Compile Include="Ninja.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Drow.cs" />
     <Compile Include="RaceManager.cs" />
     <Compile Include="RaceUtil.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="SkeletonRace.cs" />
+    <Compile Include="Slayer.cs" />
     <Compile Include="StrongEquipmentEntityLink.cs" />
   </ItemGroup>
   <ItemGroup>

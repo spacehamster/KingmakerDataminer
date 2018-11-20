@@ -11,7 +11,7 @@ namespace CustomRaces
     public class RaceManager
     {
         static List<BlueprintRace> races = new List<BlueprintRace>();
-        static public Dictionary<string, UnityEngine.Object> assets = new Dictionary<string, UnityEngine.Object>();
+        static List<BlueprintCharacterClass> characterClasses = new List<BlueprintCharacterClass>();
         static bool loaded = false;
         public static void Init()
         {
@@ -21,7 +21,9 @@ namespace CustomRaces
             races.Add(Drow.CreateRace());
             races.Add(Dhampir.CreateRace());
             races.Add(MeshTestRace.CreateRace());
-            races.Add(SkeletonRace.CreateRace());
+            //AasimarFix.Apply();
+            characterClasses.Add(Slayer.CreateClass());
+            characterClasses.Add(Ninja.CreateClass());
         }
         static public void OnSceneManagerOnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
@@ -34,6 +36,7 @@ namespace CustomRaces
                     if (!loaded) Init();
                     loaded = true;
                     foreach (var race in races) AddRace(race);
+                    foreach (var characterClass in characterClasses) AddCharcterClass(characterClass);
                 } catch(Exception e)
                 {
                     Main.DebugLog(e.ToString() + "\n" + e.StackTrace);
@@ -48,13 +51,32 @@ namespace CustomRaces
                 ref var charRaces = ref Game.Instance.BlueprintRoot.Progression.CharacterRaces;
                 if (charRaces.Contains(race))
                 {
-                    Main.DebugLog($"Already had a {race.name} in the race list");
                     return;
                 }
                 var l = charRaces.Length;
                 Array.Resize(ref charRaces, l + 1);
                 charRaces[l] = race;
                 Main.DebugLog($"{race.name} added to the race list");
+            }
+            catch (Exception ex)
+            {
+                Main.DebugLog(ex.ToString());
+                throw;
+            }
+        }
+        static public void AddCharcterClass(BlueprintCharacterClass characterClass)
+        {
+            try
+            {
+                ref var charClasses = ref Game.Instance.BlueprintRoot.Progression.CharacterClasses;
+                if (charClasses.Contains(characterClass))
+                {
+                    return;
+                }
+                var l = charClasses.Length;
+                Array.Resize(ref charClasses, l + 1);
+                charClasses[l] = characterClass;
+                Main.DebugLog($"{characterClass.name} added to the class list");
             }
             catch (Exception ex)
             {

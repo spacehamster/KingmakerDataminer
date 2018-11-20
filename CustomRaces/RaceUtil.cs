@@ -43,32 +43,43 @@ namespace CustomRaces
             Guid hashGuid = new Guid(hashBytes);
             return hashGuid.ToString();
         }
+        public static EquipmentEntity CopyEquipmentEntity(EquipmentEntity oldEE)
+        {
+            var newEE = ScriptableObject.CreateInstance<EquipmentEntity>();
+            newEE.name = oldEE.name;
+            if (oldEE.ColorsProfile != null)
+            {
+                newEE.ColorsProfile = ScriptableObject.CreateInstance<CharacterColorsProfile>();
+                newEE.ColorsProfile.PrimaryRamps = new List<Texture2D>(oldEE.ColorsProfile.PrimaryRamps);
+                newEE.ColorsProfile.SecondaryRamps = new List<Texture2D>(oldEE.ColorsProfile.PrimaryRamps);
+                newEE.ColorsProfile.name = oldEE.ColorsProfile.name;
+            }
+            newEE.HideBodyParts = oldEE.HideBodyParts;
+            newEE.ShowLowerMaterials = oldEE.ShowLowerMaterials;
+            newEE.Layer = oldEE.Layer;
+            var primaryRamps = Traverse.Create(oldEE).Field("m_PrimaryRamps").GetValue<List<Texture2D>>();
+            //Outfit parts are static meshes
+            newEE.OutfitParts = new List<EquipmentEntity.OutfitPart>(oldEE.OutfitParts);
+
+            foreach (var oldBP in oldEE.BodyParts)
+            {
+                var newBP = new BodyPart();
+                newBP.RendererPrefab = oldBP.RendererPrefab;
+                newBP.Material = oldBP.Material;
+                newBP.Textures = oldBP.Textures;
+                newBP.Type = oldBP.Type;
+                newEE.BodyParts.Add(newBP);
+            }
+            Traverse.Create(newEE).Field("m_BonesByName").SetValue(new Dictionary<string, Skeleton.Bone>(oldEE.BonesByName));
+            return newEE;
+        }
         static StrongEquipmentEntityLink[] CopyLinks(EquipmentEntityLink[] links, string oldGUID)
         {
             var seels = new StrongEquipmentEntityLink[links.Length];
             for (int i = 0; i < links.Length; i++)
             {
                 var oldEE = links[i].Load();
-                var newEE = ScriptableObject.CreateInstance<EquipmentEntity>();
-                newEE.name = oldEE.name;
-                if (oldEE.ColorsProfile != null)
-                {
-                    newEE.ColorsProfile = ScriptableObject.CreateInstance<CharacterColorsProfile>();
-                    newEE.ColorsProfile.PrimaryRamps = new List<Texture2D>(oldEE.ColorsProfile.PrimaryRamps);
-                    newEE.ColorsProfile.SecondaryRamps = new List<Texture2D>(oldEE.ColorsProfile.PrimaryRamps);
-                }
-                //Outfit parts are static meshes
-                newEE.OutfitParts = new List<EquipmentEntity.OutfitPart>(oldEE.OutfitParts);
-                foreach (var oldBP in oldEE.BodyParts)
-                {
-                    var newBP = new BodyPart();
-                    newBP.RendererPrefab = oldBP.RendererPrefab;
-                    newBP.Material = oldBP.Material;
-                    newBP.Textures = oldBP.Textures;
-                    newBP.Type = oldBP.Type;
-                    newEE.BodyParts.Add(newBP);
-                }
-                Traverse.Create(newEE).Field("m_BonesByName").SetValue(new Dictionary<string, Skeleton.Bone>(oldEE.BonesByName));
+                var newEE = CopyEquipmentEntity(oldEE);
                 var assetID = GetDeterministicAssetID(oldGUID);
                 seels[i] = new StrongEquipmentEntityLink(newEE, assetID);
                 oldGUID = assetID;
@@ -122,11 +133,12 @@ namespace CustomRaces
             newRace.Features = (BlueprintFeatureBase[]) original.Features.Clone();
             return newRace;
         }
+        /*
+         * Huge hack. TODO fix
+         */
         public static LocalizedString MakeLocalized(string text)
         {
             var key = Guid.NewGuid().ToString();
-            while (LocalizationManager.CurrentPack == null || LocalizationManager.CurrentPack.Strings == null)
-                Thread.Sleep(1);
             LocalizationManager.CurrentPack.Strings[key] = text;
             var localized = new LocalizedString();
             Traverse.Create(localized).Field("m_Key").SetValue(key);

@@ -31,13 +31,45 @@ namespace CustomRaces
                 (BlueprintFeatureBase)blueprints["03fd1e043fc678a4baf73fe67c3780ce"] //ElvenWeaponFamiliarity
             };
             newRace.SelectableRaceStat = false;
-            newRace.name = "NewRace";
-            foreach (var preset in newRace.Presets) preset.name += "NewRace";
-            SetSMR(newRace);
+            newRace.name = "MeshTestRace";
+            foreach (var preset in newRace.Presets) preset.name += "MeshTestRace";
+            //SetSMR(newRace);
+            SetSMR2(newRace);
             Traverse.Create(newRace).Field("m_DisplayName").SetValue(RaceUtil.MakeLocalized("MeshTest"));
             Traverse.Create(newRace).Field("m_Description").SetValue(RaceUtil.MakeLocalized("Description Goes Here"));
             race = newRace;
             return newRace;
+        }
+        static void SetSMR2(BlueprintRace newRace)
+        {
+            var oldSkin = newRace.Presets[0].Skin.Load(Gender.Male, newRace.RaceId).First();
+            var skinPrefab = bundle.LoadAsset<GameObject>("Assets/Model/Skin_Male2.blend");
+            var skinObject = GameObject.Instantiate(skinPrefab);
+            skinObject.SetActive(false);
+            foreach (var smr in skinObject.GetComponentsInChildren<SkinnedMeshRenderer>())
+            {
+                var smrType = Traverse.Create(typeof(EquipmentEntity)).Method("GetBodyPartType", new object[] { smr.name }).GetValue<BodyPartType>();
+                var bp = oldSkin.BodyParts.Find((_bp) => _bp.Type == smrType);
+                bp.RendererPrefab = smr.gameObject;
+                Traverse.Create(bp).Field("m_SkinnedRenderer").SetValue(smr);
+            }
+
+            var oldHead = newRace.MaleOptions.Heads[0].Load();
+            var headPrefab = bundle.LoadAsset<GameObject>("Assets/Model/Head_Male2.blend");
+            var headObject = GameObject.Instantiate(headPrefab);
+            headObject.SetActive(false);
+            foreach (var smr in headObject.GetComponentsInChildren<SkinnedMeshRenderer>())
+            {
+                var smrType = Traverse.Create(typeof(EquipmentEntity)).Method("GetBodyPartType", new object[] { smr.name }).GetValue<BodyPartType>();
+                var bp = oldHead.BodyParts.Find((_bp) => _bp.Type == smrType);
+                if (bp == null)
+                {
+                    Main.DebugLog($"Couldn't find bp for {smr.name}");
+                    continue;
+                }
+                bp.RendererPrefab = smr.gameObject;
+                Traverse.Create(bp).Field("m_SkinnedRenderer").SetValue(smr);
+            }
         }
         static void SetSMR(BlueprintRace newRace)
         {
