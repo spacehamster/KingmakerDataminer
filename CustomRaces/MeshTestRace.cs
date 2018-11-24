@@ -43,30 +43,23 @@ namespace CustomRaces
         static void SetSMR2(BlueprintRace newRace)
         {
             var oldSkin = newRace.Presets[0].Skin.Load(Gender.Male, newRace.RaceId).First();
-            var skinPrefab = bundle.LoadAsset<GameObject>("Assets/Model/Skin_Male2.blend");
-            var skinObject = GameObject.Instantiate(skinPrefab);
-            skinObject.SetActive(false);
-            foreach (var smr in skinObject.GetComponentsInChildren<SkinnedMeshRenderer>())
+            var skinPrefab = bundle.LoadAsset<GameObject>("Assets/Preview_Blender/Skin_Male2.prefab");
+            foreach (var smr in skinPrefab.GetComponentsInChildren<SkinnedMeshRenderer>())
             {
                 var smrType = Traverse.Create(typeof(EquipmentEntity)).Method("GetBodyPartType", new object[] { smr.name }).GetValue<BodyPartType>();
                 var bp = oldSkin.BodyParts.Find((_bp) => _bp.Type == smrType);
+                var oldSMR = bp.RendererPrefab.GetComponentInChildren<SkinnedMeshRenderer>();
+                Main.DebugLog($"Old SMR Name {oldSMR.name}");
                 bp.RendererPrefab = smr.gameObject;
                 Traverse.Create(bp).Field("m_SkinnedRenderer").SetValue(smr);
             }
-
+           
             var oldHead = newRace.MaleOptions.Heads[0].Load();
-            var headPrefab = bundle.LoadAsset<GameObject>("Assets/Model/Head_Male2.blend");
-            var headObject = GameObject.Instantiate(headPrefab);
-            headObject.SetActive(false);
-            foreach (var smr in headObject.GetComponentsInChildren<SkinnedMeshRenderer>())
+            var headPrefab = bundle.LoadAsset<GameObject>("Assets/Preview_Blender/Head_Male1.prefab");
+            foreach (var smr in headPrefab.GetComponentsInChildren<SkinnedMeshRenderer>())
             {
                 var smrType = Traverse.Create(typeof(EquipmentEntity)).Method("GetBodyPartType", new object[] { smr.name }).GetValue<BodyPartType>();
                 var bp = oldHead.BodyParts.Find((_bp) => _bp.Type == smrType);
-                if (bp == null)
-                {
-                    Main.DebugLog($"Couldn't find bp for {smr.name}");
-                    continue;
-                }
                 bp.RendererPrefab = smr.gameObject;
                 Traverse.Create(bp).Field("m_SkinnedRenderer").SetValue(smr);
             }

@@ -100,10 +100,6 @@ namespace CustomRaces
                 (bp) => (bp.Type & rogueBodyPartTypes) != 0));
             maleOutfit.BodyParts.AddRange(rangerMaleOutfit.BodyParts.Where(
                 (bp) => (bp.Type & rangerBodyPartTypes) != 0));
-            //Ranger upperarm textures "UA_ShortSleeve_Ranger_U_Any", "UA_ShortSleeve_RangerColor1_U_Any", "UA_ShortSleeve_RangerColor2_U_Any"
-            //Rogue upperarm textures "UA_LongSleeveThick_Rogue_U_Any", "UA_LongSleeveThick_RogueColor1_U_Any", "UA_LongSleeveThick_RogueDecor_U_Any"
-            //Remove ee that hides shoulders
-            //maleOutfit.BodyParts.RemoveAll((bp) => bp.Textures[0].GetMainTextureName() == "UA_LongSleeveThick_Rogue_U_Any");
             var maleOutfitLink = new StrongEquipmentEntityLink(maleOutfit, "7b8429914e404455b270835c20486322");
             var rogueFemaleOutfit = ResourcesLibrary.TryGetResource<EquipmentEntity>("c6757746d62b78f46a92020110dfe088");
             var rangerFemaleOutfit = ResourcesLibrary.TryGetResource<EquipmentEntity>("bc6fb7e5c91de08418b81a397b20bb18");

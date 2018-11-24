@@ -1,6 +1,7 @@
 ﻿using Harmony12;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.UnitLogic.FactLogic;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,18 +18,41 @@ namespace CustomRaces
             var elf = (BlueprintRace)blueprints["25a5878d125338244896ebd3238226c8"];
             var newRace = RaceUtil.CopyRace(elf, "bf5ee08cbc0a44b898a3f2a0ed158b97");
             newRace.name = "DrowRace";
-            newRace.ComponentsArray = elf.ComponentsArray;
+            newRace.ComponentsArray = new BlueprintComponent[]
+            {
+                new AddStatBonus()
+                {
+                    name = "CustomRaceStat",
+                    Descriptor = Kingmaker.Enums.ModifierDescriptor.Racial,
+                    Stat = Kingmaker.EntitySystem.Stats.StatType.Dexterity,
+                    Value = 2
+                },
+                new AddStatBonus()
+                {
+                    name = "CustomRaceStat",
+                    Descriptor = Kingmaker.Enums.ModifierDescriptor.Racial,
+                    Stat = Kingmaker.EntitySystem.Stats.StatType.Charisma,
+                    Value = 2
+                },
+                new AddStatBonus()
+                {
+                    name = "CustomRaceStat",
+                    Descriptor = Kingmaker.Enums.ModifierDescriptor.Racial,
+                    Stat = Kingmaker.EntitySystem.Stats.StatType.Constitution,
+                    Value = -2
+                }
+            };
             SetRamps(newRace);
             newRace.Features = new BlueprintFeatureBase[]
             {
                 (BlueprintFeatureBase)blueprints["9c747d24f6321f744aa1bb4bd343880d"], //Keen Senses
                 (BlueprintFeatureBase)blueprints["55edf82380a1c8540af6c6037d34f322"], //ElvenMagic
                 (BlueprintFeatureBase)blueprints["2483a523984f44944a7cf157b21bf79c"], //ElvenImmunity
-                (BlueprintFeatureBase)blueprints["03fd1e043fc678a4baf73fe67c3780ce"]  //ElvenWeaponFamiliarity
-                //SpellResistance()
+                (BlueprintFeatureBase)blueprints["03fd1e043fc678a4baf73fe67c3780ce"],  //ElvenWeaponFamiliarity
+                SpellResistance()
             };
             Traverse.Create(newRace).Field("m_DisplayName").SetValue(RaceUtil.MakeLocalized("Drow"));
-            Traverse.Create(newRace).Field("m_Description").SetValue(RaceUtil.MakeLocalized("Description Goes Here"));
+            Traverse.Create(newRace).Field("m_Description").SetValue(RaceUtil.MakeLocalized("Cruel and cunning, drow are a dark reflection of the elven race. Also called dark elves, they dwell deep underground in elaborate cities shaped from the rock of cyclopean caverns. Drow seldom make themselves known to surface folk, preferring to remain legends while advancing their sinister agendas through proxies and agents. Drow have no love for anyone but themselves, and are adept at manipulating other creatures. While they are not born evil, malignancy is deep-rooted in their culture and society, and nonconformists rarely survive for long. Some stories tell that given the right circumstances, a particularly hateful elf might turn into a drow, though such a transformation would require a truly heinous individual."));
             return newRace;
         }
         static void SetRamps(BlueprintRace newRace)
@@ -75,9 +99,23 @@ namespace CustomRaces
         {
             var blueprints = ResourcesLibrary.LibraryObject.BlueprintsByAssetId;
             var spellResistance5plusCR = (BlueprintFeature)blueprints["2378680aaca855840ba325c509f5d654"];
-            Traverse.Create(spellResistance5plusCR).Field("m_DisplayName").SetValue(RaceUtil.MakeLocalized("Spell Resistance"));
-            Traverse.Create(spellResistance5plusCR).Field("m_Description").SetValue(RaceUtil.MakeLocalized("Drow possess spell resistance (SR) equal to 6 plus their total number of class levels."));
-            return spellResistance5plusCR;
+            var spellResistance6plusCR = ScriptableObject.CreateInstance<BlueprintFeature>();
+            spellResistance6plusCR.ComponentsArray = new BlueprintComponent[]
+            {
+                new AddSpellResistance()
+                {
+                    AddCR = true,
+                    Value = new Kingmaker.UnitLogic.Mechanics.ContextValue()
+                    {
+                        Value = 6
+                    }
+                }
+            };
+            spellResistance6plusCR.name = "SpellResistance6plusCR";
+            Traverse.Create(spellResistance6plusCR).Field("m_DisplayName").SetValue(RaceUtil.MakeLocalized("Spell Resistance"));
+            Traverse.Create(spellResistance6plusCR).Field("m_Description").SetValue(RaceUtil.MakeLocalized("Drow possess spell resistance (SR) equal to 6 plus their total number of class levels."));
+            RaceUtil.AddBlueprint(spellResistance6plusCR, "94cb101bb5e944bea2e1777e6627dc5c");
+            return spellResistance6plusCR;
         }
     }
 
