@@ -97,7 +97,6 @@
     <Compile Include="RaceManager.cs" />
     <Compile Include="RaceUtil.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="SkeletonRace.cs" />
     <Compile Include="Slayer.cs" />
     <Compile Include="StrongEquipmentEntityLink.cs" />
   </ItemGroup>

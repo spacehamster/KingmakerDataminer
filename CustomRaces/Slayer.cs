@@ -32,7 +32,6 @@ namespace CustomRaces
             newClass.FortitudeSave = ranger.FortitudeSave;
             newClass.ReflexSave = ranger.ReflexSave;
             newClass.WillSave = ranger.WillSave;
-            newClass.Progression = ScriptableObject.CreateInstance<BlueprintProgression>();
             newClass.Archetypes = new BlueprintArchetype[0]; //No Archtypes
             newClass.ClassSkills = new StatType[]
             {
@@ -44,6 +43,7 @@ namespace CustomRaces
                 StatType.SkillKnowledgeWorld
             };
             SetupClassApperance(newClass, rogue, ranger);
+            SetupProgression(newClass);
             newClass.StartingGold = 411;
             newClass.StartingItems = new Kingmaker.Blueprints.Items.BlueprintItem[] { };
             newClass.RecommendedAttributes = new StatType[] { StatType.Dexterity };
@@ -124,16 +124,19 @@ namespace CustomRaces
                 new EquipmentEntityLink(){ AssetId = "52a0a0c7183957a4ea02301ce40b3e83" }, //EE_Ranger_F_Cape
             };
         }
-        static void SetupProgression(BlueprintProgression progression, BlueprintCharacterClass newClass)
+        static void SetupProgression(BlueprintCharacterClass newClass)
         {
+            var progression = ScriptableObject.CreateInstance<BlueprintProgression>();
             progression.name = "SlayerProgression";
-            progression.Archetypes = new BlueprintArchetype[0];
+            //progression.Archetypes = new BlueprintArchetype[0];
             progression.Classes = new BlueprintCharacterClass[] { newClass };
-            progression.Groups = new FeatureGroup[0];
+            progression.ExclusiveProgression = newClass;
             progression.LevelEntries = new LevelEntry[20];
             //progression.Description
             //Progression.Name
-            List<List<string>> features = new List<List<string>>(20);
+            List<List<string>> features = new List<List<string>>();
+            features.Capacity = 20;
+            for (int i = 0; i < features.Capacity; i++) features.Add(new List<string>());
             features[0].Add("c5e479367d07d62428f2fe92f39c0341"); //RangerProficiencies TODO: Clone and change name
             features[0].Add("16cc2c937ea8d714193017780e7d4fc6"); //FavoriteEnemySelection TODO: Make Studied Target
             //features[0].Add("d3e6275cfa6e7a04b9213b7b292a011c"); //Ranger RayCalculateFeature is this for spells?
@@ -173,22 +176,49 @@ namespace CustomRaces
             features[19].Add("9d53ef63441b5d84297587d75f72fc17"); //MasterHunter TODO: Make Master Slayer
             features[19].Add("72dcf1fb106d5054a81fd804fdc168d3"); //MasterStrike TODO: Make Master Slayer
             features[19].Add("c074a5d615200494b8f2a9c845799d93"); //RogueTalentSelection TODO: Make Slayer Talent
-            for(int i = 0; i < features.Count; i++)
+            for (int i = 0; i < features.Count; i++)
             {
                 progression.LevelEntries[i] = new LevelEntry();
                 progression.LevelEntries[i].Level = i + 1;
-                foreach(var featureId in features[i])
+                foreach (var featureId in features[i])
                 {
                     progression.LevelEntries[i].Features.Add(ResourcesLibrary.TryGetBlueprint<BlueprintFeatureBase>(featureId));
                 }
             }
-            progression.UIDeterminatorsGroup = progression.LevelEntries[0].Features.ToArray();
-            progression.UIGroups = new UIGroup[1];
-            progression.UIGroups[0] = new UIGroup();
-            progression.UIGroups[0].Features.AddRange(progression.LevelEntries[19].Features);
-
+            progression.UIDeterminatorsGroup = new BlueprintFeatureBase[]{
+                //RangerProficiencies
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeatureBase>("c5e479367d07d62428f2fe92f39c0341")
+            };
+            progression.UIGroups = new UIGroup[]
+            {
+                new UIGroup()
+                {
+                    Features = new BlueprintFeatureBase[]
+                    {
+                        //FavoriteEnemySelection
+                        ResourcesLibrary.TryGetBlueprint<BlueprintFeatureBase>("16cc2c937ea8d714193017780e7d4fc6"),
+                        //FavoriteEnemyRankUp
+                        ResourcesLibrary.TryGetBlueprint<BlueprintFeatureBase>("c1be13839472aad46b152cf10cf46179")
+                    }.ToList()
+                },
+                new UIGroup()
+                {
+                    Features = new BlueprintFeatureBase[]
+                    {
+                        //Quarry
+                        ResourcesLibrary.TryGetBlueprint<BlueprintFeatureBase>("385260ca07d5f1b4e907ba22a02944fc"),
+                        //ImprovedQuarry
+                        ResourcesLibrary.TryGetBlueprint<BlueprintFeatureBase>("25e009b7e53f86141adee3a1213af5af")
+                    }.ToList()
+                },
+            };
+            //progression.UIGroups[0] = new UIGroup();
+            //progression.UIGroups[0].Features.AddRange(progression.LevelEntries[19].Features);
             //TODO progression.UIDeterminatorGroup
             //TODO UIGroups
+            RaceUtil.AddBlueprint(progression, "3efb832cd03c4c94a858ef8539d9ce92");
+            newClass.Progression = progression;
+
         }
 
     }

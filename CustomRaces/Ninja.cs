@@ -48,9 +48,25 @@ namespace CustomRaces
             newClass.WillSave = rogue.WillSave;
             RaceUtil.AddBlueprint(newClass, "7b9c8a62205d44cf8d1021ed0f4bf2da");
             //Note set progression parent ot newClass
+            CopyProgression(newClass, rogue.Progression);
             //BlueprintPgoression.ExclusiveProgression = newClass
             //Check for Prerequisites that contain classblueprints
             return newClass;
+        }
+        public static void CopyProgression(BlueprintCharacterClass newClass, BlueprintProgression oldProgression)
+        {
+            BlueprintProgression newProgression = ScriptableObject.CreateInstance<BlueprintProgression>();
+            newProgression.Classes = new BlueprintCharacterClass[] { newClass };
+            newProgression.ComponentsArray = oldProgression.ComponentsArray;
+            newProgression.ExclusiveProgression = newClass;
+            newProgression.Groups = oldProgression.Groups;
+            newProgression.LevelEntries = oldProgression.LevelEntries;
+            newProgression.name = "Custom_" + oldProgression.name;
+            newProgression.Ranks = oldProgression.Ranks;
+            newProgression.UIDeterminatorsGroup = newClass.Progression.LevelEntries[0].Features.ToArray();
+            newProgression.UIGroups = new UIGroup[0];
+            newClass.Progression = newProgression;
+            RaceUtil.AddBlueprint(newProgression, "376e3fa3a4994cb5a6626d93e63d57e6");
         }
     }
 }
