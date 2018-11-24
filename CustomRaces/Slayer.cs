@@ -1,6 +1,8 @@
-﻿using Kingmaker.Blueprints;
+﻿using Harmony12;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Visual.CharacterSystem;
@@ -134,6 +136,7 @@ namespace CustomRaces
             progression.LevelEntries = new LevelEntry[20];
             //progression.Description
             //Progression.Name
+            SlayerTalent();
             List<List<string>> features = new List<List<string>>();
             features.Capacity = 20;
             for (int i = 0; i < features.Capacity; i++) features.Add(new List<string>());
@@ -141,41 +144,41 @@ namespace CustomRaces
             features[0].Add("16cc2c937ea8d714193017780e7d4fc6"); //FavoriteEnemySelection TODO: Make Studied Target
             //features[0].Add("d3e6275cfa6e7a04b9213b7b292a011c"); //Ranger RayCalculateFeature is this for spells?
             //features[0].Add("62ef1cdb90f1d654d996556669caf7fa"); //Ranger TouchCalculateFeature is this for spells?
-            features[1].Add("c074a5d615200494b8f2a9c845799d93"); //RogueTalentSelection TODO: Make Slayer Talent
+            features[1].Add("efc3ce27f70e4487b280272580d601e9"); //SlayerTalent
             features[2].Add("9b9eac6709e1c084cb18c3a366e0ec87"); //SneakAttack
-            features[3].Add("c074a5d615200494b8f2a9c845799d93"); //RogueTalentSelection TODO: Make Slayer Talent
+            features[3].Add("efc3ce27f70e4487b280272580d601e9"); //SlayerTalent
             features[4].Add("16cc2c937ea8d714193017780e7d4fc6"); //FavoriteEnemySelection TODO: Make Studied Target
             features[4].Add("c1be13839472aad46b152cf10cf46179"); //FavoriteEnemyRankUp TODO: Make Studied Target
-            features[5].Add("c074a5d615200494b8f2a9c845799d93"); //RogueTalentSelection TODO: Make Slayer Talent
+            features[5].Add("efc3ce27f70e4487b280272580d601e9"); //SlayerTalent
             features[5].Add("9b9eac6709e1c084cb18c3a366e0ec87"); //SneakAttack
             features[6].Add("c7e1d5ef809325943af97f093e149c4f"); //Stealthy TODO: Make Stalker talent
-            features[7].Add("c074a5d615200494b8f2a9c845799d93"); //RogueTalentSelection TODO: Make Slayer Talent
+            features[7].Add("efc3ce27f70e4487b280272580d601e9"); //SlayerTalent
             features[8].Add("9b9eac6709e1c084cb18c3a366e0ec87"); //SneakAttack
             features[9].Add("16cc2c937ea8d714193017780e7d4fc6"); //FavoriteEnemySelection TODO: Make Studied Target
             features[9].Add("c1be13839472aad46b152cf10cf46179"); //FavoriteEnemyRankUp TODO: Make Studied Target
-            features[9].Add("c074a5d615200494b8f2a9c845799d93"); //RogueTalentSelection TODO: Make Slayer Talent
+            features[9].Add("efc3ce27f70e4487b280272580d601e9"); //SlayerTalent
             features[9].Add("a33b99f95322d6741af83e9381b2391c"); //AdvanceTalents TODO: Make Advanced Slayer Talent
             features[10].Add("97a6aa2b64dd21a4fac67658a91067d7"); //FastStealth TODO: Make Swift Tracker
-            features[10].Add("c074a5d615200494b8f2a9c845799d93"); //RogueTalentSelection TODO: Make Slayer Talent
+            features[11].Add("efc3ce27f70e4487b280272580d601e9"); //SlayerTalent
             features[11].Add("16cc2c937ea8d714193017780e7d4fc6"); //FavoriteEnemySelection TODO: Make Studied Target
             features[11].Add("c1be13839472aad46b152cf10cf46179"); //FavoriteEnemyRankUp TODO: Make Studied Target
             features[11].Add("9b9eac6709e1c084cb18c3a366e0ec87"); //SneakAttack
             features[12].Add("7df32d4e9bd2cdc48b0f69b03a57754a"); //SwiftFootFeature TODO replace with Slayer’s Advance
             features[13].Add("385260ca07d5f1b4e907ba22a02944fc"); //Quarry
-            features[13].Add("c074a5d615200494b8f2a9c845799d93"); //RogueTalentSelection TODO: Make Slayer Talent
+            features[13].Add("efc3ce27f70e4487b280272580d601e9"); //SlayerTalent
             features[14].Add("16cc2c937ea8d714193017780e7d4fc6"); //FavoriteEnemySelection TODO: Make Studied Target
             features[14].Add("c1be13839472aad46b152cf10cf46179"); //FavoriteEnemyRankUp TODO: Make Studied Target
             features[14].Add("9b9eac6709e1c084cb18c3a366e0ec87"); //SneakAttack
-            features[15].Add("c074a5d615200494b8f2a9c845799d93"); //RogueTalentSelection TODO: Make Slayer Talent
+            features[15].Add("efc3ce27f70e4487b280272580d601e9"); //SlayerTalent
             features[16].Add("7df32d4e9bd2cdc48b0f69b03a57754a"); //SwiftFootFeature TODO replace with Slayer’s Advance
-            features[17].Add("c074a5d615200494b8f2a9c845799d93"); //RogueTalentSelection TODO: Make Slayer Talent
+            features[17].Add("efc3ce27f70e4487b280272580d601e9"); //SlayerTalent
             features[17].Add("9b9eac6709e1c084cb18c3a366e0ec87"); //SneakAttack
             features[18].Add("25e009b7e53f86141adee3a1213af5af"); //Improved Quary
             features[19].Add("16cc2c937ea8d714193017780e7d4fc6"); //FavoriteEnemySelection TODO: Make Studied Target
             features[19].Add("c1be13839472aad46b152cf10cf46179"); //FavoriteEnemyRankUp TODO: Make Studied Target
             features[19].Add("9d53ef63441b5d84297587d75f72fc17"); //MasterHunter TODO: Make Master Slayer
             features[19].Add("72dcf1fb106d5054a81fd804fdc168d3"); //MasterStrike TODO: Make Master Slayer
-            features[19].Add("c074a5d615200494b8f2a9c845799d93"); //RogueTalentSelection TODO: Make Slayer Talent
+            features[19].Add("efc3ce27f70e4487b280272580d601e9"); //SlayerTalent
             for (int i = 0; i < features.Count; i++)
             {
                 progression.LevelEntries[i] = new LevelEntry();
@@ -212,14 +215,61 @@ namespace CustomRaces
                     }.ToList()
                 },
             };
-            //progression.UIGroups[0] = new UIGroup();
-            //progression.UIGroups[0].Features.AddRange(progression.LevelEntries[19].Features);
-            //TODO progression.UIDeterminatorGroup
-            //TODO UIGroups
             RaceUtil.AddBlueprint(progression, "3efb832cd03c4c94a858ef8539d9ce92");
             newClass.Progression = progression;
 
         }
-
+        static BlueprintFeatureBase SlayerTalent()
+        {
+            var slayerTalent = ScriptableObject.CreateInstance<BlueprintFeatureSelection>();
+            slayerTalent.Group = FeatureGroup.RogueTalent;
+            slayerTalent.name = "SlayerTalent";
+            var rogueTalent = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("b78d146cea711a84598f0acef69462ea");
+            //var sprite = Traverse.Create(rogueTalent).Field("m_Icon").GetValue<Sprite>();
+            //Traverse.Create(slayerTalent).Field("m_Icon").SetValue(sprite);
+            Traverse.Create(slayerTalent).Field("m_DisplayName").SetValue(RaceUtil.MakeLocalized("Slayer Talent"));
+            Traverse.Create(slayerTalent).Field("m_Description").SetValue(RaceUtil.MakeLocalized("As a slayer gains experience, he learns a number of talents that aid him and confound his foes. Starting at 2nd level and every 2 levels thereafter, a slayer gains one slayer talent. Unless otherwise noted, a slayer cannot select an individual talent more than once."));
+            slayerTalent.AllFeatures = new BlueprintFeature[]
+            {
+                //TODO
+                //Blood Reader
+                //Deadly Range
+                //Foil Scrutiny
+                //Poison Use
+                //Ranger Combat Style
+                //Rogue Talent
+                //Slowing Strike*
+                //Sticks and Stones (Ex)
+                //Studied Ally
+                //Sunlight Strike (Ex)
+                //Sure Footing (Ex)
+                //Toxin Training (Ex)
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("c6d0da9124735a44f93ac31df803b9a9"), //RangerStyleSelection2
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("61f82ba786fe05643beb3cd3910233a8"), //RangerStyleSelection6
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("78177315fc63b474ea3cbb8df38fafcd"), //RangerStyleSelection10
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("dbb6b3bffe6db3547b31c3711653838e"), //Trapfinding
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("68a23a419b330de45b4c3789649b5b41"), //CannyObserver
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("c5158a6622d0b694a99efb1d0025d2c1"), //CombatTrick,
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("97a6aa2b64dd21a4fac67658a91067d7"), // FastStealth
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("955ff81c596c1c3489406d03e81e6087"), // FocusingAttackConfused,
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("791f50e199d069d4f8e933996a2ce054"), //FocusingAttackShaken,
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("79475c263e538c94f8e23907bd570a35"), //FocusingAttackSicken
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("6087e0c9801b5eb48bf48d6e75116aad"), //IronGuts
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("7787030571e87704d9177401c595408e"), //SlowRections
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("ca5274d057152fa45b7527cad0927840"), //UncannyDodgeTalent,
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("ce72662a812b1f242849417b2c784b5e"), //ConfoundingBlades,
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("b696bd7cb38da194fa3404032483d1db"), //CripplingStrike
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("1b92146b8a9830d4bb97ab694335fa7c"), //DispellingAttack
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("dd699394df0ef8847abba26038333f02"), //DoubleDelibitation
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("0d35d6c4d5eef8d4790d09bd9a874e57"), //ImprovedEvasion
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("e821c61b2711cea4cb993725b910e7e8"), //ImprovedUncannyDodgeTalent
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("5bb6dc5ce00550441880a6ff8ad4c968"), //Oppotunist
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("d76497bfc48516e45a0831628f767a0f"), //IntimidatingProwess
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("c9629ef9eebb88b479b2fbc5e836656a"), //SkillFocusSelection
+                ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("1e1f627d26ad36f43bbd26cc2bf8ac7e"), //WeaponFocus
+            };
+            RaceUtil.AddBlueprint(slayerTalent, "efc3ce27f70e4487b280272580d601e9");
+            return slayerTalent;
+        }
     }
 }
