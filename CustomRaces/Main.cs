@@ -5,6 +5,8 @@ using System.Reflection;
 using System;
 using Kingmaker;
 using UnityEngine.SceneManagement;
+using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 
 namespace CustomRaces
 {
@@ -56,6 +58,21 @@ namespace CustomRaces
             {
                 if (!enabled) return;
 #if(DEBUG)
+                if(GUILayout.Button("DumpBlueprints")){
+                    foreach(var blueprint in ResourcesLibrary.GetBlueprints<BlueprintCharacterClass>()){
+                        JsonBlueprints.Dump(blueprint);
+                    }
+                    foreach (var blueprint in ResourcesLibrary.GetBlueprints<BlueprintCharacterClass>())
+                    {
+                        if (blueprint.AssetGuid.EndsWith("CustomFeature")) continue;
+                        JsonBlueprints.Dump(blueprint);
+                    }
+                    foreach (var blueprint in ResourcesLibrary.GetBlueprints<BlueprintRace>())
+                    {
+                        if (blueprint.AssetGuid.EndsWith("CustomFeature")) continue;
+                        JsonBlueprints.Dump(blueprint);
+                    }
+                }
                 if (GUILayout.Button("Reload"))
                 {
                     RaceManager.Reload();

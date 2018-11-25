@@ -55,6 +55,10 @@
       <HintPath>libs\Assembly-CSharp-firstpass.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\source\repos\ConsoleApp1\ConsoleApp1\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -85,10 +89,21 @@
       <HintPath>libs\UnityEngine.JSONSerializeModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>libs\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UNETModule">
+      <HintPath>libs\UnityEngine.UNETModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AasimarFix.cs" />
     <Compile Include="Dhampir.cs" />
+    <Compile Include="JSON\BlueprintAssetIdConverter.cs" />
+    <Compile Include="JSON\BlueprintContractResolver.cs" />
+    <Compile Include="JSON\GameObjectAssetIdConverter.cs" />
+    <Compile Include="JSON\JsonBlueprints.cs" />
+    <Compile Include="JSON\UnityJsonConverter.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="MeshTestRace.cs" />
     <Compile Include="Ninja.cs" />
