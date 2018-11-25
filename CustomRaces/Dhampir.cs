@@ -17,29 +17,26 @@ namespace CustomRaces
             var human = (BlueprintRace)blueprints["0a5d473ead98b0646b94495af250fdc4"];
             var newRace = RaceUtil.CopyRace(human, "7ef12cdd1464418d9f9547033bd9f77d");
             newRace.name = "DhampirRace";
+            var addDex = ScriptableObject.CreateInstance<AddStatBonus>();
+            addDex.name = "CustomRaceStat";
+            addDex.Descriptor = Kingmaker.Enums.ModifierDescriptor.Racial;
+            addDex.Stat = Kingmaker.EntitySystem.Stats.StatType.Dexterity;
+            addDex.Value = 2;
+            var addCha = ScriptableObject.CreateInstance<AddStatBonus>();
+            addCha.name = "CustomRaceStat";
+            addCha.Descriptor = Kingmaker.Enums.ModifierDescriptor.Racial;
+            addCha.Stat = Kingmaker.EntitySystem.Stats.StatType.Charisma;
+            addCha.Value = 2;
+            var addCon = ScriptableObject.CreateInstance<AddStatBonus>();
+            addCon.name = "CustomRaceStat";
+            addCon.Descriptor = Kingmaker.Enums.ModifierDescriptor.Racial;
+            addCon.Stat = Kingmaker.EntitySystem.Stats.StatType.Dexterity;
+            addCon.Value = -2;
             newRace.ComponentsArray = new BlueprintComponent[]
             {
-                new AddStatBonus()
-                {
-                    name = "CustomRaceStat",
-                    Descriptor = Kingmaker.Enums.ModifierDescriptor.Racial,
-                    Stat = Kingmaker.EntitySystem.Stats.StatType.Dexterity,
-                    Value = 2
-                },
-                new AddStatBonus()
-                {
-                    name = "CustomRaceStat",
-                    Descriptor = Kingmaker.Enums.ModifierDescriptor.Racial,
-                    Stat = Kingmaker.EntitySystem.Stats.StatType.Charisma,
-                    Value = 2
-                },
-                new AddStatBonus()
-                {
-                    name = "CustomRaceStat",
-                    Descriptor = Kingmaker.Enums.ModifierDescriptor.Racial,
-                    Stat = Kingmaker.EntitySystem.Stats.StatType.Constitution,
-                    Value = -2
-                }
+                addDex,
+                addCon,
+                addCha
             };
             newRace.SelectableRaceStat = false;
             SetRamps(newRace);
@@ -91,22 +88,21 @@ namespace CustomRaces
         static BlueprintFeature Manipulative()
         {
             var manipulative = ScriptableObject.CreateInstance<BlueprintFeature>();
+            var addBluffStat = ScriptableObject.CreateInstance<AddStatBonus>();
+            addBluffStat.name = "CustomRaceStat";
+            addBluffStat.Descriptor = Kingmaker.Enums.ModifierDescriptor.Racial;
+            addBluffStat.Stat = Kingmaker.EntitySystem.Stats.StatType.CheckBluff;
+            addBluffStat.Value = 2;
+            var addPerceptionStat = ScriptableObject.CreateInstance<AddStatBonus>();
+            addPerceptionStat.name = "CustomRaceStat";
+            addPerceptionStat.Descriptor = Kingmaker.Enums.ModifierDescriptor.Racial;
+            addPerceptionStat.Stat = Kingmaker.EntitySystem.Stats.StatType.CheckBluff;
+            addPerceptionStat.Value = 2;
             manipulative.ComponentsArray = new BlueprintComponent[]
             {
-                new AddStatBonus()
-                {
-                    name = "CustomRaceStat",
-                    Descriptor = Kingmaker.Enums.ModifierDescriptor.Racial,
-                    Stat = Kingmaker.EntitySystem.Stats.StatType.CheckBluff,
-                    Value = 2
-                },
-                new AddStatBonus()
-                {
-                    name = "CustomRaceStat",
-                    Descriptor = Kingmaker.Enums.ModifierDescriptor.Racial,
-                    Stat = Kingmaker.EntitySystem.Stats.StatType.SkillPerception,
-                    Value = 2
-                },
+
+                addBluffStat,
+                addPerceptionStat,
             };
             manipulative.name = "Manipulative";
             Traverse.Create(manipulative).Field("m_DisplayName").SetValue(RaceUtil.MakeLocalized("Manipulative"));

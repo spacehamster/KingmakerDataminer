@@ -57,10 +57,13 @@ namespace CustomRaces
             try
             {
                 if (!enabled) return;
-#if(DEBUG)
-                if(GUILayout.Button("DumpBlueprints")){
+#if (DEBUG)
+                if (GUILayout.Button("DumpBlueprintsQuick"))
+                {
+                    JsonBlueprints.DumpQuick();
+                }
+                if (GUILayout.Button("DumpBlueprints")){
                     JsonBlueprints.DumpBlueprints();
-
                 }
                 if (GUILayout.Button("Reload"))
                 {

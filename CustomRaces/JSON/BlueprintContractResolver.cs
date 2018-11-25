@@ -7,6 +7,7 @@ using Kingmaker.Blueprints;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
+using UnityEngine;
 
 namespace CustomRaces
 {
@@ -133,23 +134,27 @@ namespace CustomRaces
                 jsonProp.ShouldSerialize = o => true;
                 jsonProp.ShouldDeserialize = o => true;
             }
-
+            //Main.DebugLog($"Member {member.Name} {member.MemberType} {member.ReflectedType}");
             if (MemberNameBlacklist.Contains(member.Name))
             {
+                Main.DebugLog($"Blacklisted {member.Name}");
                 Skip();
                 return jsonProp;
             }
 
             if (!jsonProp.Writable)
             {
+                Main.DebugLog($"Can't write json prop {member.Name} {jsonProp.PropertyName}");
                 Skip();
                 return null;
             }
 
             if (member is FieldInfo field)
             {
+
                 if (field.IsLiteral)
                 {
+                    Main.DebugLog($"Skipping literal field {field.Name} {field.GetType()}");
                     Skip();
                     return null;
                 }
@@ -164,34 +169,8 @@ namespace CustomRaces
             }
             else if (member is PropertyInfo property)
             {
-                if (!property.CanWrite)
-                {
-                    Skip();
-                    return null;
-                }
-
-                var getterBody = property.GetMethod.GetMethodBody();
-                if (getterBody == null
-                  || getterBody.LocalVariables.Count > 0
-                  || getterBody.GetILAsByteArray().Length > 12)
-                {
-                    Skip();
-                    return null;
-                }
-
-                if (property.SetMethod?.GetMethodBody() == null)
-                {
-                    Skip();
-                    return null;
-                }
-
-                // ReSharper disable once InvertIf
-                if (property.PropertyType.IsSubclassOf(BlueprintScriptableObjectType))
-                {
-                    jsonProp.Converter = BlueprintAssetIdConverter;
-                    jsonProp.IsReference = false;
-                    Allow();
-                }
+                Skip();
+                return null;
             }
             else
             {
@@ -201,10 +180,22 @@ namespace CustomRaces
             return jsonProp;
         }
 
-
         protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization)
         {
             return base.CreateProperties(type, memberSerialization).Where(p => p.Writable).ToArray();
+        }
+        protected override List<MemberInfo> GetSerializableMembers(Type objectType)
+        {
+            if (objectType == null)
+                return new List<MemberInfo>();
+            MemberInfo[] publicFields = objectType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly);
+            MemberInfo[] privateFields = objectType.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
+            var result = privateFields
+                .Where((field) => Attribute.IsDefined(field, typeof(SerializeField)))
+                .Concat(publicFields)
+                .Concat(GetSerializableMembers(objectType.BaseType))
+                .ToList();
+            return result;
         }
     }
 }

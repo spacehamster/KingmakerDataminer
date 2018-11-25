@@ -3,6 +3,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.CharGen;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Visual.CharacterSystem;
@@ -27,7 +28,12 @@ namespace CustomRaces
             { typeof(BlueprintArchetype), "9e94d1847e6f331478e5a714659220ce"}, //KnifeMaster
             { typeof(BlueprintFeature),  "9b9eac6709e1c084cb18c3a366e0ec87" }, //SneakAttack
             { typeof(BlueprintFeatureSelection), "c074a5d615200494b8f2a9c845799d93" }, //RogueTalent
-            {typeof(EquipmentEntity), "d019e95d4a8a8474aa4e03489449d6ee" } //RogueOutfit
+            { typeof(BlueprintSpellbook), "5a38c9ac8607890409fcb8f6342da6f4" }, //WizardSpellbook
+            { typeof(BlueprintSpellList), "ba0401fdeb4062f40a7aa95b6f07fe89" }, //WizardSpelllist
+            { typeof(BlueprintSpellsTable), "78bb94ed2e75122428232950bb09e97b" }, //WizardSpellLevels
+            { typeof(BlueprintStatProgression), "4c936de4249b61e419a3fb775b9f2581" }, //BABMedium
+            { typeof(EquipmentEntity), "d019e95d4a8a8474aa4e03489449d6ee" } //RogueOutfit
+
         };
         public static string AddResource<T>(T obj, string newAssetId) where T : UnityEngine.Object
         {

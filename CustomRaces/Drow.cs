@@ -18,29 +18,26 @@ namespace CustomRaces
             var elf = (BlueprintRace)blueprints["25a5878d125338244896ebd3238226c8"];
             var newRace = RaceUtil.CopyRace(elf, "42a7466432fd4db4870363ffa1a9eaba");
             newRace.name = "DrowRace";
+            var addDex = ScriptableObject.CreateInstance<AddStatBonus>();
+            addDex.name = "CustomRaceStat";
+            addDex.Descriptor = Kingmaker.Enums.ModifierDescriptor.Racial;
+            addDex.Stat = Kingmaker.EntitySystem.Stats.StatType.Dexterity;
+            addDex.Value = 2;
+            var addCha = ScriptableObject.CreateInstance<AddStatBonus>();
+            addCha.name = "CustomRaceStat";
+            addCha.Descriptor = Kingmaker.Enums.ModifierDescriptor.Racial;
+            addCha.Stat = Kingmaker.EntitySystem.Stats.StatType.Charisma;
+            addCha.Value = 2;
+            var addCon = ScriptableObject.CreateInstance<AddStatBonus>();
+            addCon.name = "CustomRaceStat";
+            addCon.Descriptor = Kingmaker.Enums.ModifierDescriptor.Racial;
+            addCon.Stat = Kingmaker.EntitySystem.Stats.StatType.Dexterity;
+            addCon.Value = -2;
             newRace.ComponentsArray = new BlueprintComponent[]
             {
-                new AddStatBonus()
-                {
-                    name = "CustomRaceStat",
-                    Descriptor = Kingmaker.Enums.ModifierDescriptor.Racial,
-                    Stat = Kingmaker.EntitySystem.Stats.StatType.Dexterity,
-                    Value = 2
-                },
-                new AddStatBonus()
-                {
-                    name = "CustomRaceStat",
-                    Descriptor = Kingmaker.Enums.ModifierDescriptor.Racial,
-                    Stat = Kingmaker.EntitySystem.Stats.StatType.Charisma,
-                    Value = 2
-                },
-                new AddStatBonus()
-                {
-                    name = "CustomRaceStat",
-                    Descriptor = Kingmaker.Enums.ModifierDescriptor.Racial,
-                    Stat = Kingmaker.EntitySystem.Stats.StatType.Constitution,
-                    Value = -2
-                }
+                addDex,
+                addCon,
+                addCha
             };
             SetRamps(newRace);
             newRace.Features = new BlueprintFeatureBase[]
@@ -100,16 +97,15 @@ namespace CustomRaces
             var blueprints = ResourcesLibrary.LibraryObject.BlueprintsByAssetId;
             var spellResistance5plusCR = (BlueprintFeature)blueprints["2378680aaca855840ba325c509f5d654"];
             var spellResistance6plusCR = ScriptableObject.CreateInstance<BlueprintFeature>();
+            var addSpellResistance = ScriptableObject.CreateInstance<AddSpellResistance>();
+            addSpellResistance.AddCR = true;
+            addSpellResistance.Value = new Kingmaker.UnitLogic.Mechanics.ContextValue()
+            {
+                Value = 6
+            };
             spellResistance6plusCR.ComponentsArray = new BlueprintComponent[]
             {
-                new AddSpellResistance()
-                {
-                    AddCR = true,
-                    Value = new Kingmaker.UnitLogic.Mechanics.ContextValue()
-                    {
-                        Value = 6
-                    }
-                }
+                addSpellResistance
             };
             spellResistance6plusCR.name = "SpellResistance6plusCR";
             Traverse.Create(spellResistance6plusCR).Field("m_DisplayName").SetValue(RaceUtil.MakeLocalized("Spell Resistance"));

@@ -70,18 +70,45 @@ namespace CustomRaces
                 typeof(BlueprintProgression),
                 typeof(BlueprintStatProgression),
                 typeof(BlueprintFeature),
-                typeof(BlueprintSpellbook)
+                typeof(BlueprintSpellbook),
+                typeof(BlueprintSpellList),
+                typeof(BlueprintSpellsTable)
             };
             var blueprints = ResourcesLibrary.GetBlueprints<BlueprintScriptableObject>();
-            foreach(var blueprint in blueprints)
+            foreach (var blueprint in blueprints)
             {
-                if (types.Contains(blueprint.GetType())){
+                if (types.Contains(blueprint.GetType()))
+                {
                     Dump(blueprint);
                 }
             }
-
-
+        }
+        public static void DumpQuick()
+        {
+            var types = new Type[]
+            {
+                            typeof(BlueprintCharacterClass),
+                            typeof(BlueprintRaceVisualPreset),
+                            typeof(BlueprintRace),
+                            typeof(BlueprintArchetype),
+                            typeof(BlueprintProgression),
+                            typeof(BlueprintStatProgression),
+                            typeof(BlueprintFeature),
+                            typeof(BlueprintSpellbook),
+                            typeof(BlueprintSpellList),
+                            typeof(BlueprintSpellsTable)
+            };
+            foreach(var type in types)
+            {
+                string assetId;
+                RaceUtil.FallbackTable.TryGetValue(type, out assetId);
+                if(assetId == null)
+                {
+                    Main.DebugLog($"No Default {type}");
+                    continue;
+                }
+                Dump(ResourcesLibrary.TryGetBlueprint<BlueprintScriptableObject>(assetId));
+            }
         }
     }
-
 }
