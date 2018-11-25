@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.CharGen;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Visual.CharacterSystem;
@@ -16,17 +17,43 @@ namespace CustomRaces
 {
     static public class RaceUtil
     {
-        public static void AddResource(UnityEngine.Object obj, string assetId)
+        public static Dictionary<Type, string> FallbackTable = new Dictionary<Type, string>()
         {
+            { typeof(BlueprintRace),  "0a5d473ead98b0646b94495af250fdc4" }, //Human
+            { typeof(BlueprintRaceVisualPreset),  "58181bf151eb0c0408f82546541dcc03" }, //Human_Standard_VisualPreset
+            { typeof(BlueprintCharacterClass), "299aa766dee3cbf4790da4efb8c72484" }, //Rogue
+            { typeof(BlueprintProgression), "b57b2a75a5abcaf47a01cf84672b50e9" }, //RogueProgression
+            { typeof(BlueprintArchetype), "9e94d1847e6f331478e5a714659220ce"}, //KnifeMaster
+            { typeof(BlueprintFeature),  "9b9eac6709e1c084cb18c3a366e0ec87" }, //SneakAttack
+            { typeof(BlueprintFeatureSelection), "c074a5d615200494b8f2a9c845799d93" }, //RogueTalent
+            {typeof(EquipmentEntity), "d019e95d4a8a8474aa4e03489449d6ee" } //RogueOutfit
+        };
+        public static string AddResource<T>(T obj, string newAssetId) where T : UnityEngine.Object
+        {
+            string fallbackId = null;
+            FallbackTable.TryGetValue(typeof(T), out fallbackId);
+            if (fallbackId == null)
+            {
+                throw new Exception($"No fallback for typeof {typeof(T)}");
+            }
+            string assetId = string.Format("{0}:{1}#CustomFeature", newAssetId, fallbackId);
             var resourceType = Traverse.CreateWithType("Kingmaker.Blueprints.ResourcesLibrary+LoadedResource").GetValue<Type>();
             object resource = Activator.CreateInstance(resourceType);
             Traverse.Create(resource).Field("Resource").SetValue(obj);
             Traverse.Create(resource).Field("RequestCounter").SetValue(1);
             var list = Traverse.Create(typeof(ResourcesLibrary)).Field("s_LoadedResources").GetValue<object>();
             Traverse.Create(list).Method("Add", new object[] { assetId, resource }).GetValue();
+            return assetId;
         }
-        public static void AddBlueprint(BlueprintScriptableObject blueprint, string assetId)
+        public static void AddBlueprint<T>(T blueprint, string newAssetId) where T : BlueprintScriptableObject
         {
+            string fallbackId = null; 
+            FallbackTable.TryGetValue(typeof(T), out fallbackId);
+            if(fallbackId == null)
+            {
+                throw new Exception($"No fallback for typeof {typeof(T)}");
+            }
+            string assetId = string.Format("{0}:{1}#CustomFeature", newAssetId, fallbackId);
             Traverse.Create(blueprint).Field("m_AssetGuid").SetValue(assetId);
             ResourcesLibrary.LibraryObject.BlueprintsByAssetId[assetId] = blueprint;
             //This is not required, only used for debugging and ResourcesLibrary.GetBlueprints<BlueprintAreaPreset>() on gameload
@@ -34,6 +61,13 @@ namespace CustomRaces
             .Field("m_AllBlueprints")
             .Method("Add", new object[] { blueprint })
             .GetValue();
+        }
+        public static EquipmentEntityLink MakeEquipmentEntityLink(EquipmentEntity ee, string assetId)
+        {
+            var newAssetId = AddResource(ee, assetId);
+            var eel = new EquipmentEntityLink();
+            eel.AssetId = newAssetId;
+            return eel;
         }
         public static string GetDeterministicAssetID(string input)
         {
@@ -73,18 +107,18 @@ namespace CustomRaces
             Traverse.Create(newEE).Field("m_BonesByName").SetValue(new Dictionary<string, Skeleton.Bone>(oldEE.BonesByName));
             return newEE;
         }
-        static StrongEquipmentEntityLink[] CopyLinks(EquipmentEntityLink[] links, string oldGUID)
+        static EquipmentEntityLink[] CopyLinks(EquipmentEntityLink[] links, string oldGUID)
         {
-            var seels = new StrongEquipmentEntityLink[links.Length];
+            var eels = new EquipmentEntityLink[links.Length];
             for (int i = 0; i < links.Length; i++)
             {
                 var oldEE = links[i].Load();
                 var newEE = CopyEquipmentEntity(oldEE);
                 var assetID = GetDeterministicAssetID(oldGUID);
-                seels[i] = new StrongEquipmentEntityLink(newEE, assetID);
+                eels[i] = RaceUtil.MakeEquipmentEntityLink(newEE, assetID);
                 oldGUID = assetID;
             }
-            return seels;
+            return eels;
         }
         static BlueprintRaceVisualPreset[] CopyPresets(BlueprintRace original, string prevGUID)
         {

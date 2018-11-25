@@ -102,7 +102,7 @@ namespace CustomRaces
                 (bp) => (bp.Type & rogueBodyPartTypes) != 0));
             maleOutfit.BodyParts.AddRange(rangerMaleOutfit.BodyParts.Where(
                 (bp) => (bp.Type & rangerBodyPartTypes) != 0));
-            var maleOutfitLink = new StrongEquipmentEntityLink(maleOutfit, "7b8429914e404455b270835c20486322");
+            var maleOutfitLink = RaceUtil.MakeEquipmentEntityLink(maleOutfit, "7b8429914e404455b270835c20486322");
             var rogueFemaleOutfit = ResourcesLibrary.TryGetResource<EquipmentEntity>("c6757746d62b78f46a92020110dfe088");
             var rangerFemaleOutfit = ResourcesLibrary.TryGetResource<EquipmentEntity>("bc6fb7e5c91de08418b81a397b20bb18");
             var femaleOutfit = RaceUtil.CopyEquipmentEntity(rogueFemaleOutfit);
@@ -112,7 +112,7 @@ namespace CustomRaces
             femaleOutfit.BodyParts.AddRange(rangerFemaleOutfit.BodyParts.Where(
                 (bp) => bp.Type == BodyPartType.Boots || bp.Type == BodyPartType.Hands || bp.Type == BodyPartType.Forearms));
 
-            var femaleOutfitLink = new StrongEquipmentEntityLink(femaleOutfit, "b23db2bf48b340b79e25039deb0c86dd");
+            var femaleOutfitLink = RaceUtil.MakeEquipmentEntityLink(femaleOutfit, "b23db2bf48b340b79e25039deb0c86dd");
             //EquipmentEntities contains race dependent equipment entities, specificly hoods because races have different heads
             newClass.EquipmentEntities = rogue.EquipmentEntities;
             newClass.MaleEquipmentEntities = new EquipmentEntityLink[] {
@@ -136,49 +136,47 @@ namespace CustomRaces
             progression.LevelEntries = new LevelEntry[20];
             //progression.Description
             //Progression.Name
-            SlayerTalent();
+            var slayerTalent = SlayerTalent();
             List<List<string>> features = new List<List<string>>();
             features.Capacity = 20;
             for (int i = 0; i < features.Capacity; i++) features.Add(new List<string>());
             features[0].Add("c5e479367d07d62428f2fe92f39c0341"); //RangerProficiencies TODO: Clone and change name
             features[0].Add("16cc2c937ea8d714193017780e7d4fc6"); //FavoriteEnemySelection TODO: Make Studied Target
-            //features[0].Add("d3e6275cfa6e7a04b9213b7b292a011c"); //Ranger RayCalculateFeature is this for spells?
-            //features[0].Add("62ef1cdb90f1d654d996556669caf7fa"); //Ranger TouchCalculateFeature is this for spells?
-            features[1].Add("efc3ce27f70e4487b280272580d601e9"); //SlayerTalent
+            features[1].Add(slayerTalent.AssetGuid); //SlayerTalent
             features[2].Add("9b9eac6709e1c084cb18c3a366e0ec87"); //SneakAttack
-            features[3].Add("efc3ce27f70e4487b280272580d601e9"); //SlayerTalent
+            features[3].Add(slayerTalent.AssetGuid); //SlayerTalent
             features[4].Add("16cc2c937ea8d714193017780e7d4fc6"); //FavoriteEnemySelection TODO: Make Studied Target
             features[4].Add("c1be13839472aad46b152cf10cf46179"); //FavoriteEnemyRankUp TODO: Make Studied Target
-            features[5].Add("efc3ce27f70e4487b280272580d601e9"); //SlayerTalent
+            features[5].Add(slayerTalent.AssetGuid); //SlayerTalent
             features[5].Add("9b9eac6709e1c084cb18c3a366e0ec87"); //SneakAttack
             features[6].Add("c7e1d5ef809325943af97f093e149c4f"); //Stealthy TODO: Make Stalker talent
-            features[7].Add("efc3ce27f70e4487b280272580d601e9"); //SlayerTalent
+            features[7].Add(slayerTalent.AssetGuid); //SlayerTalent
             features[8].Add("9b9eac6709e1c084cb18c3a366e0ec87"); //SneakAttack
             features[9].Add("16cc2c937ea8d714193017780e7d4fc6"); //FavoriteEnemySelection TODO: Make Studied Target
             features[9].Add("c1be13839472aad46b152cf10cf46179"); //FavoriteEnemyRankUp TODO: Make Studied Target
-            features[9].Add("efc3ce27f70e4487b280272580d601e9"); //SlayerTalent
+            features[9].Add(slayerTalent.AssetGuid); //SlayerTalent
             features[9].Add("a33b99f95322d6741af83e9381b2391c"); //AdvanceTalents TODO: Make Advanced Slayer Talent
             features[10].Add("97a6aa2b64dd21a4fac67658a91067d7"); //FastStealth TODO: Make Swift Tracker
-            features[11].Add("efc3ce27f70e4487b280272580d601e9"); //SlayerTalent
+            features[11].Add(slayerTalent.AssetGuid); //SlayerTalent
             features[11].Add("16cc2c937ea8d714193017780e7d4fc6"); //FavoriteEnemySelection TODO: Make Studied Target
             features[11].Add("c1be13839472aad46b152cf10cf46179"); //FavoriteEnemyRankUp TODO: Make Studied Target
             features[11].Add("9b9eac6709e1c084cb18c3a366e0ec87"); //SneakAttack
             features[12].Add("7df32d4e9bd2cdc48b0f69b03a57754a"); //SwiftFootFeature TODO replace with Slayer’s Advance
             features[13].Add("385260ca07d5f1b4e907ba22a02944fc"); //Quarry
-            features[13].Add("efc3ce27f70e4487b280272580d601e9"); //SlayerTalent
+            features[13].Add(slayerTalent.AssetGuid); //SlayerTalent
             features[14].Add("16cc2c937ea8d714193017780e7d4fc6"); //FavoriteEnemySelection TODO: Make Studied Target
             features[14].Add("c1be13839472aad46b152cf10cf46179"); //FavoriteEnemyRankUp TODO: Make Studied Target
             features[14].Add("9b9eac6709e1c084cb18c3a366e0ec87"); //SneakAttack
-            features[15].Add("efc3ce27f70e4487b280272580d601e9"); //SlayerTalent
+            features[15].Add(slayerTalent.AssetGuid); //SlayerTalent
             features[16].Add("7df32d4e9bd2cdc48b0f69b03a57754a"); //SwiftFootFeature TODO replace with Slayer’s Advance
-            features[17].Add("efc3ce27f70e4487b280272580d601e9"); //SlayerTalent
+            features[17].Add(slayerTalent.AssetGuid); //SlayerTalent
             features[17].Add("9b9eac6709e1c084cb18c3a366e0ec87"); //SneakAttack
             features[18].Add("25e009b7e53f86141adee3a1213af5af"); //Improved Quary
             features[19].Add("16cc2c937ea8d714193017780e7d4fc6"); //FavoriteEnemySelection TODO: Make Studied Target
             features[19].Add("c1be13839472aad46b152cf10cf46179"); //FavoriteEnemyRankUp TODO: Make Studied Target
             features[19].Add("9d53ef63441b5d84297587d75f72fc17"); //MasterHunter TODO: Make Master Slayer
             features[19].Add("72dcf1fb106d5054a81fd804fdc168d3"); //MasterStrike TODO: Make Master Slayer
-            features[19].Add("efc3ce27f70e4487b280272580d601e9"); //SlayerTalent
+            features[19].Add(slayerTalent.AssetGuid); //SlayerTalent
             for (int i = 0; i < features.Count; i++)
             {
                 progression.LevelEntries[i] = new LevelEntry();

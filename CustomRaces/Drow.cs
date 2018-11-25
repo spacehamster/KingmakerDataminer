@@ -16,7 +16,7 @@ namespace CustomRaces
 
             var blueprints = ResourcesLibrary.LibraryObject.BlueprintsByAssetId;
             var elf = (BlueprintRace)blueprints["25a5878d125338244896ebd3238226c8"];
-            var newRace = RaceUtil.CopyRace(elf, "bf5ee08cbc0a44b898a3f2a0ed158b97");
+            var newRace = RaceUtil.CopyRace(elf, "42a7466432fd4db4870363ffa1a9eaba");
             newRace.name = "DrowRace";
             newRace.ComponentsArray = new BlueprintComponent[]
             {

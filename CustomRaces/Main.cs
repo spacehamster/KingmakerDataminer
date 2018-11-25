@@ -55,6 +55,11 @@ namespace CustomRaces
             try
             {
                 if (!enabled) return;
+#if(DEBUG)
+                if (GUILayout.Button("Reload"))
+                {
+                    RaceManager.Reload();
+                }
                 if (GUILayout.Button("LogRace"))
                 {
                     var player = Game.Instance.Player.MainCharacter.Value;
@@ -69,6 +74,7 @@ namespace CustomRaces
                     torso = newTorso;
                     MeshTestRace.ChooseTorso(torso);
                 }
+#endif
             } catch(Exception e)
             {
                 DebugLog(e.ToString() + " " + e.StackTrace);

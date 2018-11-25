@@ -96,8 +96,8 @@ namespace CustomRaces
         {
             var hair = bundle.LoadAsset<EquipmentEntity>("Assets/Race/EE_Hair_HairLongBangs_M_AS.asset");
             var head = bundle.LoadAsset<EquipmentEntity>("Assets/Race/EE_Head_Face01_M_HM.asset");
-            options.Hair = new EquipmentEntityLink[] { new StrongEquipmentEntityLink(hair, new Guid(oldAssetID + "Hair").ToString()) };
-            options.Heads = new EquipmentEntityLink[] { new StrongEquipmentEntityLink(head, new Guid(oldAssetID + "Head").ToString()) };
+            options.Hair = new EquipmentEntityLink[] { RaceUtil.MakeEquipmentEntityLink(hair, new Guid(oldAssetID + "Hair").ToString()) };
+            options.Heads = new EquipmentEntityLink[] { RaceUtil.MakeEquipmentEntityLink(head, new Guid(oldAssetID + "Head").ToString()) };
             Main.DebugLog("Added Hair");
         }
         public static void ChooseTorso(int index)
