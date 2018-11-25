@@ -22,13 +22,7 @@ namespace CustomRaces
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
             var bp = (BlueprintScriptableObject)o;
-
-            var j = new JObject {
-            {"$type", o.GetType().AssemblyQualifiedName},
-            {"AssetGuid", bp.AssetGuid},
-            {"InstanceId", bp.GetInstanceID()}
-          };
-            j.WriteTo(w);
+            w.WriteValue(string.Format($"Blueprint:{bp.AssetGuid}:{bp.name}"));
         }
 
         public override object ReadJson(

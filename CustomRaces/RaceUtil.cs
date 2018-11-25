@@ -17,6 +17,7 @@ namespace CustomRaces
 {
     static public class RaceUtil
     {
+        public static readonly string AssetSuffix = "#CustomFeature";
         public static Dictionary<Type, string> FallbackTable = new Dictionary<Type, string>()
         {
             { typeof(BlueprintRace),  "0a5d473ead98b0646b94495af250fdc4" }, //Human
@@ -36,7 +37,7 @@ namespace CustomRaces
             {
                 throw new Exception($"No fallback for typeof {typeof(T)}");
             }
-            string assetId = string.Format("{0}:{1}#CustomFeature", newAssetId, fallbackId);
+            string assetId = string.Format("{0}:{1}{2}", newAssetId, fallbackId, AssetSuffix);
             var resourceType = Traverse.CreateWithType("Kingmaker.Blueprints.ResourcesLibrary+LoadedResource").GetValue<Type>();
             object resource = Activator.CreateInstance(resourceType);
             Traverse.Create(resource).Field("Resource").SetValue(obj);
@@ -53,7 +54,7 @@ namespace CustomRaces
             {
                 throw new Exception($"No fallback for typeof {typeof(T)}");
             }
-            string assetId = string.Format("{0}:{1}#CustomFeature", newAssetId, fallbackId);
+            string assetId = string.Format("{0}:{1}{2}", newAssetId, fallbackId, AssetSuffix);
             Traverse.Create(blueprint).Field("m_AssetGuid").SetValue(assetId);
             ResourcesLibrary.LibraryObject.BlueprintsByAssetId[assetId] = blueprint;
             //This is not required, only used for debugging and ResourcesLibrary.GetBlueprints<BlueprintAreaPreset>() on gameload

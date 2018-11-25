@@ -60,9 +60,9 @@ namespace CustomRaces
         }
 
         private static readonly HashSet<Type> ConverterBlacklist = new HashSet<Type>(new[] {
-      typeof(Kingmaker.Game).Assembly
-        .GetType("Kingmaker.EntitySystem.Persistence.JsonUtility.BlueprintConverter", false)
-    });
+          typeof(Kingmaker.Game).Assembly
+            .GetType("Kingmaker.EntitySystem.Persistence.JsonUtility.BlueprintConverter", false)
+        });
 
         [CanBeNull]
         private Type _rootBlueprintType;
@@ -78,14 +78,16 @@ namespace CustomRaces
           = new GameObjectAssetIdConverter(true);
 
         private static readonly JsonConverter[] PreferredConverters = {
-      new StringEnumConverter(true),
-      new IsoDateTimeConverter(),
-      new XmlNodeConverter(),
-      new VersionConverter(),
-      new RegexConverter(),
-      new UnityJsonConverter(true),
-      GameObjectAssetIdConverter
-    };
+          new StringEnumConverter(true),
+          new IsoDateTimeConverter(),
+          new XmlNodeConverter(),
+          new VersionConverter(),
+          new RegexConverter(),
+          new LocalizedStringConverter(true),
+          new WeakResourceLinkConverter(true),
+          new UnityJsonConverter(true),
+          GameObjectAssetIdConverter
+        };
 
         protected override JsonConverter ResolveContractConverter(Type objectType)
         {

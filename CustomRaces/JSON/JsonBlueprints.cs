@@ -1,4 +1,7 @@
 ﻿using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.CharGen;
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Spells;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -12,7 +15,7 @@ namespace CustomRaces
 {
     public static class JsonBlueprints
     {
-        public static void Dump(BlueprintScriptableObject obj)
+        public static void Dump(BlueprintScriptableObject blueprint)
         {
             var RefJsonSerializerSettings = new JsonSerializerSettings
             {
@@ -33,18 +36,22 @@ namespace CustomRaces
                 NullValueHandling = NullValueHandling.Include,
                 ObjectCreationHandling = ObjectCreationHandling.Replace,
                 PreserveReferencesHandling = PreserveReferencesHandling.Objects,
-                ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
+                ReferenceLoopHandling = ReferenceLoopHandling.Error,
                 StringEscapeHandling = StringEscapeHandling.Default,
                 TypeNameAssemblyFormat = FormatterAssemblyStyle.Simple,
                 TypeNameHandling = TypeNameHandling.None
             };
-            Directory.CreateDirectory($"Blueprints/{obj.GetType()}");
+            Directory.CreateDirectory($"Blueprints/{blueprint.GetType()}");
             JsonSerializer serializer
                 = JsonSerializer.Create(RefJsonSerializerSettings);
-            using (StreamWriter sw = new StreamWriter($"Blueprints/{obj.GetType()}/{obj.name}.json"))
+            var bpCr = (BlueprintContractResolver)serializer.ContractResolver;
+            bpCr.RootBlueprint = blueprint;
+            bpCr.RootBlueprintType = blueprint.GetType();
+            using (StreamWriter sw = new StreamWriter($"Blueprints/{blueprint.GetType()}/{blueprint.name}.json"))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
-                serializer.Serialize(writer, obj);
+
+                serializer.Serialize(writer, blueprint);
 
             }
         }
@@ -52,5 +59,29 @@ namespace CustomRaces
         {
             err.ErrorContext.Handled = true;
         }
+        public static void DumpBlueprints()
+        {
+            var types = new Type[]
+            {
+                typeof(BlueprintCharacterClass),
+                typeof(BlueprintRaceVisualPreset),
+                typeof(BlueprintRace),
+                typeof(BlueprintArchetype),
+                typeof(BlueprintProgression),
+                typeof(BlueprintStatProgression),
+                typeof(BlueprintFeature),
+                typeof(BlueprintSpellbook)
+            };
+            var blueprints = ResourcesLibrary.GetBlueprints<BlueprintScriptableObject>();
+            foreach(var blueprint in blueprints)
+            {
+                if (types.Contains(blueprint.GetType())){
+                    Dump(blueprint);
+                }
+            }
+
+
+        }
     }
+
 }

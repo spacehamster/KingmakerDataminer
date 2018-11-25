@@ -59,19 +59,8 @@ namespace CustomRaces
                 if (!enabled) return;
 #if(DEBUG)
                 if(GUILayout.Button("DumpBlueprints")){
-                    foreach(var blueprint in ResourcesLibrary.GetBlueprints<BlueprintCharacterClass>()){
-                        JsonBlueprints.Dump(blueprint);
-                    }
-                    foreach (var blueprint in ResourcesLibrary.GetBlueprints<BlueprintCharacterClass>())
-                    {
-                        if (blueprint.AssetGuid.EndsWith("CustomFeature")) continue;
-                        JsonBlueprints.Dump(blueprint);
-                    }
-                    foreach (var blueprint in ResourcesLibrary.GetBlueprints<BlueprintRace>())
-                    {
-                        if (blueprint.AssetGuid.EndsWith("CustomFeature")) continue;
-                        JsonBlueprints.Dump(blueprint);
-                    }
+                    JsonBlueprints.DumpBlueprints();
+
                 }
                 if (GUILayout.Button("Reload"))
                 {

@@ -36,14 +36,14 @@ namespace CustomRaces
             var originalRaces = new List<BlueprintRace>();
             foreach(var race in Game.Instance.BlueprintRoot.Progression.CharacterRaces)
             {
-                if (race.AssetGuid.EndsWith("CustomFeature")) continue;
+                if (race.AssetGuid.EndsWith(RaceUtil.AssetSuffix)) continue;
                 originalRaces.Add(race);
             }
             Game.Instance.BlueprintRoot.Progression.CharacterRaces = originalRaces.ToArray();
             var originalClasses = new List<BlueprintCharacterClass>();
             foreach (var characterClass in Game.Instance.BlueprintRoot.Progression.CharacterClasses)
             {
-                if (characterClass.AssetGuid.EndsWith("CustomFeature")) continue;
+                if (characterClass.AssetGuid.EndsWith(RaceUtil.AssetSuffix)) continue;
                 originalClasses.Add(characterClass);
             }
             Game.Instance.BlueprintRoot.Progression.CharacterClasses = originalClasses.ToArray();
@@ -60,7 +60,7 @@ namespace CustomRaces
             var resourcesToRemove = new List<string>();
             foreach(DictionaryEntry entry in resources)
             {
-                if (entry.Key.ToString().EndsWith("CustomFeature")){
+                if (entry.Key.ToString().EndsWith(RaceUtil.AssetSuffix)){
                     resourcesToRemove.Add(entry.Key);
                 }
             }
