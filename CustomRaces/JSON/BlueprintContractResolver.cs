@@ -143,13 +143,7 @@ namespace CustomRaces
             }
             if (member is FieldInfo field)
             {
-
-                if (field.IsLiteral)
-                {
-                    Main.DebugLog($"Skipping literal field {field.Name} {field.GetType()}");
-                    Skip();
-                    return null;
-                }
+                //Readonly field
                 if (field.IsInitOnly)
                 {
                     Main.DebugLog($"Skipping readonly field {field.Name} {field.GetType()}");
