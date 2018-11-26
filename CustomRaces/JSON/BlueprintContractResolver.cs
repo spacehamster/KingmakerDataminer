@@ -143,6 +143,7 @@ namespace CustomRaces
             }
             if (member is FieldInfo field)
             {
+                jsonProp.Readable = true;
                 //Readonly field
                 if (field.IsInitOnly)
                 {
@@ -173,7 +174,7 @@ namespace CustomRaces
 
         protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization)
         {
-            return base.CreateProperties(type, memberSerialization).Where(p => p.Writable).ToArray();
+            return base.CreateProperties(type, memberSerialization).ToArray();
         }
         protected override List<MemberInfo> GetSerializableMembers(Type objectType)
         {
