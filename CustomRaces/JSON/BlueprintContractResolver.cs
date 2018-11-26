@@ -141,14 +141,6 @@ namespace CustomRaces
                 Skip();
                 return jsonProp;
             }
-
-            if (!jsonProp.Writable)
-            {
-                Main.DebugLog($"Can't write json prop {member.Name} {jsonProp.PropertyName}");
-                Skip();
-                return null;
-            }
-
             if (member is FieldInfo field)
             {
 
@@ -158,7 +150,12 @@ namespace CustomRaces
                     Skip();
                     return null;
                 }
-
+                if (field.IsInitOnly)
+                {
+                    Main.DebugLog($"Skipping readonly field {field.Name} {field.GetType()}");
+                    Skip();
+                    return null;
+                }
                 // ReSharper disable once InvertIf
                 if (field.FieldType.IsSubclassOf(BlueprintScriptableObjectType))
                 {
