@@ -27,11 +27,7 @@ namespace CustomRaces
 
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
-
-            var j = JObject.FromObject(new
-            {
-            });
-
+            var j = new JObject();
             j.AddFirst(new JProperty("$type", o.GetType().Name));
             foreach (var field in GetSerializableMembers(o.GetType()))
             {
