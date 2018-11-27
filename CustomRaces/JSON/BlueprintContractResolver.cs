@@ -14,10 +14,6 @@ namespace CustomRaces
     public sealed class BlueprintContractResolver : DefaultContractResolver
     {
         private static readonly Type BlueprintScriptableObjectType = typeof(BlueprintScriptableObject);
-
-        private static readonly HashSet<string> MemberNameBlacklist =
-          new HashSet<string>(new string[] { "BlueprintsByAssetId", "LibraryObject", "BundleLoader", "Enumerator", "Current" });
-
         [CanBeNull]
         public Type RootBlueprintType
         {
@@ -84,6 +80,7 @@ namespace CustomRaces
           new XmlNodeConverter(),
           new VersionConverter(),
           new RegexConverter(),
+          new BlueprintComponentConverter(true),
           new LocalizedStringConverter(true),
           new WeakResourceLinkConverter(true),
           new UnityJsonConverter(true),
@@ -135,12 +132,6 @@ namespace CustomRaces
                 jsonProp.ShouldDeserialize = o => true;
             }
             //Main.DebugLog($"Member {member.Name} {member.MemberType} {member.ReflectedType}");
-            if (MemberNameBlacklist.Contains(member.Name))
-            {
-                Main.DebugLog($"Blacklisted {member.Name}");
-                Skip();
-                return jsonProp;
-            }
             if (member is FieldInfo field)
             {
                 jsonProp.Readable = true;

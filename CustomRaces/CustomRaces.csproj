@@ -97,9 +97,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AasimarFix.cs" />
     <Compile Include="Dhampir.cs" />
     <Compile Include="JSON\BlueprintAssetIdConverter.cs" />
+    <Compile Include="JSON\BlueprintComponentConverter.cs" />
     <Compile Include="JSON\BlueprintContractResolver.cs" />
     <Compile Include="JSON\GameObjectAssetIdConverter.cs" />
     <Compile Include="JSON\JsonBlueprints.cs" />

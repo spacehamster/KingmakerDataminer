@@ -25,7 +25,6 @@ namespace CustomRaces
 #if (DEBUG)
             races.Add(MeshTestRace.CreateRace());
 #endif
-            //AasimarFix.Apply();
             characterClasses.Add(Slayer.CreateClass());
 #if(DEBUG)
             characterClasses.Add(Ninja.CreateClass());
