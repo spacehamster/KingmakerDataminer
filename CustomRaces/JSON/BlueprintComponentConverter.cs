@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Harmony12;
 using JetBrains.Annotations;
 using Kingmaker.Blueprints;
 using Newtonsoft.Json;
@@ -26,9 +27,17 @@ namespace CustomRaces
 
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
-            JToken token = JToken.FromObject(o);
-            JObject j = (JObject)token;
+
+            var j = JObject.FromObject(new
+            {
+            });
+
             j.AddFirst(new JProperty("$type", o.GetType().Name));
+            foreach (var field in GetSerializableMembers(o.GetType()))
+            {
+                var value = Traverse.Create(o).Field(field.Name).GetValue();
+                j.Add(field.Name, value != null ? JToken.FromObject(value, szr) : null);
+            }
             j.WriteTo(w);
         }
 
@@ -41,7 +50,19 @@ namespace CustomRaces
         {
             throw new NotImplementedException();
         }
-
+        List<MemberInfo> GetSerializableMembers(Type objectType)
+        {
+            if (objectType == null)
+                return new List<MemberInfo>();
+            MemberInfo[] publicFields = objectType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly);
+            MemberInfo[] privateFields = objectType.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
+            var result = privateFields
+                .Where((field) => Attribute.IsDefined(field, typeof(SerializeField)))
+                .Concat(publicFields)
+                .Concat(GetSerializableMembers(objectType.BaseType))
+                .ToList();
+            return result;
+        }
         // ReSharper disable once IdentifierTypo
         private static readonly Type _tBlueprintComponent = typeof(BlueprintComponent);
 
