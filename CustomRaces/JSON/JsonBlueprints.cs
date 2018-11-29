@@ -78,8 +78,8 @@ namespace CustomRaces
         {
             Directory.CreateDirectory($"Blueprints/{blueprint.GetType()}");
             var serializer = CreateSerializer(blueprint);
-            using (StreamWriter sw = new StreamWriter(Console.OpenStandardOutput()))
-            //using (StreamWriter sw = new StreamWriter($"Blueprints/{blueprint.GetType()}/{blueprint.name}.json"))
+            //using (StreamWriter sw = new StreamWriter(Console.OpenStandardOutput()))
+            using (StreamWriter sw = new StreamWriter($"Blueprints/{blueprint.GetType()}/{blueprint.name}.json"))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
 

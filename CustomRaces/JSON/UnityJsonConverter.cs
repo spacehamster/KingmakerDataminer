@@ -143,49 +143,29 @@ namespace CustomRaces
                 case Texture2D t:
                     {
                         // Object.FindObjectFromInstanceID
-                        var o = JObject.FromObject(new
-                        {
-                            instanceId = t.GetInstanceID(),
-                            t.name,
-                            t.width,
-                            t.height,
-                            t.format,
-                            t.filterMode
-                        });
+                        var o = new JObject();
                         o.Add("$type", type);
                         o.Add("name", t.name);
                         o.Add("InstanceId", t.GetInstanceID());
-                        o.WriteTo(w, SafeConverters);
+                        o.WriteTo(w);
                         return;
                     }
                 case Sprite s:
                     {
-                        var o = JObject.FromObject(new
-                        {
-                            instanceId = s.GetInstanceID(),
-                            s.name,
-                            s.texture,
-                            s.rect,
-                            s.packed
-                        });
+                        var o = new JObject();
                         o.Add("$type", type);
                         o.Add("name", s.name);
                         o.Add("InstanceId", s.GetInstanceID());
-                        o.WriteTo(w, SafeConverters);
+                        o.WriteTo(w);
                         return;
                     }
                 case Mesh m:
                     {
-                        var o = JObject.FromObject(new
-                        {
-                            instanceId = m.GetInstanceID(),
-                            m.name,
-                            m.bounds
-                        });
+                        var o = new JObject();
                         o.Add("$type", type);
                         o.Add("name", m.name);
                         o.Add("InstanceId", m.GetInstanceID());
-                        o.WriteTo(w, SafeConverters);
+                        o.WriteTo(w);
                         return;
                     }
             }

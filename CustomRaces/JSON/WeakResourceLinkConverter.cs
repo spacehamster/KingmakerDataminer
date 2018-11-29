@@ -25,7 +25,9 @@ namespace CustomRaces
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
             var resource = (WeakResourceLink)o;
-            w.WriteValue(string.Format($"Resource:{resource.AssetId}:{ResourcesLibrary.LibraryObject.ResourcePathsByAssetId[resource.AssetId]}"));
+            string path = null;
+            ResourcesLibrary.LibraryObject.ResourcePathsByAssetId.TryGetValue(resource.AssetId, out path);
+            w.WriteValue(string.Format($"Resource:{resource.AssetId}:{path ?? "NULL"}"));
         }
 
         public override object ReadJson(

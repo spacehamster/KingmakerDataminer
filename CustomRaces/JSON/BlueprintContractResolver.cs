@@ -98,9 +98,9 @@ namespace CustomRaces
             if (objectType == null)
                 return null;
 
-            /*if (BlueprintScriptableObjectType.IsAssignableFrom(objectType))
+            if (BlueprintScriptableObjectType.IsAssignableFrom(objectType))
               if (objectType != RootBlueprintType)
-                return BlueprintAssetIdConverter;*/
+                return BlueprintAssetIdConverter;
             var prefCnv = PreferredConverters.FirstOrDefault(cnv => cnv.CanConvert(objectType));
             if (prefCnv != null)
                 return prefCnv;

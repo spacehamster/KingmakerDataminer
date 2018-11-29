@@ -28,13 +28,13 @@ namespace CustomRaces
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
             object rootBlueprint = null;
+            BlueprintContractResolver contractResolver = null;
+            if (szr.ContractResolver is BlueprintContractResolver)
             {
-                if (szr.ContractResolver is BlueprintContractResolver contractResolver)
-                {
-                    rootBlueprint = contractResolver.RootBlueprint;
-                    contractResolver.RootBlueprint = null;
-                    contractResolver.RootBlueprintType = null;
-                }
+                contractResolver = (BlueprintContractResolver)szr.ContractResolver;
+                rootBlueprint = contractResolver.RootBlueprint;
+                contractResolver.RootBlueprint = null;
+                contractResolver.RootBlueprintType = null;
             }
             var j = new JObject();
             j.AddFirst(new JProperty("$type", o.GetType().Name));
@@ -44,11 +44,15 @@ namespace CustomRaces
                 j.Add(field.Name, value != null ? JToken.FromObject(value, szr) : null);
             }
             j.WriteTo(w);
+            if (contractResolver != null && rootBlueprint != null)
             {
-                if (szr.ContractResolver is BlueprintContractResolver contractResolver)
+                try
                 {
                     contractResolver.RootBlueprint = rootBlueprint;
                     contractResolver.RootBlueprintType = rootBlueprint.GetType();
+                }catch(Exception ex)
+                {
+                    Main.DebugLog("Exception " + ex.ToString());
                 }
             }
         }

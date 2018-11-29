@@ -25,7 +25,11 @@ namespace CustomRaces
         {
             var ls = (LocalizedString)o;
             int previewLength = 20;
-            var text = ls.ToString().Remove(previewLength);
+            var text = ls.ToString();
+            if (text.Length > previewLength + 1)
+            {
+                text = text.Remove(previewLength);
+            }
             if (ls.ToString().Length > previewLength) text += "...";
             w.WriteValue(string.Format($"LocalizedString:{ls.Key}:{text}"));
         }
