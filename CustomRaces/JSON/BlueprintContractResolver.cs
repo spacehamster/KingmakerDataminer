@@ -66,7 +66,13 @@ namespace CustomRaces
 
         [CanBeNull]
         private object _rootBlueprint;
-
+        /*
+         * PrototypeLink is only used to check if blueprint is a companion
+         * will need to fix if custom companions are wanted
+         */
+        private static readonly HashSet<FieldInfo> FieldBlacklist = new HashSet<FieldInfo>(new[] {
+          typeof(PrototypeableObjectBase).GetField("PrototypeLink")
+        });
 
         private static readonly BlueprintAssetIdConverter BlueprintAssetIdConverter
           = new BlueprintAssetIdConverter(true);
@@ -75,7 +81,7 @@ namespace CustomRaces
           = new GameObjectAssetIdConverter(true);
 
         private static readonly JsonConverter[] PreferredConverters = {
-          new StringEnumConverter(true),
+         new StringEnumConverter(true),
           new IsoDateTimeConverter(),
           new XmlNodeConverter(),
           new VersionConverter(),
@@ -92,10 +98,9 @@ namespace CustomRaces
             if (objectType == null)
                 return null;
 
-            if (BlueprintScriptableObjectType.IsAssignableFrom(objectType))
+            /*if (BlueprintScriptableObjectType.IsAssignableFrom(objectType))
               if (objectType != RootBlueprintType)
-                return BlueprintAssetIdConverter;
-
+                return BlueprintAssetIdConverter;*/
             var prefCnv = PreferredConverters.FirstOrDefault(cnv => cnv.CanConvert(objectType));
             if (prefCnv != null)
                 return prefCnv;
@@ -131,14 +136,19 @@ namespace CustomRaces
                 jsonProp.ShouldSerialize = o => true;
                 jsonProp.ShouldDeserialize = o => true;
             }
-            //Main.DebugLog($"Member {member.Name} {member.MemberType} {member.ReflectedType}");
             if (member is FieldInfo field)
             {
+                Console.WriteLine($"Serializing field {field.ReflectedType}.{field.Name}");
                 jsonProp.Readable = true;
                 //Readonly field
                 if (field.IsInitOnly)
                 {
-                    Main.DebugLog($"Skipping readonly field {field.Name} {field.GetType()}");
+                    Console.WriteLine($"Skipping readonly field {field.ReflectedType}.{field.Name}");
+                    Skip();
+                    return null;
+                }
+                if (FieldBlacklist.Contains(field))
+                {
                     Skip();
                     return null;
                 }
@@ -169,16 +179,7 @@ namespace CustomRaces
         }
         protected override List<MemberInfo> GetSerializableMembers(Type objectType)
         {
-            if (objectType == null)
-                return new List<MemberInfo>();
-            MemberInfo[] publicFields = objectType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly);
-            MemberInfo[] privateFields = objectType.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
-            var result = privateFields
-                .Where((field) => Attribute.IsDefined(field, typeof(SerializeField)))
-                .Concat(publicFields)
-                .Concat(GetSerializableMembers(objectType.BaseType))
-                .ToList();
-            return result;
+            return JsonBlueprints.GetUnitySerializableMembers(objectType);
         }
     }
 }

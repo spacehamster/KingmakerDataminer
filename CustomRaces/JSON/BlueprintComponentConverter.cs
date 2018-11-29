@@ -64,16 +64,7 @@ namespace CustomRaces
         }
         List<MemberInfo> GetSerializableMembers(Type objectType)
         {
-            if (objectType == null)
-                return new List<MemberInfo>();
-            MemberInfo[] publicFields = objectType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly);
-            MemberInfo[] privateFields = objectType.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
-            var result = privateFields
-                .Where((field) => Attribute.IsDefined(field, typeof(SerializeField)))
-                .Concat(publicFields)
-                .Concat(GetSerializableMembers(objectType.BaseType))
-                .ToList();
-            return result;
+            return JsonBlueprints.GetUnitySerializableMembers(objectType);
         }
         // ReSharper disable once IdentifierTypo
         private static readonly Type _tBlueprintComponent = typeof(BlueprintComponent);
