@@ -53,6 +53,7 @@ namespace CustomRaces
 
         public override void WriteJson(JsonWriter w, object value, JsonSerializer szr)
         {
+            var type = value.GetType().Name;
             switch (value)
             {
                 case Vector2 v:
@@ -151,7 +152,9 @@ namespace CustomRaces
                             t.format,
                             t.filterMode
                         });
-                        o.Add("$type", AqnTexture2D);
+                        o.Add("$type", type);
+                        o.Add("name", t.name);
+                        o.Add("InstanceId", t.GetInstanceID());
                         o.WriteTo(w, SafeConverters);
                         return;
                     }
@@ -165,7 +168,9 @@ namespace CustomRaces
                             s.rect,
                             s.packed
                         });
-                        o.Add("$type", AqnSprite);
+                        o.Add("$type", type);
+                        o.Add("name", s.name);
+                        o.Add("InstanceId", s.GetInstanceID());
                         o.WriteTo(w, SafeConverters);
                         return;
                     }
@@ -177,7 +182,9 @@ namespace CustomRaces
                             m.name,
                             m.bounds
                         });
-                        o.Add("$type", AqnMesh);
+                        o.Add("$type", type);
+                        o.Add("name", m.name);
+                        o.Add("InstanceId", m.GetInstanceID());
                         o.WriteTo(w, SafeConverters);
                         return;
                     }

@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints.CharGen;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Items.Weapons;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -72,7 +73,7 @@ namespace CustomRaces
                 typeof(BlueprintFeature),
                 typeof(BlueprintSpellbook),
                 typeof(BlueprintSpellList),
-                typeof(BlueprintSpellsTable)
+                typeof(BlueprintSpellsTable),
             };
             var blueprints = ResourcesLibrary.GetBlueprints<BlueprintScriptableObject>();
             foreach (var blueprint in blueprints)
@@ -96,7 +97,8 @@ namespace CustomRaces
                             typeof(BlueprintFeature),
                             typeof(BlueprintSpellbook),
                             typeof(BlueprintSpellList),
-                            typeof(BlueprintSpellsTable)
+                            typeof(BlueprintSpellsTable),
+                            typeof(BlueprintItemWeapon),
             };
             foreach(var type in types)
             {
@@ -108,6 +110,14 @@ namespace CustomRaces
                     continue;
                 }
                 Dump(ResourcesLibrary.TryGetBlueprint<BlueprintScriptableObject>(assetId));
+            }
+        }
+        public static void DumpAllBlueprints()
+        {
+            var blueprints = ResourcesLibrary.GetBlueprints<BlueprintScriptableObject>();
+            foreach (var blueprint in blueprints)
+            {
+                Dump(blueprint);
             }
         }
     }

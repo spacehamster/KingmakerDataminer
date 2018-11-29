@@ -27,6 +27,15 @@ namespace CustomRaces
 
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
+            object rootBlueprint = null;
+            {
+                if (szr.ContractResolver is BlueprintContractResolver contractResolver)
+                {
+                    rootBlueprint = contractResolver.RootBlueprint;
+                    contractResolver.RootBlueprint = null;
+                    contractResolver.RootBlueprintType = null;
+                }
+            }
             var j = new JObject();
             j.AddFirst(new JProperty("$type", o.GetType().Name));
             foreach (var field in GetSerializableMembers(o.GetType()))
@@ -35,6 +44,13 @@ namespace CustomRaces
                 j.Add(field.Name, value != null ? JToken.FromObject(value, szr) : null);
             }
             j.WriteTo(w);
+            {
+                if (szr.ContractResolver is BlueprintContractResolver contractResolver)
+                {
+                    contractResolver.RootBlueprint = rootBlueprint;
+                    contractResolver.RootBlueprintType = rootBlueprint.GetType();
+                }
+            }
         }
 
         public override object ReadJson(

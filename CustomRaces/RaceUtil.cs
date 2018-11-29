@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.CharGen;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Visual.CharacterSystem;
@@ -32,6 +33,7 @@ namespace CustomRaces
             { typeof(BlueprintSpellList), "ba0401fdeb4062f40a7aa95b6f07fe89" }, //WizardSpelllist
             { typeof(BlueprintSpellsTable), "78bb94ed2e75122428232950bb09e97b" }, //WizardSpellLevels
             { typeof(BlueprintStatProgression), "4c936de4249b61e419a3fb775b9f2581" }, //BABMedium
+            { typeof(BlueprintItemWeapon), "20f03323262f8604f8b8e4affe7dc3c8" }, //LongswordFrostPlus2
             { typeof(EquipmentEntity), "d019e95d4a8a8474aa4e03489449d6ee" } //RogueOutfit
 
         };

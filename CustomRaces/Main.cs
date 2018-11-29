@@ -52,6 +52,20 @@ namespace CustomRaces
             enabled = value;
             return true; // Permit or not.
         }
+        static UnityEngine.Object FindObject<T>(int instanceId)
+        {
+            //works for gameobjects at least
+            foreach (UnityEngine.Object go in Resources.FindObjectsOfTypeAll(typeof(T)))
+            {
+                if (go.GetInstanceID() == instanceId) return go;
+            }
+            return null;
+        }
+        static UnityEngine.Object FindObject2(int instanceId)
+        {
+            return null; //can't find FindObjectFromInstanceID 
+
+        }
         static void OnGUI(UnityModManager.ModEntry modEntry)
         {
             try
@@ -64,6 +78,17 @@ namespace CustomRaces
                 }
                 if (GUILayout.Button("DumpBlueprints")){
                     JsonBlueprints.DumpBlueprints();
+                }
+                if (GUILayout.Button("DumpAllBlueprints"))
+                {
+                    JsonBlueprints.DumpAllBlueprints();
+                }
+                if (GUILayout.Button("FindObject"))
+                {
+                    var go = FindObject<GameObject>(270194);
+                    DebugLog(go == null ? "NULL" : go.name); //OH_LongswordThieves
+                    var sprite = FindObject<Sprite>(45820);
+                    DebugLog(sprite == null ? "NULL" : sprite.name); //OH_LongswordThieves
                 }
                 if (GUILayout.Button("Reload"))
                 {

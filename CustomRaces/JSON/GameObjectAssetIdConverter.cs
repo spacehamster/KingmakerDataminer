@@ -22,14 +22,13 @@ namespace CustomRaces
 
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
+
             var go = (GameObject)o;
-#pragma warning disable 618
             var j = new JObject {
-        {"$type", typeof(GameObject).AssemblyQualifiedName},
-        {"AssetId", UnityEngine.Networking.NetworkTransport.GetAssetId(go)},
-        {"InstanceId", go.GetInstanceID()}
-      };
-#pragma warning restore 618
+                {"$type", go.GetType().Name},
+                {"InstanceId", go.GetInstanceID()},
+                {"name", go.name },
+            };
             j.WriteTo(w);
         }
 
