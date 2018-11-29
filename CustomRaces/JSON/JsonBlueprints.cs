@@ -40,7 +40,7 @@ namespace CustomRaces
                 .ToList();
             return result;
         }
-        public static JsonSerializer CreateSerializer(BlueprintScriptableObject blueprint)
+        public static JsonSerializerSettings CreateSettings(BlueprintScriptableObject blueprint)
         {
             var RefJsonSerializerSettings = new JsonSerializerSettings
             {
@@ -66,18 +66,20 @@ namespace CustomRaces
                 TypeNameAssemblyFormat = FormatterAssemblyStyle.Simple,
                 TypeNameHandling = TypeNameHandling.None
             };
-            JsonSerializer serializer
-                = JsonSerializer.Create(RefJsonSerializerSettings);
-            var bpCr = (BlueprintContractResolver)serializer.ContractResolver;
+            var bpCr = (BlueprintContractResolver)RefJsonSerializerSettings.ContractResolver;
             bpCr.RootBlueprint = blueprint;
             bpCr.RootBlueprintType = blueprint?.GetType();
-            return serializer;
+
+
+            return RefJsonSerializerSettings;
         }
+
 
         public static void Dump(BlueprintScriptableObject blueprint)
         {
             Directory.CreateDirectory($"Blueprints/{blueprint.GetType()}");
-            var serializer = CreateSerializer(blueprint);
+            JsonSerializer serializer
+                            = JsonSerializer.Create(CreateSettings(blueprint));
             //using (StreamWriter sw = new StreamWriter(Console.OpenStandardOutput()))
             using (StreamWriter sw = new StreamWriter($"Blueprints/{blueprint.GetType()}/{blueprint.name}.json"))
             using (JsonWriter writer = new JsonTextWriter(sw))

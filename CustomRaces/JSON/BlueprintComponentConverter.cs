@@ -27,34 +27,15 @@ namespace CustomRaces
 
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
-            object rootBlueprint = null;
-            BlueprintContractResolver contractResolver = null;
-            if (szr.ContractResolver is BlueprintContractResolver)
-            {
-                contractResolver = (BlueprintContractResolver)szr.ContractResolver;
-                rootBlueprint = contractResolver.RootBlueprint;
-                contractResolver.RootBlueprint = null;
-                contractResolver.RootBlueprintType = null;
-            }
+            var newSerializer = JsonSerializer.Create(JsonBlueprints.CreateSettings(null));
             var j = new JObject();
             j.AddFirst(new JProperty("$type", o.GetType().Name));
             foreach (var field in GetSerializableMembers(o.GetType()))
             {
                 var value = Traverse.Create(o).Field(field.Name).GetValue();
-                j.Add(field.Name, value != null ? JToken.FromObject(value, szr) : null);
+                j.Add(field.Name, value != null ? JToken.FromObject(value, newSerializer) : null);
             }
             j.WriteTo(w);
-            if (contractResolver != null && rootBlueprint != null)
-            {
-                try
-                {
-                    contractResolver.RootBlueprint = rootBlueprint;
-                    contractResolver.RootBlueprintType = rootBlueprint.GetType();
-                }catch(Exception ex)
-                {
-                    Main.DebugLog("Exception " + ex.ToString());
-                }
-            }
         }
 
         public override object ReadJson(
@@ -64,6 +45,7 @@ namespace CustomRaces
             JsonSerializer serializer
         )
         {
+            JToken token = JToken.Load(reader);
             throw new NotImplementedException();
         }
         List<MemberInfo> GetSerializableMembers(Type objectType)
