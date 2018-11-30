@@ -83,6 +83,10 @@ namespace CustomRaces
                 {
                     JsonBlueprints.DumpAllBlueprints();
                 }
+                if (GUILayout.Button("ValidateBlueprints"))
+                {
+                    JsonBlueprints.Validate();
+                }
                 if (GUILayout.Button("FindObject"))
                 {
                     var go = FindObject<GameObject>(270194);

@@ -84,7 +84,7 @@ namespace CustomRaces
             byte[] inputBytes = Encoding.Default.GetBytes(input);
             byte[] hashBytes = provider.ComputeHash(inputBytes);
             Guid hashGuid = new Guid(hashBytes);
-            return hashGuid.ToString();
+            return hashGuid.ToString("N");
         }
         public static EquipmentEntity CopyEquipmentEntity(EquipmentEntity oldEE)
         {
