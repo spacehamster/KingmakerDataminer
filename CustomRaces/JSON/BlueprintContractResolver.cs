@@ -22,38 +22,17 @@ namespace CustomRaces
             set
             {
                 _rootBlueprintType = value;
-                if (value == null)
-                    return;
-                if (!_rootBlueprintType.IsInstanceOfType(_rootBlueprint))
-                    _rootBlueprint = null;
-            }
-        }
-
-        [CanBeNull]
-        public object RootBlueprint
-        {
-            [UsedImplicitly]
-            get => _rootBlueprint;
-            set
-            {
-                _rootBlueprint = value;
-                if (value == null)
-                    return;
-                if (!(_rootBlueprintType?.IsInstanceOfType(value) ?? false))
-                    _rootBlueprintType = value.GetType();
             }
         }
 
         public BlueprintContractResolver()
         {
-            RootBlueprint = null;
             RootBlueprintType = null;
         }
 
-        public BlueprintContractResolver(BlueprintScriptableObject rootBlueprint)
+        public BlueprintContractResolver(Type rootType)
         {
-            RootBlueprint = rootBlueprint;
-            RootBlueprintType = rootBlueprint.GetType();
+            RootBlueprintType = rootType;
         }
 
         private static readonly HashSet<Type> ConverterBlacklist = new HashSet<Type>(new[] {
@@ -64,8 +43,6 @@ namespace CustomRaces
         [CanBeNull]
         private Type _rootBlueprintType;
 
-        [CanBeNull]
-        private object _rootBlueprint;
         /*
          * PrototypeLink is only used to check if blueprint is a companion
          * will need to fix if custom companions are wanted
@@ -77,20 +54,17 @@ namespace CustomRaces
         private static readonly BlueprintAssetIdConverter BlueprintAssetIdConverter
           = new BlueprintAssetIdConverter(true);
 
-        private static readonly GameObjectAssetIdConverter GameObjectAssetIdConverter
-          = new GameObjectAssetIdConverter(true);
-
         private static readonly JsonConverter[] PreferredConverters = {
          new StringEnumConverter(true),
           new IsoDateTimeConverter(),
           new XmlNodeConverter(),
           new VersionConverter(),
           new RegexConverter(),
-          new BlueprintComponentConverter(true),
+          //new BlueprintComponentConverter(true),
           new LocalizedStringConverter(true),
           new WeakResourceLinkConverter(true),
           new UnityJsonConverter(true),
-          GameObjectAssetIdConverter
+          new GameObjectAssetIdConverter(true)
         };
 
         protected override JsonConverter ResolveContractConverter(Type objectType)
@@ -99,8 +73,11 @@ namespace CustomRaces
                 return null;
 
             if (BlueprintScriptableObjectType.IsAssignableFrom(objectType))
-              if (objectType != RootBlueprintType)
-                return BlueprintAssetIdConverter;
+                if (objectType != RootBlueprintType)
+                {
+                    //Main.DebugLog($"Using {BlueprintAssetIdConverter.GetType()} for {objectType}");
+                    return BlueprintAssetIdConverter;
+                }
             var prefCnv = PreferredConverters.FirstOrDefault(cnv => cnv.CanConvert(objectType));
             if (prefCnv != null)
                 return prefCnv;
@@ -112,12 +89,14 @@ namespace CustomRaces
             {
                 objectType = objectType.BaseType;
                 if (objectType == null)
-                    return null;
+                {
+                    converter = null;
+                    break;
+                }
                 converter = base.ResolveContractConverter(objectType);
-                if (converter == null)
-                    return null;
+                if (converter == null) break;
             }
-
+            //Main.DebugLog($"Found converter {converter?.GetType().ToString() ?? "NULL"} for {objectType}");
             return null;
         }
 
@@ -138,12 +117,13 @@ namespace CustomRaces
             }
             if (member is FieldInfo field)
             {
-                Console.WriteLine($"Serializing field {field.ReflectedType}.{field.Name}");
+                //Main.DebugLog($"Serializing field {field.ReflectedType}.{field.Name}");
                 jsonProp.Readable = true;
+                jsonProp.Writable = true;
                 //Readonly field
                 if (field.IsInitOnly)
                 {
-                    Console.WriteLine($"Skipping readonly field {field.ReflectedType}.{field.Name}");
+                    //Main.DebugLog($"Skipping readonly field {field.ReflectedType}.{field.Name}");
                     Skip();
                     return null;
                 }
@@ -162,8 +142,6 @@ namespace CustomRaces
             }
             else if (member is PropertyInfo property)
             {
-                Skip();
-                return null;
             }
             else
             {

@@ -7,6 +7,8 @@ using Kingmaker;
 using UnityEngine.SceneManagement;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Visual.CharacterSystem;
+using Newtonsoft.Json;
 
 namespace CustomRaces
 {
@@ -74,18 +76,27 @@ namespace CustomRaces
 #if (DEBUG)
                 if (GUILayout.Button("DumpBlueprintsQuick"))
                 {
-                    JsonBlueprints.DumpQuick();
+                    AssetsDump.DumpQuick();
                 }
                 if (GUILayout.Button("DumpBlueprints")){
-                    JsonBlueprints.DumpBlueprints();
+                    AssetsDump.DumpBlueprints();
                 }
                 if (GUILayout.Button("DumpAllBlueprints"))
                 {
-                    JsonBlueprints.DumpAllBlueprints();
+                    AssetsDump.DumpAllBlueprints();
+                }
+                if (GUILayout.Button("DumpEquipmentEntities"))
+                {
+                    AssetsDump.DumpEquipmentEntities();
                 }
                 if (GUILayout.Button("ValidateBlueprints"))
                 {
-                    JsonBlueprints.Validate();
+                    AssetsDump.Validate();
+                }
+                if (GUILayout.Button("TestLoad"))
+                {
+                    var bp = JsonBlueprints.Loads<BlueprintRace>("{name : \"Test\"}");
+                    DebugLog("Loaded " + (bp?.name ?? "NULL"));
                 }
                 if (GUILayout.Button("FindObject"))
                 {

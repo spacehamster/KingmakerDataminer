@@ -3,7 +3,9 @@ using Kingmaker.Blueprints.CharGen;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Weapons;
+using Kingmaker.Visual.CharacterSystem;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -32,15 +34,19 @@ namespace CustomRaces
                 return new List<MemberInfo>();
             MemberInfo[] publicFields = objectType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly);
             MemberInfo[] privateFields = objectType.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
+            MemberInfo[] nameProperty = objectType == typeof(UnityEngine.Object) ?
+                    new MemberInfo[] { objectType.GetProperty("name") } :
+                    Array.Empty<MemberInfo>();
             var result = privateFields
                 .Where((field) => Attribute.IsDefined(field, typeof(SerializeField)))
                 .Concat(publicFields)
                 .Concat(GetUnitySerializableMembers(objectType.BaseType))
+                .Concat(nameProperty)
                 .Where(field => !FieldBlacklist.Contains(field))
                 .ToList();
             return result;
         }
-        public static JsonSerializerSettings CreateSettings(BlueprintScriptableObject blueprint)
+        public static JsonSerializerSettings CreateSettings(Type blueprintType)
         {
             var RefJsonSerializerSettings = new JsonSerializerSettings
             {
@@ -57,161 +63,78 @@ namespace CustomRaces
                 Formatting = Formatting.Indented,
                 // MaxDepth = 12, // ignored
                 MetadataPropertyHandling = MetadataPropertyHandling.ReadAhead,
-                MissingMemberHandling = MissingMemberHandling.Error,
+                MissingMemberHandling = MissingMemberHandling.Ignore,
                 NullValueHandling = NullValueHandling.Include,
                 ObjectCreationHandling = ObjectCreationHandling.Replace,
                 PreserveReferencesHandling = PreserveReferencesHandling.Objects,
                 ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
                 StringEscapeHandling = StringEscapeHandling.Default,
                 TypeNameAssemblyFormat = FormatterAssemblyStyle.Simple,
-                TypeNameHandling = TypeNameHandling.None
+                TypeNameHandling = TypeNameHandling.Objects
             };
             var bpCr = (BlueprintContractResolver)RefJsonSerializerSettings.ContractResolver;
-            bpCr.RootBlueprint = blueprint;
-            bpCr.RootBlueprintType = blueprint?.GetType();
-
+            bpCr.RootBlueprintType = blueprintType;
 
             return RefJsonSerializerSettings;
         }
 
-
+        public static T Load<T>(string filepath)
+        {
+            var type = typeof(BlueprintScriptableObject).IsAssignableFrom(typeof(T)) ? typeof(T) : null;
+            var settings = CreateSettings(type);
+            var text = File.ReadAllText(filepath);
+            return JsonConvert.DeserializeObject<T>(text, settings);
+        }
+        public class RaceConverter : CustomCreationConverter<BlueprintRace>
+        {
+            public override BlueprintRace Create(Type objectType)
+            {
+                return new BlueprintRace();
+            }
+        }
+        public static T Loads<T>(string text)
+        {
+            var type = typeof(BlueprintScriptableObject).IsAssignableFrom(typeof(T)) ? typeof(T) : null;
+            var settings = CreateSettings(type);
+            var serializer = JsonSerializer.Create(settings);
+            var jsonReader = new JsonTextReader(new StringReader(text));
+            using (StringReader sr = new StringReader(text))
+            using (JsonReader writer = new JsonTextReader(sr))
+            {
+                return serializer.Deserialize<T>(jsonReader);
+            }
+        }
         public static void Dump(BlueprintScriptableObject blueprint)
         {
             Directory.CreateDirectory($"Blueprints/{blueprint.GetType()}");
-            JsonSerializer serializer
-                            = JsonSerializer.Create(CreateSettings(blueprint));
+            JsonSerializer serializer = JsonSerializer.Create(CreateSettings(blueprint.GetType()));
             //using (StreamWriter sw = new StreamWriter(Console.OpenStandardOutput()))
             using (StreamWriter sw = new StreamWriter($"Blueprints/{blueprint.GetType()}/{blueprint.name}.{blueprint.AssetGuid}.json"))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
-
                 serializer.Serialize(writer, blueprint);
+            }
+        }
+        public static void Dump(EquipmentEntity ee, string assetId)
+        {
+            Directory.CreateDirectory($"Blueprints/{ee.GetType()}");
+            JsonSerializer serializer
+                            = JsonSerializer.Create(CreateSettings(null));
+            //using (StreamWriter sw = new StreamWriter(Console.OpenStandardOutput()))
+            using (StreamWriter sw = new StreamWriter($"Blueprints/{ee.GetType()}/{ee.name}.json"))
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+
+                serializer.Serialize(writer, ee);
 
             }
         }
         private static void SkipJsonErrors(object o, Newtonsoft.Json.Serialization.ErrorEventArgs err)
         {
+            throw new Exception(err.ToString());
             err.ErrorContext.Handled = true;
         }
-        public static void DumpBlueprints()
-        {
-            var types = new Type[]
-            {
-                typeof(BlueprintCharacterClass),
-                typeof(BlueprintRaceVisualPreset),
-                typeof(BlueprintRace),
-                typeof(BlueprintArchetype),
-                typeof(BlueprintProgression),
-                typeof(BlueprintStatProgression),
-                typeof(BlueprintFeature),
-                typeof(BlueprintSpellbook),
-                typeof(BlueprintSpellList),
-                typeof(BlueprintSpellsTable),
-            };
-            var blueprints = ResourcesLibrary.GetBlueprints<BlueprintScriptableObject>();
-            foreach (var blueprint in blueprints)
-            {
-                if (types.Contains(blueprint.GetType()))
-                {
-                    Dump(blueprint);
-                }
-            }
-        }
-        public static void DumpQuick()
-        {
-            var types = new Type[]
-            {
-                            typeof(BlueprintCharacterClass),
-                            typeof(BlueprintRaceVisualPreset),
-                            typeof(BlueprintRace),
-                            typeof(BlueprintArchetype),
-                            typeof(BlueprintProgression),
-                            typeof(BlueprintStatProgression),
-                            typeof(BlueprintFeature),
-                            typeof(BlueprintSpellbook),
-                            typeof(BlueprintSpellList),
-                            typeof(BlueprintSpellsTable),
-                            typeof(BlueprintItemWeapon),
-            };
-            foreach(var type in types)
-            {
-                string assetId;
-                RaceUtil.FallbackTable.TryGetValue(type, out assetId);
-                if(assetId == null)
-                {
-                    Main.DebugLog($"No Default {type}");
-                    continue;
-                }
-                Dump(ResourcesLibrary.TryGetBlueprint<BlueprintScriptableObject>(assetId));
-            }
-        }
-        public static void DumpAllBlueprints()
-        {
-            var blueprints = ResourcesLibrary.GetBlueprints<BlueprintScriptableObject>();
-            foreach (var blueprint in blueprints)
-            {
-                Dump(blueprint);
-            }
-        }
-        public static void Validate()
-        {
-            Directory.CreateDirectory($"Blueprints/");
-            var names = new Dictionary<string, List<BlueprintScriptableObject>>();
-            var qualifiedNames = new Dictionary<string, List<BlueprintScriptableObject>>();
-            var blueprints = ResourcesLibrary.GetBlueprints<BlueprintScriptableObject>();
-            foreach (var blueprint in blueprints)
-            {
-                if (names.ContainsKey(blueprint.name))
-                {
-                    names[blueprint.name].Add(blueprint);
-                }
-                else
-                {
-                    names[blueprint.name] = new List<BlueprintScriptableObject>() { blueprint };
-                }
-                var qualifiedName = blueprint.GetType().ToString() + "." + blueprint.name;
-                if (qualifiedNames.ContainsKey(qualifiedName))
-                {
-                    qualifiedNames[qualifiedName].Add(blueprint);
-                }
-                else
-                {
-                    qualifiedNames[qualifiedName] = new List<BlueprintScriptableObject>() { blueprint };
-                }
-            }
-            using (var file = new StreamWriter("Blueprints/Duplicates.txt"))
-            {
-                foreach (var kv in names)
-                {
-                    if (kv.Value.Count > 1)
-                    {
-                        foreach (var blueprint in kv.Value)
-                        {
-                            file.WriteLine($"{blueprint.name}\t{blueprint.AssetGuid}\t{blueprint.GetType()}\t");
-                        }
-                    }
-                }
-            }
-            using (var file = new StreamWriter("Blueprints/QualifiedDuplicates.txt"))
-            {
-                foreach (var kv in qualifiedNames)
-                {
-                    if (kv.Value.Count > 1)
-                    {
-                        foreach (var blueprint in kv.Value)
-                        {
-                            file.WriteLine($"{blueprint.name}\t{blueprint.AssetGuid}\t{blueprint.GetType()}\t");
-                        }
-                    }
-                }
-            }
-            using (var file = new StreamWriter("Blueprints/Blueprints.txt"))
-            {
-                foreach (var blueprint in blueprints)
-                {
-                    file.WriteLine($"{blueprint.name}\t{blueprint.AssetGuid}\t{blueprint.GetType()}\t");
-                }
-            }
-        }
+       
+
     }
 }

@@ -97,6 +97,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssetsDump.cs" />
     <Compile Include="Dhampir.cs" />
     <Compile Include="JSON\BlueprintAssetIdConverter.cs" />
     <Compile Include="JSON\BlueprintComponentConverter.cs" />
@@ -134,4 +135,7 @@
     <None Include="Repository.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /E /Y "$(SolutionDir)data" "C:\Program Files (x86)\Steam\steamapps\common\Pathfinder Kingmaker\Mods\CustomRaces\data\"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

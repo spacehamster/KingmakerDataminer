@@ -45,7 +45,7 @@ namespace CustomRaces
             JsonSerializer serializer
         )
         {
-            JToken token = JToken.Load(reader);
+            //JToken token = JToken.Load(reader);
             throw new NotImplementedException();
         }
         List<MemberInfo> GetSerializableMembers(Type objectType)
