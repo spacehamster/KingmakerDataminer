@@ -69,58 +69,7 @@
     {
       "$id": "2",
       "$type": "Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteNoClassLevel, Assembly-CSharp",
-      "CharacterClass": {
-        "$id": "3",
-        "$type": "Kingmaker.Blueprints.Classes.BlueprintCharacterClass, Assembly-CSharp",
-        "LocalizedName": "LocalizedString:3f53168d-5eec-45a0-8900-a32b151f22b2:Animal",
-        "LocalizedDescription": "LocalizedString:918b8e2f-25a9-46e1-a5a8-17e30a810d7a:An animal is a livin...",
-        "m_Icon": null,
-        "SkillPoints": 4,
-        "HitDie": "d8",
-        "HideIfRestricted": true,
-        "PrestigeClass": false,
-        "BaseAttackBonus": "Blueprint:4c936de4249b61e419a3fb775b9f2581:BABMedium",
-        "FortitudeSave": "Blueprint:ff4662bde9e75f145853417313842751:SavesHigh",
-        "ReflexSave": "Blueprint:ff4662bde9e75f145853417313842751:SavesHigh",
-        "WillSave": "Blueprint:dc0c7c1aba755c54f96c089cdf7d14a3:SavesLow",
-        "Progression": "Blueprint:ca3fcf31e31262d44a999a1733bbd84d:AnimalProgression",
-        "Spellbook": null,
-        "ClassSkills": [
-          "skillAthletics",
-          "skillMobility",
-          "skillPerception",
-          "skillStealth"
-        ],
-        "IsDivineCaster": false,
-        "IsArcaneCaster": false,
-        "Archetypes": [
-          "Blueprint:9f8a232fbe435a9458bf64c3024d7bee:AnimalCompanionArchetype"
-        ],
-        "StartingGold": 0,
-        "StartingItems": [],
-        "PrimaryColor": 0,
-        "SecondaryColor": 0,
-        "EquipmentEntities": [],
-        "MaleEquipmentEntities": [],
-        "FemaleEquipmentEntities": [],
-        "RecommendedAttributes": [],
-        "NotRecommendedAttributes": [],
-        "DefaultBuild": null,
-        "Components": [
-          {
-            "$id": "4",
-            "$type": "Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteClassLevel, Assembly-CSharp",
-            "CharacterClass": {
-              "$ref": "3"
-            },
-            "Level": 1,
-            "Group": "all",
-            "name": "$PrerequisiteClassLevel$bbc81bde-bff5-402a-8b97-7ce3a2ef50a8"
-          }
-        ],
-        "m_AssetGuid": "4cd1757a0eea7694ba5c933729a53920",
-        "name": "AnimalClass"
-      },
+      "CharacterClass": "Blueprint:4cd1757a0eea7694ba5c933729a53920:AnimalClass",
       "Group": "all",
       "name": "$PrerequisiteNoClassLevel$0ad27ca6-0d82-47e6-9d5e-614f10b5bb49"
     }
