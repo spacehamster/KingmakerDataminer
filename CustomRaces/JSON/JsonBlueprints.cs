@@ -1,11 +1,6 @@
 ﻿using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.CharGen;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Visual.CharacterSystem;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -82,14 +77,12 @@ namespace CustomRaces
         {
             var type = typeof(BlueprintScriptableObject).IsAssignableFrom(typeof(T)) ? typeof(T) : null;
             var settings = CreateSettings(type);
-            var text = File.ReadAllText(filepath);
-            return JsonConvert.DeserializeObject<T>(text, settings);
-        }
-        public class RaceConverter : CustomCreationConverter<BlueprintRace>
-        {
-            public override BlueprintRace Create(Type objectType)
+            var serializer = JsonSerializer.Create(settings);
+
+            using (StreamReader sr = new StreamReader(filepath))
+            using (JsonReader jsonReader = new JsonTextReader(sr))
             {
-                return new BlueprintRace();
+                return serializer.Deserialize<T>(jsonReader);
             }
         }
         public static T Loads<T>(string text)
@@ -97,9 +90,8 @@ namespace CustomRaces
             var type = typeof(BlueprintScriptableObject).IsAssignableFrom(typeof(T)) ? typeof(T) : null;
             var settings = CreateSettings(type);
             var serializer = JsonSerializer.Create(settings);
-            var jsonReader = new JsonTextReader(new StringReader(text));
             using (StringReader sr = new StringReader(text))
-            using (JsonReader writer = new JsonTextReader(sr))
+            using (JsonReader jsonReader = new JsonTextReader(sr))
             {
                 return serializer.Deserialize<T>(jsonReader);
             }
@@ -108,7 +100,6 @@ namespace CustomRaces
         {
             Directory.CreateDirectory($"Blueprints/{blueprint.GetType()}");
             JsonSerializer serializer = JsonSerializer.Create(CreateSettings(blueprint.GetType()));
-            //using (StreamWriter sw = new StreamWriter(Console.OpenStandardOutput()))
             using (StreamWriter sw = new StreamWriter($"Blueprints/{blueprint.GetType()}/{blueprint.name}.{blueprint.AssetGuid}.json"))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
@@ -120,7 +111,6 @@ namespace CustomRaces
             Directory.CreateDirectory($"Blueprints/{ee.GetType()}");
             JsonSerializer serializer
                             = JsonSerializer.Create(CreateSettings(null));
-            //using (StreamWriter sw = new StreamWriter(Console.OpenStandardOutput()))
             using (StreamWriter sw = new StreamWriter($"Blueprints/{ee.GetType()}/{ee.name}.json"))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {

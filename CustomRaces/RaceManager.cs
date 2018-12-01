@@ -19,7 +19,8 @@ namespace CustomRaces
         {
             var blueprints = ResourcesLibrary.LibraryObject.BlueprintsByAssetId;
             var goblinRace = (BlueprintRace)blueprints["9d168ca7100e9314385ce66852385451"];
-            races.Add(goblinRace);
+
+            /*races.Add(goblinRace);
             races.Add(Drow.CreateRace());
             races.Add(Dhampir.CreateRace());
 #if (DEBUG)
@@ -28,7 +29,7 @@ namespace CustomRaces
             characterClasses.Add(Slayer.CreateClass());
 #if(DEBUG)
             characterClasses.Add(Ninja.CreateClass());
-#endif
+#endif*/
         }
         static public void Reload()
         {

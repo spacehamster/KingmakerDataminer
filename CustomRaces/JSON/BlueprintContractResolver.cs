@@ -60,7 +60,6 @@ namespace CustomRaces
           new XmlNodeConverter(),
           new VersionConverter(),
           new RegexConverter(),
-          //new BlueprintComponentConverter(true),
           new LocalizedStringConverter(true),
           new WeakResourceLinkConverter(true),
           new UnityJsonConverter(true),
@@ -75,7 +74,6 @@ namespace CustomRaces
             if (BlueprintScriptableObjectType.IsAssignableFrom(objectType))
                 if (objectType != RootBlueprintType)
                 {
-                    //Main.DebugLog($"Using {BlueprintAssetIdConverter.GetType()} for {objectType}");
                     return BlueprintAssetIdConverter;
                 }
             var prefCnv = PreferredConverters.FirstOrDefault(cnv => cnv.CanConvert(objectType));
@@ -96,7 +94,6 @@ namespace CustomRaces
                 converter = base.ResolveContractConverter(objectType);
                 if (converter == null) break;
             }
-            //Main.DebugLog($"Found converter {converter?.GetType().ToString() ?? "NULL"} for {objectType}");
             return null;
         }
 
@@ -117,13 +114,11 @@ namespace CustomRaces
             }
             if (member is FieldInfo field)
             {
-                //Main.DebugLog($"Serializing field {field.ReflectedType}.{field.Name}");
                 jsonProp.Readable = true;
                 jsonProp.Writable = true;
                 //Readonly field
                 if (field.IsInitOnly)
                 {
-                    //Main.DebugLog($"Skipping readonly field {field.ReflectedType}.{field.Name}");
                     Skip();
                     return null;
                 }
@@ -132,11 +127,12 @@ namespace CustomRaces
                     Skip();
                     return null;
                 }
-                // ReSharper disable once InvertIf
                 if (field.FieldType.IsSubclassOf(BlueprintScriptableObjectType))
                 {
+                    //MemberConverter required to deserialize see 
+                    //https://stackoverflow.com/questions/24946362/custom-jsonconverter-is-ignored-for-deserialization-when-using-custom-contract-r
+                    jsonProp.MemberConverter = BlueprintAssetIdConverter;
                     jsonProp.Converter = BlueprintAssetIdConverter;
-                    jsonProp.IsReference = false;
                     Allow();
                 }
             }

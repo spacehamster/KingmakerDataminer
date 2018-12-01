@@ -1,0 +1,130 @@
+{
+  "$id": "1",
+  "$type": "Kingmaker.Blueprints.Classes.BlueprintCharacterClass, Assembly-CSharp",
+  "LocalizedName": "LocalizedString:a15f772b-bb2c-467f-af73-2c74a2de90b7:Ranger",
+  "LocalizedDescription": "LocalizedString:b9379ca5-05d5-4430-aa65-19c44f78cd6c:Rangers are deft ski...",
+  "m_Icon": null,
+  "SkillPoints": 4,
+  "HitDie": "d10",
+  "HideIfRestricted": false,
+  "PrestigeClass": false,
+  "BaseAttackBonus": "Blueprint:b3057560ffff3514299e8b93e7648a9d:BABFull",
+  "FortitudeSave": "Blueprint:ff4662bde9e75f145853417313842751:SavesHigh",
+  "ReflexSave": "Blueprint:ff4662bde9e75f145853417313842751:SavesHigh",
+  "WillSave": "Blueprint:dc0c7c1aba755c54f96c089cdf7d14a3:SavesLow",
+  "Progression": "Blueprint:97261d609529d834eba4fd4da1bc44dc:RangerProgression",
+  "Spellbook": "Blueprint:762858a4a28eaaf43aa00f50441d7027:RangerSpellbook",
+  "ClassSkills": [
+    "skillAthletics",
+    "skillPersuasion",
+    "skillLoreNature",
+    "skillKnowledgeWorld",
+    "skillStealth",
+    "skillPerception",
+    "skillKnowledgeArcana"
+  ],
+  "IsDivineCaster": true,
+  "IsArcaneCaster": false,
+  "Archetypes": [
+    "Blueprint:4fd9705f1aebf614f9500bb0e7341179:FreebooterArchetype",
+    "Blueprint:300917c3479d27d47b4b4b52b1762e8d:FlamewardenArchetype",
+    "Blueprint:a330c05e484d98748a462acd43654a3a:StormwalkerArchetype"
+  ],
+  "StartingGold": 411,
+  "StartingItems": [
+    "Blueprint:afbe88d27a0eb544583e00fa78ffb2c7:StuddedStandard",
+    "Blueprint:201f6150321e09048bd59e9b7f558cb0:StandardLongbow",
+    "Blueprint:238ac092fad27144c9514f82917fbec9:StandardHandaxe",
+    "Blueprint:a85d51d0fb905f940b951eec60388bac:LightShield",
+    "Blueprint:bc93a78d71bef084fa155e529660ed0d:PotionOfShieldOfFaith",
+    "Blueprint:d52566ae8cbe8dc4dae977ef51c27d91:PotionOfCureLightWounds"
+  ],
+  "PrimaryColor": 13,
+  "SecondaryColor": 7,
+  "EquipmentEntities": [
+    "Blueprint:f1bca33555f534c408bebaaa12571570:KEE_Ranger_Cap"
+  ],
+  "MaleEquipmentEntities": [
+    "Resource:e249678d823d00f4cb30d4d5c8ca1219:Meshes&EE/Accessories/EquipmentEntitites/Ranger_M_Accessories",
+    "Resource:0809ab3735b54874b965a09311f0c898:Meshes&EE/Accessories/EquipmentEntitites/EE_RangerAccesories_M_Any_Colorize",
+    "Resource:ca71ad9178ecf6a4d942ce55d0c7857b:Meshes&EE/Male/ClassOutfit/Ranger/EE_Ranger_M_Any_Colorize",
+    "Resource:fb0037ec1d96c8d418bc08d3e0bbf063:Meshes&EE/Male/ClassOutfit/Ranger/EE_Ranger_M_Cape"
+  ],
+  "FemaleEquipmentEntities": [
+    "Resource:e09cf61a567f2a84ea9a3b505f390a32:Meshes&EE/Accessories/EquipmentEntitites/Ranger_F_Accessories",
+    "Resource:b6bca728c4ced324da7e8d0d01ad34bb:Meshes&EE/Accessories/EquipmentEntitites/EE_RangerAccesories_F_Any_Colorize",
+    "Resource:bc6fb7e5c91de08418b81a397b20bb18:Meshes&EE/Female/ClassOutfit/Ranger/EE_Ranger_F_Any_Colorize",
+    "Resource:52a0a0c7183957a4ea02301ce40b3e83:Meshes&EE/Female/ClassOutfit/Ranger/EE_Ranger_F_Cape"
+  ],
+  "RecommendedAttributes": [
+    "dexterity",
+    "wisdom"
+  ],
+  "NotRecommendedAttributes": [
+    "intelligence",
+    "charisma"
+  ],
+  "DefaultBuild": "Blueprint:448079d5cc1f2514888cbf7a50db7f2a:PrebuildRangerFeatureList",
+  "Components": [
+    {
+      "$id": "2",
+      "$type": "Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteNoClassLevel, Assembly-CSharp",
+      "CharacterClass": {
+        "$id": "3",
+        "$type": "Kingmaker.Blueprints.Classes.BlueprintCharacterClass, Assembly-CSharp",
+        "LocalizedName": "LocalizedString:3f53168d-5eec-45a0-8900-a32b151f22b2:Animal",
+        "LocalizedDescription": "LocalizedString:918b8e2f-25a9-46e1-a5a8-17e30a810d7a:An animal is a livin...",
+        "m_Icon": null,
+        "SkillPoints": 4,
+        "HitDie": "d8",
+        "HideIfRestricted": true,
+        "PrestigeClass": false,
+        "BaseAttackBonus": "Blueprint:4c936de4249b61e419a3fb775b9f2581:BABMedium",
+        "FortitudeSave": "Blueprint:ff4662bde9e75f145853417313842751:SavesHigh",
+        "ReflexSave": "Blueprint:ff4662bde9e75f145853417313842751:SavesHigh",
+        "WillSave": "Blueprint:dc0c7c1aba755c54f96c089cdf7d14a3:SavesLow",
+        "Progression": "Blueprint:ca3fcf31e31262d44a999a1733bbd84d:AnimalProgression",
+        "Spellbook": null,
+        "ClassSkills": [
+          "skillAthletics",
+          "skillMobility",
+          "skillPerception",
+          "skillStealth"
+        ],
+        "IsDivineCaster": false,
+        "IsArcaneCaster": false,
+        "Archetypes": [
+          "Blueprint:9f8a232fbe435a9458bf64c3024d7bee:AnimalCompanionArchetype"
+        ],
+        "StartingGold": 0,
+        "StartingItems": [],
+        "PrimaryColor": 0,
+        "SecondaryColor": 0,
+        "EquipmentEntities": [],
+        "MaleEquipmentEntities": [],
+        "FemaleEquipmentEntities": [],
+        "RecommendedAttributes": [],
+        "NotRecommendedAttributes": [],
+        "DefaultBuild": null,
+        "Components": [
+          {
+            "$id": "4",
+            "$type": "Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteClassLevel, Assembly-CSharp",
+            "CharacterClass": {
+              "$ref": "3"
+            },
+            "Level": 1,
+            "Group": "all",
+            "name": "$PrerequisiteClassLevel$bbc81bde-bff5-402a-8b97-7ce3a2ef50a8"
+          }
+        ],
+        "m_AssetGuid": "4cd1757a0eea7694ba5c933729a53920",
+        "name": "AnimalClass"
+      },
+      "Group": "all",
+      "name": "$PrerequisiteNoClassLevel$0ad27ca6-0d82-47e6-9d5e-614f10b5bb49"
+    }
+  ],
+  "m_AssetGuid": "cda0615668a6df14eb36ba19ee881af6",
+  "name": "RangerClass"
+}

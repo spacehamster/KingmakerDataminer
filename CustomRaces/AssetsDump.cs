@@ -84,58 +84,10 @@ namespace CustomRaces
                 JsonBlueprints.Dump(resource, kv.Key);
             }
         }
-        public static void Validate()
+        public static void DumpList()
         {
             Directory.CreateDirectory($"Blueprints/");
-            var names = new Dictionary<string, List<BlueprintScriptableObject>>();
-            var qualifiedNames = new Dictionary<string, List<BlueprintScriptableObject>>();
             var blueprints = ResourcesLibrary.GetBlueprints<BlueprintScriptableObject>();
-            foreach (var blueprint in blueprints)
-            {
-                if (names.ContainsKey(blueprint.name))
-                {
-                    names[blueprint.name].Add(blueprint);
-                }
-                else
-                {
-                    names[blueprint.name] = new List<BlueprintScriptableObject>() { blueprint };
-                }
-                var qualifiedName = blueprint.GetType().ToString() + "." + blueprint.name;
-                if (qualifiedNames.ContainsKey(qualifiedName))
-                {
-                    qualifiedNames[qualifiedName].Add(blueprint);
-                }
-                else
-                {
-                    qualifiedNames[qualifiedName] = new List<BlueprintScriptableObject>() { blueprint };
-                }
-            }
-            using (var file = new StreamWriter("Blueprints/Duplicates.txt"))
-            {
-                foreach (var kv in names)
-                {
-                    if (kv.Value.Count > 1)
-                    {
-                        foreach (var blueprint in kv.Value)
-                        {
-                            file.WriteLine($"{blueprint.name}\t{blueprint.AssetGuid}\t{blueprint.GetType()}\t");
-                        }
-                    }
-                }
-            }
-            using (var file = new StreamWriter("Blueprints/QualifiedDuplicates.txt"))
-            {
-                foreach (var kv in qualifiedNames)
-                {
-                    if (kv.Value.Count > 1)
-                    {
-                        foreach (var blueprint in kv.Value)
-                        {
-                            file.WriteLine($"{blueprint.name}\t{blueprint.AssetGuid}\t{blueprint.GetType()}\t");
-                        }
-                    }
-                }
-            }
             using (var file = new StreamWriter("Blueprints/Blueprints.txt"))
             {
                 foreach (var blueprint in blueprints)

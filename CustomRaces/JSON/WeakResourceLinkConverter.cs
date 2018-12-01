@@ -30,14 +30,21 @@ namespace CustomRaces
             w.WriteValue(string.Format($"Resource:{resource.AssetId}:{path ?? "NULL"}"));
         }
 
-        public override object ReadJson(
-            JsonReader reader,
-            Type objectType,
-            object existingValue,
-            JsonSerializer serializer
-        )
+        public override object ReadJson(JsonReader reader, Type type, object existing, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+            string text = (string)reader.Value;
+            if (text == null || text == "null")
+            {
+                return null;
+            }
+            if (text.StartsWith("Resource"))
+            {
+                var parts = text.Split(':');
+                var link =  (WeakResourceLink)Activator.CreateInstance(type);
+                link.AssetId = parts[1];
+                return link;
+            }
+            throw new NotImplementedException($"Not implemented for type {type} with value {text}");
         }
 
         // ReSharper disable once IdentifierTypo

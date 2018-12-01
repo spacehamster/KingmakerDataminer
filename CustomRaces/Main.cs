@@ -89,13 +89,13 @@ namespace CustomRaces
                 {
                     AssetsDump.DumpEquipmentEntities();
                 }
-                if (GUILayout.Button("ValidateBlueprints"))
+                if (GUILayout.Button("DumpList"))
                 {
-                    AssetsDump.Validate();
+                    AssetsDump.DumpList();
                 }
                 if (GUILayout.Button("TestLoad"))
                 {
-                    var bp = JsonBlueprints.Loads<BlueprintRace>("{name : \"Test\"}");
+                    var bp = JsonBlueprints.Load<BlueprintCharacterClass>("mods/customraces/data/rangerclass.json");
                     DebugLog("Loaded " + (bp?.name ?? "NULL"));
                 }
                 if (GUILayout.Button("FindObject"))
@@ -108,13 +108,6 @@ namespace CustomRaces
                 if (GUILayout.Button("Reload"))
                 {
                     RaceManager.Reload();
-                }
-                if (GUILayout.Button("LogRace"))
-                {
-                    var player = Game.Instance.Player.MainCharacter.Value;
-                    var descriptor = player.Descriptor;
-                    var race = descriptor.Progression.Race;
-                    DebugLog("MainCharacter Race is " + race.name + " " + race.AssetGuid);
                 }
                 int newTorso = (int)GUILayout.HorizontalSlider(torso, -1, MeshTestRace.testAssets.Length - 1, GUILayout.Width(300));
                 GUILayout.Label("Torso: " + newTorso);

@@ -38,14 +38,8 @@ namespace CustomRaces
             j.WriteTo(w);
         }
 
-        public override object ReadJson(
-            JsonReader reader,
-            Type objectType,
-            object existingValue,
-            JsonSerializer serializer
-        )
+        public override object ReadJson(JsonReader reader, Type type, object existing, JsonSerializer serializer)
         {
-            //JToken token = JToken.Load(reader);
             throw new NotImplementedException();
         }
         List<MemberInfo> GetSerializableMembers(Type objectType)

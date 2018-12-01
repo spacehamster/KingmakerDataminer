@@ -32,12 +32,7 @@ namespace CustomRaces
             j.WriteTo(w);
         }
 
-        public override object ReadJson(
-          JsonReader reader,
-          Type objectType,
-          object existingValue,
-          JsonSerializer serializer
-        )
+        public override object ReadJson(JsonReader reader, Type type, object existing, JsonSerializer serializer)
         {
             throw new NotImplementedException();
         }

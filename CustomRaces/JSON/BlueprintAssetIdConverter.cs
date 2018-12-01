@@ -32,7 +32,28 @@ namespace CustomRaces
           JsonSerializer serializer
         )
         {
-            throw new NotImplementedException();
+            string text = (string)reader.Value;
+            Main.DebugLog($"Reading blueprint: {text}");
+            if (text == null || text == "null")
+            {
+                return null;
+            }
+            if (text.StartsWith("Blueprint"))
+            {
+                var parts = text.Split(':');
+                BlueprintScriptableObject blueprintScriptableObject = ResourcesLibrary.TryGetBlueprint(parts[1]);
+                if (blueprintScriptableObject == null)
+                {
+                    throw new JsonSerializationException(string.Format("Failed to load blueprint by guid {0}", text));
+                }
+                return blueprintScriptableObject;
+            }
+            if (text.StartsWith("File"))
+            {
+                var parts = text.Split(':');
+                return JsonBlueprints.Load<BlueprintScriptableObject>($"customraces/mods/data/{parts[1]}");
+            }
+            throw new JsonSerializationException(string.Format("Invalid blueprint format {0}", text));
         }
 
         // ReSharper disable once IdentifierTypo

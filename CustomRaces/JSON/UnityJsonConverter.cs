@@ -171,9 +171,11 @@ namespace CustomRaces
             }
         }
 
-        public override object ReadJson(JsonReader r, Type type, object value, JsonSerializer szr)
+        public override object ReadJson(JsonReader reader, Type type, object existing, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+            JToken token = JToken.Load(reader);
+            return null;
+            //throw new NotImplementedException($"Not implemented for type {type}");
         }
 
         public override bool CanConvert(Type objectType) => Enabled && SupportedTypes.Contains(objectType);

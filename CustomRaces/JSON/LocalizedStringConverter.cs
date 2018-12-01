@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using Kingmaker.Blueprints;
 using Kingmaker.Localization;
 using Newtonsoft.Json;
 using System;
@@ -34,14 +35,9 @@ namespace CustomRaces
             w.WriteValue(string.Format($"LocalizedString:{ls.Key}:{text}"));
         }
 
-        public override object ReadJson(
-          JsonReader reader,
-          Type objectType,
-          object existingValue,
-          JsonSerializer serializer
-        )
+        public override object ReadJson(JsonReader reader, Type type, object existing, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+            return RaceUtil.MakeLocalized("Test string");
         }
 
         // ReSharper disable once IdentifierTypo
