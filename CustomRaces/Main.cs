@@ -95,13 +95,14 @@ namespace CustomRaces
                 }
                 if (GUILayout.Button("TestLoad"))
                 {
-                    var bp = JsonBlueprints.Load<BlueprintCharacterClass>("mods/customraces/data/rangerclass.json");
+                    var bp = JsonBlueprints.Load<BlueprintCharacterClass>("mods/customraces/data/slayerclass.json");
                     DebugLog("Loaded " + (bp?.name ?? "NULL"));
                 }
                 if (GUILayout.Button("FindObject"))
                 {
                     var go = FindObject<GameObject>(270194);
-                    DebugLog(go == null ? "NULL" : go.name); //OH_LongswordThieves
+                    DebugLog("FindByID " + go == null ? "NULL" : go.name); //OH_LongswordThieves
+
                     var sprite = FindObject<Sprite>(45820);
                     DebugLog(sprite == null ? "NULL" : sprite.name); //OH_LongswordThieves
                 }

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Serialization;
 using JetBrains.Annotations;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
@@ -65,7 +67,26 @@ namespace CustomRaces
           new UnityJsonConverter(true),
           new GameObjectAssetIdConverter(true)
         };
-
+        void OnDeserializing(object o, StreamingContext context)
+        {
+            //After construction, before initialization
+            Main.DebugLog("OnDeserializing BlueprintProgression");
+        }
+        void OnDeserialized(object o, StreamingContext context)
+        {
+            //After construction, after initialization
+            Main.DebugLog("OnDeserialized BlueprintProgression");
+        }
+        protected override JsonContract CreateContract(Type objectType)
+        {
+            JsonContract contract = base.CreateContract(objectType);
+            if(objectType == typeof(BlueprintProgression))
+            {
+                contract.OnDeserializingCallbacks.Add(OnDeserializing);
+                contract.OnDeserializedCallbacks.Add(OnDeserialized);
+            }
+            return contract;
+        }
         protected override JsonConverter ResolveContractConverter(Type objectType)
         {
             if (objectType == null)

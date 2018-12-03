@@ -33,7 +33,6 @@ namespace CustomRaces
         )
         {
             string text = (string)reader.Value;
-            Main.DebugLog($"Reading blueprint: {text}");
             if (text == null || text == "null")
             {
                 return null;
@@ -50,8 +49,9 @@ namespace CustomRaces
             }
             if (text.StartsWith("File"))
             {
+                Main.DebugLog($"Reading blueprint from file: {text}");
                 var parts = text.Split(':');
-                return JsonBlueprints.Load<BlueprintScriptableObject>($"customraces/mods/data/{parts[1]}");
+                return JsonBlueprints.Load<BlueprintScriptableObject>($"mods/customraces/data/{parts[1]}");
             }
             throw new JsonSerializationException(string.Format("Invalid blueprint format {0}", text));
         }

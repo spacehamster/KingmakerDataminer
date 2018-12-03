@@ -105,6 +105,7 @@
     <Compile Include="JSON\BlueprintAssetIdConverter.cs" />
     <Compile Include="JSON\BlueprintComponentConverter.cs" />
     <Compile Include="JSON\BlueprintContractResolver.cs" />
+    <Compile Include="JSON\BlueprintConverter.cs" />
     <Compile Include="JSON\GameObjectAssetIdConverter.cs" />
     <Compile Include="JSON\JsonBlueprints.cs" />
     <Compile Include="JSON\LocalizedStringConverter.cs" />

@@ -1,8 +1,8 @@
 {
   "$id": "1",
   "$type": "Kingmaker.Blueprints.Classes.BlueprintCharacterClass, Assembly-CSharp",
-  "LocalizedName": "Slayer",
-  "LocalizedDescription": "Description",
+  "LocalizedName": "LocalizedString:a15f772b-bb2c-467f-af73-2c74a2de90b7:Ranger",
+  "LocalizedDescription": "LocalizedString:b9379ca5-05d5-4430-aa65-19c44f78cd6c:Rangers are deft ski...",
   "m_Icon": null,
   "SkillPoints": 4,
   "HitDie": "d10",
@@ -13,7 +13,7 @@
   "ReflexSave": "Blueprint:ff4662bde9e75f145853417313842751:SavesHigh",
   "WillSave": "Blueprint:dc0c7c1aba755c54f96c089cdf7d14a3:SavesLow",
   "Progression": "File:SlayerProgression.json",
-  "Spellbook": null,
+  "Spellbook": "Blueprint:762858a4a28eaaf43aa00f50441d7027:RangerSpellbook",
   "ClassSkills": [
     "skillAthletics",
     "skillPersuasion",
@@ -26,6 +26,7 @@
   "IsDivineCaster": true,
   "IsArcaneCaster": false,
   "Archetypes": [
+
   ],
   "StartingGold": 411,
   "StartingItems": [
@@ -61,7 +62,7 @@
     "intelligence",
     "charisma"
   ],
-  "DefaultBuild": null,
+  "DefaultBuild": "Blueprint:448079d5cc1f2514888cbf7a50db7f2a:PrebuildRangerFeatureList",
   "Components": [
     {
       "$id": "2",
@@ -71,6 +72,6 @@
       "name": "$PrerequisiteNoClassLevel$0ad27ca6-0d82-47e6-9d5e-614f10b5bb49"
     }
   ],
-  "m_AssetGuid": "cda0615668a6df14eb36ba19ee881af6",
+  "m_AssetGuid": "abc",
   "name": "SlayerClass"
 }

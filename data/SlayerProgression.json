@@ -1,0 +1,291 @@
+{
+  "$id": "1",
+  "$type": "Kingmaker.Blueprints.Classes.BlueprintProgression, Assembly-CSharp",
+  "Classes": [
+  ],
+  "Archetypes": [],
+  "LevelEntries": [
+    {
+      "$id": "2",
+      "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
+      "Level": 1,
+      "Features": [
+        "Blueprint:c5e479367d07d62428f2fe92f39c0341:RangerProficiencies",
+        "Blueprint:16cc2c937ea8d714193017780e7d4fc6:FavoriteEnemySelection",
+        "Blueprint:d3e6275cfa6e7a04b9213b7b292a011c:RayCalculateFeature",
+        "Blueprint:62ef1cdb90f1d654d996556669caf7fa:TouchCalculateFeature"
+      ]
+    },
+    {
+      "$id": "3",
+      "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
+      "Level": 2,
+      "Features": [
+        "Blueprint:c6d0da9124735a44f93ac31df803b9a9:RangerStyleSelection2"
+      ]
+    },
+    {
+      "$id": "4",
+      "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
+      "Level": 3,
+      "Features": [
+        "Blueprint:a6ea422d7308c0d428a541562faedefd:FavoriteTerrainSelection",
+        "Blueprint:54ee847996c25cd4ba8773d7b8555174:Endurance"
+      ]
+    },
+    {
+      "$id": "5",
+      "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
+      "Level": 4,
+      "Features": [
+        "Blueprint:b705c5184a96a84428eeb35ae2517a14:HuntersBondSelection"
+      ]
+    },
+    {
+      "$id": "6",
+      "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
+      "Level": 5,
+      "Features": [
+        "Blueprint:16cc2c937ea8d714193017780e7d4fc6:FavoriteEnemySelection",
+        "Blueprint:c1be13839472aad46b152cf10cf46179:FavoriteEnemyRankUp"
+      ]
+    },
+    {
+      "$id": "7",
+      "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
+      "Level": 6,
+      "Features": [
+        "Blueprint:61f82ba786fe05643beb3cd3910233a8:RangerStyleSelection6"
+      ]
+    },
+    {
+      "$id": "8",
+      "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
+      "Level": 7,
+      "Features": []
+    },
+    {
+      "$id": "9",
+      "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
+      "Level": 8,
+      "Features": [
+        "Blueprint:a6ea422d7308c0d428a541562faedefd:FavoriteTerrainSelection"
+      ]
+    },
+    {
+      "$id": "10",
+      "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
+      "Level": 9,
+      "Features": [
+        "Blueprint:576933720c440aa4d8d42b0c54b77e80:Evasion"
+      ]
+    },
+    {
+      "$id": "11",
+      "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
+      "Level": 10,
+      "Features": [
+        "Blueprint:78177315fc63b474ea3cbb8df38fafcd:RangerStyleSelection10",
+        "Blueprint:16cc2c937ea8d714193017780e7d4fc6:FavoriteEnemySelection",
+        "Blueprint:c1be13839472aad46b152cf10cf46179:FavoriteEnemyRankUp"
+      ]
+    },
+    {
+      "$id": "12",
+      "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
+      "Level": 11,
+      "Features": [
+        "Blueprint:385260ca07d5f1b4e907ba22a02944fc:Quarry"
+      ]
+    },
+    {
+      "$id": "13",
+      "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
+      "Level": 12,
+      "Features": [
+        "Blueprint:ff1b5aa8dcc7d7d4d9aa85e1cb3f9e88:Camouflage"
+      ]
+    },
+    {
+      "$id": "14",
+      "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
+      "Level": 13,
+      "Features": [
+        "Blueprint:a6ea422d7308c0d428a541562faedefd:FavoriteTerrainSelection"
+      ]
+    },
+    {
+      "$id": "15",
+      "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
+      "Level": 14,
+      "Features": [
+        "Blueprint:78177315fc63b474ea3cbb8df38fafcd:RangerStyleSelection10"
+      ]
+    },
+    {
+      "$id": "16",
+      "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
+      "Level": 15,
+      "Features": [
+        "Blueprint:16cc2c937ea8d714193017780e7d4fc6:FavoriteEnemySelection",
+        "Blueprint:c1be13839472aad46b152cf10cf46179:FavoriteEnemyRankUp"
+      ]
+    },
+    {
+      "$id": "17",
+      "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
+      "Level": 16,
+      "Features": [
+        "Blueprint:ce96af454a6137d47b9c6a1e02e66803:ImprovedEvasion"
+      ]
+    },
+    {
+      "$id": "18",
+      "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
+      "Level": 17,
+      "Features": []
+    },
+    {
+      "$id": "19",
+      "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
+      "Level": 18,
+      "Features": [
+        "Blueprint:a6ea422d7308c0d428a541562faedefd:FavoriteTerrainSelection",
+        "Blueprint:78177315fc63b474ea3cbb8df38fafcd:RangerStyleSelection10"
+      ]
+    },
+    {
+      "$id": "20",
+      "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
+      "Level": 19,
+      "Features": [
+        "Blueprint:25e009b7e53f86141adee3a1213af5af:ImprovedQuarry"
+      ]
+    },
+    {
+      "$id": "21",
+      "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
+      "Level": 20,
+      "Features": [
+        "Blueprint:9d53ef63441b5d84297587d75f72fc17:MasterHunter",
+        "Blueprint:16cc2c937ea8d714193017780e7d4fc6:FavoriteEnemySelection",
+        "Blueprint:c1be13839472aad46b152cf10cf46179:FavoriteEnemyRankUp"
+      ]
+    }
+  ],
+  "UIDeterminatorsGroup": [
+    "Blueprint:c5e479367d07d62428f2fe92f39c0341:RangerProficiencies"
+  ],
+  "UIGroups": [
+    {
+      "$id": "22",
+      "$type": "Kingmaker.Blueprints.Classes.UIGroup, Assembly-CSharp",
+      "Features": [
+        "Blueprint:16cc2c937ea8d714193017780e7d4fc6:FavoriteEnemySelection",
+        "Blueprint:c1be13839472aad46b152cf10cf46179:FavoriteEnemyRankUp"
+      ]
+    },
+    {
+      "$id": "23",
+      "$type": "Kingmaker.Blueprints.Classes.UIGroup, Assembly-CSharp",
+      "Features": [
+        "Blueprint:a6ea422d7308c0d428a541562faedefd:FavoriteTerrainSelection",
+        "Blueprint:ff1b5aa8dcc7d7d4d9aa85e1cb3f9e88:Camouflage",
+        "Blueprint:6a0e4c8021fd6fa41ad28b54ba3355cb:HideInPlainSight"
+      ]
+    },
+    {
+      "$id": "24",
+      "$type": "Kingmaker.Blueprints.Classes.UIGroup, Assembly-CSharp",
+      "Features": [
+        "Blueprint:7ef950ca681955d47bc4efbe77073e2c:RangerStyleArcherySelection10",
+        "Blueprint:3cf94df3f1cf9a443a880bc1ae9be3c6:RangerStyleArcherySelection2",
+        "Blueprint:6c799d09d5b93f344b9ade0e0c765c2d:RangerStyleArcherySelection6",
+        "Blueprint:7d5bd07830a5e2c478852bf8b860db2c:RangerStyleMenacingSelection10",
+        "Blueprint:1c5988e90e0657645972e7b28ba4ce8b:RangerStyleMenacingSelection2",
+        "Blueprint:a9998f05a0472bb4f8950304fe26ec0c:RangerStyleMenacingSelection6",
+        "Blueprint:78177315fc63b474ea3cbb8df38fafcd:RangerStyleSelection10",
+        "Blueprint:c6d0da9124735a44f93ac31df803b9a9:RangerStyleSelection2",
+        "Blueprint:61f82ba786fe05643beb3cd3910233a8:RangerStyleSelection6",
+        "Blueprint:b2e73b554839a314a8c716dbf33fcfc3:RangerStyleShieldSelection10",
+        "Blueprint:2d54cc761ab82604f93d82b4b358cf7e:RangerStyleShieldSelection2",
+        "Blueprint:10d8245011456224cb6358f640364e26:RangerStyleShieldSelection6",
+        "Blueprint:f96ad7f1fe7e62c4d8f7540d0f4c7313:RangerStyleTwoHandedSelection10",
+        "Blueprint:f489d9f696c588d43907b879d89451be:RangerStyleTwoHandedSelection2",
+        "Blueprint:83a4b2605333e004f875e2fd22f6be30:RangerStyleTwoHandedSelection6",
+        "Blueprint:ee907845112b8aa4e907cf326e6142a6:RangerStyleTwoWeaponSelection10",
+        "Blueprint:019e68517c95c5447bff125b8a91c73f:RangerStyleTwoWeaponSelection2",
+        "Blueprint:59d5445392ac62245a5ece9b01c05ee8:RangerStyleTwoWeaponSelection6"
+      ]
+    },
+    {
+      "$id": "25",
+      "$type": "Kingmaker.Blueprints.Classes.UIGroup, Assembly-CSharp",
+      "Features": [
+        "Blueprint:576933720c440aa4d8d42b0c54b77e80:Evasion",
+        "Blueprint:ce96af454a6137d47b9c6a1e02e66803:ImprovedEvasion"
+      ]
+    },
+    {
+      "$id": "26",
+      "$type": "Kingmaker.Blueprints.Classes.UIGroup, Assembly-CSharp",
+      "Features": [
+        "Blueprint:485fa71b077a0304f86915a7718678ad:FreebootersBaneFeature",
+        "Blueprint:13954cd0f95cb4f4eaa9e9cdabbc2bbb:FreebootersBondFeature",
+        "Blueprint:9d53ef63441b5d84297587d75f72fc17:MasterHunter",
+        "Blueprint:160b701cae06b3945ba0dfc0a2349206:HuntersBond",
+        "Blueprint:6dddf5ba2291f41498df2df7f8fa2b35:HuntersBondFeature",
+        "Blueprint:b705c5184a96a84428eeb35ae2517a14:HuntersBondSelection"
+      ]
+    },
+    {
+      "$id": "27",
+      "$type": "Kingmaker.Blueprints.Classes.UIGroup, Assembly-CSharp",
+      "Features": [
+        "Blueprint:7cf2a6bf35c422e4ea219fcc2eb564f5:FlamewardenBurningRenewalFeature",
+        "Blueprint:1a0aad85379212f46bd921dcdcb8cfaa:FlamewardenEmbersFeature",
+        "Blueprint:9a1fc45d57567e946a20926f891453ed:FlamewardenPhoenixBlast",
+        "Blueprint:92d8b962250e3a5448c9e1063dc85283:FlamewardenPhoenixRising",
+        "Blueprint:0718a2218ce5b3745bee20d8a7846946:FlamewardenWeaponFeature"
+      ]
+    },
+    {
+      "$id": "28",
+      "$type": "Kingmaker.Blueprints.Classes.UIGroup, Assembly-CSharp",
+      "Features": [
+        "Blueprint:2cb57c0d74d143f4da1ef6704012b0f4:FlamewardenSpellcasting1",
+        "Blueprint:275d72a20f615b54eb89460cd3aa8e1b:FlamewardenSpellcasting2",
+        "Blueprint:0dc70999341cdd644be0b972dd83900b:FlamewardenSpellcasting3",
+        "Blueprint:891441bcd187d4d43abc46d3202e07a0:FlamewardenSpellcasting4"
+      ]
+    },
+    {
+      "$id": "29",
+      "$type": "Kingmaker.Blueprints.Classes.UIGroup, Assembly-CSharp",
+      "Features": [
+        "Blueprint:385260ca07d5f1b4e907ba22a02944fc:Quarry",
+        "Blueprint:25e009b7e53f86141adee3a1213af5af:ImprovedQuarry"
+      ]
+    },
+    {
+      "$id": "30",
+      "$type": "Kingmaker.Blueprints.Classes.UIGroup, Assembly-CSharp",
+      "Features": [
+        "Blueprint:385260ca07d5f1b4e907ba22a02944fc:Quarry",
+        "Blueprint:25e009b7e53f86141adee3a1213af5af:ImprovedQuarry"
+      ]
+    }
+  ],
+  "ExclusiveProgression": null,
+  "Groups": [],
+  "Ranks": 1,
+  "ReapplyOnLevelUp": false,
+  "HideInUI": false,
+  "m_AllowNonContextActions": false,
+  "m_DisplayName": "LocalizedString::",
+  "m_Description": "LocalizedString::",
+  "m_Icon": null,
+  "Components": [],
+  "m_AssetGuid": "def",
+  "name": "SlayerProgression"
+}

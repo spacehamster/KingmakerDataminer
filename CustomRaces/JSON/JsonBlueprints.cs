@@ -19,6 +19,7 @@ namespace CustomRaces
          * PrototypeLink is only used to check if blueprint is a companion
          * will need to fix if custom companions are wanted
          */
+        public static Dictionary<string, UnityEngine.Object> Blueprints = new Dictionary<string, UnityEngine.Object>();
         public static readonly HashSet<FieldInfo> FieldBlacklist = new HashSet<FieldInfo>(new[] {
           typeof(PrototypeableObjectBase).GetField("PrototypeLink")
         });
