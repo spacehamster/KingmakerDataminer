@@ -87,7 +87,10 @@ namespace CustomRaces
         public static void DumpList()
         {
             Directory.CreateDirectory($"Blueprints/");
-            var blueprints = ResourcesLibrary.GetBlueprints<BlueprintScriptableObject>();
+            var blueprints = ResourcesLibrary.GetBlueprints<BlueprintScriptableObject>().ToList();
+            var blueprintsByAssetID = ResourcesLibrary.LibraryObject.BlueprintsByAssetId;
+            Main.DebugLog($"BlueprintsByAssetId contains  {blueprintsByAssetID.Count} blueprints");
+            Main.DebugLog($"Dumping {blueprints.Count} blueprints");
             using (var file = new StreamWriter("Blueprints/Blueprints.txt"))
             {
                 foreach (var blueprint in blueprints)
@@ -95,6 +98,8 @@ namespace CustomRaces
                     file.WriteLine($"{blueprint.name}\t{blueprint.AssetGuid}\t{blueprint.GetType()}\t");
                 }
             }
+            var resourcePathsByAssetId = ResourcesLibrary.LibraryObject.ResourcePathsByAssetId;
+            Main.DebugLog($"ResourcePathsByAssetId contains  {blueprintsByAssetID.Count} resources");
             using (var file = new StreamWriter("Blueprints/Resources.txt"))
             {
                 foreach (var kv in ResourcesLibrary.LibraryObject.ResourcePathsByAssetId)

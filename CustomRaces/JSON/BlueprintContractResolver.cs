@@ -55,6 +55,8 @@ namespace CustomRaces
 
         private static readonly BlueprintAssetIdConverter BlueprintAssetIdConverter
           = new BlueprintAssetIdConverter(true);
+        private static readonly BlueprintConverter BlueprintConverter
+            = new BlueprintConverter(true);
 
         private static readonly JsonConverter[] PreferredConverters = {
          new StringEnumConverter(true),
@@ -80,7 +82,7 @@ namespace CustomRaces
         protected override JsonContract CreateContract(Type objectType)
         {
             JsonContract contract = base.CreateContract(objectType);
-            if(objectType == typeof(BlueprintProgression))
+            if (objectType == typeof(BlueprintProgression))
             {
                 contract.OnDeserializingCallbacks.Add(OnDeserializing);
                 contract.OnDeserializedCallbacks.Add(OnDeserialized);
@@ -96,6 +98,10 @@ namespace CustomRaces
                 if (objectType != RootBlueprintType)
                 {
                     return BlueprintAssetIdConverter;
+                }
+                else
+                {
+                    return BlueprintConverter;
                 }
             var prefCnv = PreferredConverters.FirstOrDefault(cnv => cnv.CanConvert(objectType));
             if (prefCnv != null)

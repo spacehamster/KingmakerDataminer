@@ -40,7 +40,7 @@ namespace CustomRaces
             if (text.StartsWith("Resource"))
             {
                 var parts = text.Split(':');
-                var link =  (WeakResourceLink)Activator.CreateInstance(type);
+                var link = (WeakResourceLink)Activator.CreateInstance(type);
                 link.AssetId = parts[1];
                 return link;
             }

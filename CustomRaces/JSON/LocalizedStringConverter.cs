@@ -32,7 +32,7 @@ namespace CustomRaces
                 text = text.Remove(previewLength);
             }
             if (ls.ToString().Length > previewLength) text += "...";
-            w.WriteValue(string.Format($"LocalizedString:{ls.Key}:{text}"));
+            w.WriteValue($"LocalizedString:{ls.Key}:{text}");
         }
 
         public override object ReadJson(JsonReader reader, Type type, object existing, JsonSerializer serializer)

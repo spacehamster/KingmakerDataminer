@@ -34,6 +34,7 @@ namespace CustomRaces
 
         public override object ReadJson(JsonReader reader, Type type, object existing, JsonSerializer serializer)
         {
+            return null;
             throw new NotImplementedException();
         }
 

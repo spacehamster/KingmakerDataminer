@@ -2,6 +2,7 @@
   "$id": "1",
   "$type": "Kingmaker.Blueprints.Classes.BlueprintProgression, Assembly-CSharp",
   "Classes": [
+	"File:SlayerClass.json"
   ],
   "Archetypes": [],
   "LevelEntries": [

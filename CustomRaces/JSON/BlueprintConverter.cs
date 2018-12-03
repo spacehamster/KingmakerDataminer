@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using Kingmaker.Blueprints;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using UnityEngine;
 
 namespace CustomRaces
 {
@@ -12,6 +13,13 @@ namespace CustomRaces
         [UsedImplicitly]
         public bool Enabled { get; set; }
 
+        public override bool CanWrite
+        {
+            get
+            {
+                return false;
+            }
+        }
         private BlueprintConverter() { }
 
         public BlueprintConverter(bool enabled)
@@ -21,16 +29,26 @@ namespace CustomRaces
 
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
-            var bp = (BlueprintScriptableObject)o;
-            w.WriteValue(string.Format($"Blueprint:{bp.AssetGuid}:{bp.name}"));
+            throw new NotImplementedException();
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer
         )
         {
-            var result = (BlueprintScriptableObject)Activator.CreateInstance(objectType);
-            JsonBlueprints.Blueprints["TODO: Get name"] = result;
-            //todo: populate values
+            JObject jObject = JObject.Load(reader);
+            var name = jObject["name"].ToString();
+            if (name == null)
+            {
+                throw new System.Exception("Missing name");
+            }
+            if (JsonBlueprints.Blueprints.ContainsKey(name))
+            {
+                throw new System.Exception("Cannot create blueprint twice");
+            }
+
+            var result = ScriptableObject.CreateInstance(objectType);
+            JsonBlueprints.Blueprints[name] = result;
+            serializer.Populate(jObject.CreateReader(), result);
             return result;
         }
 

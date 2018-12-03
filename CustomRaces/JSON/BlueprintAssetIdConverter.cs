@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using JetBrains.Annotations;
 using Kingmaker.Blueprints;
 using Newtonsoft.Json;
@@ -49,9 +51,19 @@ namespace CustomRaces
             }
             if (text.StartsWith("File"))
             {
-                Main.DebugLog($"Reading blueprint from file: {text}");
                 var parts = text.Split(':');
-                return JsonBlueprints.Load<BlueprintScriptableObject>($"mods/customraces/data/{parts[1]}");
+                var path = $"mods/customraces/data/{parts[1]}";
+                var blueprintName = Path.GetFileNameWithoutExtension(path);
+                if (JsonBlueprints.Blueprints.ContainsKey(blueprintName))
+                {
+                    return JsonBlueprints.Blueprints[blueprintName];
+                }
+                Main.DebugLog($"Reading blueprint from file: {text}");
+
+                MethodInfo method = typeof(JsonBlueprints).GetMethod("Load");
+                MethodInfo genericMethod = method.MakeGenericMethod(objectType);
+                var result = genericMethod.Invoke(null, new object[] { path });
+                return result;
             }
             throw new JsonSerializationException(string.Format("Invalid blueprint format {0}", text));
         }
