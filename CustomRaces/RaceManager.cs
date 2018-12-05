@@ -14,22 +14,16 @@ namespace CustomRaces
     {
         static List<BlueprintRace> races = new List<BlueprintRace>();
         static List<BlueprintCharacterClass> characterClasses = new List<BlueprintCharacterClass>();
+        static BlueprintInfo info = null;
         static bool loaded = false;
         public static void Init()
         {
             var blueprints = ResourcesLibrary.LibraryObject.BlueprintsByAssetId;
             var goblinRace = (BlueprintRace)blueprints["9d168ca7100e9314385ce66852385451"];
-
-            /*races.Add(goblinRace);
-            races.Add(Drow.CreateRace());
-            races.Add(Dhampir.CreateRace());
-#if (DEBUG)
-            races.Add(MeshTestRace.CreateRace());
-#endif
-            characterClasses.Add(Slayer.CreateClass());
-#if(DEBUG)
-            characterClasses.Add(Ninja.CreateClass());
-#endif*/
+            races.Add(goblinRace);
+            info = BlueprintInfo.Load();
+            races.AddRange(info.Races);
+            characterClasses.AddRange(info.Classes);
         }
         static public void Reload()
         {

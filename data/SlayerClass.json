@@ -1,8 +1,8 @@
 {
   "$id": "1",
   "$type": "Kingmaker.Blueprints.Classes.BlueprintCharacterClass, Assembly-CSharp",
-  "LocalizedName": "LocalizedString:a15f772b-bb2c-467f-af73-2c74a2de90b7:Ranger",
-  "LocalizedDescription": "LocalizedString:b9379ca5-05d5-4430-aa65-19c44f78cd6c:Rangers are deft ski...",
+  "LocalizedName": "CustomString:SlayerClassName",
+  "LocalizedDescription": "CustomString:SlayerClassDescription",
   "m_Icon": null,
   "SkillPoints": 4,
   "HitDie": "d10",
@@ -72,6 +72,6 @@
       "name": "$PrerequisiteNoClassLevel$0ad27ca6-0d82-47e6-9d5e-614f10b5bb49"
     }
   ],
-  "m_AssetGuid": "abc",
+  "m_AssetGuid": "SlayerClass",
   "name": "SlayerClass"
 }

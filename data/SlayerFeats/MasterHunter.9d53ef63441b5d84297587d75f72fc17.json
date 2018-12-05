@@ -1,0 +1,76 @@
+{
+  "$id": "1",
+  "$type": "Kingmaker.Blueprints.Classes.BlueprintFeature, Assembly-CSharp",
+  "Groups": [],
+  "Ranks": 1,
+  "ReapplyOnLevelUp": false,
+  "HideInUI": false,
+  "m_AllowNonContextActions": false,
+  "m_DisplayName": "LocalizedString::Master Hunter",
+  "m_Description": "LocalizedString::A ranger of 20th lev...",
+  "m_Icon": {
+    "$type": "Sprite",
+    "name": "GravityBow",
+    "InstanceId": 62318
+  },
+  "Components": [
+    {
+      "$id": "2",
+      "$type": "Kingmaker.Designers.Mechanics.Facts.RecommendedClass, Assembly-CSharp",
+      "FavoriteClass": "Blueprint:cda0615668a6df14eb36ba19ee881af6:RangerClass",
+      "name": "$RecommendedClass$3a3896b4-48d4-4781-a09a-445838d08c08"
+    },
+    {
+      "$id": "3",
+      "$type": "Kingmaker.UnitLogic.FactLogic.AddFacts, Assembly-CSharp",
+      "Facts": [
+        "Blueprint:8a57e1072da4f6f4faaa55b7b7dc633c:MasterHunterAbility"
+      ],
+      "name": "$AddFacts$53aaa895-1e97-45a2-ad00-983d5bc4ee4f"
+    },
+    {
+      "$id": "4",
+      "$type": "Kingmaker.Designers.Mechanics.Facts.ReplaceAbilitiesStat, Assembly-CSharp",
+      "Ability": [
+        "Blueprint:8a57e1072da4f6f4faaa55b7b7dc633c:MasterHunterAbility"
+      ],
+      "Stat": "wisdom",
+      "name": "$ReplaceAbilitiesStat$f9fdd717-5e53-4099-a871-58ef045c46c0"
+    },
+    {
+      "$id": "5",
+      "$type": "Kingmaker.Designers.Mechanics.Facts.ReplaceCasterLevelOfAbility, Assembly-CSharp",
+      "Spell": "Blueprint:8a57e1072da4f6f4faaa55b7b7dc633c:MasterHunterAbility",
+      "Class": "Blueprint:cda0615668a6df14eb36ba19ee881af6:RangerClass",
+      "AdditionalClasses": [],
+      "Archetypes": [],
+      "name": "$ReplaceCasterLevelOfAbility$825b0a0f-09a8-4b9b-b55a-4f7456a28c1b"
+    },
+    {
+      "$id": "6",
+      "$type": "Kingmaker.Designers.Mechanics.Facts.BindAbilitiesToClass, Assembly-CSharp",
+      "Abilites": [
+        "Blueprint:8a57e1072da4f6f4faaa55b7b7dc633c:MasterHunterAbility"
+      ],
+      "Cantrip": false,
+      "CharacterClass": "Blueprint:cda0615668a6df14eb36ba19ee881af6:RangerClass",
+      "Stat": "wisdom",
+      "AdditionalClasses": [],
+      "Archetypes": [],
+      "LevelStep": 2,
+      "Odd": true,
+      "name": "$BindAbilitiesToClass$434d7e35-86bc-4d42-94b3-5bae7b1186ca"
+    },
+    {
+      "$id": "7",
+      "$type": "Kingmaker.Designers.Mechanics.Facts.AddAbilityResources, Assembly-CSharp",
+      "UseThisAsResource": false,
+      "Resource": "Blueprint:09156c2a513d27f4781505f486c4ac4e:MasterHunterResource",
+      "Amount": 0,
+      "RestoreAmount": true,
+      "name": "$AddAbilityResources$b10cb816-eedd-45d1-a2ba-6ad9b3d3a9f9"
+    }
+  ],
+  "m_AssetGuid": "9d53ef63441b5d84297587d75f72fc17",
+  "name": "MasterHunter"
+}

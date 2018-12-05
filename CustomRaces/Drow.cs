@@ -31,7 +31,7 @@ namespace CustomRaces
             var addCon = ScriptableObject.CreateInstance<AddStatBonus>();
             addCon.name = "CustomRaceStat";
             addCon.Descriptor = Kingmaker.Enums.ModifierDescriptor.Racial;
-            addCon.Stat = Kingmaker.EntitySystem.Stats.StatType.Dexterity;
+            addCon.Stat = Kingmaker.EntitySystem.Stats.StatType.Constitution;
             addCon.Value = -2;
             newRace.ComponentsArray = new BlueprintComponent[]
             {

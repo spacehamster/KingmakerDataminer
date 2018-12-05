@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssetsDump.cs" />
+    <Compile Include="BlueprintInfo.cs" />
     <Compile Include="Dhampir.cs" />
     <Compile Include="JSON\BlueprintAssetIdConverter.cs" />
     <Compile Include="JSON\BlueprintComponentConverter.cs" />

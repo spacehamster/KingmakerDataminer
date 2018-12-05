@@ -1,0 +1,152 @@
+{
+  "$id": "1",
+  "$type": "Kingmaker.Blueprints.Classes.BlueprintRace, Assembly-CSharp",
+  "SoundKey": "Human",
+  "RaceId": "human",
+  "SelectableRaceStat": false,
+  "Size": "medium",
+  "Features": [
+    "Blueprint:8a75eb16bfff86949a4ddcb3dd2f83ae:UndeadImmunities"
+  ],
+  "Presets": [
+    "File:RacePresets/Dhampir_Standard_VisualPreset.json",
+    "File:RacePresets/Dhampir_Standard_VisualPreset_fat.json",
+    "File:RacePresets/Dhampir_Standard_VisualPreset_thin.json"
+  ],
+  "MaleOptions": {
+    "$id": "2",
+    "$type": "Kingmaker.Blueprints.CharGen.CustomizationOptions, Assembly-CSharp",
+    "Heads": [
+      "File:DhampirEE/EE_Head_Face01_M_DHAMPIR.json"
+    ],
+    "Eyebrows": [
+      "Resource:9edf6b60bbf4d834facd4789837a3e0b:Meshes&EE/Male/EE_Eyebrows_Face01_M_HM"
+    ],
+    "Hair": [
+      "Resource:d37eb08d7aa2bce4d8cd3e807e185b12:Meshes&EE/Male/EE_Hair_HairShort_M_HM",
+      "Resource:6a812788ed84107468921a8e80937cda:Meshes&EE/Male/EE_Hair_HairMedium_M_HM",
+      "Resource:62cf1dbe82c90384cb658ac3499325d7:Meshes&EE/Male/EE_Hair_Mohawk_M_HM",
+      "Resource:b0879a57dc1ecdb4ca72f7b915202926:Meshes&EE/Male/EE_Hair_PonytailClassic_M_HM",
+      "Resource:a9558cfc0705d4e48af7ecd2ebd75411:Meshes&EE/Male/EE_Hair_HairLongWavy_M_HM",
+      "Resource:279c216501d709041b040c76161ba299:Meshes&EE/Male/EE_Hair_HairMediumBun_M_HM",
+      "Resource:79d6abe5ac201d54c852d7f4a452876f:Meshes&EE/Male/EE_Hair_HairLongCurly_M_HM",
+      "Resource:686e5b707afa91d4eba7f3b7e94859ec:Meshes&EE/Male/EE_Hair_HairUncombed_M_HM",
+      "Resource:f283c87e2db77e648a7d4c1ae1b1f79c:Meshes&EE/Male/EE_FacialandHair_Empty_U_Any"
+    ],
+    "Beards": [
+      "Resource:f283c87e2db77e648a7d4c1ae1b1f79c:Meshes&EE/Male/EE_FacialandHair_Empty_U_Any",
+      "Resource:5164572594050ae4ebf0f1982273e203:Meshes&EE/Male/EE_Facial_Bristle_M_HM",
+      "Resource:108a90f9e754aa24092d4372f08ce98b:Meshes&EE/Male/EE_Facial_BeardShort_M_HM",
+      "Resource:d930decdcdf2e0046a9251e56c841feb:Meshes&EE/Male/EE_Facial_BeardMedium_M_HM",
+      "Resource:ce342e2169019e14d98dfb681002beb5:Meshes&EE/Male/EE_Facial_MoustacheGoatee_M_HM",
+      "Resource:82ab9511927420d44bc6189f2d101918:Meshes&EE/Male/EE_Facial_ChinCurtain_M_HM",
+      "Resource:b40cbbe514405d54b990503cb6a1d3b7:Meshes&EE/Male/EE_Facial_FriendlyMuttonChops_M_HM",
+      "Resource:8a7d63a7231caad4fa9b96f8e030c76d:Meshes&EE/Male/EE_Facial_BeardWiseman_M_HM",
+      "Resource:cdc1cce085875fd459c860940c15950b:Meshes&EE/Male/EE_Facial_BeardOldmanLong_M_HM"
+    ]
+  },
+  "FemaleOptions": {
+    "$id": "3",
+    "$type": "Kingmaker.Blueprints.CharGen.CustomizationOptions, Assembly-CSharp",
+    "Heads": [
+            "File:DhampirEE/EE_Head_Face01_F_DHAMPIR.json"
+    ],
+    "Eyebrows": [
+      "Resource:2825e6468fcea8848aa29b8941650081:Meshes&EE/Female/EE_Eyebrows_Face01_F_HM"
+    ],
+    "Hair": [
+      "Resource:9c056dfe89108d04783971d02e86c3a6:Meshes&EE/Female/EE_Hair_HairLong_F_HM",
+      "Resource:2c853a2e9e482ae4fb3a7719235d52ba:Meshes&EE/Female/EE_Hair_HairSlick_F_HM",
+      "Resource:ff718e682632a7c488488765534d2c53:Meshes&EE/Female/EE_Hair_BowlCut_F_HM",
+      "Resource:a2dce84d8be76d242b364083296bbc73:Meshes&EE/Female/EE_Hair_PonytailClassic_F_HM",
+      "Resource:92abcd50f4b772046a1c9bc68d03cce3:Meshes&EE/Female/EE_Hair_HairSideKare_F_HM",
+      "Resource:981dc6e470055a34a92129cb70563b11:Meshes&EE/Female/EE_Hair_BobCut_F_HM",
+      "Resource:6f1628fe5907ba84ab99455b712d8823:Meshes&EE/Female/EE_Hair_HairMedium_F_HM",
+      "Resource:d62b4175210709447b202eedb80a7c9d:Meshes&EE/Female/EE_Hair_PonyTailUpper_F_HM",
+      "Resource:994ec31442e763d4580ac72cd8ef6108:Meshes&EE/Female/EE_Hair_HairLongWavy_F_HM",
+      "Resource:f283c87e2db77e648a7d4c1ae1b1f79c:Meshes&EE/Male/EE_FacialandHair_Empty_U_Any"
+    ],
+    "Beards": []
+  },
+  "MaleSpeedSettings": {
+    "$id": "4",
+    "$type": "Kingmaker.View.Animation.UnitAnimationSettings, Assembly-CSharp",
+    "MovementSpeedCoeff": 1.0,
+    "OverrideSlowWalk": true,
+    "SlowWalkCoeff": 2.0,
+    "OverrideSlowWalkNonCombat": true,
+    "SlowWalkNonCombatCoeff": 1.8,
+    "OverrideNormal": true,
+    "NormalCoeff": 0.85,
+    "OverrideNormalNonCombat": true,
+    "NormalNonCombatCoeff": 0.85,
+    "OverrideCharge": true,
+    "ChargeCoeff": 0.5,
+    "OverrideChargeNonCombat": false,
+    "ChargeNonCombatCoeff": 1.0,
+    "OverrideStealth": false,
+    "StealthCoeff": 1.0,
+    "OverrideStealthNonCombat": false,
+    "StealthNonCombatCoeff": 1.0
+  },
+  "FemaleSpeedSettings": {
+    "$id": "5",
+    "$type": "Kingmaker.View.Animation.UnitAnimationSettings, Assembly-CSharp",
+    "MovementSpeedCoeff": 1.0,
+    "OverrideSlowWalk": true,
+    "SlowWalkCoeff": 2.1,
+    "OverrideSlowWalkNonCombat": true,
+    "SlowWalkNonCombatCoeff": 1.8,
+    "OverrideNormal": true,
+    "NormalCoeff": 0.87,
+    "OverrideNormalNonCombat": true,
+    "NormalNonCombatCoeff": 0.87,
+    "OverrideCharge": true,
+    "ChargeCoeff": 0.5,
+    "OverrideChargeNonCombat": false,
+    "ChargeNonCombatCoeff": 1.0,
+    "OverrideStealth": false,
+    "StealthCoeff": 1.0,
+    "OverrideStealthNonCombat": false,
+    "StealthNonCombatCoeff": 1.0
+  },
+  "Groups": [],
+  "Ranks": 1,
+  "ReapplyOnLevelUp": false,
+  "HideInUI": false,
+  "m_AllowNonContextActions": false,
+  "m_DisplayName": "CustomString:DhampirRaceName",
+  "m_Description": "CustomString:DhampirRaceDescription",
+  "m_Icon": null,
+  "Components": [
+    {
+      "$id": "6",
+      "$type": "Kingmaker.UnitLogic.FactLogic.AddStatBonus, Assembly-CSharp",
+      "Descriptor": "racial",
+      "Stat": "dexterity",
+      "Value": 2,
+      "ScaleByBasicAttackBonus": false,
+      "name": "$AddStatBonus$86c8aa3c-8fcf-422c-96a6-7a1e790b0052"
+    },
+    {
+      "$id": "7",
+      "$type": "Kingmaker.UnitLogic.FactLogic.AddStatBonus, Assembly-CSharp",
+      "Descriptor": "racial",
+      "Stat": "charisma",
+      "Value": 2,
+      "ScaleByBasicAttackBonus": false,
+      "name": "$AddStatBonus$1af5c609-b3a8-4791-ab6e-246bdbf96d68"
+    },
+    {
+      "$id": "8",
+      "$type": "Kingmaker.UnitLogic.FactLogic.AddStatBonus, Assembly-CSharp",
+      "Descriptor": "racial",
+      "Stat": "constitution",
+      "Value": -2,
+      "ScaleByBasicAttackBonus": false,
+      "name": "$AddStatBonus$a9cb1661-0d1b-4f64-a9af-5660e1f31609"
+    }
+  ],
+  "m_AssetGuid": "DhampirRace",
+  "name": "DhampirRace"
+}

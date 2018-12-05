@@ -3,6 +3,7 @@ using Kingmaker.Blueprints.CharGen;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Weapons;
+using Kingmaker.View;
 using Kingmaker.Visual.CharacterSystem;
 using System;
 using System.Collections.Generic;
@@ -80,6 +81,15 @@ namespace CustomRaces
             foreach (var kv in ResourcesLibrary.LibraryObject.ResourcePathsByAssetId)
             {
                 var resource = ResourcesLibrary.TryGetResource<EquipmentEntity>(kv.Key);
+                if (resource == null) continue;
+                JsonBlueprints.Dump(resource, kv.Key);
+            }
+        }
+        public static void DumpUnitViews()
+        {
+            foreach (var kv in ResourcesLibrary.LibraryObject.ResourcePathsByAssetId)
+            {
+                var resource = ResourcesLibrary.TryGetResource<UnitEntityView>(kv.Key);
                 if (resource == null) continue;
                 JsonBlueprints.Dump(resource, kv.Key);
             }

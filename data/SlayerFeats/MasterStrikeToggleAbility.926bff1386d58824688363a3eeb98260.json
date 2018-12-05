@@ -1,0 +1,33 @@
+{
+  "$id": "1",
+  "$type": "Kingmaker.UnitLogic.ActivatableAbilities.BlueprintActivatableAbility, Assembly-CSharp",
+  "m_ActivateWithUnitCommand": "free",
+  "m_ActivateOnUnitAction": "attack",
+  "Buff": "Blueprint:eab680abdb0194343af169af393c2603:MasterStrikeBuff",
+  "Group": "none",
+  "WeightInGroup": 1,
+  "IsOnByDefault": true,
+  "DeactivateIfCombatEnded": false,
+  "DeactivateAfterFirstRound": false,
+  "DeactivateImmediately": true,
+  "IsTargeted": false,
+  "DeactivateIfOwnerDisabled": false,
+  "DeactivateIfOwnerUnconscious": false,
+  "OnlyInCombat": false,
+  "ActivationType": "immediately",
+  "ActivateWithUnitAnimation": null,
+  "ResourceAssetIds": [
+    "a5ed191441490664f8649d54efdf02e1"
+  ],
+  "m_AllowNonContextActions": false,
+  "m_DisplayName": "LocalizedString::Master Strike",
+  "m_Description": "LocalizedString::Upon reaching 20th l...",
+  "m_Icon": {
+    "$type": "Sprite",
+    "name": "SlayLiving",
+    "InstanceId": 52468
+  },
+  "Components": [],
+  "m_AssetGuid": "926bff1386d58824688363a3eeb98260",
+  "name": "MasterStrikeToggleAbility"
+}

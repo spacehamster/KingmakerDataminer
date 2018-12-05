@@ -1,0 +1,112 @@
+{
+  "$id": "1",
+  "$type": "Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility, Assembly-CSharp",
+  "m_TargetMapObjects": false,
+  "m_IsFullRoundAction": false,
+  "Type": "supernatural",
+  "Range": "long",
+  "CustomRange": {
+    "$id": "2",
+    "$type": "Kingmaker.Utility.Feet, Assembly-CSharp",
+    "m_Value": 0.0
+  },
+  "CanTargetPoint": true,
+  "CanTargetEnemies": false,
+  "CanTargetFriends": false,
+  "CanTargetSelf": true,
+  "SpellResistance": false,
+  "ActionBarAutoFillIgnored": false,
+  "NeedEquipWeapons": false,
+  "EffectOnAlly": "none",
+  "EffectOnEnemy": "none",
+  "Parent": null,
+  "Animation": "directional",
+  "HasFastAnimation": false,
+  "AnimationStyle": "castActionDirectional",
+  "ActionType": "standard",
+  "AvailableMetamagic": "quicken, heighten",
+  "LocalizedDuration": "LocalizedString::",
+  "LocalizedSavingThrow": "LocalizedString::",
+  "MaterialComponent": {
+    "$id": "3",
+    "$type": "Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility+MaterialComponentData, Assembly-CSharp",
+    "Item": null,
+    "Count": 1
+  },
+  "DisableLog": false,
+  "ResourceAssetIds": [
+    "29bb4058eb646dd49b909be89934d70a",
+    "c8e3b1d56312507489007bd0dfd62338",
+    "f000417116d576b49ac3c4636d51888b",
+    "29bb4058eb646dd49b909be89934d70a",
+    "29bb4058eb646dd49b909be89934d70a",
+    "5db167178f0854f438e4a184c79fc49f"
+  ],
+  "m_AllowNonContextActions": false,
+  "m_DisplayName": "LocalizedString::Ki Power: Abundant S...",
+  "m_Description": "LocalizedString::At 8th level or high...",
+  "m_Icon": {
+    "$type": "Sprite",
+    "name": "DismentiomDoor",
+    "InstanceId": 54084
+  },
+  "Components": [
+    {
+      "$id": "4",
+      "$type": "Kingmaker.UnitLogic.Abilities.Components.AbilityResourceLogic, Assembly-CSharp",
+      "RequiredResource": "Blueprint:9d9c90a9a1f52d04799294bf91c80a82:KiPowerResource",
+      "IsSpendResource": true,
+      "CostIsCustom": false,
+      "Amount": 2,
+      "ResourceCostIncreasingFacts": [],
+      "name": "$AbilityResourceLogic$dfe8a8a5-0626-4b2b-baa7-64c5d9d662dd"
+    },
+    {
+      "$id": "5",
+      "$type": "Kingmaker.UnitLogic.Abilities.Components.AbilityCustomDimensionDoor, Assembly-CSharp",
+      "Radius": {
+        "$id": "6",
+        "$type": "Kingmaker.Utility.Feet, Assembly-CSharp",
+        "m_Value": 0.0
+      },
+      "PortalFromPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 43098,
+        "name": "DimensionDoor00_PortalEnter"
+      },
+      "PortalToPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 43100,
+        "name": "DimensionDoor00_PortalOut"
+      },
+      "PortalBone": "Offset",
+      "CasterDisappearFx": {
+        "$type": "GameObject",
+        "InstanceId": 43094,
+        "name": "DimensionDoor00_CasterBuff"
+      },
+      "CasterAppearFx": {
+        "$type": "GameObject",
+        "InstanceId": 43108,
+        "name": "DimensionDoor00_Spawn"
+      },
+      "SideDisappearFx": {
+        "$type": "GameObject",
+        "InstanceId": 43094,
+        "name": "DimensionDoor00_CasterBuff"
+      },
+      "SideAppearFx": {
+        "$type": "GameObject",
+        "InstanceId": 43108,
+        "name": "DimensionDoor00_Spawn"
+      },
+      "CasterDisappearProjectile": "Blueprint:b9a3f1855ab08bf42a8b119818bcc6dd:DimensionDoor00_CasterDisappear",
+      "CasterAppearProjectile": "Blueprint:4125f30c999bddc4492bf91d73c4cf64:DimensionDoor00_CasterAppear",
+      "SideDisappearProjectile": "Blueprint:cdaff4fd8665656409ddffe42fbc07c1:DimensionDoor00_SideDisappear",
+      "SideAppearProjectile": "Blueprint:6c72207ef86803543b4b13352bcc5cf6:DimensionDoor00_SideAppear",
+      "name": "$AbilityCustomDimensionDoor$ede4b5cc-1227-45ab-a199-947fee5d0d55"
+    }
+  ],
+  "m_AssetGuid": "336a841704b7e2341b51f89fc9491f54",
+  "name": "KiAbudantStep"
+}

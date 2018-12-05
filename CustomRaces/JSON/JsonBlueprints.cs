@@ -53,11 +53,9 @@ namespace CustomRaces
                 DateParseHandling = DateParseHandling.DateTime,
                 DateTimeZoneHandling = DateTimeZoneHandling.RoundtripKind,
                 DefaultValueHandling = DefaultValueHandling.Include,
-                //Error = SkipJsonErrors,
                 FloatFormatHandling = FloatFormatHandling.String,
                 FloatParseHandling = FloatParseHandling.Double,
                 Formatting = Formatting.Indented,
-                // MaxDepth = 12, // ignored
                 MetadataPropertyHandling = MetadataPropertyHandling.ReadAhead,
                 MissingMemberHandling = MissingMemberHandling.Ignore,
                 NullValueHandling = NullValueHandling.Include,
@@ -107,7 +105,7 @@ namespace CustomRaces
                 serializer.Serialize(writer, blueprint);
             }
         }
-        public static void Dump(EquipmentEntity ee, string assetId)
+        public static void Dump(UnityEngine.Object ee, string assetId)
         {
             Directory.CreateDirectory($"Blueprints/{ee.GetType()}");
             JsonSerializer serializer
@@ -120,12 +118,5 @@ namespace CustomRaces
 
             }
         }
-        private static void SkipJsonErrors(object o, Newtonsoft.Json.Serialization.ErrorEventArgs err)
-        {
-            throw new Exception(err.ToString());
-            err.ErrorContext.Handled = true;
-        }
-
-
     }
 }

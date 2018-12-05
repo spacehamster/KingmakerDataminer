@@ -1,0 +1,37 @@
+{
+  "$id": "1",
+  "$type": "Kingmaker.Blueprints.Classes.BlueprintFeature, Assembly-CSharp",
+  "Groups": [],
+  "Ranks": 1,
+  "ReapplyOnLevelUp": false,
+  "HideInUI": false,
+  "m_AllowNonContextActions": false,
+  "m_DisplayName": "CustomString:MasterSlayerName",
+  "m_Description": "CustomString:MasterSlayerDescription",
+  "m_Icon": {
+    "$type": "Sprite",
+    "name": "SlayLiving",
+    "InstanceId": 52468
+  },
+  "Components": [
+    {
+      "$id": "2",
+      "$type": "Kingmaker.UnitLogic.FactLogic.AddFacts, Assembly-CSharp",
+      "Facts": [
+        "Blueprint:926bff1386d58824688363a3eeb98260:MasterStrikeToggleAbility"
+      ],
+      "name": "$AddFacts$ecfd10d7-acb4-4643-93d0-392739e014c3"
+    },
+    {
+      "$id": "7",
+      "$type": "Kingmaker.Designers.Mechanics.Facts.AddAbilityResources, Assembly-CSharp",
+      "UseThisAsResource": false,
+      "Resource": "Blueprint:09156c2a513d27f4781505f486c4ac4e:MasterHunterResource",
+      "Amount": 0,
+      "RestoreAmount": true,
+      "name": "$AddAbilityResources$b10cb816-eedd-45d1-a2ba-6ad9b3d3a9f9"
+    }
+  ],
+  "m_AssetGuid": "MasterSlayer",
+  "name": "MasterSlayer"
+}

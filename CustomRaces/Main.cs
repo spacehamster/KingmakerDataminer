@@ -89,14 +89,20 @@ namespace CustomRaces
                 {
                     AssetsDump.DumpEquipmentEntities();
                 }
+                if (GUILayout.Button("DumpUnitViews"))
+                {
+                    AssetsDump.DumpUnitViews();
+                }
                 if (GUILayout.Button("DumpList"))
                 {
                     AssetsDump.DumpList();
                 }
                 if (GUILayout.Button("TestLoad"))
                 {
-                    var bp = JsonBlueprints.Load<BlueprintCharacterClass>("mods/customraces/data/slayerclass.json");
-                    DebugLog("Loaded " + (bp?.name ?? "NULL"));
+                    //var bp = JsonBlueprints.Load<BlueprintCharacterClass>("mods/customraces/data/slayerclass.json");
+                    //DebugLog("Loaded " + (bp?.name ?? "NULL"));
+                    var info = BlueprintInfo.Load();
+                    DebugLog("Loaded " + info.Classes[0].name);
                 }
                 if (GUILayout.Button("FindObject"))
                 {

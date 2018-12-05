@@ -1,0 +1,6747 @@
+{
+  "$id": "1",
+  "$type": "Kingmaker.Blueprints.CharGen.BlueprintRaceVisualPreset, Assembly-CSharp",
+  "RaceId": "human",
+  "MaleSkeleton": {
+    "$id": "2",
+    "$type": "Kingmaker.Visual.CharacterSystem.Skeleton, Assembly-CSharp",
+    "Bones": [
+      {
+        "$id": "3",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "MaleHuman",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "4",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Global",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "5",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Position",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "6",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Pelvis",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "7",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_Cape_belt_00",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "8",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_Cape_belt_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "9",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_Cape_belt_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "10",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_Cape_belt_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "11",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_Cape_belt_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "12",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_front_w____scale_03",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "13",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_front_weapon_slot_03",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "14",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_front_weapon_slot_03_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "15",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Cape_Belt_Scaler_00",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "16",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Cape_belt_00",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "17",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Cape_belt_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "18",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Cape_belt_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "19",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Cape_belt_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "20",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Cape_belt_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "21",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Cape_belt_00",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "22",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Cape_belt_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "23",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Cape_belt_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "24",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Cape_belt_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "25",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Cape_belt_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "26",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_front_w____scale_04",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "27",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_front_weapon_slot_04",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "28",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_front_weapon_slot_04_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          -0.02,
+          0.0
+        ],
+        "ApplyOffset": true
+      },
+      {
+        "$id": "29",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_front_w____scale_05",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "30",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_front_weapon_slot_05",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "31",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_front_weapon_slot_05_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "32",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Pre_Up_Leg",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "33",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Up_leg",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "34",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_leg",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "35",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Ankle_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "36",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_foot",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "37",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_foot_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "38",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_toe",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "39",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_toe_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "40",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_leg_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "41",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Sceart_____Back_00",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "42",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Sceart_Back_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "43",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Sceart_Back_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "44",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Sceart_Back_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "45",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Sceart_Back_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "46",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Sceart_____Front_00",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "47",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Sceart_Front_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "48",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Sceart_Font_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "49",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Sceart_Font_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "50",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Sceart_Front_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "51",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Up_leg_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "52",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Pelvis_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "53",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_front_w____scale_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "54",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_front_weapon_slot_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "55",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_front_weapon_slot_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "56",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_front_w____scale_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "57",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_front_weapon_slot_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "58",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_front_weapon_slot_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "59",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Pre_Up_Leg",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "60",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Up_leg",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "61",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_leg",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "62",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Ankle_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "63",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_foot",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "64",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_foot_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "65",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_toe",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "66",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_toe_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "67",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_leg_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "68",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Sceart_____Back_00",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "69",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Sceart_Back_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "70",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Sceart_Back_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "71",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Sceart_Back_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "72",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Sceart_Back_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "73",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Sceart_____Front_00",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "74",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Sceart_Front_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "75",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Sceart_Font_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "76",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Sceart_Font_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "77",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Sceart_Front_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "78",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Up_leg_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "79",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Spine_1",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "80",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Spine_1_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "81",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Spine_2",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "82",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_back_w_____slot_11",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "83",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_back_weapon_slot_11",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "84",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_back_weapon_slot_11_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "85",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Spine_2_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "86",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Spine_3",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "87",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_back_w_____slot_08",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "88",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_back_weapon_slot_08",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "89",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_back_weapon_slot_08_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          -0.03,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "90",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_Cape_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "91",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_Cape_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "92",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_Cape_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "93",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_Cape_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "94",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_Cape_03",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "95",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_Cape_03_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "96",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_Cape_04",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "97",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_Cape_04_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "98",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_back_w_____slot_07",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "99",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_back_weapon_slot_07",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "100",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_back_weapon_slot_07_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "101",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_back_w_____slot_10",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "102",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_back_weapon_slot_10",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "103",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_back_weapon_slot_10_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "104",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Clavicle",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "105",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Cape_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "106",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Cape_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "107",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Cape_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "108",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Cape_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "109",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Cape_03",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "110",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Cape_03_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "111",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Cape_04",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "112",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Cape_04_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "113",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Clavicle_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "114",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Up_arm",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "115",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_ForeArm",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "116",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_ForeArm_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "117",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Hand",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "118",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Hand_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "119",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_1_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "120",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_1_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "121",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_1_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "122",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_1_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "123",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_2_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "124",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_2_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "125",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_2_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "126",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_2_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "127",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_3_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "128",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_3_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "129",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_3_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "130",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_3_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "131",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Up_arm_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "132",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Up_Arm_Muscl_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "133",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Neck_Muscl",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "134",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Neck_Muscl_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "135",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Neck",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "136",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Head",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "137",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Head_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "138",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Head_Helmet_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "139",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Neck_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "140",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_back_w_____slot_06",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "141",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_back_weapon_slot_06",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "142",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_back_weapon_slot_06_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "143",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_back_w_____slot_09",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "144",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_back_weapon_slot_09",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "145",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_back_weapon_slot_09_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "146",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Clavicle",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "147",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Cape_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "148",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Cape_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "149",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Cape_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "150",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Cape_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "151",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Cape_03",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "152",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Cape_03_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "153",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Cape_04",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "154",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Cape_04_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "155",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Clavicle_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "156",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Up_arm",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "157",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_ForeArm",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "158",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_ForeArm_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "159",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Hand",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "160",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Hand_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "161",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_1_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "162",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_1_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "163",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_1_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "164",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_1_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "165",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_2_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "166",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_2_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "167",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_2_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "168",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_2_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "169",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_3_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "170",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_3_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "171",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_3_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "172",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_3_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "173",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Up_arm_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "174",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Up_Arm_Muscl_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "175",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Neck_Muscl",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "176",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Neck_Muscl_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "177",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Spine_3_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "178",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Stomach",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "179",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Stomach_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": true
+      }
+    ],
+    "CharacterFxBonesMap": {
+      "$id": "180",
+      "$type": "Kingmaker.Visual.CharacterSystem.CharacterFxBonesMap, Assembly-CSharp",
+      "ParticleSizeScale": 1.25,
+      "SizeScale": 0.95,
+      "LifetimeScale": 0.95,
+      "RateOverTimeScale": 0.95,
+      "BurstScale": 0.95,
+      "Bones": [
+        {
+          "$id": "181",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_HeadCenterFX_00",
+          "Aliases": [],
+          "ParticleSize": 1.0,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.115,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "182",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_TorsoCenterFX",
+          "Aliases": [],
+          "ParticleSize": 1.0,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.275,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "183",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_GroundFX",
+          "Aliases": [],
+          "ParticleSize": 1.0,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.45,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "184",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_HitFX_00",
+          "Aliases": [],
+          "ParticleSize": 1.0,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.3,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "185",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_HitCriticalFX_00",
+          "Aliases": [],
+          "ParticleSize": 1.0,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.3,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "186",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Foot0FX_Left",
+          "Aliases": [],
+          "ParticleSize": 1.0,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.26,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "187",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Foot0FX_Right",
+          "Aliases": [],
+          "ParticleSize": 1.0,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.26,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "188",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_PalmFX_Left",
+          "Aliases": [],
+          "ParticleSize": 1.0,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.085,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "189",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_PalmFX_Right",
+          "Aliases": [],
+          "ParticleSize": 1.0,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.085,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "190",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_LeftUpper_00",
+          "Aliases": [],
+          "ParticleSize": 0.1725,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.13,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "191",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_LeftUpper_01",
+          "Aliases": [],
+          "ParticleSize": 0.16,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.15,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "192",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_LeftUpper_02",
+          "Aliases": [],
+          "ParticleSize": 0.1265,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.13,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "193",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_LeftLower_00",
+          "Aliases": [],
+          "ParticleSize": 0.1265,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.1,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "194",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_LeftLower_01",
+          "Aliases": [],
+          "ParticleSize": 0.12,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.085,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "195",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_LeftLower_02",
+          "Aliases": [],
+          "ParticleSize": 0.1,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.08,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "196",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Palm_Left_00",
+          "Aliases": [],
+          "ParticleSize": 0.09,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.065,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "197",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Palm_Left_01",
+          "Aliases": [],
+          "ParticleSize": 0.1,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.085,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "198",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_RightUpper_00",
+          "Aliases": [],
+          "ParticleSize": 0.1725,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.13,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "199",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_RightUpper_01",
+          "Aliases": [],
+          "ParticleSize": 0.16,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.15,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "200",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_RightUpper_02",
+          "Aliases": [],
+          "ParticleSize": 0.1265,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.13,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "201",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_RightLower_00",
+          "Aliases": [],
+          "ParticleSize": 0.1265,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.1,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "202",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_RightLower_01",
+          "Aliases": [],
+          "ParticleSize": 0.12,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.085,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "203",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_RightLower_02",
+          "Aliases": [],
+          "ParticleSize": 0.1,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.08,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "204",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Palm_Right_00",
+          "Aliases": [],
+          "ParticleSize": 0.09,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.065,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "205",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Palm_Right_01",
+          "Aliases": [],
+          "ParticleSize": 0.1,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.085,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "206",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_LeftUpper_00",
+          "Aliases": [],
+          "ParticleSize": 0.23,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.25,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "207",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_LeftUpper_01",
+          "Aliases": [],
+          "ParticleSize": 0.25,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.25,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "208",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_LeftUpper_02",
+          "Aliases": [],
+          "ParticleSize": 0.185,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.21,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "209",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_LeftLower_00",
+          "Aliases": [],
+          "ParticleSize": 0.19,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.21,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "210",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_LeftLower_01",
+          "Aliases": [],
+          "ParticleSize": 0.19,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.22,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "211",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_LeftLower_02",
+          "Aliases": [],
+          "ParticleSize": 0.161,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.19,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "212",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_LeftLower_03",
+          "Aliases": [],
+          "ParticleSize": 0.14,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.15,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "213",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Foot0_Left_00",
+          "Aliases": [],
+          "ParticleSize": 0.15,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.12,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "214",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Foot0_Left_01",
+          "Aliases": [],
+          "ParticleSize": 0.13,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.09,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "215",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Foot0_Left_02",
+          "Aliases": [],
+          "ParticleSize": 0.14,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.08,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "216",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_RightUpper_00",
+          "Aliases": [],
+          "ParticleSize": 0.23,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.25,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "217",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_RightUpper_01",
+          "Aliases": [],
+          "ParticleSize": 0.25,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.25,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "218",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_RightUpper_02",
+          "Aliases": [],
+          "ParticleSize": 0.185,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.21,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "219",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_RightLower_00",
+          "Aliases": [],
+          "ParticleSize": 0.19,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.21,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "220",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_RightLower_01",
+          "Aliases": [],
+          "ParticleSize": 0.19,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.22,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "221",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_RightLower_02",
+          "Aliases": [],
+          "ParticleSize": 0.161,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.19,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "222",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_RightLower_03",
+          "Aliases": [],
+          "ParticleSize": 0.14,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.15,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "223",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Foot0_Right_00",
+          "Aliases": [],
+          "ParticleSize": 0.15,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.12,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "224",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Foot0_Right_01",
+          "Aliases": [],
+          "ParticleSize": 0.13,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.09,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "225",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Foot0_Right_02",
+          "Aliases": [],
+          "ParticleSize": 0.14,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.08,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "226",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Torso_Lower_00",
+          "Aliases": [],
+          "ParticleSize": 0.32,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.3,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "227",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Torso_Upper_00",
+          "Aliases": [],
+          "ParticleSize": 0.32,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.23,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "228",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Head_00",
+          "Aliases": [],
+          "ParticleSize": 0.21,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.18,
+          "Flags": 0,
+          "Transform": null
+        }
+      ],
+      "name": "MaleHuman_FxBonesMap"
+    },
+    "RaceBoneHierarchyObject": {
+      "$type": "GameObject",
+      "InstanceId": 56766,
+      "name": "MaleHuman"
+    },
+    "CloakScaleFudge": 1.0,
+    "name": "MaleHuman"
+  },
+  "FemaleSkeleton": {
+    "$id": "229",
+    "$type": "Kingmaker.Visual.CharacterSystem.Skeleton, Assembly-CSharp",
+    "Bones": [
+      {
+        "$id": "230",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "FemaleHuman",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "231",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Global",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "232",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Position",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "233",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Pelvis",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "234",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_front_w____scale_03",
+        "Scale": [
+          0.8234027,
+          0.8234027,
+          0.8234027
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "235",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_front_weapon_slot_03",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "236",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_front_weapon_slot_03_ADJ",
+        "Scale": [
+          1.24189472,
+          1.24189472,
+          1.24189472
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "237",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_front_w____scale_04",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "238",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_front_weapon_slot_04",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "239",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_front_weapon_slot_04_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "240",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_front_w____scale_05",
+        "Scale": [
+          1.20400965,
+          1.20400965,
+          1.20400965
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "241",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_front_weapon_slot_05",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "242",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_front_weapon_slot_05_ADJ",
+        "Scale": [
+          0.787935436,
+          0.787935436,
+          0.787935436
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "243",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Pre_Up_Leg",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "244",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Up_leg",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "245",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_A",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "246",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_A_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "247",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_leg",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "248",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Ankle_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "249",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_foot",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "250",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_foot_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "251",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_toe",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "252",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_toe_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "253",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_leg_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "254",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Sceart_____Back_00",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "255",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Sceart_Back_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "256",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Sceart_Back_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "257",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Sceart_Back_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "258",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Sceart_Back_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "259",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Sceart_____Front_00",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "260",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Sceart_Front_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "261",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Sceart_Font_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "262",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Sceart_Font_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "263",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Sceart_Front_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "264",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Up_leg_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "265",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Pelvis_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "266",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_front_w____scale_01",
+        "Scale": [
+          1.20400965,
+          1.20400965,
+          1.20400965
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "267",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_front_weapon_slot_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "268",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_front_weapon_slot_01_ADJ",
+        "Scale": [
+          0.787935436,
+          0.787935436,
+          0.787935436
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "269",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_front_w____scale_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "270",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_front_weapon_slot_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "271",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_front_weapon_slot_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "272",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Pre_Up_Leg",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "273",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Up_leg",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "274",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_A",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "275",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_A_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "276",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_leg",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "277",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Ankle_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "278",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_foot",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "279",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_foot_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "280",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_toe",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "281",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_toe_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "282",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_leg_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "283",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Sceart_____Back_00",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "284",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Sceart_Back_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "285",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Sceart_Back_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "286",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Sceart_Back_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "287",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Sceart_Back_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "288",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Sceart_____Front_00",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "289",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Sceart_Front_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "290",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Sceart_Font_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "291",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Sceart_Font_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "292",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Sceart_Front_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "293",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Up_leg_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "294",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Spine_1",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "295",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Spine_1_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "296",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Spine_2",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "297",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_back_w_____slot_11",
+        "Scale": [
+          0.6,
+          0.6,
+          0.6
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "298",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_back_weapon_slot_11",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "299",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_back_weapon_slot_11_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "300",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Spine_2_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "301",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Spine_3",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "302",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_back_w_____slot_08",
+        "Scale": [
+          0.827122867,
+          0.827122867,
+          0.827122867
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "303",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_back_weapon_slot_08",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "304",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "C_back_weapon_slot_08_ADJ",
+        "Scale": [
+          1.22600687,
+          1.22600687,
+          1.22600687
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "305",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_B",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "306",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_B_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "307",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_back_w_____slot_07",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "308",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_back_weapon_slot_07",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "309",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_back_weapon_slot_07_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "310",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_back_w_____slot_10",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "311",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_back_weapon_slot_10",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "312",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_back_weapon_slot_10_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "313",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Clavicle",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "314",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Clavicle_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "315",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Up_arm",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "316",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_ForeArm",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "317",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_ForeArm_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "318",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Hand",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "319",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Hand_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "320",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_1_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "321",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_1_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "322",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_1_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "323",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_1_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "324",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_2_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "325",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_2_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "326",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_2_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "327",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_2_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "328",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_3_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "329",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_3_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "330",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_3_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "331",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Toe_3_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "332",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Up_arm_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "333",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Up_Arm_Muscl_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "334",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Neck_Muscl",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "335",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "L_Neck_Muscl_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "336",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Neck",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "337",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Head",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "338",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Head_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "339",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Head_helmet_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "340",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Neck_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "341",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_B",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "342",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_B_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "343",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_back_w_____slot_06",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "344",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_back_weapon_slot_06",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "345",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_back_weapon_slot_06_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "346",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_back_w_____slot_09",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "347",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_back_weapon_slot_09",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "348",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_back_weapon_slot_09_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "349",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Clavicle",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "350",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Clavicle_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "351",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Up_arm",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "352",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_ForeArm",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "353",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_ForeArm_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "354",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Hand",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "355",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Hand_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "356",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_1_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "357",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_1_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "358",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_1_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "359",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_1_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "360",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_2_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "361",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_2_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "362",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_2_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "363",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_2_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "364",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_3_01",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "365",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_3_01_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "366",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_3_02",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "367",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Toe_3_02_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "368",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Up_arm_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "369",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Up_Arm_Muscl_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "370",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Neck_Muscl",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "371",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "R_Neck_Muscl_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "372",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Spine_3_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "373",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Stomach",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      },
+      {
+        "$id": "374",
+        "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
+        "Name": "Stomach_ADJ",
+        "Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ApplyOffset": false
+      }
+    ],
+    "CharacterFxBonesMap": {
+      "$id": "375",
+      "$type": "Kingmaker.Visual.CharacterSystem.CharacterFxBonesMap, Assembly-CSharp",
+      "ParticleSizeScale": 1.4,
+      "SizeScale": 0.88,
+      "LifetimeScale": 0.9,
+      "RateOverTimeScale": 0.9,
+      "BurstScale": 0.9,
+      "Bones": [
+        {
+          "$id": "376",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_HeadCenterFX_00",
+          "Aliases": [],
+          "ParticleSize": 1.0,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.115,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "377",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_TorsoCenterFX",
+          "Aliases": [],
+          "ParticleSize": 1.0,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.275,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "378",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_GroundFX",
+          "Aliases": [],
+          "ParticleSize": 1.0,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.45,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "379",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_HitFX_00",
+          "Aliases": [],
+          "ParticleSize": 1.0,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.25,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "380",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_HitCriticalFX_00",
+          "Aliases": [],
+          "ParticleSize": 1.0,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.25,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "381",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Foot0FX_Left",
+          "Aliases": [],
+          "ParticleSize": 1.0,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.26,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "382",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Foot0FX_Right",
+          "Aliases": [],
+          "ParticleSize": 1.0,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.26,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "383",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_PalmFX_Left",
+          "Aliases": [],
+          "ParticleSize": 1.0,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.07,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "384",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_PalmFX_Right",
+          "Aliases": [],
+          "ParticleSize": 1.0,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.07,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "385",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_LeftUpper_00",
+          "Aliases": [],
+          "ParticleSize": 0.1725,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.13,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "386",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_LeftUpper_01",
+          "Aliases": [],
+          "ParticleSize": 0.138,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.13,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "387",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_LeftUpper_02",
+          "Aliases": [],
+          "ParticleSize": 0.1265,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.1,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "388",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_LeftLower_00",
+          "Aliases": [],
+          "ParticleSize": 0.1265,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.1,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "389",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_LeftLower_01",
+          "Aliases": [],
+          "ParticleSize": 0.1035,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.075,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "390",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_LeftLower_02",
+          "Aliases": [],
+          "ParticleSize": 0.1035,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.07,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "391",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Palm_Left_00",
+          "Aliases": [],
+          "ParticleSize": 0.115,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.07,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "392",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Palm_Left_01",
+          "Aliases": [],
+          "ParticleSize": 0.115,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.07,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "393",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_RightUpper_00",
+          "Aliases": [],
+          "ParticleSize": 0.1725,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.13,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "394",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_RightUpper_01",
+          "Aliases": [],
+          "ParticleSize": 0.138,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.13,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "395",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_RightUpper_02",
+          "Aliases": [],
+          "ParticleSize": 0.1265,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.1,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "396",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_RightLower_00",
+          "Aliases": [],
+          "ParticleSize": 0.1265,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.1,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "397",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_RightLower_01",
+          "Aliases": [],
+          "ParticleSize": 0.1035,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.075,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "398",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Arm_RightLower_02",
+          "Aliases": [],
+          "ParticleSize": 0.1035,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.07,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "399",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Palm_Right_00",
+          "Aliases": [],
+          "ParticleSize": 0.115,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.07,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "400",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Palm_Right_01",
+          "Aliases": [],
+          "ParticleSize": 0.115,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.07,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "401",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_LeftUpper_00",
+          "Aliases": [],
+          "ParticleSize": 0.23,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.18,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "402",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_LeftUpper_01",
+          "Aliases": [],
+          "ParticleSize": 0.21,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.2,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "403",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_LeftUpper_02",
+          "Aliases": [],
+          "ParticleSize": 0.1955,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.15,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "404",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_LeftLower_00",
+          "Aliases": [],
+          "ParticleSize": 0.1725,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.14,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "405",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_LeftLower_01",
+          "Aliases": [],
+          "ParticleSize": 0.161,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.15,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "406",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_LeftLower_02",
+          "Aliases": [],
+          "ParticleSize": 0.161,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.13,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "407",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_LeftLower_03",
+          "Aliases": [],
+          "ParticleSize": 0.15525,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.12,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "408",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Foot0_Left_00",
+          "Aliases": [],
+          "ParticleSize": 0.13225,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.1,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "409",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Foot0_Left_01",
+          "Aliases": [],
+          "ParticleSize": 0.115,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.08,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "410",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Foot0_Left_02",
+          "Aliases": [],
+          "ParticleSize": 0.10925,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.06,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "411",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_RightUpper_00",
+          "Aliases": [],
+          "ParticleSize": 0.23,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.18,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "412",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_RightUpper_01",
+          "Aliases": [],
+          "ParticleSize": 0.21,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.2,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "413",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_RightUpper_02",
+          "Aliases": [],
+          "ParticleSize": 0.1955,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.15,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "414",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_RightLower_00",
+          "Aliases": [],
+          "ParticleSize": 0.1725,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.14,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "415",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_RightLower_01",
+          "Aliases": [],
+          "ParticleSize": 0.161,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.14,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "416",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_RightLower_02",
+          "Aliases": [],
+          "ParticleSize": 0.161,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.13,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "417",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Leg0_RightLower_03",
+          "Aliases": [],
+          "ParticleSize": 0.15525,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.12,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "418",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Foot0_Right_00",
+          "Aliases": [],
+          "ParticleSize": 0.13225,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.1,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "419",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Foot0_Right_01",
+          "Aliases": [],
+          "ParticleSize": 0.115,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.08,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "420",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Foot0_Right_02",
+          "Aliases": [],
+          "ParticleSize": 0.10925,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.06,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "421",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Torso_Lower_00",
+          "Aliases": [],
+          "ParticleSize": 0.25,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.2,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "422",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Torso_Upper_00",
+          "Aliases": [],
+          "ParticleSize": 0.25,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.16,
+          "Flags": 0,
+          "Transform": null
+        },
+        {
+          "$id": "423",
+          "$type": "Kingmaker.Visual.Particles.FxBone, Assembly-CSharp",
+          "Name": "Locator_Head_00",
+          "Aliases": [],
+          "ParticleSize": 0.21,
+          "LocalOffset": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Rotate": false,
+          "CameraOffset": 0.11,
+          "Flags": 0,
+          "Transform": null
+        }
+      ],
+      "name": "FemaleHuman_FxBonesMap"
+    },
+    "RaceBoneHierarchyObject": {
+      "$type": "GameObject",
+      "InstanceId": 56770,
+      "name": "FemaleHuman"
+    },
+    "CloakScaleFudge": 1.0,
+    "name": "FemaleHuman"
+  },
+  "Skin": "File:RacePresets/KEE_Body_Dhampir.json",
+  "Components": [],
+  "m_AssetGuid": "Dhampir_Standard_VisualPreset",
+  "name": "Dhampir_Standard_VisualPreset"
+}

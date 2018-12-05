@@ -1,0 +1,81 @@
+{
+  "$id": "1",
+  "$type": "Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff, Assembly-CSharp",
+  "m_Flags": 0,
+  "Stacking": "replace",
+  "Frequency": "rounds",
+  "FxOnStart": "Resource::NULL",
+  "FxOnRemove": "Resource::NULL",
+  "m_AllowNonContextActions": false,
+  "m_DisplayName": "LocalizedString::Quarry",
+  "m_Description": "LocalizedString::At 11th level, a ran...",
+  "m_Icon": {
+    "$type": "Sprite",
+    "name": "Command",
+    "InstanceId": 53576
+  },
+  "Components": [
+    {
+      "$id": "2",
+      "$type": "Kingmaker.Designers.Mechanics.Buffs.AttackBonusAgainstTarget, Assembly-CSharp",
+      "Value": {
+        "$id": "3",
+        "$type": "Kingmaker.UnitLogic.Mechanics.ContextValue, Assembly-CSharp",
+        "ValueType": "shared",
+        "Value": 0,
+        "ValueRank": "default",
+        "ValueShared": "damageBonus"
+      },
+      "CheckCaster": true,
+      "CheckCasterFriend": false,
+      "CheckRangeType": false,
+      "RangeType": "melee",
+      "name": "$AttackBonusAgainstTarget$2bfb20a9-0fa5-4814-a6aa-ef4a82d68128"
+    },
+    {
+      "$id": "4",
+      "$type": "Kingmaker.UnitLogic.Buffs.Components.RemoveBuffIfCasterIsMissing, Assembly-CSharp",
+      "name": "$RemoveBuffIfCasterIsMissing$0bfc93e9-f0c9-4b68-afbd-9d95c3c783fd"
+    },
+    {
+      "$id": "5",
+      "$type": "Kingmaker.UnitLogic.FactLogic.UniqueBuff, Assembly-CSharp",
+      "name": "$UniqueBuff$75e378f5-814e-438b-ad21-0e19a2b2fb52"
+    },
+    {
+      "$id": "6",
+      "$type": "Kingmaker.UnitLogic.Mechanics.Components.AddFactContextActions, Assembly-CSharp",
+      "Activated": {
+        "$id": "7",
+        "$type": "Kingmaker.ElementsSystem.ActionList, Assembly-CSharp",
+        "Actions": []
+      },
+      "Deactivated": {
+        "$id": "8",
+        "$type": "Kingmaker.ElementsSystem.ActionList, Assembly-CSharp",
+        "Actions": [
+          {
+            "$id": "9",
+            "$type": "Kingmaker.UnitLogic.Mechanics.Actions.ContextActionRemoveBuff, Assembly-CSharp",
+            "Buff": "Blueprint:8a7fcaeaf69867f40aee02e84c0882d8:FreebootersBaneBuffAllies",
+            "ToCaster": false,
+            "name": "$ContextActionRemoveBuff$a47ecf63-1897-4c74-a992-e35001f07e58"
+          }
+        ]
+      },
+      "NewRound": {
+        "$id": "10",
+        "$type": "Kingmaker.ElementsSystem.ActionList, Assembly-CSharp",
+        "Actions": []
+      },
+      "name": "$AddFactContextActions$0d616666-4c9d-412b-b5fe-a992b7d89520"
+    },
+    {
+      "$id": "11",
+      "$type": "Kingmaker.Designers.Mechanics.Facts.TargetCritAutoconfirmFromCaster, Assembly-CSharp",
+      "name": "$TargetCritAutoconfirmFromCaster$3468cbce-f7f7-4fa2-96af-2f65adf597ed"
+    }
+  ],
+  "m_AssetGuid": "b44184c7ca33c6a41bc11cc5ed07addb",
+  "name": "QuarryBuff"
+}

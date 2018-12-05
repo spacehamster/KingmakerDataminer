@@ -1,0 +1,35 @@
+{
+  "$id": "1",
+  "$type": "Kingmaker.Blueprints.Classes.BlueprintFeature, Assembly-CSharp",
+  "Groups": [],
+  "Ranks": 1,
+  "ReapplyOnLevelUp": false,
+  "HideInUI": false,
+  "m_AllowNonContextActions": false,
+  "m_DisplayName": "LocalizedString::Master Strike",
+  "m_Description": "LocalizedString::Upon reaching 20th l...",
+  "m_Icon": {
+    "$type": "Sprite",
+    "name": "SlayLiving",
+    "InstanceId": 52468
+  },
+  "Components": [
+    {
+      "$id": "2",
+      "$type": "Kingmaker.UnitLogic.FactLogic.AddFacts, Assembly-CSharp",
+      "Facts": [
+        "Blueprint:926bff1386d58824688363a3eeb98260:MasterStrikeToggleAbility"
+      ],
+      "name": "$AddFacts$ecfd10d7-acb4-4643-93d0-392739e014c3"
+    },
+    {
+      "$id": "3",
+      "$type": "Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteFeature, Assembly-CSharp",
+      "Feature": "Blueprint:9b9eac6709e1c084cb18c3a366e0ec87:SneakAttack",
+      "Group": "all",
+      "name": "$PrerequisiteFeature$63cfd174-0ef3-48bf-9dcf-176de550f740"
+    }
+  ],
+  "m_AssetGuid": "72dcf1fb106d5054a81fd804fdc168d3",
+  "name": "MasterStrike"
+}

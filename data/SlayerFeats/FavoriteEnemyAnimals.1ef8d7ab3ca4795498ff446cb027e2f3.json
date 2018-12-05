@@ -1,0 +1,54 @@
+{
+  "$id": "1",
+  "$type": "Kingmaker.Blueprints.Classes.BlueprintFeature, Assembly-CSharp",
+  "Groups": [
+    "favoriteEnemy"
+  ],
+  "Ranks": 5,
+  "ReapplyOnLevelUp": true,
+  "HideInUI": false,
+  "m_AllowNonContextActions": false,
+  "m_DisplayName": "LocalizedString:7040d29c-c82f-4f58-925f-143ae181d752:Favored Enemy — Anim...",
+  "m_Description": "LocalizedString::At 1st level, a rang...",
+  "m_Icon": {
+    "$type": "Sprite",
+    "name": "BearEndurance",
+    "InstanceId": 62652
+  },
+  "Components": [
+    {
+      "$id": "2",
+      "$type": "Kingmaker.UnitLogic.FactLogic.AddFavoredEnemy, Assembly-CSharp",
+      "CheckedFacts": [
+        {
+          "$id": "3",
+          "$type": "Kingmaker.Blueprints.Classes.BlueprintFeature, Assembly-CSharp",
+          "Groups": [
+            "creatureType"
+          ],
+          "Ranks": 1,
+          "ReapplyOnLevelUp": false,
+          "HideInUI": false,
+          "m_AllowNonContextActions": false,
+          "m_DisplayName": "LocalizedString::",
+          "m_Description": "LocalizedString::",
+          "m_Icon": null,
+          "Components": [
+            {
+              "$id": "4",
+              "$type": "Kingmaker.Designers.Mechanics.Facts.ReplaceSourceBone, Assembly-CSharp",
+              "SourceBone": "Locator_HeadCenterFX_00",
+              "name": "$ReplaceSourceBone$42edc16a-bcfd-43a8-900e-4d40be3f1419"
+            }
+          ],
+          "m_AssetGuid": "a95311b3dc996964cbaa30ff9965aaf6",
+          "name": "AnimalType"
+        },
+        "Blueprint:82574f7d14a28e64fab8867fbaa17715:InstantEnemyBuff"
+      ],
+      "name": "$AddFavoredEnemy$955782af-0d14-4fb0-bd0c-de91fbbc5488"
+    }
+  ],
+  "m_AssetGuid": "1ef8d7ab3ca4795498ff446cb027e2f3",
+  "name": "FavoriteEnemyAnimals"
+}

@@ -1,0 +1,109 @@
+{
+  "$id": "1",
+  "$type": "Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility, Assembly-CSharp",
+  "m_TargetMapObjects": false,
+  "m_IsFullRoundAction": false,
+  "Type": "supernatural",
+  "Range": "personal",
+  "CustomRange": {
+    "$id": "2",
+    "$type": "Kingmaker.Utility.Feet, Assembly-CSharp",
+    "m_Value": 0.0
+  },
+  "CanTargetPoint": false,
+  "CanTargetEnemies": false,
+  "CanTargetFriends": false,
+  "CanTargetSelf": true,
+  "SpellResistance": false,
+  "ActionBarAutoFillIgnored": false,
+  "NeedEquipWeapons": false,
+  "EffectOnAlly": "none",
+  "EffectOnEnemy": "none",
+  "Parent": null,
+  "Animation": "omni",
+  "HasFastAnimation": false,
+  "AnimationStyle": "castActionOmni",
+  "ActionType": "standard",
+  "AvailableMetamagic": 0,
+  "LocalizedDuration": "LocalizedString::",
+  "LocalizedSavingThrow": "LocalizedString::",
+  "MaterialComponent": {
+    "$id": "3",
+    "$type": "Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility+MaterialComponentData, Assembly-CSharp",
+    "Item": null,
+    "Count": 1
+  },
+  "DisableLog": false,
+  "ResourceAssetIds": [
+    "c4e5e6e8407f1774b97af4957364852c",
+    "f00bbb092bd65a4468e72869b99f1d66"
+  ],
+  "m_AllowNonContextActions": false,
+  "m_DisplayName": "LocalizedString::Master Hunter",
+  "m_Description": "LocalizedString::A ranger of 20th lev...",
+  "m_Icon": {
+    "$type": "Sprite",
+    "name": "GravityBow",
+    "InstanceId": 62318
+  },
+  "Components": [
+    {
+      "$id": "4",
+      "$type": "Kingmaker.UnitLogic.Abilities.Components.AbilityEffectRunAction, Assembly-CSharp",
+      "SavingThrowType": "unknown",
+      "Actions": {
+        "$id": "5",
+        "$type": "Kingmaker.ElementsSystem.ActionList, Assembly-CSharp",
+        "Actions": [
+          {
+            "$id": "6",
+            "$type": "Kingmaker.UnitLogic.Mechanics.Actions.ContextActionApplyBuff, Assembly-CSharp",
+            "Buff": "Blueprint:90889f69c21b32446a21a1c0770237ee:MasterHunterCasterBuff",
+            "Permanent": true,
+            "DurationValue": {
+              "$id": "7",
+              "$type": "Kingmaker.UnitLogic.Mechanics.ContextDurationValue, Assembly-CSharp",
+              "m_IsExtendable": false,
+              "Rate": "rounds",
+              "DiceType": "zero",
+              "DiceCountValue": {
+                "$id": "8",
+                "$type": "Kingmaker.UnitLogic.Mechanics.ContextValue, Assembly-CSharp",
+                "ValueType": "simple",
+                "Value": 0,
+                "ValueRank": "default",
+                "ValueShared": "damage"
+              },
+              "BonusValue": {
+                "$id": "9",
+                "$type": "Kingmaker.UnitLogic.Mechanics.ContextValue, Assembly-CSharp",
+                "ValueType": "simple",
+                "Value": 0,
+                "ValueRank": "default",
+                "ValueShared": "damage"
+              }
+            },
+            "IsFromSpell": false,
+            "IsNotDispelable": true,
+            "ToCaster": false,
+            "AsChild": false,
+            "name": "$ContextActionApplyBuff$27ea5637-a78c-4e00-a489-6fbc6b9b5aa8"
+          }
+        ]
+      },
+      "name": "$AbilityEffectRunAction$47e312f8-382a-40df-9f02-3c5b156c3afd"
+    },
+    {
+      "$id": "10",
+      "$type": "Kingmaker.UnitLogic.Abilities.Components.AbilityResourceLogic, Assembly-CSharp",
+      "RequiredResource": "Blueprint:09156c2a513d27f4781505f486c4ac4e:MasterHunterResource",
+      "IsSpendResource": true,
+      "CostIsCustom": false,
+      "Amount": 1,
+      "ResourceCostIncreasingFacts": [],
+      "name": "$AbilityResourceLogic$1e9093f7-be3e-4e8b-90bf-1e5f63f0ee58"
+    }
+  ],
+  "m_AssetGuid": "8a57e1072da4f6f4faaa55b7b7dc633c",
+  "name": "MasterHunterAbility"
+}

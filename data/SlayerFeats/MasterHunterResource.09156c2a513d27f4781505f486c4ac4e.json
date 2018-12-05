@@ -1,0 +1,36 @@
+{
+  "$id": "1",
+  "$type": "Kingmaker.Blueprints.BlueprintAbilityResource, Assembly-CSharp",
+  "m_Icon": {
+    "$type": "Sprite",
+    "name": "GravityBow",
+    "InstanceId": 62318
+  },
+  "m_MaxAmount": {
+    "$id": "2",
+    "$type": "Kingmaker.Blueprints.BlueprintAbilityResource+Amount, Assembly-CSharp",
+    "BaseValue": 5,
+    "IncreasedByLevel": false,
+    "Class": [],
+    "Archetypes": [],
+    "LevelIncrease": 1,
+    "IncreasedByLevelStartPlusDivStep": false,
+    "StartingLevel": 0,
+    "StartingIncrease": 0,
+    "LevelStep": 0,
+    "PerStepIncrease": 0,
+    "MinClassLevelIncrease": 0,
+    "ClassDiv": [],
+    "ArchetypesDiv": [],
+    "OtherClassesModifier": 0.0,
+    "IncreasedByStat": false,
+    "ResourceBonusStat": "wisdom"
+  },
+  "m_UseMax": false,
+  "m_Max": 10,
+  "LocalizedName": "LocalizedString::",
+  "LocalizedDescription": "LocalizedString::",
+  "Components": [],
+  "m_AssetGuid": "09156c2a513d27f4781505f486c4ac4e",
+  "name": "MasterHunterResource"
+}

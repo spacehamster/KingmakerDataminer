@@ -1,0 +1,252 @@
+{
+  "$id": "1",
+  "$type": "Kingmaker.Visual.CharacterSystem.EquipmentEntity, Assembly-CSharp",
+  "m_PrimaryRamps": [],
+  "m_SecondaryRamps": [],
+  "IsExportEnabled": false,
+  "Layer": 0,
+  "HideBodyParts": 0,
+  "ShowLowerMaterials": false,
+  "SkeletonModifiers": [],
+  "ColorsProfile": {
+    "$id": "2",
+    "$type": "Kingmaker.Visual.CharacterSystem.CharacterColorsProfile, Assembly-CSharp",
+    "PrimaryRamps": [
+      {
+        "$type": "Texture2D",
+        "name": "CR_Skin_GrayDead_U_EL",
+        "InstanceId": 447298
+      }
+    ],
+    "SecondaryRamps": [],
+    "name": "CL_Skin_U_DHAMPIR"
+  },
+  "BodyParts": [
+    {
+      "$id": "3",
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "upperlegs",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 18394,
+        "name": "UL_UpperLegs_F_Any"
+      },
+      "Material": {
+        "$id": "4",
+        "$type": "UnityEngine.Material, UnityEngine.CoreModule",
+        "name": "Character_Diffuse_Cutout"
+      },
+      "Textures": [
+        {
+          "$id": "5",
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "UL_UpperLegs_BW_F_HM",
+            "InstanceId": 480658
+          },
+          "m_Ramps": [
+            {
+              "$id": "6",
+              "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
+              "Mask": {
+                "$type": "Texture2D",
+                "name": "whiteSquare",
+                "InstanceId": 424880
+              },
+              "Ramp": null
+            }
+          ],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+    {
+      "$id": "7",
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "torso",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 18298,
+        "name": "TS_Torso_F_Any"
+      },
+      "Material": {
+        "$ref": "4"
+      },
+      "Textures": [
+        {
+          "$id": "8",
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "TS_Torso_BW_F_HM",
+            "InstanceId": 480660
+          },
+          "m_Ramps": [
+            {
+              "$id": "9",
+              "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
+              "Mask": {
+                "$type": "Texture2D",
+                "name": "whiteSquare",
+                "InstanceId": 424880
+              },
+              "Ramp": null
+            }
+          ],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+    {
+      "$id": "10",
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "forearms",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 15584,
+        "name": "FA_Forearms_F_Any"
+      },
+      "Material": {
+        "$ref": "4"
+      },
+      "Textures": [
+        {
+          "$id": "11",
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "FA_ForeArms_BW_F_HM",
+            "InstanceId": 480662
+          },
+          "m_Ramps": [
+            {
+              "$id": "12",
+              "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
+              "Mask": {
+                "$type": "Texture2D",
+                "name": "whiteSquare",
+                "InstanceId": 424880
+              },
+              "Ramp": null
+            }
+          ],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+    {
+      "$id": "13",
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "boots",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 12420,
+        "name": "BO_LowerLegs_F_Any"
+      },
+      "Material": {
+        "$ref": "4"
+      },
+      "Textures": [
+        {
+          "$id": "14",
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "BO_Lowerlegs_BW_F_HM",
+            "InstanceId": 480664
+          },
+          "m_Ramps": [
+            {
+              "$id": "15",
+              "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
+              "Mask": {
+                "$type": "Texture2D",
+                "name": "whiteSquare",
+                "InstanceId": 424880
+              },
+              "Ramp": null
+            }
+          ],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+    {
+      "$id": "16",
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "upperarms",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 18352,
+        "name": "UA_Upperarms_F_Any"
+      },
+      "Material": {
+        "$ref": "4"
+      },
+      "Textures": [
+        {
+          "$id": "17",
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "UA_UpperArms_BW_F_HM",
+            "InstanceId": 480666
+          },
+          "m_Ramps": [
+            {
+              "$id": "18",
+              "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
+              "Mask": {
+                "$type": "Texture2D",
+                "name": "whiteSquare",
+                "InstanceId": 424880
+              },
+              "Ramp": null
+            }
+          ],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+    {
+      "$id": "19",
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "hands",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 16946,
+        "name": "HN_Hands_F_Any"
+      },
+      "Material": {
+        "$ref": "4"
+      },
+      "Textures": [
+        {
+          "$id": "20",
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "HN_Hands_BW_F_HM",
+            "InstanceId": 480668
+          },
+          "m_Ramps": [
+            {
+              "$id": "21",
+              "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
+              "Mask": {
+                "$type": "Texture2D",
+                "name": "whiteSquare",
+                "InstanceId": 424880
+              },
+              "Ramp": null
+            }
+          ],
+          "Channel": "diffuse"
+        }
+      ]
+    }
+  ],
+  "OutfitParts": [],
+  "name": "EE_Nude_F_HM"
+}

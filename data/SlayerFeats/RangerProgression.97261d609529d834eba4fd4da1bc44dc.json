@@ -2,7 +2,7 @@
   "$id": "1",
   "$type": "Kingmaker.Blueprints.Classes.BlueprintProgression, Assembly-CSharp",
   "Classes": [
-    "File:SlayerClass.json"
+    "Blueprint:cda0615668a6df14eb36ba19ee881af6:RangerClass"
   ],
   "Archetypes": [],
   "LevelEntries": [
@@ -287,6 +287,6 @@
   "m_Description": "LocalizedString::",
   "m_Icon": null,
   "Components": [],
-  "m_AssetGuid": "SlayerProgression",
-  "name": "SlayerProgression"
+  "m_AssetGuid": "97261d609529d834eba4fd4da1bc44dc",
+  "name": "RangerProgression"
 }
