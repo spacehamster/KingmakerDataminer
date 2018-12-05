@@ -34,8 +34,15 @@ namespace CustomRaces
 
         public override object ReadJson(JsonReader reader, Type type, object existing, JsonSerializer serializer)
         {
-            return null;
-            throw new NotImplementedException();
+            if (reader.Value == null) return null;
+            JObject jObject = JObject.Load(reader);
+            int instanceId = (int)jObject["InstanceId"];
+            var result = RaceUtil.FindObjectByInstanceId(instanceId, type);
+            if (result == null)
+            {
+                throw new System.Exception($"Couldn't find object with InstanceId {instanceId}");
+            }
+            return result;
         }
 
         // ReSharper disable once IdentifierTypo

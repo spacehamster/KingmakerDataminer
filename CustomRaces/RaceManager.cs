@@ -111,6 +111,7 @@ namespace CustomRaces
                 } catch(Exception e)
                 {
                     Main.DebugLog(e.ToString() + "\n" + e.StackTrace);
+                    loaded = true;
                     throw e;
                 }
             }

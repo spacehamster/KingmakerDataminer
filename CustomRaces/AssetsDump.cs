@@ -1,6 +1,7 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.CharGen;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.View;
@@ -27,6 +28,7 @@ namespace CustomRaces
                 typeof(BlueprintProgression),
                 typeof(BlueprintStatProgression),
                 typeof(BlueprintFeature),
+                typeof(BlueprintFeatureSelection),
                 typeof(BlueprintSpellbook),
                 typeof(BlueprintSpellList),
                 typeof(BlueprintSpellsTable),
@@ -51,6 +53,7 @@ namespace CustomRaces
                             typeof(BlueprintProgression),
                             typeof(BlueprintStatProgression),
                             typeof(BlueprintFeature),
+                            typeof(BlueprintFeatureSelection),
                             typeof(BlueprintSpellbook),
                             typeof(BlueprintSpellList),
                             typeof(BlueprintSpellsTable),

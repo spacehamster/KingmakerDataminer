@@ -176,6 +176,18 @@ namespace CustomRaces
             newRace.Features = (BlueprintFeatureBase[]) original.Features.Clone();
             return newRace;
         }
+        public static UnityEngine.Object FindObjectByInstanceId<T>(int instanceId)
+        {
+            return FindObjectByInstanceId(instanceId, typeof(T));
+        }
+        public static UnityEngine.Object FindObjectByInstanceId(int instanceId, Type type)
+        {
+            foreach (UnityEngine.Object go in Resources.FindObjectsOfTypeAll(type))
+            {
+                if (go.GetInstanceID() == instanceId) return go;
+            }
+            return null;
+        }
         /*
          * Huge hack. TODO fix
          */
