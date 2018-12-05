@@ -2,9 +2,12 @@
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Localization;
+using Kingmaker.Localization.Shared;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
@@ -21,9 +24,33 @@ namespace CustomRaces
             var blueprints = ResourcesLibrary.LibraryObject.BlueprintsByAssetId;
             var goblinRace = (BlueprintRace)blueprints["9d168ca7100e9314385ce66852385451"];
             races.Add(goblinRace);
+            LoadStrings();
             info = BlueprintInfo.Load();
             races.AddRange(info.Races);
             characterClasses.AddRange(info.Classes);
+        }
+        public static void LoadStrings()
+        {
+            Dictionary<string, string> strings = null;
+            var currentLocale = LocalizationManager.CurrentLocale;
+            if (File.Exists($"mods/customraces/data/localization/{currentLocale}.json"))
+            {
+                strings = JsonBlueprints.Load<Dictionary<string, string>>($"mods/customraces/data/localization/{currentLocale}.json");
+            } else if(File.Exists($"mods/customraces/data/localization/{currentLocale}.json"))
+            {
+                strings = JsonBlueprints.Load<Dictionary<string, string>>($"mods/customraces/data/localization/enGB.json");
+            }
+            if (strings == null) return;
+            foreach(var kv in strings)
+            {
+                if (LocalizationManager.CurrentPack.Strings.ContainsKey(kv.Key))
+                {
+                    Main.DebugLog($"Duplicate localization string key {kv.Key}");
+                } else
+                {
+                    LocalizationManager.CurrentPack.Strings[kv.Key] = kv.Value;
+                }
+            }
         }
         static public void Reload()
         {
