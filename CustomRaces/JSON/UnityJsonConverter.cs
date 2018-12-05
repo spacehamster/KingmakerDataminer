@@ -114,14 +114,23 @@ namespace CustomRaces
                 case Bounds b:
                     {
                         // ReSharper disable once SimilarAnonymousTypeNearby // float
-                        JObject.FromObject(new { b.min, b.max })
+                        //Bounds stores vectors as center and extent internally,
+                        //but size vector is serialized to be consistent with
+                        //the constructor interface and with BoundsInt
+                        new JArray(
+                            new JArray(b.center.x, b.center.y, b.center.z),
+                            new JArray(b.size.x, b.size.y, b.size.z)
+                          )
                           .WriteTo(w, NoConverters);
                         return;
                     }
                 case BoundsInt b:
                     {
                         // ReSharper disable once SimilarAnonymousTypeNearby // int
-                        JObject.FromObject(new { b.min, b.max })
+                        new JArray(
+                            new JArray(b.center.x, b.center.y, b.center.z),
+                            new JArray(b.size.x, b.size.y, b.size.z)
+                          )
                           .WriteTo(w, NoConverters);
                         return;
                     }
@@ -173,9 +182,75 @@ namespace CustomRaces
 
         public override object ReadJson(JsonReader reader, Type type, object existing, JsonSerializer serializer)
         {
-            JToken token = JToken.Load(reader);
+            JArray a = null;
+            JObject o = null;
+            if (reader.TokenType == Newtonsoft.Json.JsonToken.StartArray)
+            {
+                a = JArray.Load(reader);
+            }
+            else if (reader.TokenType == JsonToken.StartObject)
+            {
+                o = JObject.Load(reader);
+            }
+            if (type == typeof(Vector2)) return new Vector2((float)a[0], (float)a[1]);
+            if (type == typeof(Vector3)) return new Vector3((float)a[0], (float)a[1], (float)a[2]);
+            if (type == typeof(Vector4)) return new Vector4((float)a[0], (float)a[1], (float)a[2], (float)a[3]);
+            if (type == typeof(Vector2Int)) return new Vector2Int((int)a[0], (int)a[1]);
+            if (type == typeof(Vector3Int)) return new Vector3Int((int)a[0], (int)a[1], (int)a[2]);
+            if (type == typeof(Rect)) return new Rect((float)a[0], (float)a[1], (float)a[2], (float)a[3]);
+            if (type == typeof(RectInt)) return new RectInt((int)a[0], (int)a[1], (int)a[2], (int)a[3]);
+            if (type == typeof(Color)) return new Color((float)a[0], (float)a[1], (float)a[2], (float)a[3]);
+            if (type == typeof(Color32)) return new Color32((byte)a[0], (byte)a[1], (byte)a[2], (byte)a[3]);
+            if (type == typeof(Matrix4x4))
+            {
+                var row0 = (JArray)a[0];
+                var row1 = (JArray)a[1];
+                var row2 = (JArray)a[2];
+                var row3 = (JArray)a[3];
+                return new Matrix4x4()
+                {
+                    m00 = (float)row0[0],
+                    m01 = (float)row0[1],
+                    m02 = (float)row0[2],
+                    m03 = (float)row0[3],
+                    m10 = (float)row1[0],
+                    m11 = (float)row1[1],
+                    m12 = (float)row1[2],
+                    m13 = (float)row1[3],
+                    m20 = (float)row2[0],
+                    m21 = (float)row2[1],
+                    m22 = (float)row2[2],
+                    m23 = (float)row2[3],
+                    m30 = (float)row3[0],
+                    m31 = (float)row3[1],
+                    m32 = (float)row3[2],
+                    m33 = (float)row3[3],
+                };
+            }
+            if (type == typeof(Bounds))
+            {
+                var a1 = (JArray)a[0];
+                var a2 = (JArray)a[1];
+                return new Bounds(
+                    new Vector3((float)a1[0], (float)a1[1], (float)a1[2]),
+                    new Vector3((float)a2[0], (float)a2[1], (float)a2[2])
+                );
+            }
+            if (type == typeof(BoundsInt))
+            {
+                var a1 = (JArray)a[0];
+                var a2 = (JArray)a[1];
+                return new BoundsInt(
+                     new Vector3Int((int)a1[0], (int)a1[1], (int)a1[2]),
+                     new Vector3Int((int)a2[0], (int)a2[1], (int)a2[2])
+                );
+            }
+            if (type == typeof(Texture2D) || type == typeof(Sprite) || type == typeof(Mesh))
+            {
+                int instanceId = (int)o["InstanceId"];
+                return RaceUtil.FindObjectByInstanceId(instanceId, type);
+            }
             return null;
-            //throw new NotImplementedException($"Not implemented for type {type}");
         }
 
         public override bool CanConvert(Type objectType) => Enabled && SupportedTypes.Contains(objectType);

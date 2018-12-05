@@ -9,6 +9,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Visual.CharacterSystem;
 using Newtonsoft.Json;
+using Kingmaker.Blueprints.CharGen;
 
 namespace CustomRaces
 {
@@ -92,8 +93,10 @@ namespace CustomRaces
                 {
                     //var bp = JsonBlueprints.Load<BlueprintCharacterClass>("mods/customraces/data/slayerclass.json");
                     //DebugLog("Loaded " + (bp?.name ?? "NULL"));
-                    var info = BlueprintInfo.Load();
-                    DebugLog("Loaded " + info.Classes[0].name);
+                    //var info = BlueprintInfo.Load();
+                    //DebugLog("Loaded " + info.Classes[0].name);
+                    var vp = JsonBlueprints.Load<BlueprintRaceVisualPreset>("mods/customraces/data/TestPreset.json");
+                    DebugLog("Loaded " + vp.name);
                 }
                 if (GUILayout.Button("FindObject"))
                 {
