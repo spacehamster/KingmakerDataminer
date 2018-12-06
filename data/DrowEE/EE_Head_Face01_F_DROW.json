@@ -49,9 +49,9 @@
         "name": "HD_Head_F_EL"
       },
       "Material": {
-        "$id": "5",
-        "$type": "UnityEngine.Material, UnityEngine.CoreModule",
-        "name": "Character_Diffuse_Cutout"
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
       },
       "Textures": [
         {
@@ -88,7 +88,9 @@
         "name": "HT_HeadTop_F_EL"
       },
       "Material": {
-        "$ref": "5"
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
       },
       "Textures": [
         {
@@ -125,7 +127,9 @@
         "name": "HP_Hoop_F_EL"
       },
       "Material": {
-        "$ref": "5"
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
       },
       "Textures": [
         {
@@ -162,7 +166,9 @@
         "name": "EA_Ears_F_EL"
       },
       "Material": {
-        "$ref": "5"
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
       },
       "Textures": [
         {
@@ -195,7 +201,9 @@
       "Type": "head",
       "RendererPrefab": null,
       "Material": {
-        "$ref": "5"
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
       },
       "Textures": [
         {

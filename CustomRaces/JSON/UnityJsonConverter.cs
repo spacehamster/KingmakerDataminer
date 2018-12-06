@@ -27,7 +27,8 @@ namespace CustomRaces
                   typeof(Color32),
                   typeof(Texture2D),
                   typeof(Sprite),
-                  typeof(Mesh)
+                  typeof(Mesh),
+                  typeof(Material)
             }
         );
 
@@ -177,6 +178,15 @@ namespace CustomRaces
                         o.WriteTo(w);
                         return;
                     }
+                case Material m:
+                    {
+                        var o = new JObject();
+                        o.Add("$type", type);
+                        o.Add("name", m.name);
+                        o.Add("InstanceId", m.GetInstanceID());
+                        o.WriteTo(w);
+                        return;
+                    }
             }
         }
 
@@ -184,13 +194,17 @@ namespace CustomRaces
         {
             JArray a = null;
             JObject o = null;
-            if (reader.TokenType == Newtonsoft.Json.JsonToken.StartArray)
+            if (reader.TokenType == JsonToken.StartArray)
             {
                 a = JArray.Load(reader);
             }
             else if (reader.TokenType == JsonToken.StartObject)
             {
                 o = JObject.Load(reader);
+            }
+            else if (reader.TokenType == JsonToken.Null)
+            {
+                return null;
             }
             if (type == typeof(Vector2)) return new Vector2((float)a[0], (float)a[1]);
             if (type == typeof(Vector3)) return new Vector3((float)a[0], (float)a[1], (float)a[2]);
@@ -245,7 +259,7 @@ namespace CustomRaces
                      new Vector3Int((int)a2[0], (int)a2[1], (int)a2[2])
                 );
             }
-            if (type == typeof(Texture2D) || type == typeof(Sprite) || type == typeof(Mesh))
+            if (type == typeof(Texture2D) || type == typeof(Sprite) || type == typeof(Mesh) || type == typeof(Material))
             {
                 int instanceId = (int)o["InstanceId"];
                 return RaceUtil.FindObjectByInstanceId(instanceId, type);

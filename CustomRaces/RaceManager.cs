@@ -2,6 +2,8 @@
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Items.Weapons;
+using Kingmaker.Blueprints.Loot;
 using Kingmaker.Localization;
 using Kingmaker.Localization.Shared;
 using System;
@@ -17,6 +19,7 @@ namespace CustomRaces
     {
         static List<BlueprintRace> races = new List<BlueprintRace>();
         static List<BlueprintCharacterClass> characterClasses = new List<BlueprintCharacterClass>();
+        static List<BlueprintItemWeapon> weapons = new List<BlueprintItemWeapon>();
         static BlueprintInfo info = null;
         static bool loaded = false;
         public static void Init()
@@ -28,6 +31,7 @@ namespace CustomRaces
             info = BlueprintInfo.Load();
             races.AddRange(info.Races);
             characterClasses.AddRange(info.Classes);
+            weapons.AddRange(info.Weapons);
         }
         public static void LoadStrings()
         {
@@ -108,12 +112,39 @@ namespace CustomRaces
                     loaded = true;
                     foreach (var race in races) AddRace(race);
                     foreach (var characterClass in characterClasses) AddCharcterClass(characterClass);
+                    foreach (var weapon in weapons) AddWeapon(weapon);
                 } catch(Exception e)
                 {
                     Main.DebugLog(e.ToString() + "\n" + e.StackTrace);
                     loaded = true;
                     throw e;
                 }
+            }
+        }
+        static List<string> Vendors = new List<string>()
+        {
+            "f720440559fc00949900bfa1575196ac", //C11_OlegVendorTable
+            "4778ecb5df5d48742b9be5a204ed4657", //C11_BokkenVendorTable
+            "8c17a31b6a9a6eb4cbb668902e9edcb1", //FirstVendorTable (CapitalTrader1_Alchemist_Prosperous, CapitalTrader2_Mage_Prosperous, CapitalTrader3_Prosperous)
+            "8bc41a2cbf853b544bba4fde93dd3b5e", //ElinaTavernKeeperVendorTable
+        };
+        static public void AddWeapon(BlueprintItemWeapon weapon)
+        {
+            foreach(var vendorTableId in Vendors)
+            {
+                var vendorTable = ResourcesLibrary.TryGetBlueprint<BlueprintUnitLoot>(vendorTableId);
+                var lootItems = vendorTable.GenerateItems();
+                if (lootItems.Any((le) => le.Item.AssetGuid == weapon.AssetGuid)) continue;
+                var components = vendorTable.ComponentsArray;
+                var l = components.Length;
+                Array.Resize(ref components, l + 1);
+                var lootComponent = new LootItemsPackFixed();
+                var lootItem = new LootItem();
+                Traverse.Create(lootItem).Field("m_Item").SetValue(weapon);
+                Traverse.Create(lootItem).Field("m_Type").SetValue(LootItemType.Item);
+                Traverse.Create(lootComponent).Field("m_Item").SetValue(lootItem);
+                components[l] = lootComponent;
+                vendorTable.ComponentsArray = components;
             }
         }
         static public void AddRace(BlueprintRace race)

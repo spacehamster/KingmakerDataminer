@@ -32,9 +32,9 @@
         "name": "TS_Torso_M_Any"
       },
       "Material": {
-        "$id": "4",
-        "$type": "UnityEngine.Material, UnityEngine.CoreModule",
-        "name": "Character_Diffuse_Cutout"
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
       },
       "Textures": [
         {
@@ -71,7 +71,9 @@
         "name": "LL_LowerLegs_M_Any"
       },
       "Material": {
-        "$ref": "4"
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
       },
       "Textures": [
         {
@@ -108,7 +110,9 @@
         "name": "FA_Forearms_M_Any"
       },
       "Material": {
-        "$ref": "4"
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
       },
       "Textures": [
         {
@@ -145,7 +149,9 @@
         "name": "UL_UpperLegs_M_Any"
       },
       "Material": {
-        "$ref": "4"
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
       },
       "Textures": [
         {
@@ -182,7 +188,9 @@
         "name": "HN_Hands_M_Any"
       },
       "Material": {
-        "$ref": "4"
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
       },
       "Textures": [
         {
@@ -219,7 +227,9 @@
         "name": "UA_Upperarms_M_Any"
       },
       "Material": {
-        "$ref": "4"
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
       },
       "Textures": [
         {

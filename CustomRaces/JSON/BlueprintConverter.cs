@@ -46,8 +46,9 @@ namespace CustomRaces
                 throw new System.Exception("Cannot create blueprint twice");
             }
 
-            var result = ScriptableObject.CreateInstance(objectType);
+            var result = ScriptableObject.CreateInstance(objectType) as BlueprintScriptableObject;
             JsonBlueprints.Blueprints[name] = result;
+            RaceUtil.AddBlueprint(result, name);
             serializer.Populate(jObject.CreateReader(), result);
             return result;
         }

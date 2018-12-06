@@ -82,7 +82,13 @@ namespace CustomRaces
             using (StreamReader sr = new StreamReader(filepath))
             using (JsonReader jsonReader = new JsonTextReader(sr))
             {
-                return serializer.Deserialize<T>(jsonReader);
+                try
+                {
+                    return serializer.Deserialize<T>(jsonReader);
+                } catch(Exception ex)
+                {
+                    throw new Exception($"Error deserializing {filepath}", ex);
+                }
             }
         }
         public static T Loads<T>(string text)

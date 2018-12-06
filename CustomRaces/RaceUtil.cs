@@ -59,13 +59,14 @@ namespace CustomRaces
         {
             return AddResource(obj, newAssetId, typeof(T));
         }
-        public static void AddBlueprint<T>(T blueprint, string newAssetId) where T : BlueprintScriptableObject
+        public static void AddBlueprint(BlueprintScriptableObject blueprint, string newAssetId)
         {
-            string fallbackId = null; 
-            FallbackTable.TryGetValue(typeof(T), out fallbackId);
-            if(fallbackId == null)
+            var type = blueprint.GetType();
+            string fallbackId = null;
+            FallbackTable.TryGetValue(type, out fallbackId);
+            if (fallbackId == null)
             {
-                throw new Exception($"No fallback for typeof {typeof(T)}");
+                throw new Exception($"No fallback for typeof {type}");
             }
             string assetId = string.Format("{0}:{1}{2}", newAssetId, fallbackId, AssetSuffix);
             Traverse.Create(blueprint).Field("m_AssetGuid").SetValue(assetId);

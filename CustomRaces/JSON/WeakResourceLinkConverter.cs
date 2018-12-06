@@ -47,18 +47,18 @@ namespace CustomRaces
             if (text.StartsWith("File:"))
             {
                 var parts = text.Split(':');
-                var path = parts[1];
+                var path = $"mods/customraces/data/{parts[1]}";
                 if (JsonBlueprints.ResourceAssetIds.ContainsKey(path))
                 {
                     var link = (WeakResourceLink)Activator.CreateInstance(type);
-                    link.AssetId = JsonBlueprints.ResourceAssetIds[parts[1]];
+                    link.AssetId = JsonBlueprints.ResourceAssetIds[path];
                     return link;
                 }
                 else
                 {
-                    var resource = JsonBlueprints.Load<UnityEngine.Object>(parts[1]);
-                    var assetId = RaceUtil.AddResource<UnityEngine.Object>(resource, parts[1]);
-                    JsonBlueprints.ResourceAssetIds[parts[1]] = assetId;
+                    var resource = JsonBlueprints.Load<UnityEngine.Object>(path);
+                    var assetId = RaceUtil.AddResource<UnityEngine.Object>(resource, path);
+                    JsonBlueprints.ResourceAssetIds[path] = assetId;
                     var link = (WeakResourceLink)Activator.CreateInstance(type);
                     link.AssetId = assetId;
                     return link;
