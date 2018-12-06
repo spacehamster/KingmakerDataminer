@@ -44,6 +44,27 @@ namespace CustomRaces
                 link.AssetId = parts[1];
                 return link;
             }
+            if (text.StartsWith("File:"))
+            {
+                var parts = text.Split(':');
+                var path = parts[1];
+                if (JsonBlueprints.ResourceAssetIds.ContainsKey(path))
+                {
+                    var link = (WeakResourceLink)Activator.CreateInstance(type);
+                    link.AssetId = JsonBlueprints.ResourceAssetIds[parts[1]];
+                    return link;
+                }
+                else
+                {
+                    var resource = JsonBlueprints.Load<UnityEngine.Object>(parts[1]);
+                    var assetId = RaceUtil.AddResource<UnityEngine.Object>(resource, parts[1]);
+                    JsonBlueprints.ResourceAssetIds[parts[1]] = assetId;
+                    var link = (WeakResourceLink)Activator.CreateInstance(type);
+                    link.AssetId = assetId;
+                    return link;
+
+                }
+            }
             throw new NotImplementedException($"Not implemented for type {type} with value {text}");
         }
 

@@ -37,13 +37,14 @@ namespace CustomRaces
             { typeof(EquipmentEntity), "d019e95d4a8a8474aa4e03489449d6ee" } //RogueOutfit
 
         };
-        public static string AddResource<T>(T obj, string newAssetId) where T : UnityEngine.Object
+        public static string AddResource(UnityEngine.Object obj, string newAssetId, Type type)
         {
             string fallbackId = null;
-            FallbackTable.TryGetValue(typeof(T), out fallbackId);
+            FallbackTable.TryGetValue(type, out fallbackId);
             if (fallbackId == null)
             {
-                throw new Exception($"No fallback for typeof {typeof(T)}");
+                //throw new Exception($"No fallback for typeof {type}");
+                fallbackId = "NULL";
             }
             string assetId = string.Format("{0}:{1}{2}", newAssetId, fallbackId, AssetSuffix);
             var resourceType = Traverse.CreateWithType("Kingmaker.Blueprints.ResourcesLibrary+LoadedResource").GetValue<Type>();
@@ -53,6 +54,10 @@ namespace CustomRaces
             var list = Traverse.Create(typeof(ResourcesLibrary)).Field("s_LoadedResources").GetValue<object>();
             Traverse.Create(list).Method("Add", new object[] { assetId, resource }).GetValue();
             return assetId;
+        }
+        public static string AddResource<T>(T obj, string newAssetId) where T : UnityEngine.Object
+        {
+            return AddResource(obj, newAssetId, typeof(T));
         }
         public static void AddBlueprint<T>(T blueprint, string newAssetId) where T : BlueprintScriptableObject
         {

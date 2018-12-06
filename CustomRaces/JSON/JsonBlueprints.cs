@@ -20,6 +20,7 @@ namespace CustomRaces
          * will need to fix if custom companions are wanted
          */
         public static Dictionary<string, UnityEngine.Object> Blueprints = new Dictionary<string, UnityEngine.Object>();
+        public static Dictionary<string, string> ResourceAssetIds = new Dictionary<string, string>();
         public static readonly HashSet<FieldInfo> FieldBlacklist = new HashSet<FieldInfo>(new[] {
           typeof(PrototypeableObjectBase).GetField("PrototypeLink")
         });
