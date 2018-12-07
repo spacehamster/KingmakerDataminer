@@ -47,7 +47,7 @@ namespace CustomRaces
             {
                 return null;
             }
-            if(text.StartsWith("LocalizedString") || text.StartsWith("CustomString"))
+            if(text.StartsWith("LocalizedString"))
             {
                 var parts = text.Split(':');
                 if (parts.Length < 2) return null;
@@ -55,7 +55,26 @@ namespace CustomRaces
                 Traverse.Create(localizedString).Field("m_Key").SetValue(parts[1]);
                 return localizedString;
             }
-            return null;
+            {
+                var parts = text.Split(':');
+                string key = null;
+                if (parts.Length < 2 || !text.StartsWith("CustomString"))
+                {
+                    key = "InvalidKey" + text;
+                    LocalizationManager.CurrentPack.Strings[key] = key;
+                }
+                else
+                {
+                    key = parts[1];
+                    if (!LocalizationManager.CurrentPack.Strings.ContainsKey(key))
+                    {
+                        LocalizationManager.CurrentPack.Strings[key] = "Missing" + text;
+                    }
+                }
+                var localizedString = new LocalizedString();
+                Traverse.Create(localizedString).Field("m_Key").SetValue(key);
+                return localizedString;
+            }
         }
 
         // ReSharper disable once IdentifierTypo

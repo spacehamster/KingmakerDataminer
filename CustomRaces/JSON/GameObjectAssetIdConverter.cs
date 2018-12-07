@@ -34,7 +34,10 @@ namespace CustomRaces
 
         public override object ReadJson(JsonReader reader, Type type, object existing, JsonSerializer serializer)
         {
-            if (reader.Value == null) return null;
+            if (reader.TokenType == JsonToken.Null)
+            {
+                return null;
+            }
             JObject jObject = JObject.Load(reader);
             int instanceId = (int)jObject["InstanceId"];
             var result = RaceUtil.FindObjectByInstanceId(instanceId, type);
