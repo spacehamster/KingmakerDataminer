@@ -33,7 +33,7 @@ namespace CustomRaces
         }
         public static void DumpQuick()
         {
-            var types = new Type[]
+            var types = new HashSet<Type>()
             {
                             typeof(BlueprintCharacterClass),
                             typeof(BlueprintRaceVisualPreset),
@@ -50,14 +50,10 @@ namespace CustomRaces
             };
             foreach (var type in types)
             {
-                string assetId;
-                RaceUtil.FallbackTable.TryGetValue(type, out assetId);
-                if (assetId == null)
+                foreach(var blueprint in ResourcesLibrary.GetBlueprints<BlueprintScriptableObject>())
                 {
-                    Main.DebugLog($"No Default {type}");
-                    continue;
+                    JsonBlueprints.Dump(blueprint);
                 }
-                JsonBlueprints.Dump(ResourcesLibrary.TryGetBlueprint<BlueprintScriptableObject>(assetId));
             }
         }
         public static void DumpAllBlueprints()

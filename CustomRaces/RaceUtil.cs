@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
+using System.Linq;
 using UnityEngine;
 
 namespace CustomRaces
@@ -66,7 +67,12 @@ namespace CustomRaces
             FallbackTable.TryGetValue(type, out fallbackId);
             if (fallbackId == null)
             {
-                throw new Exception($"No fallback for typeof {type}");
+                var result = typeof(ResourcesLibrary)
+                    .GetMethod("GetBlueprints")
+                    .MakeGenericMethod(blueprint.GetType())
+                    .Invoke(null, new object[] { }) as IEnumerable<BlueprintScriptableObject>;
+                fallbackId = result.First().AssetGuid;               
+                //throw new Exception($"No fallback for typeof {type}");
             }
             string assetId = string.Format("{0}:{1}{2}", newAssetId, fallbackId, AssetSuffix);
             Traverse.Create(blueprint).Field("m_AssetGuid").SetValue(assetId);
@@ -204,6 +210,10 @@ namespace CustomRaces
             var localized = new LocalizedString();
             Traverse.Create(localized).Field("m_Key").SetValue(key);
             return localized;
+        }
+        public static object ShallowClone(object obj)
+        {
+            return Traverse.Create(obj).Method("MemberwiseClone").GetValue();
         }
     }
 
