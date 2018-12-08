@@ -19,25 +19,14 @@ namespace CustomRaces
     {
         public static void DumpBlueprints()
         {
-            var types = new Type[]
-            {
-                typeof(BlueprintCharacterClass),
-                typeof(BlueprintRaceVisualPreset),
-                typeof(BlueprintRace),
-                typeof(BlueprintArchetype),
-                typeof(BlueprintProgression),
-                typeof(BlueprintStatProgression),
-                typeof(BlueprintFeature),
-                typeof(BlueprintFeatureSelection),
-                typeof(BlueprintSpellbook),
-                typeof(BlueprintSpellList),
-                typeof(BlueprintSpellsTable),
-            };
+            var seen = new HashSet<Type>();
+            
             var blueprints = ResourcesLibrary.GetBlueprints<BlueprintScriptableObject>();
             foreach (var blueprint in blueprints)
             {
-                if (types.Contains(blueprint.GetType()))
+                if (!seen.Contains(blueprint.GetType()))
                 {
+                    seen.Add(blueprint.GetType());
                     JsonBlueprints.Dump(blueprint);
                 }
             }

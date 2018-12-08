@@ -1,0 +1,76 @@
+{
+  "$id": "1",
+  "$type": "Kingmaker.Blueprints.Classes.Selection.BlueprintFeatureSelection, Assembly-CSharp",
+  "IgnorePrerequisites": false,
+  "Obligatory": false,
+  "Mode": "default",
+  "Group": "exoticWeaponProficiency",
+  "Group2": "none",
+  "Features": [],
+  "AllFeatures": [
+    "File:ExoticProficiency/AxesProficiency.json",
+	"File:ExoticProficiency/DoubleProficiency.json",
+	"File:ExoticProficiency/HeavyBladesProficiency.json",
+	"File:ExoticProficiency/LightBladesProficiency.json"
+  ],
+  "Groups": [
+    "feat",
+    "combatFeat"
+  ],
+  "Ranks": 1,
+  "ReapplyOnLevelUp": false,
+  "HideInUI": false,
+  "m_AllowNonContextActions": false,
+  "m_DisplayName": "CustomString:ExoticWeaponGroupSelectionName",
+  "m_Description": "CustomString:ExoticWeaponGroupSelectionDescription",
+  "m_Icon": {
+    "$type": "Sprite",
+    "name": "ExoticWeaponProficiency",
+    "InstanceId": 55730
+  },
+  "Components": [
+    {
+      "$id": "2",
+      "$type": "Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteNotProficient, Assembly-CSharp",
+      "ArmorProficiencies": [],
+      "WeaponProficiencies": [
+        "bastardSword",
+        "duelingSword",
+        "dwarvenWaraxe",
+        "elvenCurvedBlade",
+        "estoc",
+        "falcata",
+        "fauchard",
+        "kama",
+        "sai",
+        "tongi",
+        "slingStaff",
+        "doubleAxe",
+        "doubleSword",
+        "urgrosh",
+        "hookedHammer"
+      ],
+      "Group": "all",
+      "name": "$PrerequisiteNotProficient$294d0e8d-f0f7-4e40-a9cd-f1a2b54861fd"
+    },
+    {
+      "$id": "3",
+      "$type": "Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteStatValue, Assembly-CSharp",
+      "Stat": "baseAttackBonus",
+      "Value": 1,
+      "Group": "all",
+      "name": "$PrerequisiteStatValue$a857369b-5130-41c2-bda0-d83e319d5e0a"
+    },
+    {
+      "$id": "4",
+      "$type": "Kingmaker.Designers.Mechanics.Recommendations.RecommendationNoFeatFromGroup, Assembly-CSharp",
+      "Features": [
+        "Blueprint:1e1f627d26ad36f43bbd26cc2bf8ac7e:WeaponFocus"
+      ],
+      "GoodIfNoFeature": false,
+      "name": "$RecommendationNoFeatFromGroup$0e7aee82-a82e-44f4-b743-74404883c111"
+    }
+  ],
+  "m_AssetGuid": "ExoticWeaponGroupProficiencySelection",
+  "name": "ExoticWeaponGroupProficiencySelection"
+}

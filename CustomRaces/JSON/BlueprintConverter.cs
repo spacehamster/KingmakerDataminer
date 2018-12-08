@@ -32,11 +32,15 @@ namespace CustomRaces
             throw new NotImplementedException();
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer szr
         )
         {
             JObject jObject = JObject.Load(reader);
-            var name = jObject["name"].ToString();
+            var name = (string)jObject["name"];
+            var typeName = (string)jObject["$type"];
+            var realType = Type.GetType(typeName);
+            var settings = JsonBlueprints.CreateSettings(realType);
+            var serializer = JsonSerializer.Create(settings);
             if (name == null)
             {
                 throw new System.Exception("Missing name");
@@ -46,7 +50,7 @@ namespace CustomRaces
                 throw new System.Exception("Cannot create blueprint twice");
             }
 
-            var result = ScriptableObject.CreateInstance(objectType) as BlueprintScriptableObject;
+            var result = ScriptableObject.CreateInstance(realType) as BlueprintScriptableObject;
             JsonBlueprints.Blueprints[name] = result;
             RaceUtil.AddBlueprint(result, name);
             serializer.Populate(jObject.CreateReader(), result);

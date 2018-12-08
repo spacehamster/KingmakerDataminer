@@ -2,6 +2,7 @@
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Localization;
@@ -20,6 +21,7 @@ namespace CustomRaces
         static List<BlueprintRace> races = new List<BlueprintRace>();
         static List<BlueprintCharacterClass> characterClasses = new List<BlueprintCharacterClass>();
         static List<BlueprintItemWeapon> weapons = new List<BlueprintItemWeapon>();
+        static List<BlueprintFeature> feats = new List<BlueprintFeature>();
         static BlueprintInfo info = null;
         static bool loaded = false;
         public static void Init()
@@ -32,6 +34,7 @@ namespace CustomRaces
             races.AddRange(info.Races);
             characterClasses.AddRange(info.Classes);
             weapons.AddRange(info.Weapons);
+            feats.AddRange(info.Feats);
         }
         public static void LoadStrings()
         {
@@ -113,6 +116,7 @@ namespace CustomRaces
                     foreach (var race in races) AddRace(race);
                     foreach (var characterClass in characterClasses) AddCharcterClass(characterClass);
                     foreach (var weapon in weapons) AddWeapon(weapon);
+                    foreach (var feature in feats) AddFeature(feature);
                 } catch(Exception e)
                 {
                     Main.DebugLog(e.ToString() + "\n" + e.StackTrace);
@@ -121,7 +125,28 @@ namespace CustomRaces
                 }
             }
         }
-        static List<string> Vendors = new List<string>()
+        static public void AddFeature(BlueprintFeature feature)
+        {
+            var basicFeatSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("247a4068296e8be42890143f451b4b45");
+            try
+            {
+                ref var allFeatures = ref basicFeatSelection.AllFeatures;
+                if (allFeatures.Contains(feature))
+                {
+                    return;
+                }
+                var l = allFeatures.Length;
+                Array.Resize(ref allFeatures, l + 1);
+                allFeatures[l] = feature;
+                Main.DebugLog($"{feature.name} of type {feature.GetType()} added to the class list");
+            }
+            catch (Exception ex)
+            {
+                Main.DebugLog(ex.ToString());
+                throw;
+            }
+        }
+        static readonly List<string> Vendors = new List<string>()
         {
             "f720440559fc00949900bfa1575196ac", //C11_OlegVendorTable
             "4778ecb5df5d48742b9be5a204ed4657", //C11_BokkenVendorTable

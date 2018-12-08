@@ -13,5 +13,15 @@
 	"DhampirRaceDescription":"The half-living children of vampires birthed by human females, dhampirs are progenies of both horror and tragedy. The circumstances of a dhampir’s conception are often called into question but scarcely understood, as few mortal mothers survive the childbirth. Those who do often abandon their monstrous children and refuse to speak of the matter. While some speculate that dhampirs result when mortal women couple with vampires, others claim that they form when a pregnant woman suffers a vampire bite. Some particularly zealous scholars even contest dhampirs’ status as a unique race, instead viewing them as humans suffering from an unholy affliction. Indeed, this hypothesis is strengthened by dhampirs’ seeming inability to reproduce, their offspring inevitably humans (usually sorcerers with the undead bloodline).",
 	"FalcataRedeemerName":"Falcata Redeemer",
 	"FalcataRedeemerDescription":"This +5 holy flaming falcata has an improved critical multiplier. It grants its wielder the ability to cast transformation spell once per day.",
-	"FalcataRedeemerFlavorText":"Flavor text here"
+	"FalcataRedeemerFlavorText":"Flavor text here",
+	"ExoticWeaponGroupSelectionName":"Exotic Weapon Group Proficiency",
+	"ExoticWeaponGroupSelectionDescription":"Choose one type of exotic weapon, such as the heavy blades or axes. You understand how to use that type of exotic weapon in combat, and can utilize any special tricks or qualities that exotic weapon might allow.",
+	"HeavyBladesProficiencyName":"Weapon Proficiency (Exotic Heavy Blades)",
+	"HeavyBladesProficiencyDescription":"You become proficient with Bastard Swords, Dueling Swords, Two-bladed Swords, Eleven Curved Blades, Estocs and Falcata and can use them as a weapon.",
+	"LightBladesProficiencyName":"Weapon Proficiency (Exotic Light Blades)",
+	"LightBladesProficiencyDescription":"You become proficient with Sai and Kama and can use them as a weapon.",
+	"DoubleProficiencyName":"Weapon Proficiency (Exotic Double Weapons)",
+	"DoubleProficiencyDescription":"You become proficient with Orc Double Axe, Two-bladed Sword, Gnome Hooked Hammer and Dwarven Urgosh and can use them as a weapon.",
+	"AxesProficiencyName":"Weapon Proficiency (Exotic Axes)",
+	"AxesProficiencyDescription":"You become proficient with Orc Double Axes, Dwarven Waraxe, Tongi and Dwarven Urgosh and can use them as a weapon."
 }

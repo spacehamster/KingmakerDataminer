@@ -4,7 +4,10 @@
 	],
 	"Races":[
 	],
+	"Feats":[
+		"File:ExoticProficiency/ExoticWeaponGroupSelection.json"
+	],
 	"Weapons":[
 		"File:FalcataRedeemer.json"
-	],
+	]
 }
