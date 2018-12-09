@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Harmony12;
 using JetBrains.Annotations;
 using Kingmaker.Blueprints;
 using Newtonsoft.Json;
@@ -17,7 +18,7 @@ namespace CustomRaces
         {
             get
             {
-                return false;
+                return true;
             }
         }
         private BlueprintConverter() { }
@@ -26,12 +27,19 @@ namespace CustomRaces
         {
             Enabled = enabled;
         }
-
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
-            throw new NotImplementedException();
+            var settings = JsonBlueprints.CreateSettings(null);
+            var newSerializer = JsonSerializer.Create(settings);
+            var j = new JObject();
+            j.AddFirst(new JProperty("$type", JsonBlueprints.GetTypeName(o.GetType())));
+            foreach (var field in JsonBlueprints.GetUnitySerializableMembers(o.GetType()))
+            {
+                var value = Traverse.Create(o).Field(field.Name).GetValue();
+                j.Add(field.Name, value != null ? JToken.FromObject(value, newSerializer) : null);
+            }
+            j.WriteTo(w);
         }
-
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer szr
         )
         {

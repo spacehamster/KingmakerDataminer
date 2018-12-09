@@ -1,5 +1,4 @@
 ﻿using Kingmaker.Blueprints;
-using Kingmaker.Visual.CharacterSystem;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -7,8 +6,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization.Formatters;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace CustomRaces
@@ -42,6 +39,10 @@ namespace CustomRaces
                 .Where(field => !FieldBlacklist.Contains(field))
                 .ToList();
             return result;
+        }
+        public static string GetTypeName(Type objectType)
+        {
+            return $"{objectType.FullName}, {objectType.Assembly.GetName().Name}";
         }
         public static JsonSerializerSettings CreateSettings(Type blueprintType)
         {
@@ -127,9 +128,7 @@ namespace CustomRaces
             using (StreamWriter sw = new StreamWriter($"Blueprints/{ee.GetType()}/{ee.name}.json"))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
-
                 serializer.Serialize(writer, ee);
-
             }
         }
     }

@@ -56,9 +56,20 @@ namespace CustomRaces
         public static void DumpAllBlueprints()
         {
             var blueprints = ResourcesLibrary.GetBlueprints<BlueprintScriptableObject>();
-            foreach (var blueprint in blueprints)
+            Directory.CreateDirectory("Blueprints");
+            using (var file = new StreamWriter("Blueprints/log.txt"))
             {
-                JsonBlueprints.Dump(blueprint);
+                foreach (var blueprint in blueprints)
+                {
+                    if (blueprint.AssetGuid.Length != 32) continue;
+                    try
+                    {
+                        JsonBlueprints.Dump(blueprint);
+                    } catch(Exception ex)
+                    {
+                        file.WriteLine($"Error dumping {blueprint.name}:{blueprint.AssetGuid}:{blueprint.GetType().FullName}, {ex.ToString()}");
+                    }
+                }
             }
         }
         public static void DumpEquipmentEntities()
