@@ -59,11 +59,12 @@ namespace CustomRaces
             = new BlueprintConverter(true);
 
         private static readonly JsonConverter[] PreferredConverters = {
-         new StringEnumConverter(true),
+          new StringEnumConverter(true),
           new IsoDateTimeConverter(),
           new XmlNodeConverter(),
           new VersionConverter(),
           new RegexConverter(),
+          new ScriptableObjectConverter(true),
           new LocalizedStringConverter(true),
           new WeakResourceLinkConverter(true),
           new UnityJsonConverter(true),

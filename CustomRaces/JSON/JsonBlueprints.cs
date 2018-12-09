@@ -72,35 +72,42 @@ namespace CustomRaces
 
             return RefJsonSerializerSettings;
         }
-
-        public static T Load<T>(string filepath)
+        public static object Load(string filepath, Type type)
         {
-            var type = typeof(BlueprintScriptableObject).IsAssignableFrom(typeof(T)) ? typeof(T) : null;
-            var settings = CreateSettings(type);
+            var settingsType = typeof(BlueprintScriptableObject).IsAssignableFrom(type) ? type : null;
+            var settings = CreateSettings(settingsType);
             var serializer = JsonSerializer.Create(settings);
-
             using (StreamReader sr = new StreamReader(filepath))
             using (JsonReader jsonReader = new JsonTextReader(sr))
             {
                 try
                 {
-                    return serializer.Deserialize<T>(jsonReader);
-                } catch(Exception ex)
+                    return serializer.Deserialize(jsonReader, type);
+                }
+                catch (Exception ex)
                 {
                     throw new Exception($"Error deserializing {filepath}", ex);
                 }
             }
         }
-        public static T Loads<T>(string text)
+        public static T Load<T>(string filepath)
         {
-            var type = typeof(BlueprintScriptableObject).IsAssignableFrom(typeof(T)) ? typeof(T) : null;
-            var settings = CreateSettings(type);
+            return (T)Load(filepath, typeof(T));
+        }
+        public static object Loads(string text, Type type)
+        {
+            var settingsType = typeof(BlueprintScriptableObject).IsAssignableFrom(type) ? type : null;
+            var settings = CreateSettings(settingsType);
             var serializer = JsonSerializer.Create(settings);
             using (StringReader sr = new StringReader(text))
             using (JsonReader jsonReader = new JsonTextReader(sr))
             {
-                return serializer.Deserialize<T>(jsonReader);
+                return serializer.Deserialize(jsonReader, type);
             }
+        }
+        public static T Loads<T>(string text)
+        {
+            return (T)Loads(text, typeof(T));
         }
         public static void Dump(BlueprintScriptableObject blueprint)
         {

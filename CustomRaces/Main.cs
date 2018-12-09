@@ -66,11 +66,11 @@ namespace CustomRaces
             {
                 if (!enabled) return;
 #if (DEBUG)
-                if (GUILayout.Button("DumpBlueprintsQuick"))
+                if (GUILayout.Button("DumpClassRaceBlueprints"))
                 {
                     AssetsDump.DumpQuick();
                 }
-                if (GUILayout.Button("DumpBlueprints")){
+                if (GUILayout.Button("DumpSampleOfBlueprints")){
                     AssetsDump.DumpBlueprints();
                 }
                 if (GUILayout.Button("DumpAllBlueprints"))
@@ -98,6 +98,12 @@ namespace CustomRaces
                     var vp = JsonBlueprints.Load<BlueprintRaceVisualPreset>("mods/customraces/data/TestPreset.json");
                     DebugLog("Loaded " + vp.name);
                 }
+                /*
+                 * UnityEngine.Networking.NetworkTransport.GetAssetId(go) //returns ""
+                 * internal static extern bool Object.DoesObjectWithInstanceIDExist(int instanceID); //returns true
+                 * internal static extern Object Object.FindObjectFromInstanceID(int instanceID); // returns CR_Hair_VioletDark_U_HM
+                 * Resources.FindObjectsOfTypeAll<Texture2D>() // returns CR_Hair_VioletDark_U_HM after it has been loaded with Resource.Load
+                 */
                 if (GUILayout.Button("FindObject"))
                 {
                     var go = RaceUtil.FindObjectByInstanceId<GameObject>(270194);
@@ -105,7 +111,41 @@ namespace CustomRaces
 
                     var sprite = RaceUtil.FindObjectByInstanceId<Sprite>(45820);
                     DebugLog(sprite == null ? "NULL" : sprite.name); //OH_LongswordThieves
+
+                    var texture1 = RaceUtil.FindObjectByInstanceId<Texture2D>(552466);
+                    DebugLog(texture1 == null ? "NULL" : texture1.name); //CR_Hair_VioletDark_U_HM
+
+                    var humanHair = ResourcesLibrary.TryGetResource<EquipmentEntity>("a9558cfc0705d4e48af7ecd2ebd75411"); //EE_Hair_HairLongWavy_M_HM
+
+                    var texture2 = RaceUtil.FindObjectByInstanceId<Texture2D>(552466);
+                    DebugLog(texture2 == null ? "NULL" : texture2.name); //CR_Hair_VioletDark_U_HM
                 }
+                if (GUILayout.Button("FindObject2"))
+                {
+
+                    var doesExist =  Traverse.Create<UnityEngine.Object>().Method("DoesObjectWithInstanceIDExist", new object[] { 552466 }).GetValue<bool>();
+                    DebugLog($"Does resource exist first {doesExist}");
+                    var tex1 = Traverse.Create<UnityEngine.Object>().Method("FindObjectFromInstanceID", new object[] { 552466 }).GetValue<UnityEngine.Object>();
+                    DebugLog(tex1 == null ? "NULL" : tex1.name); //CR_Hair_VioletDark_U_HM
+
+                    var humanHair = ResourcesLibrary.TryGetResource<EquipmentEntity>("a9558cfc0705d4e48af7ecd2ebd75411"); //EE_Hair_HairLongWavy_M_HM
+
+                    doesExist = Traverse.Create<UnityEngine.Object>().Method("DoesObjectWithInstanceIDExist", new object[] { 552466 }).GetValue<bool>();
+                    DebugLog($"Does resource exist second {doesExist}");
+                    var tex2 = Traverse.Create<UnityEngine.Object>().Method("FindObjectFromInstanceID", new object[] { 552466 }).GetValue<UnityEngine.Object>();
+                    DebugLog(tex2 == null ? "NULL" : tex2.name); //CR_Hair_VioletDark_U_HM
+
+
+                    var go = (GameObject)RaceUtil.FindObjectByInstanceId<GameObject>(270194);
+                    DebugLog("FindByID " + go == null ? "NULL" : go.name); //OH_LongswordThieves
+
+                    var assetId = UnityEngine.Networking.NetworkTransport.GetAssetId(go);
+                    if (assetId == null) assetId = "NULL";
+                    if (assetId == "") assetId = "Empty";
+                    DebugLog($"AssetId: {assetId}");
+
+                }
+
                 if (GUILayout.Button("Reload"))
                 {
                     RaceManager.Reload();

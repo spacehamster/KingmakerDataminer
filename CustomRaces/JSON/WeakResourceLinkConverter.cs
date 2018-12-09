@@ -29,7 +29,6 @@ namespace CustomRaces
             ResourcesLibrary.LibraryObject.ResourcePathsByAssetId.TryGetValue(resource.AssetId, out path);
             w.WriteValue(string.Format($"Resource:{resource.AssetId}:{path ?? "NULL"}"));
         }
-
         public override object ReadJson(JsonReader reader, Type type, object existing, JsonSerializer serializer)
         {
             string text = (string)reader.Value;
@@ -56,7 +55,15 @@ namespace CustomRaces
                 }
                 else
                 {
-                    var resource = JsonBlueprints.Load<UnityEngine.Object>(path);
+                    var baseType = type;
+                    while (baseType.IsSubclassOf(typeof(WeakResourceLink)))
+                    {
+                        baseType = baseType.BaseType;
+                    }
+                    var isType = baseType == typeof(WeakResourceLink);
+                    var resourceLink = type.BaseType;
+                    var resourceType = resourceLink.GenericTypeArguments[0];
+                    var resource = (UnityEngine.Object)JsonBlueprints.Load(path, resourceType);
                     var assetId = RaceUtil.AddResource<UnityEngine.Object>(resource, path);
                     JsonBlueprints.ResourceAssetIds[path] = assetId;
                     var link = (WeakResourceLink)Activator.CreateInstance(type);

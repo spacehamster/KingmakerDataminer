@@ -48,12 +48,9 @@ namespace CustomRaces
                             typeof(BlueprintSpellsTable),
                             typeof(BlueprintItemWeapon),
             };
-            foreach (var type in types)
+            foreach(var blueprint in ResourcesLibrary.GetBlueprints<BlueprintScriptableObject>())
             {
-                foreach(var blueprint in ResourcesLibrary.GetBlueprints<BlueprintScriptableObject>())
-                {
-                    JsonBlueprints.Dump(blueprint);
-                }
+                if(types.Contains(blueprint.GetType())) JsonBlueprints.Dump(blueprint);
             }
         }
         public static void DumpAllBlueprints()
@@ -84,6 +81,7 @@ namespace CustomRaces
         }
         public static void DumpList()
         {
+            var typemap = new Dictionary<Type, string>();
             Directory.CreateDirectory($"Blueprints/");
             var blueprints = ResourcesLibrary.GetBlueprints<BlueprintScriptableObject>().ToList();
             var blueprintsByAssetID = ResourcesLibrary.LibraryObject.BlueprintsByAssetId;
@@ -93,7 +91,8 @@ namespace CustomRaces
             {
                 foreach (var blueprint in blueprints)
                 {
-                    file.WriteLine($"{blueprint.name}\t{blueprint.AssetGuid}\t{blueprint.GetType()}\t");
+                    typemap[blueprint.GetType()] = "Blueprint";
+                    file.WriteLine($"{blueprint.name}\t{blueprint.AssetGuid}\t{blueprint.GetType()}");
                 }
             }
             var resourcePathsByAssetId = ResourcesLibrary.LibraryObject.ResourcePathsByAssetId;
@@ -103,7 +102,21 @@ namespace CustomRaces
                 foreach (var kv in ResourcesLibrary.LibraryObject.ResourcePathsByAssetId)
                 {
                     var resource = ResourcesLibrary.TryGetResource<UnityEngine.Object>(kv.Key);
+                    if(resource != null) { 
+                    var baseType = resource.GetType().IsAssignableFrom(typeof(UnityEngine.GameObject)) ? "GameObject" :
+                                     resource.GetType().IsAssignableFrom(typeof(UnityEngine.ScriptableObject)) ? "ScriptableObject" :
+                                     resource.GetType().IsAssignableFrom(typeof(UnityEngine.Component)) ? "Component" :
+                                     "Object";
+                        typemap[resource.GetType()] = $"Resource:{baseType}";
+                    }
                     file.WriteLine($"{resource?.name ?? "NULL"}\t{kv.Key}\t{resource?.GetType()?.Name ?? "NULL"}\t{kv.Value}");
+                }
+            }
+            using (var file = new StreamWriter("Blueprints/Types.txt"))
+            {
+                foreach (var kv in typemap.OrderBy(kv => kv.Value))
+                {
+                    file.WriteLine($"{kv.Key}\t{kv.Value}");
                 }
             }
         }

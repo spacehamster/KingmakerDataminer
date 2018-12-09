@@ -262,7 +262,14 @@ namespace CustomRaces
             if (type == typeof(Texture2D) || type == typeof(Sprite) || type == typeof(Mesh) || type == typeof(Material))
             {
                 int instanceId = (int)o["InstanceId"];
-                return RaceUtil.FindObjectByInstanceId(instanceId, type);
+                var result = RaceUtil.FindObjectByInstanceId(instanceId, type);
+                if (result == null) {
+                    Main.DebugLog($"Couldn't find resource {type.Name}({instanceId}) {o["name"]}");
+                } else
+                {
+                    Main.DebugLog($"Found resource {type.Name}({instanceId}) {result.name}");
+                }
+                return result;
             }
             return null;
         }

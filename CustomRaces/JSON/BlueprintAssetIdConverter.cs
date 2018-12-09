@@ -59,10 +59,7 @@ namespace CustomRaces
                     return JsonBlueprints.Blueprints[blueprintName];
                 }
                 Main.DebugLog($"Reading blueprint from file: {text}");
-
-                MethodInfo method = typeof(JsonBlueprints).GetMethod("Load");
-                MethodInfo genericMethod = method.MakeGenericMethod(objectType);
-                var result = genericMethod.Invoke(null, new object[] { path });
+                var result = JsonBlueprints.Load(path, objectType);
                 return result;
             }
             throw new JsonSerializationException(string.Format("Invalid blueprint format {0}", text));

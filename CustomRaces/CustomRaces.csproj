@@ -110,6 +110,7 @@
     <Compile Include="JSON\GameObjectAssetIdConverter.cs" />
     <Compile Include="JSON\JsonBlueprints.cs" />
     <Compile Include="JSON\LocalizedStringConverter.cs" />
+    <Compile Include="JSON\ScriptableObjectConverter.cs" />
     <Compile Include="JSON\UnityJsonConverter.cs" />
     <Compile Include="JSON\WeakResourceLinkConverter.cs" />
     <Compile Include="Main.cs" />

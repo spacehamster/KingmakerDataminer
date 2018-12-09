@@ -194,11 +194,8 @@ namespace CustomRaces
         }
         public static UnityEngine.Object FindObjectByInstanceId(int instanceId, Type type)
         {
-            foreach (UnityEngine.Object go in Resources.FindObjectsOfTypeAll(type))
-            {
-                if (go.GetInstanceID() == instanceId) return go;
-            }
-            return null;
+            var obj = Traverse.Create<UnityEngine.Object>().Method("FindObjectFromInstanceID", new object[] { instanceId }).GetValue<UnityEngine.Object>();
+            return obj;
         }
         /*
          * Huge hack. TODO fix
