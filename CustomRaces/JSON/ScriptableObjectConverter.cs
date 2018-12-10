@@ -50,7 +50,7 @@ namespace CustomRaces
             {
                 var parts = copy.Split(':');
                 var resource = ResourcesLibrary.TryGetResource<ScriptableObject>(parts[1]);
-                result = (ScriptableObject)RaceUtil.ShallowClone(resource);
+                result = (ScriptableObject)BlueprintUtil.ShallowClone(resource);
                 Main.DebugLog($"Copying {resource.name}");
             }
             else

@@ -18,7 +18,7 @@ using UnityEngine;
 
 namespace CustomRaces
 {
-    static public class RaceUtil
+    static public class BlueprintUtil
     {
         public static readonly string AssetSuffix = "#CustomFeature";
         public static Dictionary<Type, string> FallbackTable = new Dictionary<Type, string>()
@@ -136,7 +136,7 @@ namespace CustomRaces
                 var oldEE = links[i].Load();
                 var newEE = CopyEquipmentEntity(oldEE);
                 var assetID = GetDeterministicAssetID(oldGUID);
-                eels[i] = RaceUtil.MakeEquipmentEntityLink(newEE, assetID);
+                eels[i] = BlueprintUtil.MakeEquipmentEntityLink(newEE, assetID);
                 oldGUID = assetID;
             }
             return eels;
@@ -148,7 +148,7 @@ namespace CustomRaces
             {
                 newPresets[i] = ScriptableObject.CreateInstance<BlueprintRaceVisualPreset>();
                 var presetAssetGUID = GetDeterministicAssetID(prevGUID);
-                RaceUtil.AddBlueprint(newPresets[i], presetAssetGUID);
+                BlueprintUtil.AddBlueprint(newPresets[i], presetAssetGUID);
                 //RaceManager.assets[presetAssetGUID] = newPresets[i];
                 newPresets[i].RaceId = original.Presets[i].RaceId;
                 newPresets[i].MaleSkeleton = original.Presets[i].MaleSkeleton;
@@ -176,7 +176,7 @@ namespace CustomRaces
         {
             var newRace = ScriptableObject.CreateInstance<BlueprintRace>();
             if (newID == null) newID = original.AssetGuid;
-            RaceUtil.AddBlueprint(newRace, newID);
+            BlueprintUtil.AddBlueprint(newRace, newID);
             newRace.RaceId = original.RaceId;
             newRace.SoundKey = original.SoundKey;
             newRace.SelectableRaceStat = original.SelectableRaceStat;

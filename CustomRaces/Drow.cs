@@ -16,7 +16,7 @@ namespace CustomRaces
 
             var blueprints = ResourcesLibrary.LibraryObject.BlueprintsByAssetId;
             var elf = (BlueprintRace)blueprints["25a5878d125338244896ebd3238226c8"];
-            var newRace = RaceUtil.CopyRace(elf, "42a7466432fd4db4870363ffa1a9eaba");
+            var newRace = BlueprintUtil.CopyRace(elf, "42a7466432fd4db4870363ffa1a9eaba");
             newRace.name = "DrowRace";
             var addDex = ScriptableObject.CreateInstance<AddStatBonus>();
             addDex.name = "CustomRaceStat";
@@ -48,8 +48,8 @@ namespace CustomRaces
                 (BlueprintFeatureBase)blueprints["03fd1e043fc678a4baf73fe67c3780ce"],  //ElvenWeaponFamiliarity
                 SpellResistance()
             };
-            Traverse.Create(newRace).Field("m_DisplayName").SetValue(RaceUtil.MakeLocalized("Drow"));
-            Traverse.Create(newRace).Field("m_Description").SetValue(RaceUtil.MakeLocalized("Cruel and cunning, drow are a dark reflection of the elven race. Also called dark elves, they dwell deep underground in elaborate cities shaped from the rock of cyclopean caverns. Drow seldom make themselves known to surface folk, preferring to remain legends while advancing their sinister agendas through proxies and agents. Drow have no love for anyone but themselves, and are adept at manipulating other creatures. While they are not born evil, malignancy is deep-rooted in their culture and society, and nonconformists rarely survive for long. Some stories tell that given the right circumstances, a particularly hateful elf might turn into a drow, though such a transformation would require a truly heinous individual."));
+            Traverse.Create(newRace).Field("m_DisplayName").SetValue(BlueprintUtil.MakeLocalized("Drow"));
+            Traverse.Create(newRace).Field("m_Description").SetValue(BlueprintUtil.MakeLocalized("Cruel and cunning, drow are a dark reflection of the elven race. Also called dark elves, they dwell deep underground in elaborate cities shaped from the rock of cyclopean caverns. Drow seldom make themselves known to surface folk, preferring to remain legends while advancing their sinister agendas through proxies and agents. Drow have no love for anyone but themselves, and are adept at manipulating other creatures. While they are not born evil, malignancy is deep-rooted in their culture and society, and nonconformists rarely survive for long. Some stories tell that given the right circumstances, a particularly hateful elf might turn into a drow, though such a transformation would require a truly heinous individual."));
             return newRace;
         }
         static void SetRamps(BlueprintRace newRace)
@@ -108,9 +108,9 @@ namespace CustomRaces
                 addSpellResistance
             };
             spellResistance6plusCR.name = "SpellResistance6plusCR";
-            Traverse.Create(spellResistance6plusCR).Field("m_DisplayName").SetValue(RaceUtil.MakeLocalized("Spell Resistance"));
-            Traverse.Create(spellResistance6plusCR).Field("m_Description").SetValue(RaceUtil.MakeLocalized("Drow possess spell resistance (SR) equal to 6 plus their total number of class levels."));
-            RaceUtil.AddBlueprint(spellResistance6plusCR, "94cb101bb5e944bea2e1777e6627dc5c");
+            Traverse.Create(spellResistance6plusCR).Field("m_DisplayName").SetValue(BlueprintUtil.MakeLocalized("Spell Resistance"));
+            Traverse.Create(spellResistance6plusCR).Field("m_Description").SetValue(BlueprintUtil.MakeLocalized("Drow possess spell resistance (SR) equal to 6 plus their total number of class levels."));
+            BlueprintUtil.AddBlueprint(spellResistance6plusCR, "94cb101bb5e944bea2e1777e6627dc5c");
             return spellResistance6plusCR;
         }
     }

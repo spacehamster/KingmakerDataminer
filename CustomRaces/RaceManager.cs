@@ -16,7 +16,7 @@ using UnityEngine.SceneManagement;
 
 namespace CustomRaces
 {
-    public class RaceManager
+    public class BlueprintManager
     {
         static List<BlueprintRace> races = new List<BlueprintRace>();
         static List<BlueprintCharacterClass> characterClasses = new List<BlueprintCharacterClass>();
@@ -64,14 +64,14 @@ namespace CustomRaces
             var originalRaces = new List<BlueprintRace>();
             foreach(var race in Game.Instance.BlueprintRoot.Progression.CharacterRaces)
             {
-                if (race.AssetGuid.EndsWith(RaceUtil.AssetSuffix)) continue;
+                if (race.AssetGuid.EndsWith(BlueprintUtil.AssetSuffix)) continue;
                 originalRaces.Add(race);
             }
             Game.Instance.BlueprintRoot.Progression.CharacterRaces = originalRaces.ToArray();
             var originalClasses = new List<BlueprintCharacterClass>();
             foreach (var characterClass in Game.Instance.BlueprintRoot.Progression.CharacterClasses)
             {
-                if (characterClass.AssetGuid.EndsWith(RaceUtil.AssetSuffix)) continue;
+                if (characterClass.AssetGuid.EndsWith(BlueprintUtil.AssetSuffix)) continue;
                 originalClasses.Add(characterClass);
             }
             Game.Instance.BlueprintRoot.Progression.CharacterClasses = originalClasses.ToArray();
@@ -88,7 +88,7 @@ namespace CustomRaces
             var resourcesToRemove = new List<string>();
             foreach(DictionaryEntry entry in resources)
             {
-                if (entry.Key.ToString().EndsWith(RaceUtil.AssetSuffix)){
+                if (entry.Key.ToString().EndsWith(BlueprintUtil.AssetSuffix)){
                     resourcesToRemove.Add(entry.Key);
                 }
             }

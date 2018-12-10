@@ -92,9 +92,7 @@ namespace CustomRaces
         }
         protected override JsonConverter ResolveContractConverter(Type objectType)
         {
-            if (objectType == null)
-                return null;
-
+            if (objectType == null) return null;
             if (BlueprintScriptableObjectType.IsAssignableFrom(objectType))
                 if (objectType != RootBlueprintType)
                 {

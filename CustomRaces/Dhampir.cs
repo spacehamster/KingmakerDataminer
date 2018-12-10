@@ -15,7 +15,7 @@ namespace CustomRaces
             if (bundle == null) bundle = AssetBundle.LoadFromFile("Mods/CustomRaces/AssetBundles/dhampir");
             var blueprints = ResourcesLibrary.LibraryObject.BlueprintsByAssetId;
             var human = (BlueprintRace)blueprints["0a5d473ead98b0646b94495af250fdc4"];
-            var newRace = RaceUtil.CopyRace(human, "7ef12cdd1464418d9f9547033bd9f77d");
+            var newRace = BlueprintUtil.CopyRace(human, "7ef12cdd1464418d9f9547033bd9f77d");
             newRace.name = "DhampirRace";
             var addDex = ScriptableObject.CreateInstance<AddStatBonus>();
             addDex.name = "CustomRaceStat";
@@ -45,8 +45,8 @@ namespace CustomRaces
                 (BlueprintFeatureBase)blueprints["8a75eb16bfff86949a4ddcb3dd2f83ae"], //UndeadImmunities
                 Manipulative()
             };
-            Traverse.Create(newRace).Field("m_DisplayName").SetValue(RaceUtil.MakeLocalized("Dhampir"));
-            Traverse.Create(newRace).Field("m_Description").SetValue(RaceUtil.MakeLocalized("The half-living children of vampires birthed by human females, dhampirs are progenies of both horror and tragedy. The circumstances of a dhampir’s conception are often called into question but scarcely understood, as few mortal mothers survive the childbirth. Those who do often abandon their monstrous children and refuse to speak of the matter. While some speculate that dhampirs result when mortal women couple with vampires, others claim that they form when a pregnant woman suffers a vampire bite. Some particularly zealous scholars even contest dhampirs’ status as a unique race, instead viewing them as humans suffering from an unholy affliction. Indeed, this hypothesis is strengthened by dhampirs’ seeming inability to reproduce, their offspring inevitably humans (usually sorcerers with the undead bloodline)."));
+            Traverse.Create(newRace).Field("m_DisplayName").SetValue(BlueprintUtil.MakeLocalized("Dhampir"));
+            Traverse.Create(newRace).Field("m_Description").SetValue(BlueprintUtil.MakeLocalized("The half-living children of vampires birthed by human females, dhampirs are progenies of both horror and tragedy. The circumstances of a dhampir’s conception are often called into question but scarcely understood, as few mortal mothers survive the childbirth. Those who do often abandon their monstrous children and refuse to speak of the matter. While some speculate that dhampirs result when mortal women couple with vampires, others claim that they form when a pregnant woman suffers a vampire bite. Some particularly zealous scholars even contest dhampirs’ status as a unique race, instead viewing them as humans suffering from an unholy affliction. Indeed, this hypothesis is strengthened by dhampirs’ seeming inability to reproduce, their offspring inevitably humans (usually sorcerers with the undead bloodline)."));
             return newRace;
         }
         static void SetRamps(BlueprintRace newRace)
@@ -105,9 +105,9 @@ namespace CustomRaces
                 addPerceptionStat,
             };
             manipulative.name = "Manipulative";
-            Traverse.Create(manipulative).Field("m_DisplayName").SetValue(RaceUtil.MakeLocalized("Manipulative"));
-            Traverse.Create(manipulative).Field("m_Description").SetValue(RaceUtil.MakeLocalized("Dhampir gain a +2 racial bonus on Bluff and Perception checks."));
-            RaceUtil.AddBlueprint(manipulative, "6480bda61617490ca18e3ecb068e74bf");
+            Traverse.Create(manipulative).Field("m_DisplayName").SetValue(BlueprintUtil.MakeLocalized("Manipulative"));
+            Traverse.Create(manipulative).Field("m_Description").SetValue(BlueprintUtil.MakeLocalized("Dhampir gain a +2 racial bonus on Bluff and Perception checks."));
+            BlueprintUtil.AddBlueprint(manipulative, "6480bda61617490ca18e3ecb068e74bf");
             return manipulative;
         }
 

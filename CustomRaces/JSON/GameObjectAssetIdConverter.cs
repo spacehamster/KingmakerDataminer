@@ -40,7 +40,7 @@ namespace CustomRaces
             }
             JObject jObject = JObject.Load(reader);
             int instanceId = (int)jObject["InstanceId"];
-            var result = RaceUtil.FindObjectByInstanceId(instanceId, type);
+            var result = BlueprintUtil.FindObjectByInstanceId(instanceId, type);
             if (result == null)
             {
                 throw new System.Exception($"Couldn't find object with InstanceId {instanceId}");

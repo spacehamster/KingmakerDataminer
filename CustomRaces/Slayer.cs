@@ -26,8 +26,8 @@ namespace CustomRaces
             preRequeNoClass.CharacterClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("4cd1757a0eea7694ba5c933729a53920");
             newClass.ComponentsArray = new BlueprintComponent[] { preRequeNoClass };
             newClass.name = "SlayerClass";
-            newClass.LocalizedName = RaceUtil.MakeLocalized("Slayer");
-            newClass.LocalizedDescription = RaceUtil.MakeLocalized("Skilled at tracking down targets, slayers are consummate hunters, living for the chase and the deadly stroke that brings it to a close. Slayers spend most of their time honing their weapon skills, studying the habits and anatomy of foes, and practicing combat maneuvers.");
+            newClass.LocalizedName = BlueprintUtil.MakeLocalized("Slayer");
+            newClass.LocalizedDescription = BlueprintUtil.MakeLocalized("Skilled at tracking down targets, slayers are consummate hunters, living for the chase and the deadly stroke that brings it to a close. Slayers spend most of their time honing their weapon skills, studying the habits and anatomy of foes, and practicing combat maneuvers.");
             newClass.HitDie = Kingmaker.RuleSystem.DiceType.D10;
             newClass.SkillPoints = 4;
             newClass.BaseAttackBonus = ranger.BaseAttackBonus;
@@ -50,8 +50,8 @@ namespace CustomRaces
             newClass.StartingItems = new Kingmaker.Blueprints.Items.BlueprintItem[] { };
             newClass.RecommendedAttributes = new StatType[] { StatType.Dexterity };
             //newClass.DefaultBuild = rogue.DefaultBuild;
-            RaceUtil.AddBlueprint(newClass, "38e7361d138f4a04bf03659e4204543e");
-            RaceUtil.AddBlueprint(newClass.Progression, "d6bdd34d8f8f4295b6433a201c8e0605");
+            BlueprintUtil.AddBlueprint(newClass, "38e7361d138f4a04bf03659e4204543e");
+            BlueprintUtil.AddBlueprint(newClass.Progression, "d6bdd34d8f8f4295b6433a201c8e0605");
             return newClass;
         }
         static void SetupClassApperance(BlueprintCharacterClass newClass, BlueprintCharacterClass rogue, BlueprintCharacterClass ranger)
@@ -94,7 +94,7 @@ namespace CustomRaces
              */
             var rogueMaleOutfit = ResourcesLibrary.TryGetResource<EquipmentEntity>("d019e95d4a8a8474aa4e03489449d6ee");
             var rangerMaleOutfit = ResourcesLibrary.TryGetResource<EquipmentEntity>("ca71ad9178ecf6a4d942ce55d0c7857b");
-            var maleOutfit = RaceUtil.CopyEquipmentEntity(rogueMaleOutfit);
+            var maleOutfit = BlueprintUtil.CopyEquipmentEntity(rogueMaleOutfit);
             maleOutfit.BodyParts.Clear();
             var rangerBodyPartTypes = BodyPartType.Boots | BodyPartType.Hands | BodyPartType.Upperarms | BodyPartType.Forearms;
             var rogueBodyPartTypes = BodyPartType.Faulds | BodyPartType.Upperlegs |  BodyPartType.Torso;
@@ -102,17 +102,17 @@ namespace CustomRaces
                 (bp) => (bp.Type & rogueBodyPartTypes) != 0));
             maleOutfit.BodyParts.AddRange(rangerMaleOutfit.BodyParts.Where(
                 (bp) => (bp.Type & rangerBodyPartTypes) != 0));
-            var maleOutfitLink = RaceUtil.MakeEquipmentEntityLink(maleOutfit, "7b8429914e404455b270835c20486322");
+            var maleOutfitLink = BlueprintUtil.MakeEquipmentEntityLink(maleOutfit, "7b8429914e404455b270835c20486322");
             var rogueFemaleOutfit = ResourcesLibrary.TryGetResource<EquipmentEntity>("c6757746d62b78f46a92020110dfe088");
             var rangerFemaleOutfit = ResourcesLibrary.TryGetResource<EquipmentEntity>("bc6fb7e5c91de08418b81a397b20bb18");
-            var femaleOutfit = RaceUtil.CopyEquipmentEntity(rogueFemaleOutfit);
+            var femaleOutfit = BlueprintUtil.CopyEquipmentEntity(rogueFemaleOutfit);
             femaleOutfit.BodyParts.Clear();
             femaleOutfit.BodyParts.AddRange(rogueFemaleOutfit.BodyParts.Where(
                 (bp) => bp.Type == BodyPartType.Faulds || bp.Type == BodyPartType.Torso || bp.Type == BodyPartType.Upperarms || bp.Type == BodyPartType.Upperlegs));
             femaleOutfit.BodyParts.AddRange(rangerFemaleOutfit.BodyParts.Where(
                 (bp) => bp.Type == BodyPartType.Boots || bp.Type == BodyPartType.Hands || bp.Type == BodyPartType.Forearms));
 
-            var femaleOutfitLink = RaceUtil.MakeEquipmentEntityLink(femaleOutfit, "b23db2bf48b340b79e25039deb0c86dd");
+            var femaleOutfitLink = BlueprintUtil.MakeEquipmentEntityLink(femaleOutfit, "b23db2bf48b340b79e25039deb0c86dd");
             //EquipmentEntities contains race dependent equipment entities, specificly hoods because races have different heads
             newClass.EquipmentEntities = rogue.EquipmentEntities;
             newClass.MaleEquipmentEntities = new EquipmentEntityLink[] {
@@ -213,7 +213,7 @@ namespace CustomRaces
                     }.ToList()
                 },
             };
-            RaceUtil.AddBlueprint(progression, "3efb832cd03c4c94a858ef8539d9ce92");
+            BlueprintUtil.AddBlueprint(progression, "3efb832cd03c4c94a858ef8539d9ce92");
             newClass.Progression = progression;
 
         }
@@ -225,8 +225,8 @@ namespace CustomRaces
             var rogueTalent = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("b78d146cea711a84598f0acef69462ea");
             //var sprite = Traverse.Create(rogueTalent).Field("m_Icon").GetValue<Sprite>();
             //Traverse.Create(slayerTalent).Field("m_Icon").SetValue(sprite);
-            Traverse.Create(slayerTalent).Field("m_DisplayName").SetValue(RaceUtil.MakeLocalized("Slayer Talent"));
-            Traverse.Create(slayerTalent).Field("m_Description").SetValue(RaceUtil.MakeLocalized("As a slayer gains experience, he learns a number of talents that aid him and confound his foes. Starting at 2nd level and every 2 levels thereafter, a slayer gains one slayer talent. Unless otherwise noted, a slayer cannot select an individual talent more than once."));
+            Traverse.Create(slayerTalent).Field("m_DisplayName").SetValue(BlueprintUtil.MakeLocalized("Slayer Talent"));
+            Traverse.Create(slayerTalent).Field("m_Description").SetValue(BlueprintUtil.MakeLocalized("As a slayer gains experience, he learns a number of talents that aid him and confound his foes. Starting at 2nd level and every 2 levels thereafter, a slayer gains one slayer talent. Unless otherwise noted, a slayer cannot select an individual talent more than once."));
             slayerTalent.AllFeatures = new BlueprintFeature[]
             {
                 //TODO
@@ -266,7 +266,7 @@ namespace CustomRaces
                 ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("c9629ef9eebb88b479b2fbc5e836656a"), //SkillFocusSelection
                 ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("1e1f627d26ad36f43bbd26cc2bf8ac7e"), //WeaponFocus
             };
-            RaceUtil.AddBlueprint(slayerTalent, "efc3ce27f70e4487b280272580d601e9");
+            BlueprintUtil.AddBlueprint(slayerTalent, "efc3ce27f70e4487b280272580d601e9");
             return slayerTalent;
         }
     }

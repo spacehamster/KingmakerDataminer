@@ -60,7 +60,7 @@ namespace CustomRaces
 
             var result = ScriptableObject.CreateInstance(realType) as BlueprintScriptableObject;
             JsonBlueprints.Blueprints[name] = result;
-            RaceUtil.AddBlueprint(result, name);
+            BlueprintUtil.AddBlueprint(result, name);
             serializer.Populate(jObject.CreateReader(), result);
             return result;
         }

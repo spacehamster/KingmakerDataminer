@@ -64,7 +64,7 @@ namespace CustomRaces
                     var resourceLink = type.BaseType;
                     var resourceType = resourceLink.GenericTypeArguments[0];
                     var resource = (UnityEngine.Object)JsonBlueprints.Load(path, resourceType);
-                    var assetId = RaceUtil.AddResource<UnityEngine.Object>(resource, path);
+                    var assetId = BlueprintUtil.AddResource<UnityEngine.Object>(resource, path);
                     JsonBlueprints.ResourceAssetIds[path] = assetId;
                     var link = (WeakResourceLink)Activator.CreateInstance(type);
                     link.AssetId = assetId;

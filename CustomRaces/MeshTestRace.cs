@@ -25,7 +25,7 @@ namespace CustomRaces
             if (bundle == null) bundle = AssetBundle.LoadFromFile("Mods/CustomRaces/AssetBundles/customrace");
             var blueprints = ResourcesLibrary.LibraryObject.BlueprintsByAssetId;
             var human = (BlueprintRace)blueprints["0a5d473ead98b0646b94495af250fdc4"];
-            var newRace = RaceUtil.CopyRace(human, "96f0c206fb134674a0c0bbbfcb39803c");
+            var newRace = BlueprintUtil.CopyRace(human, "96f0c206fb134674a0c0bbbfcb39803c");
             newRace.Features = new BlueprintFeatureBase[]
             {
                 (BlueprintFeatureBase)blueprints["03fd1e043fc678a4baf73fe67c3780ce"] //ElvenWeaponFamiliarity
@@ -35,8 +35,8 @@ namespace CustomRaces
             foreach (var preset in newRace.Presets) preset.name += "MeshTestRace";
             //SetSMR(newRace);
             SetSMR2(newRace);
-            Traverse.Create(newRace).Field("m_DisplayName").SetValue(RaceUtil.MakeLocalized("MeshTest"));
-            Traverse.Create(newRace).Field("m_Description").SetValue(RaceUtil.MakeLocalized("Description Goes Here"));
+            Traverse.Create(newRace).Field("m_DisplayName").SetValue(BlueprintUtil.MakeLocalized("MeshTest"));
+            Traverse.Create(newRace).Field("m_Description").SetValue(BlueprintUtil.MakeLocalized("Description Goes Here"));
             race = newRace;
             return newRace;
         }
@@ -96,8 +96,8 @@ namespace CustomRaces
         {
             var hair = bundle.LoadAsset<EquipmentEntity>("Assets/Race/EE_Hair_HairLongBangs_M_AS.asset");
             var head = bundle.LoadAsset<EquipmentEntity>("Assets/Race/EE_Head_Face01_M_HM.asset");
-            options.Hair = new EquipmentEntityLink[] { RaceUtil.MakeEquipmentEntityLink(hair, new Guid(oldAssetID + "Hair").ToString()) };
-            options.Heads = new EquipmentEntityLink[] { RaceUtil.MakeEquipmentEntityLink(head, new Guid(oldAssetID + "Head").ToString()) };
+            options.Hair = new EquipmentEntityLink[] { BlueprintUtil.MakeEquipmentEntityLink(hair, new Guid(oldAssetID + "Hair").ToString()) };
+            options.Heads = new EquipmentEntityLink[] { BlueprintUtil.MakeEquipmentEntityLink(head, new Guid(oldAssetID + "Head").ToString()) };
             Main.DebugLog("Added Hair");
         }
         public static void ChooseTorso(int index)

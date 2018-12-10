@@ -25,7 +25,7 @@ namespace CustomRaces
         public static bool enabled;
         public static Settings settings;
         static int torso = -1;
-        public static RaceManager raceManager;
+        public static BlueprintManager raceManager;
         static bool Load(UnityModManager.ModEntry modEntry)
         {
             try
@@ -38,7 +38,7 @@ namespace CustomRaces
                 modEntry.OnSaveGUI = OnSaveGUI;
                 modEntry.Logger.Log("Loaded CustomRaces");
                 logger = modEntry.Logger;
-                SceneManager.sceneLoaded += RaceManager.OnSceneManagerOnSceneLoaded;
+                SceneManager.sceneLoaded += BlueprintManager.OnSceneManagerOnSceneLoaded;
             }
             catch (Exception e){
                 modEntry.Logger.Log(e.ToString() +"\n" + e.StackTrace);
@@ -106,18 +106,18 @@ namespace CustomRaces
                  */
                 if (GUILayout.Button("FindObject"))
                 {
-                    var go = RaceUtil.FindObjectByInstanceId<GameObject>(270194);
+                    var go = BlueprintUtil.FindObjectByInstanceId<GameObject>(270194);
                     DebugLog("FindByID " + go == null ? "NULL" : go.name); //OH_LongswordThieves
 
-                    var sprite = RaceUtil.FindObjectByInstanceId<Sprite>(45820);
+                    var sprite = BlueprintUtil.FindObjectByInstanceId<Sprite>(45820);
                     DebugLog(sprite == null ? "NULL" : sprite.name); //OH_LongswordThieves
 
-                    var texture1 = RaceUtil.FindObjectByInstanceId<Texture2D>(552466);
+                    var texture1 = BlueprintUtil.FindObjectByInstanceId<Texture2D>(552466);
                     DebugLog(texture1 == null ? "NULL" : texture1.name); //CR_Hair_VioletDark_U_HM
 
                     var humanHair = ResourcesLibrary.TryGetResource<EquipmentEntity>("a9558cfc0705d4e48af7ecd2ebd75411"); //EE_Hair_HairLongWavy_M_HM
 
-                    var texture2 = RaceUtil.FindObjectByInstanceId<Texture2D>(552466);
+                    var texture2 = BlueprintUtil.FindObjectByInstanceId<Texture2D>(552466);
                     DebugLog(texture2 == null ? "NULL" : texture2.name); //CR_Hair_VioletDark_U_HM
                 }
                 if (GUILayout.Button("FindObject2"))
@@ -136,7 +136,7 @@ namespace CustomRaces
                     DebugLog(tex2 == null ? "NULL" : tex2.name); //CR_Hair_VioletDark_U_HM
 
 
-                    var go = (GameObject)RaceUtil.FindObjectByInstanceId<GameObject>(270194);
+                    var go = (GameObject)BlueprintUtil.FindObjectByInstanceId<GameObject>(270194);
                     DebugLog("FindByID " + go == null ? "NULL" : go.name); //OH_LongswordThieves
 
                     var assetId = UnityEngine.Networking.NetworkTransport.GetAssetId(go);
@@ -148,7 +148,7 @@ namespace CustomRaces
 
                 if (GUILayout.Button("Reload"))
                 {
-                    RaceManager.Reload();
+                    BlueprintManager.Reload();
                 }
                 int newTorso = (int)GUILayout.HorizontalSlider(torso, -1, MeshTestRace.testAssets.Length - 1, GUILayout.Width(300));
                 GUILayout.Label("Torso: " + newTorso);
