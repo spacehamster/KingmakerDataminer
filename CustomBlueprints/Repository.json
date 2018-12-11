@@ -1,6 +1,9 @@
 {
 	"Releases":
 	[
-		{"Id": "CustomRaces", "Version": "1.0.0"}
+    {
+      "Id": "CustomBlueprints",
+      "Version": "1.0.0"
+    }
 	]
 }

@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Runtime.Serialization.Formatters;
 using UnityEngine;
 
-namespace CustomRaces
+namespace CustomBlueprints
 {
     public static class JsonBlueprints
     {

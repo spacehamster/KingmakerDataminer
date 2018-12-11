@@ -6,7 +6,7 @@ using UnityEngine;
 using JetBrains.Annotations;
 using Newtonsoft.Json.Converters;
 
-namespace CustomRaces
+namespace CustomBlueprints
 {
     public class UnityJsonConverter : JsonConverter
     {

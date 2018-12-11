@@ -7,7 +7,7 @@ using Kingmaker.Blueprints;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace CustomRaces
+namespace CustomBlueprints
 {
     public class BlueprintAssetIdConverter : JsonConverter
     {
@@ -52,7 +52,7 @@ namespace CustomRaces
             if (text.StartsWith("File"))
             {
                 var parts = text.Split(':');
-                var path = $"mods/customraces/data/{parts[1]}";
+                var path = $"mods/customblueprints/data/{parts[1]}";
                 var blueprintName = Path.GetFileNameWithoutExtension(path);
                 if (JsonBlueprints.Blueprints.ContainsKey(blueprintName))
                 {

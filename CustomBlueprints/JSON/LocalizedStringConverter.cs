@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomRaces
+namespace CustomBlueprints
 {
     public class LocalizedStringConverter : JsonConverter
     {

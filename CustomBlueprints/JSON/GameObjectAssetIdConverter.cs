@@ -6,7 +6,7 @@ using Newtonsoft.Json.Linq;
 using UnityEngine;
 using UnityObject = UnityEngine.Object;
 
-namespace CustomRaces
+namespace CustomBlueprints
 {
     public class GameObjectAssetIdConverter : JsonConverter
     {

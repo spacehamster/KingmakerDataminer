@@ -5,7 +5,7 @@ using Kingmaker.UnitLogic.FactLogic;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CustomRaces
+namespace CustomBlueprints
 {
     public static class Drow
     {

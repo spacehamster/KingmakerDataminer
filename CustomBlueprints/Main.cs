@@ -11,7 +11,7 @@ using Kingmaker.Visual.CharacterSystem;
 using Newtonsoft.Json;
 using Kingmaker.Blueprints.CharGen;
 
-namespace CustomRaces
+namespace CustomBlueprints
 {
 
     public class Main

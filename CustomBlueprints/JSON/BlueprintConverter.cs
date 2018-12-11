@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 
-namespace CustomRaces
+namespace CustomBlueprints
 {
     public class BlueprintConverter : JsonConverter
     {
@@ -57,8 +57,28 @@ namespace CustomRaces
             {
                 throw new System.Exception("Cannot create blueprint twice");
             }
-
-            var result = ScriptableObject.CreateInstance(realType) as BlueprintScriptableObject;
+            BlueprintScriptableObject result = null;
+            if (jObject["$append"] != null)
+            {
+                var copy = (string)jObject["$append"];
+                jObject.Remove("$append");
+                var parts = copy.Split(':');
+                result = ResourcesLibrary.TryGetBlueprint(parts[1]);
+                Main.DebugLog($"Appending to {result.name}");
+            }
+            if (jObject["$copy"] != null)
+            {
+                var copy = (string)jObject["$copy"];
+                jObject.Remove("$copy");
+                var parts = copy.Split(':');
+                var resource = ResourcesLibrary.TryGetBlueprint(parts[1]);
+                result = (BlueprintScriptableObject)BlueprintUtil.ShallowClone(resource);
+                Main.DebugLog($"Copying {resource.name}");
+            }
+            if(result == null)
+            {
+                result = ScriptableObject.CreateInstance(realType) as BlueprintScriptableObject;
+            }
             JsonBlueprints.Blueprints[name] = result;
             BlueprintUtil.AddBlueprint(result, name);
             serializer.Populate(jObject.CreateReader(), result);

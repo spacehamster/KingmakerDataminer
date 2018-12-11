@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomRaces
+namespace CustomBlueprints
 {
     public class WeakResourceLinkConverter : JsonConverter
     {
@@ -46,7 +46,7 @@ namespace CustomRaces
             if (text.StartsWith("File:"))
             {
                 var parts = text.Split(':');
-                var path = $"mods/customraces/data/{parts[1]}";
+                var path = $"mods/customblueprints/data/{parts[1]}";
                 if (JsonBlueprints.ResourceAssetIds.ContainsKey(path))
                 {
                     var link = (WeakResourceLink)Activator.CreateInstance(type);

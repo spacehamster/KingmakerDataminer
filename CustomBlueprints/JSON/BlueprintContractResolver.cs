@@ -11,7 +11,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using UnityEngine;
 
-namespace CustomRaces
+namespace CustomBlueprints
 {
     public sealed class BlueprintContractResolver : DefaultContractResolver
     {

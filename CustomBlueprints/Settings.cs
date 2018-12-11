@@ -1,6 +1,6 @@
 ﻿using UnityModManagerNet;
 
-namespace CustomRaces
+namespace CustomBlueprints
 {
     public class Settings : UnityModManager.ModSettings
     {

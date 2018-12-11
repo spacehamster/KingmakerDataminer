@@ -11,7 +11,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 using UnityEngine;
 
-namespace CustomRaces
+namespace CustomBlueprints
 {
     public class BlueprintComponentConverter : JsonConverter
     {

@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 
-namespace CustomRaces
+namespace CustomBlueprints
 {
     public class ScriptableObjectConverter : JsonConverter
     {
@@ -43,22 +43,29 @@ namespace CustomRaces
             Main.DebugLog($"Deserializing {name} of {objectType.Name} with {GetType().Name}");
             var typeName = (string)jObject["$type"];
             var realType = Type.GetType(typeName);
-            var copy = (string)jObject["$copy"];
-            if (copy != null) jObject.Remove("$copy");
             ScriptableObject result = null;
-            if (copy != null)
+            if (jObject["$append"] != null)
             {
+                var copy = (string)jObject["$append"];
+                jObject.Remove("$append");
                 var parts = copy.Split(':');
-                var resource = ResourcesLibrary.TryGetResource<ScriptableObject>(parts[1]);
-                result = (ScriptableObject)BlueprintUtil.ShallowClone(resource);
+                result = ResourcesLibrary.TryGetResource<BlueprintScriptableObject>(parts[1]);
+                Main.DebugLog($"Appending to {result.name}");
+            }
+            if (jObject["$copy"] != null)
+            {
+                var copy = (string)jObject["$copy"];
+                jObject.Remove("$copy");
+                var parts = copy.Split(':');
+                var resource = ResourcesLibrary.TryGetResource<BlueprintScriptableObject>(parts[1]);
+                result = (BlueprintScriptableObject)BlueprintUtil.ShallowClone(resource);
                 Main.DebugLog($"Copying {resource.name}");
             }
-            else
+            if (result == null)
             {
-                result = ScriptableObject.CreateInstance(realType);
+                result = ScriptableObject.CreateInstance(realType) as BlueprintScriptableObject;
             }
             szr.Populate(jObject.CreateReader(), result);
-            //Main.DebugLog($"Deserializing {result.name}!");
             return result;
         }
         // ReSharper disable once IdentifierTypo
