@@ -1,5 +1,4 @@
 {
-  "$id": "1",
   "$type": "Kingmaker.Blueprints.Classes.BlueprintFeature, Assembly-CSharp",
   "Groups": [],
   "Ranks": 1,
@@ -15,7 +14,6 @@
   },
   "Components": [
     {
-      "$id": "2",
       "$type": "Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteClassLevel, Assembly-CSharp",
       "CharacterClass": "File:SlayerClass.json",
       "Level": 1,
@@ -23,7 +21,6 @@
       "name": "$PrerequisiteClassLevel$e7134288-01bb-4e9e-9892-1f35692e1f1d"
     },
     {
-      "$id": "3",
       "$type": "Kingmaker.UnitLogic.FactLogic.AddFacts, Assembly-CSharp",
       "Facts": [
         "File:SlayerFeats/StudiedTargetAbility.json"

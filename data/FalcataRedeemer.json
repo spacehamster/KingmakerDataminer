@@ -1,5 +1,4 @@
 {
-  "$id": "1",
   "$type": "Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon, Assembly-CSharp",
   "m_Type": "Blueprint:1af5621e2ae551e42bd1dd6744d98639:Falcata",
   "m_Size": "medium",
@@ -11,25 +10,21 @@
   ],
   "m_OverrideDamageDice": false,
   "m_DamageDice": {
-    "$id": "2",
     "$type": "Kingmaker.RuleSystem.DiceFormula, Assembly-CSharp",
     "m_Rolls": 0,
     "m_Dice": "zero"
   },
   "m_OverrideDamageType": false,
   "m_DamageType": {
-    "$id": "3",
     "$type": "Kingmaker.RuleSystem.Rules.Damage.DamageTypeDescription, Assembly-CSharp",
     "Type": "physical",
     "Common": {
-      "$id": "4",
       "$type": "Kingmaker.RuleSystem.Rules.Damage.DamageTypeDescription+CommomData, Assembly-CSharp",
       "Reality": 0,
       "Alignment": 0,
       "Precision": false
     },
     "Physical": {
-      "$id": "5",
       "$type": "Kingmaker.RuleSystem.Rules.Damage.DamageTypeDescription+PhysicalData, Assembly-CSharp",
       "Material": "adamantite",
       "Form": "slashing",
@@ -41,7 +36,6 @@
   "Double": false,
   "SecondWeapon": null,
   "m_VisualParameters": {
-    "$id": "6",
     "$type": "Kingmaker.Blueprints.Items.Weapons.WeaponVisualParameters, Assembly-CSharp",
     "m_Projectiles": [],
     "m_WeaponAnimationStyle": "none",

@@ -1,11 +1,9 @@
 {
-  "$id": "1",
   "$type": "Kingmaker.Visual.CharacterSystem.EquipmentEntity, Assembly-CSharp",
   "$copy": "Resource:0562049a4c9ee9c4a9b70cae2edadf62:EE_Head_Face01_M_EL",
   "m_PrimaryRamps": [],
   "m_SecondaryRamps": [],
   "ColorsProfile": {
-    "$id": "3",
     "$type": "Kingmaker.Visual.CharacterSystem.CharacterColorsProfile, Assembly-CSharp",
     "PrimaryRamps": [
       {

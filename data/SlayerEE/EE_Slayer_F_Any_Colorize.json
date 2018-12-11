@@ -1,0 +1,621 @@
+{
+  "$type": "Kingmaker.Visual.CharacterSystem.EquipmentEntity, Assembly-CSharp",
+  "$copy": "Resource:bc6fb7e5c91de08418b81a397b20bb18:EE_Ranger_F_Any_Colorize",
+  "BodyParts": [
+    {
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "boots",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 12366,
+        "name": "BO_BootsFur_F_Any"
+      },
+      "Material": {
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
+      },
+      "Textures": [
+        {
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "BO_BootsFur_Ranger_U_Any",
+            "InstanceId": 446930
+          },
+          "m_Ramps": [],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+    {
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "boots",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 12366,
+        "name": "BO_BootsFur_F_Any"
+      },
+      "Material": {
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
+      },
+      "Textures": [
+        {
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "BO_BootsFur_RangerColor2_U_Any",
+            "InstanceId": 446932
+          },
+          "m_Ramps": [
+            {
+              "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
+              "Mask": null,
+              "Ramp": null
+            },
+            {
+              "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
+              "Mask": {
+                "$type": "Texture2D",
+                "name": "whiteSquare",
+                "InstanceId": 424880
+              },
+              "Ramp": null
+            }
+          ],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+    {
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "forearms",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 15530,
+        "name": "FA_BracersConvex_F_Any"
+      },
+      "Material": {
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
+      },
+      "Textures": [
+        {
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "FA_BracersConvex_Ranger_U_Any",
+            "InstanceId": 446934
+          },
+          "m_Ramps": [],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+    {
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "forearms",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 15530,
+        "name": "FA_BracersConvex_F_Any"
+      },
+      "Material": {
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
+      },
+      "Textures": [
+        {
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "FA_BracersConvex_RangerColor1_U_Any",
+            "InstanceId": 446936
+          },
+          "m_Ramps": [
+            {
+              "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
+              "Mask": {
+                "$type": "Texture2D",
+                "name": "whiteSquare",
+                "InstanceId": 424880
+              },
+              "Ramp": null
+            },
+            {
+              "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
+              "Mask": null,
+              "Ramp": null
+            }
+          ],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+    {
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "forearms",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 15530,
+        "name": "FA_BracersConvex_F_Any"
+      },
+      "Material": {
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
+      },
+      "Textures": [
+        {
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "FA_BracersConvex_RangerColor2_U_Any",
+            "InstanceId": 446938
+          },
+          "m_Ramps": [
+            {
+              "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
+              "Mask": null,
+              "Ramp": null
+            },
+            {
+              "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
+              "Mask": {
+                "$type": "Texture2D",
+                "name": "whiteSquare",
+                "InstanceId": 424880
+              },
+              "Ramp": null
+            }
+          ],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+    {
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "faulds",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 15632,
+        "name": "FD_Faulds_F_Any"
+      },
+      "Material": {
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
+      },
+      "Textures": [
+        {
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "FD_Faulds_Rogue_U_Any",
+            "InstanceId": 443530
+          },
+          "m_Ramps": [],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+    {
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "faulds",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 15632,
+        "name": "FD_Faulds_F_Any"
+      },
+      "Material": {
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
+      },
+      "Textures": [
+        {
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "FD_Faulds_RogueColor1_U_Any",
+            "InstanceId": 443532
+          },
+          "m_Ramps": [
+            {
+              "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
+              "Mask": {
+                "$type": "Texture2D",
+                "name": "whiteSquare",
+                "InstanceId": 424880
+              },
+              "Ramp": null
+            },
+            {
+              "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
+              "Mask": null,
+              "Ramp": null
+            }
+          ],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+    {
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "hands",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 16946,
+        "name": "HN_Hands_F_Any"
+      },
+      "Material": {
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
+      },
+      "Textures": [
+        {
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "HN_Hands_Ranger_U_Any",
+            "InstanceId": 446946
+          },
+          "m_Ramps": [],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+    {
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "torso",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 18280,
+        "name": "TS_Shirt_F_Any"
+      },
+      "Material": {
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
+      },
+      "Textures": [
+        {
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "TS_Shirt_Rogue_U_Any",
+            "InstanceId": 443536
+          },
+          "m_Ramps": [],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+    {
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "torso",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 18280,
+        "name": "TS_Shirt_F_Any"
+      },
+      "Material": {
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
+      },
+      "Textures": [
+        {
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "TS_Shirt_RangerColor1_U_Any",
+            "InstanceId": 446950
+          },
+          "m_Ramps": [
+            {
+              "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
+              "Mask": {
+                "$type": "Texture2D",
+                "name": "whiteSquare",
+                "InstanceId": 424880
+              },
+              "Ramp": null
+            },
+            {
+              "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
+              "Mask": null,
+              "Ramp": null
+            }
+          ],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+    {
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "torso",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 18280,
+        "name": "TS_Shirt_F_Any"
+      },
+      "Material": {
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
+      },
+      "Textures": [
+        {
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "TS_Shirt_RogueColor1_U_Any",
+            "InstanceId": 443538
+          },
+          "m_Ramps": [],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+    {
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "upperarms",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 18340,
+        "name": "UA_ShortSleeve_F_Any"
+      },
+      "Material": {
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
+      },
+      "Textures": [
+        {
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "UA_ShortSleeve_Ranger_U_Any",
+            "InstanceId": 446954
+          },
+          "m_Ramps": [],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+    {
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "upperarms",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 18340,
+        "name": "UA_ShortSleeve_F_Any"
+      },
+      "Material": {
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
+      },
+      "Textures": [
+        {
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "UA_ShortSleeve_RangerColor1_U_Any",
+            "InstanceId": 446956
+          },
+          "m_Ramps": [
+            {
+              "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
+              "Mask": {
+                "$type": "Texture2D",
+                "name": "whiteSquare",
+                "InstanceId": 424880
+              },
+              "Ramp": null
+            },
+            {
+              "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
+              "Mask": null,
+              "Ramp": null
+            }
+          ],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+    {
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "upperarms",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 18340,
+        "name": "UA_ShortSleeve_F_Any"
+      },
+      "Material": {
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
+      },
+      "Textures": [
+        {
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "UA_ShortSleeve_RangerColor2_U_Any",
+            "InstanceId": 446958
+          },
+          "m_Ramps": [
+            {
+              "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
+              "Mask": null,
+              "Ramp": null
+            },
+            {
+              "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
+              "Mask": {
+                "$type": "Texture2D",
+                "name": "whiteSquare",
+                "InstanceId": 424880
+              },
+              "Ramp": null
+            }
+          ],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+    {
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "upperlegs",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 18376,
+        "name": "UL_PantsMedium_F_Any"
+      },
+      "Material": {
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
+      },
+      "Textures": [
+        {
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "UL_PantsMedium_Rogue_U_Any",
+            "InstanceId": 443546
+          },
+          "m_Ramps": [],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+    {
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "upperlegs",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 18376,
+        "name": "UL_PantsMedium_F_Any"
+      },
+      "Material": {
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
+      },
+      "Textures": [
+        {
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "UL_PantsMedium_RogueColor1_U_Any",
+            "InstanceId": 443548
+          },
+          "m_Ramps": [],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+	{
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "upperlegs",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 18376,
+        "name": "UL_PantsMedium_F_Any"
+      },
+      "Material": {
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
+      },
+      "Textures": [
+        {
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "UL_PantsMedium_RogueColor2_U_Any",
+            "InstanceId": 443550
+          },
+          "m_Ramps": [
+            {
+              "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
+              "Mask": null,
+              "Ramp": null
+            },
+            {
+              "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
+              "Mask": {
+                "$type": "Texture2D",
+                "name": "whiteSquare",
+                "InstanceId": 424880
+              },
+              "Ramp": null
+            }
+          ],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+    {
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "upperlegs",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 18376,
+        "name": "UL_PantsMedium_F_Any"
+      },
+      "Material": {
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
+      },
+      "Textures": [
+        {
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "UL_PantsMedium_RogueDecor_U_Any",
+            "InstanceId": 443552
+          },
+          "m_Ramps": [],
+          "Channel": "diffuse"
+        }
+      ]
+    },
+    {
+      "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
+      "Type": "upperlegs",
+      "RendererPrefab": {
+        "$type": "GameObject",
+        "InstanceId": 18376,
+        "name": "UL_PantsMedium_F_Any"
+      },
+      "Material": {
+        "$type": "Material",
+        "name": "Character_Diffuse_Cutout",
+        "InstanceId": 424876
+      },
+      "Textures": [
+        {
+          "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
+          "m_Texture": {
+            "$type": "Texture2D",
+            "name": "UL_PantsMedium_StrapsRanger_U_Any",
+            "InstanceId": 443554
+          },
+          "m_Ramps": [],
+          "Channel": "diffuse"
+        }
+      ]
+    }
+  ],
+  "name": "EE_Slayer_F_Any_Colorize"
+}

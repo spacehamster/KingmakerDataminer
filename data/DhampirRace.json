@@ -1,5 +1,4 @@
 {
-  "$id": "1",
   "$type": "Kingmaker.Blueprints.Classes.BlueprintRace, Assembly-CSharp",
   "SoundKey": "Human",
   "RaceId": "human",
@@ -14,7 +13,6 @@
     "File:RacePresets/Dhampir_Standard_VisualPreset_thin.json"
   ],
   "MaleOptions": {
-    "$id": "2",
     "$type": "Kingmaker.Blueprints.CharGen.CustomizationOptions, Assembly-CSharp",
     "Heads": [
       "File:DhampirEE/EE_Head_Face01_M_DHAMPIR.json"
@@ -46,7 +44,6 @@
     ]
   },
   "FemaleOptions": {
-    "$id": "3",
     "$type": "Kingmaker.Blueprints.CharGen.CustomizationOptions, Assembly-CSharp",
     "Heads": [
             "File:DhampirEE/EE_Head_Face01_F_DHAMPIR.json"
@@ -69,7 +66,6 @@
     "Beards": []
   },
   "MaleSpeedSettings": {
-    "$id": "4",
     "$type": "Kingmaker.View.Animation.UnitAnimationSettings, Assembly-CSharp",
     "MovementSpeedCoeff": 1.0,
     "OverrideSlowWalk": true,
@@ -90,7 +86,6 @@
     "StealthNonCombatCoeff": 1.0
   },
   "FemaleSpeedSettings": {
-    "$id": "5",
     "$type": "Kingmaker.View.Animation.UnitAnimationSettings, Assembly-CSharp",
     "MovementSpeedCoeff": 1.0,
     "OverrideSlowWalk": true,
@@ -120,7 +115,6 @@
   "m_Icon": null,
   "Components": [
     {
-      "$id": "6",
       "$type": "Kingmaker.UnitLogic.FactLogic.AddStatBonus, Assembly-CSharp",
       "Descriptor": "racial",
       "Stat": "dexterity",
@@ -129,7 +123,6 @@
       "name": "$AddStatBonus$86c8aa3c-8fcf-422c-96a6-7a1e790b0052"
     },
     {
-      "$id": "7",
       "$type": "Kingmaker.UnitLogic.FactLogic.AddStatBonus, Assembly-CSharp",
       "Descriptor": "racial",
       "Stat": "charisma",
@@ -138,7 +131,6 @@
       "name": "$AddStatBonus$1af5c609-b3a8-4791-ab6e-246bdbf96d68"
     },
     {
-      "$id": "8",
       "$type": "Kingmaker.UnitLogic.FactLogic.AddStatBonus, Assembly-CSharp",
       "Descriptor": "racial",
       "Stat": "constitution",

@@ -1,0 +1,122 @@
+{
+  "$type": "Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility, Assembly-CSharp",
+  "m_TargetMapObjects": false,
+  "m_IsFullRoundAction": false,
+  "Type": "spellLike",
+  "Range": "personal",
+  "CustomRange": {
+    "$type": "Kingmaker.Utility.Feet, Assembly-CSharp",
+    "m_Value": 0.0
+  },
+  "CanTargetPoint": false,
+  "CanTargetEnemies": false,
+  "CanTargetFriends": false,
+  "CanTargetSelf": true,
+  "SpellResistance": false,
+  "ActionBarAutoFillIgnored": false,
+  "NeedEquipWeapons": false,
+  "EffectOnAlly": "none",
+  "EffectOnEnemy": "none",
+  "Parent": null,
+  "Animation": "selfTouch",
+  "HasFastAnimation": false,
+  "AnimationStyle": "castActionTouch",
+  "ActionType": "standard",
+  "AvailableMetamagic": "empower, maximize, quicken, extend, heighten",
+  "LocalizedDuration": "LocalizedString:00b2e4c2-aafe-487b-b890-d57473373da7:1 minute/level",
+  "LocalizedSavingThrow": null,
+  "MaterialComponent": {
+    "$type": "Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility+MaterialComponentData, Assembly-CSharp",
+    "Item": null,
+    "Count": 1
+  },
+  "DisableLog": false,
+  "ResourceAssetIds": [
+    "352469f228a3b1f4cb269c7ab0409b8e"
+  ],
+  "m_AllowNonContextActions": false,
+  "m_DisplayName": "LocalizedString:b200c962-4111-476d-96bf-988b6b6cf85d:Dragonkind I (Blue)",
+  "m_Description": "LocalizedString:88e6a082-23da-455d-9ee6-f1d47308efe4:Breath Weapon: 60-fo...",
+  "m_Icon": {
+    "$type": "Sprite",
+    "name": "draconic_bloodline_blue",
+    "InstanceId": 54462
+  },
+  "Components": [
+    {
+      "$type": "Kingmaker.UnitLogic.Abilities.Components.AbilityEffectRunAction, Assembly-CSharp",
+      "SavingThrowType": "unknown",
+      "Actions": {
+        "$type": "Kingmaker.ElementsSystem.ActionList, Assembly-CSharp",
+        "Actions": [
+          {
+            "$type": "Kingmaker.UnitLogic.Mechanics.Actions.ContextActionApplyBuff, Assembly-CSharp",
+            "Buff": "Blueprint:b117bc8b41735924dba3fb23318f39ff:FormOfTheDragonIBlueBuff",
+            "Permanent": false,
+            "DurationValue": {
+              "$type": "Kingmaker.UnitLogic.Mechanics.ContextDurationValue, Assembly-CSharp",
+              "m_IsExtendable": true,
+              "Rate": "minutes",
+              "DiceType": "zero",
+              "DiceCountValue": {
+                "$type": "Kingmaker.UnitLogic.Mechanics.ContextValue, Assembly-CSharp",
+                "ValueType": "simple",
+                "Value": 0,
+                "ValueRank": "default",
+                "ValueShared": "damage"
+              },
+              "BonusValue": {
+                "$type": "Kingmaker.UnitLogic.Mechanics.ContextValue, Assembly-CSharp",
+                "ValueType": "rank",
+                "Value": 0,
+                "ValueRank": "default",
+                "ValueShared": "damage"
+              }
+            },
+            "IsFromSpell": true,
+            "IsNotDispelable": false,
+            "ToCaster": false,
+            "AsChild": false,
+            "name": "$AbilityActionApplyBuff$89c17516-8c18-458f-ba03-6d178379b0a0"
+          }
+        ]
+      },
+      "name": "$AbilityEffectRunAction$6100937e-a2ac-46ab-9844-db04bc59fbfb(Clone)"
+    },
+    {
+      "$type": "Kingmaker.UnitLogic.Abilities.Components.AbilityExecuteActionOnCast, Assembly-CSharp",
+      "Conditions": {
+        "$type": "Kingmaker.ElementsSystem.ConditionsChecker, Assembly-CSharp",
+        "Operation": "and",
+        "Conditions": []
+      },
+      "Actions": {
+        "$type": "Kingmaker.ElementsSystem.ActionList, Assembly-CSharp",
+        "Actions": [
+          {
+            "$type": "Kingmaker.UnitLogic.Mechanics.Actions.ContextActionRemoveBuffsByDescriptor, Assembly-CSharp",
+            "NotSelf": true,
+            "SpellDescriptor": {
+              "$type": "Kingmaker.Blueprints.Classes.Spells.SpellDescriptorWrapper, Assembly-CSharp",
+              "m_IntValue": 8589934592
+            },
+            "name": "$ContextActionRemoveBuffsByDescriptor$2e92b644-73bd-4bee-9663-aeb0b0c1390a"
+          }
+        ]
+      },
+      "name": "$AbilityExecuteActionOnCast$d59e152b-d8df-4bec-86fd-7a0630d4476e(Clone)"
+    },
+    {
+      "$type": "Kingmaker.Designers.Mechanics.Buffs.BuffMovementSpeed, Assembly-CSharp",
+      "Descriptor": "size",
+      "Value": 20,
+      "CappedOnMultiplier": false,
+      "MultiplierCap": 0.0,
+      "CappedMinimum": false,
+      "MinimumCap": 0,
+      "name": "$BuffMovementSpeed$bae4af7b-5227-441f-8a41-0f468f4f00e1(Clone)"
+    }
+  ],
+  "m_AssetGuid": "SlayersAdvanceAbility",
+  "name": "SlayersAdvanceAbility"
+}

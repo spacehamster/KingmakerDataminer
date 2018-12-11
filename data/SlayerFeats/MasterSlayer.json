@@ -1,5 +1,4 @@
 {
-  "$id": "1",
   "$type": "Kingmaker.Blueprints.Classes.BlueprintFeature, Assembly-CSharp",
   "Groups": [],
   "Ranks": 1,
@@ -15,7 +14,6 @@
   },
   "Components": [
     {
-      "$id": "2",
       "$type": "Kingmaker.UnitLogic.FactLogic.AddFacts, Assembly-CSharp",
       "Facts": [
         "Blueprint:926bff1386d58824688363a3eeb98260:MasterStrikeToggleAbility"
@@ -23,7 +21,6 @@
       "name": "$AddFacts$ecfd10d7-acb4-4643-93d0-392739e014c3"
     },
     {
-      "$id": "7",
       "$type": "Kingmaker.Designers.Mechanics.Facts.AddAbilityResources, Assembly-CSharp",
       "UseThisAsResource": false,
       "Resource": "Blueprint:09156c2a513d27f4781505f486c4ac4e:MasterHunterResource",

@@ -1,5 +1,4 @@
 {
-  "$id": "1",
   "$type": "Kingmaker.Blueprints.Classes.Selection.BlueprintFeatureSelection, Assembly-CSharp",
   "IgnorePrerequisites": false,
   "Obligatory": false,
@@ -30,7 +29,6 @@
   },
   "Components": [
     {
-      "$id": "2",
       "$type": "Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteNotProficient, Assembly-CSharp",
       "ArmorProficiencies": [],
       "WeaponProficiencies": [
@@ -54,7 +52,6 @@
       "name": "$PrerequisiteNotProficient$294d0e8d-f0f7-4e40-a9cd-f1a2b54861fd"
     },
     {
-      "$id": "3",
       "$type": "Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteStatValue, Assembly-CSharp",
       "Stat": "baseAttackBonus",
       "Value": 1,
@@ -62,7 +59,6 @@
       "name": "$PrerequisiteStatValue$a857369b-5130-41c2-bda0-d83e319d5e0a"
     },
     {
-      "$id": "4",
       "$type": "Kingmaker.Designers.Mechanics.Recommendations.RecommendationNoFeatFromGroup, Assembly-CSharp",
       "Features": [
         "Blueprint:1e1f627d26ad36f43bbd26cc2bf8ac7e:WeaponFocus"

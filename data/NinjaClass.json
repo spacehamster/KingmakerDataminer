@@ -1,5 +1,4 @@
 {
-  "$id": "1",
   "$type": "Kingmaker.Blueprints.Classes.BlueprintCharacterClass, Assembly-CSharp",
   "LocalizedName": "CustomString:NinjaClassName",
   "LocalizedDescription": "CustomString:NinjaClassDescription",
@@ -59,7 +58,6 @@
   "DefaultBuild": null,
   "Components": [
     {
-      "$id": "2",
       "$type": "Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteNoClassLevel, Assembly-CSharp",
       "CharacterClass": "Blueprint:4cd1757a0eea7694ba5c933729a53920:AnimalClass",
       "Group": "all",

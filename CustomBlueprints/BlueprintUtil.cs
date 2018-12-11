@@ -21,32 +21,9 @@ namespace CustomRaces
     static public class BlueprintUtil
     {
         public static readonly string AssetSuffix = "#CustomFeature";
-        public static Dictionary<Type, string> FallbackTable = new Dictionary<Type, string>()
-        {
-            { typeof(BlueprintRace),  "0a5d473ead98b0646b94495af250fdc4" }, //Human
-            { typeof(BlueprintRaceVisualPreset),  "58181bf151eb0c0408f82546541dcc03" }, //Human_Standard_VisualPreset
-            { typeof(BlueprintCharacterClass), "299aa766dee3cbf4790da4efb8c72484" }, //Rogue
-            { typeof(BlueprintProgression), "b57b2a75a5abcaf47a01cf84672b50e9" }, //RogueProgression
-            { typeof(BlueprintArchetype), "9e94d1847e6f331478e5a714659220ce"}, //KnifeMaster
-            { typeof(BlueprintFeature),  "9b9eac6709e1c084cb18c3a366e0ec87" }, //SneakAttack
-            { typeof(BlueprintFeatureSelection), "c074a5d615200494b8f2a9c845799d93" }, //RogueTalent
-            { typeof(BlueprintSpellbook), "5a38c9ac8607890409fcb8f6342da6f4" }, //WizardSpellbook
-            { typeof(BlueprintSpellList), "ba0401fdeb4062f40a7aa95b6f07fe89" }, //WizardSpelllist
-            { typeof(BlueprintSpellsTable), "78bb94ed2e75122428232950bb09e97b" }, //WizardSpellLevels
-            { typeof(BlueprintStatProgression), "4c936de4249b61e419a3fb775b9f2581" }, //BABMedium
-            { typeof(BlueprintItemWeapon), "20f03323262f8604f8b8e4affe7dc3c8" }, //LongswordFrostPlus2
-            { typeof(EquipmentEntity), "d019e95d4a8a8474aa4e03489449d6ee" } //RogueOutfit
-
-        };
         public static string AddResource(UnityEngine.Object obj, string newAssetId, Type type)
         {
-            string fallbackId = null;
-            FallbackTable.TryGetValue(type, out fallbackId);
-            if (fallbackId == null)
-            {
-                //throw new Exception($"No fallback for typeof {type}");
-                fallbackId = "NULL";
-            }
+            string fallbackId = obj.GetType().Name;
             string assetId = string.Format("{0}:{1}{2}", newAssetId, fallbackId, AssetSuffix);
             var resourceType = Traverse.CreateWithType("Kingmaker.Blueprints.ResourcesLibrary+LoadedResource").GetValue<Type>();
             object resource = Activator.CreateInstance(resourceType);
@@ -63,17 +40,7 @@ namespace CustomRaces
         public static void AddBlueprint(BlueprintScriptableObject blueprint, string newAssetId)
         {
             var type = blueprint.GetType();
-            string fallbackId = null;
-            FallbackTable.TryGetValue(type, out fallbackId);
-            if (fallbackId == null)
-            {
-                var result = typeof(ResourcesLibrary)
-                    .GetMethod("GetBlueprints")
-                    .MakeGenericMethod(blueprint.GetType())
-                    .Invoke(null, new object[] { }) as IEnumerable<BlueprintScriptableObject>;
-                fallbackId = result.First().AssetGuid;               
-                //throw new Exception($"No fallback for typeof {type}");
-            }
+            string fallbackId = blueprint.GetType().Name;
             string assetId = string.Format("{0}:{1}{2}", newAssetId, fallbackId, AssetSuffix);
             Traverse.Create(blueprint).Field("m_AssetGuid").SetValue(assetId);
             ResourcesLibrary.LibraryObject.BlueprintsByAssetId[assetId] = blueprint;

@@ -1,5 +1,4 @@
 {
-  "$id": "1",
   "$type": "Kingmaker.Blueprints.Classes.BlueprintProgression, Assembly-CSharp",
   "Classes": [
     "File:NinjaClass.json"
@@ -7,7 +6,6 @@
   "Archetypes": [],
   "LevelEntries": [
     {
-      "$id": "2",
       "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
       "Level": 1,
       "Features": [
@@ -20,7 +18,6 @@
       ]
     },
     {
-      "$id": "3",
       "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
       "Level": 2,
       "Features": [
@@ -29,7 +26,6 @@
       ]
     },
     {
-      "$id": "4",
       "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
       "Level": 3,
       "Features": [
@@ -39,7 +35,6 @@
       ]
     },
     {
-      "$id": "5",
       "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
       "Level": 4,
       "Features": [
@@ -49,7 +44,6 @@
       ]
     },
     {
-      "$id": "6",
       "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
       "Level": 5,
       "Features": [
@@ -57,7 +51,6 @@
       ]
     },
     {
-      "$id": "7",
       "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
       "Level": 6,
       "Features": [
@@ -66,7 +59,6 @@
       ]
     },
     {
-      "$id": "8",
       "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
       "Level": 7,
       "Features": [
@@ -74,7 +66,6 @@
       ]
     },
     {
-      "$id": "9",
       "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
       "Level": 8,
       "Features": [
@@ -83,7 +74,6 @@
       ]
     },
     {
-      "$id": "10",
       "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
       "Level": 9,
       "Features": [
@@ -92,7 +82,6 @@
       ]
     },
     {
-      "$id": "11",
       "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
       "Level": 10,
       "Features": [
@@ -101,7 +90,6 @@
       ]
     },
     {
-      "$id": "12",
       "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
       "Level": 11,
       "Features": [
@@ -110,7 +98,6 @@
       ]
     },
     {
-      "$id": "13",
       "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
       "Level": 12,
       "Features": [
@@ -119,7 +106,6 @@
       ]
     },
     {
-      "$id": "14",
       "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
       "Level": 13,
       "Features": [
@@ -127,7 +113,6 @@
       ]
     },
     {
-      "$id": "15",
       "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
       "Level": 14,
       "Features": [
@@ -135,7 +120,6 @@
       ]
     },
     {
-      "$id": "16",
       "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
       "Level": 15,
       "Features": [
@@ -144,7 +128,6 @@
       ]
     },
     {
-      "$id": "17",
       "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
       "Level": 16,
       "Features": [
@@ -152,7 +135,6 @@
       ]
     },
     {
-      "$id": "18",
       "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
       "Level": 17,
       "Features": [
@@ -160,7 +142,6 @@
       ]
     },
     {
-      "$id": "19",
       "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
       "Level": 18,
       "Features": [
@@ -169,7 +150,6 @@
       ]
     },
     {
-      "$id": "20",
       "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
       "Level": 19,
       "Features": [
@@ -178,7 +158,6 @@
       ]
     },
     {
-      "$id": "21",
       "$type": "Kingmaker.Blueprints.Classes.LevelEntry, Assembly-CSharp",
       "Level": 20,
       "Features": [
@@ -199,7 +178,6 @@
   ],
   "UIGroups": [
     {
-      "$id": "22",
       "$type": "Kingmaker.Blueprints.Classes.UIGroup, Assembly-CSharp",
       "Features": [
         "Blueprint:3c08d842e802c3e4eb19d15496145709:UncannyDodge",
@@ -209,7 +187,6 @@
       ]
     },
     {
-      "$id": "23",
       "$type": "Kingmaker.Blueprints.Classes.UIGroup, Assembly-CSharp",
       "Features": [
         "Blueprint:9b9eac6709e1c084cb18c3a366e0ec87:SneakAttack",
@@ -219,7 +196,6 @@
       ]
     },
     {
-      "$id": "24",
       "$type": "Kingmaker.Blueprints.Classes.UIGroup, Assembly-CSharp",
       "Features": [
         "Blueprint:576933720c440aa4d8d42b0c54b77e80:Evasion",

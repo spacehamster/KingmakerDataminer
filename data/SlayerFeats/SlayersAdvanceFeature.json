@@ -1,0 +1,26 @@
+{
+  "$type": "Kingmaker.Blueprints.Classes.BlueprintFeature, Assembly-CSharp",
+  "Groups": [],
+  "Ranks": 2,
+  "ReapplyOnLevelUp": false,
+  "HideInUI": false,
+  "m_AllowNonContextActions": false,
+  "m_DisplayName": "CustomString:SlayersAdvanceName",
+  "m_Description": "CustomString:SlayersAdvanceDescription",
+  "m_Icon": {
+    "$type": "Sprite",
+    "name": "ExpeditiousRetreat",
+    "InstanceId": 53138
+  },
+  "Components": [
+    {
+      "$type": "Kingmaker.UnitLogic.FactLogic.AddFacts, Assembly-CSharp",
+      "Facts": [
+        "File:SlayerFeats/SlayersAdvanceAbility.json"
+      ],
+      "name": "$AddFacts$771c9b11-100a-416c-8c14-9addef5b283c"
+    }
+  ],
+  "m_AssetGuid": "SlayersAdvanceFeature",
+  "name": "SlayersAdvanceFeature"
+}

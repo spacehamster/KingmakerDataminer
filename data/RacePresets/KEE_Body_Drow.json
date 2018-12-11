@@ -1,5 +1,4 @@
 {
-  "$id": "1",
   "$type": "Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity, Assembly-CSharp",
   "m_MaleArray": [
     "File:DrowEE/EE_Naked_M_DROW.json"
@@ -10,49 +9,41 @@
   "m_RaceDependent": false,
   "m_RaceDependentArrays": [
     {
-      "$id": "2",
       "$type": "Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity+TwoLists, Assembly-CSharp",
       "MaleArray": [],
       "FemaleArray": []
     },
     {
-      "$id": "3",
       "$type": "Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity+TwoLists, Assembly-CSharp",
       "MaleArray": [],
       "FemaleArray": []
     },
     {
-      "$id": "4",
       "$type": "Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity+TwoLists, Assembly-CSharp",
       "MaleArray": [],
       "FemaleArray": []
     },
     {
-      "$id": "5",
       "$type": "Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity+TwoLists, Assembly-CSharp",
       "MaleArray": [],
       "FemaleArray": []
     },
     {
-      "$id": "6",
       "$type": "Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity+TwoLists, Assembly-CSharp",
       "MaleArray": [],
       "FemaleArray": []
     },
     {
-      "$id": "7",
       "$type": "Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity+TwoLists, Assembly-CSharp",
       "MaleArray": [],
       "FemaleArray": []
     },
     {
-      "$id": "8",
       "$type": "Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity+TwoLists, Assembly-CSharp",
       "MaleArray": [],
       "FemaleArray": []
     },
     {
-      "$id": "9",
       "$type": "Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity+TwoLists, Assembly-CSharp",
       "MaleArray": [],
       "FemaleArray": []

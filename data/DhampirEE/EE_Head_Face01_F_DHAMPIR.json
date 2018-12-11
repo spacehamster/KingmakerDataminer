@@ -1,5 +1,4 @@
 {
-  "$id": "1",
   "$type": "Kingmaker.Visual.CharacterSystem.EquipmentEntity, Assembly-CSharp",
   "m_PrimaryRamps": [],
   "m_SecondaryRamps": [],
@@ -9,7 +8,6 @@
   "ShowLowerMaterials": false,
   "SkeletonModifiers": [
     {
-      "$id": "2",
       "$type": "Kingmaker.Visual.CharacterSystem.Skeleton+Bone, Assembly-CSharp",
       "Name": "Head_ADJ",
       "Scale": [
@@ -26,7 +24,6 @@
     }
   ],
   "ColorsProfile": {
-    "$id": "3",
     "$type": "Kingmaker.Visual.CharacterSystem.CharacterColorsProfile, Assembly-CSharp",
     "PrimaryRamps": [
       {
@@ -40,7 +37,6 @@
   },
   "BodyParts": [
     {
-      "$id": "4",
       "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
       "Type": "ears",
       "RendererPrefab": {
@@ -55,7 +51,6 @@
       },
       "Textures": [
         {
-          "$id": "6",
           "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
           "m_Texture": {
             "$type": "Texture2D",
@@ -64,7 +59,6 @@
           },
           "m_Ramps": [
             {
-              "$id": "7",
               "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
               "Mask": {
                 "$type": "Texture2D",
@@ -79,7 +73,6 @@
       ]
     },
     {
-      "$id": "8",
       "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
       "Type": "head",
       "RendererPrefab": {
@@ -94,7 +87,6 @@
       },
       "Textures": [
         {
-          "$id": "9",
           "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
           "m_Texture": {
             "$type": "Texture2D",
@@ -103,7 +95,6 @@
           },
           "m_Ramps": [
             {
-              "$id": "10",
               "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
               "Mask": {
                 "$type": "Texture2D",
@@ -118,7 +109,6 @@
       ]
     },
     {
-      "$id": "11",
       "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
       "Type": "headTop",
       "RendererPrefab": {
@@ -133,7 +123,6 @@
       },
       "Textures": [
         {
-          "$id": "12",
           "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
           "m_Texture": {
             "$type": "Texture2D",
@@ -142,7 +131,6 @@
           },
           "m_Ramps": [
             {
-              "$id": "13",
               "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
               "Mask": {
                 "$type": "Texture2D",
@@ -157,7 +145,6 @@
       ]
     },
     {
-      "$id": "14",
       "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
       "Type": "hoopHead",
       "RendererPrefab": {
@@ -172,7 +159,6 @@
       },
       "Textures": [
         {
-          "$id": "15",
           "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
           "m_Texture": {
             "$type": "Texture2D",
@@ -181,7 +167,6 @@
           },
           "m_Ramps": [
             {
-              "$id": "16",
               "$type": "Kingmaker.Visual.CharacterSystem.RampMaskDescription, Assembly-CSharp",
               "Mask": {
                 "$type": "Texture2D",
@@ -196,7 +181,6 @@
       ]
     },
     {
-      "$id": "17",
       "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
       "Type": "hoopHead",
       "RendererPrefab": {
@@ -211,7 +195,6 @@
       },
       "Textures": [
         {
-          "$id": "18",
           "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
           "m_Texture": {
             "$type": "Texture2D",
@@ -224,7 +207,6 @@
       ]
     },
     {
-      "$id": "19",
       "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
       "Type": "hoopHead",
       "RendererPrefab": {
@@ -239,7 +221,6 @@
       },
       "Textures": [
         {
-          "$id": "20",
           "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
           "m_Texture": {
             "$type": "Texture2D",
@@ -252,7 +233,6 @@
       ]
     },
     {
-      "$id": "21",
       "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
       "Type": "hoopHead",
       "RendererPrefab": {
@@ -267,7 +247,6 @@
       },
       "Textures": [
         {
-          "$id": "22",
           "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
           "m_Texture": {
             "$type": "Texture2D",
@@ -280,7 +259,6 @@
       ]
     },
     {
-      "$id": "23",
       "$type": "Kingmaker.Visual.CharacterSystem.BodyPart, Assembly-CSharp",
       "Type": "hoopHead",
       "RendererPrefab": {
@@ -295,7 +273,6 @@
       },
       "Textures": [
         {
-          "$id": "24",
           "$type": "Kingmaker.Visual.CharacterSystem.CharacterTextureDescription, Assembly-CSharp",
           "m_Texture": {
             "$type": "Texture2D",

@@ -1,0 +1,115 @@
+{
+  "$type": "Kingmaker.Blueprints.Classes.BlueprintFeature, Assembly-CSharp",
+  "Groups": [
+    "feat"
+  ],
+  "Ranks": 1,
+  "ReapplyOnLevelUp": true,
+  "HideInUI": false,
+  "m_AllowNonContextActions": false,
+  "m_DisplayName": "CustomString:StalkerFeatureName",
+  "m_Description": "CustomString:StalkerFeatureDescription",
+  "m_Icon": {
+    "$type": "Sprite",
+    "name": "Stealthy",
+    "InstanceId": 56560
+  },
+  "Components": [
+    {
+      "$type": "Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig, Assembly-CSharp",
+      "m_Type": "default",
+      "m_BaseValueType": "baseStat",
+      "m_Feature": "Blueprint:c541f80af8d0af4498e1abb6025780c7:SkillFocusLoreReligion",
+      "m_FeatureList": [],
+      "m_Stat": "skillStealth",
+      "m_Progression": "custom",
+      "m_CustomProgression": [
+        {
+          "$type": "Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig+CustomProgressionItem, Assembly-CSharp",
+          "BaseValue": 9,
+          "ProgressionValue": 2
+        },
+        {
+          "$type": "Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig+CustomProgressionItem, Assembly-CSharp",
+          "BaseValue": 100,
+          "ProgressionValue": 4
+        }
+      ],
+      "m_StartLevel": 0,
+      "m_StepLevel": 3,
+      "m_UseMin": false,
+      "m_Min": 10,
+      "m_UseMax": false,
+      "m_Max": 20,
+      "m_ExceptClasses": false,
+      "Archetype": null,
+      "m_Class": [],
+      "name": "$ContextRankConfig$3c1b4cf0-68f8-4de3-b2bb-259458dee870"
+    },
+    {
+      "$type": "Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig, Assembly-CSharp",
+      "m_Type": "statBonus",
+      "m_BaseValueType": "baseStat",
+      "m_Feature": "Blueprint:c541f80af8d0af4498e1abb6025780c7:SkillFocusLoreReligion",
+      "m_FeatureList": [],
+      "m_Stat": "skillMobility",
+      "m_Progression": "custom",
+      "m_CustomProgression": [
+        {
+          "$type": "Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig+CustomProgressionItem, Assembly-CSharp",
+          "BaseValue": 9,
+          "ProgressionValue": 2
+        },
+        {
+          "$type": "Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig+CustomProgressionItem, Assembly-CSharp",
+          "BaseValue": 100,
+          "ProgressionValue": 4
+        }
+      ],
+      "m_StartLevel": 0,
+      "m_StepLevel": 3,
+      "m_UseMin": false,
+      "m_Min": 10,
+      "m_UseMax": false,
+      "m_Max": 20,
+      "m_ExceptClasses": false,
+      "Archetype": null,
+      "m_Class": [],
+      "name": "$ContextRankConfig$05241505-d422-4b1e-9c09-25e2136a9547"
+    },
+    {
+      "$type": "Kingmaker.UnitLogic.FactLogic.AddContextStatBonus, Assembly-CSharp",
+      "Descriptor": "none",
+      "Stat": "skillStealth",
+      "Multiplier": 1,
+      "Value": {
+        "$type": "Kingmaker.UnitLogic.Mechanics.ContextValue, Assembly-CSharp",
+        "ValueType": "rank",
+        "Value": 2,
+        "ValueRank": "default",
+        "ValueShared": "damage"
+      },
+      "name": "$AddContextStatBonus$f0cf779e-31c1-4d44-b6e6-16a1ff9fc85d"
+    },
+    {
+      "$type": "Kingmaker.UnitLogic.FactLogic.AddContextStatBonus, Assembly-CSharp",
+      "Descriptor": "none",
+      "Stat": "skillMobility",
+      "Multiplier": 1,
+      "Value": {
+        "$type": "Kingmaker.UnitLogic.Mechanics.ContextValue, Assembly-CSharp",
+        "ValueType": "rank",
+        "Value": 2,
+        "ValueRank": "statBonus",
+        "ValueShared": "damage"
+      },
+      "name": "$AddContextStatBonus$5350c1a9-9585-430c-a6ec-a122a77c70b3"
+    },
+    {
+      "$type": "Kingmaker.Designers.Mechanics.Facts.SavesFixerRecalculate, Assembly-CSharp",
+      "name": "$SavesFixerRecalculate$dfb43214-aef2-4944-8c8e-df1c6648ae7b"
+    }
+  ],
+  "m_AssetGuid": "StalkerFeature",
+  "name": "StalkerFeature"
+}

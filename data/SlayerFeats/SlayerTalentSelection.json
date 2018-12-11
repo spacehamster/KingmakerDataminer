@@ -1,5 +1,4 @@
 {
-  "$id": "1",
   "$type": "Kingmaker.Blueprints.Classes.Selection.BlueprintFeatureSelection, Assembly-CSharp",
   "IgnorePrerequisites": false,
   "Obligatory": false,
