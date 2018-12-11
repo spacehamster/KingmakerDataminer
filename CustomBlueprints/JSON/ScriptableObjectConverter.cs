@@ -50,6 +50,7 @@ namespace CustomBlueprints
                 jObject.Remove("$append");
                 var parts = copy.Split(':');
                 result = ResourcesLibrary.TryGetResource<ScriptableObject>(parts[1]);
+                name = result.name;
                 Main.DebugLog($"Appending to {result.name}");
             }
             if (jObject["$copy"] != null)

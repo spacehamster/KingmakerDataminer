@@ -52,7 +52,7 @@ namespace CustomBlueprints
             if (text.StartsWith("File"))
             {
                 var parts = text.Split(':');
-                var path = $"mods/customblueprints/data/{parts[1]}";
+                var path = $"{Main.ModPath}/data/{parts[1]}";
                 var blueprintName = Path.GetFileNameWithoutExtension(path);
                 if (JsonBlueprints.Blueprints.ContainsKey(blueprintName))
                 {

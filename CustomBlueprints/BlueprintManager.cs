@@ -40,12 +40,16 @@ namespace CustomBlueprints
         {
             Dictionary<string, string> strings = null;
             var currentLocale = LocalizationManager.CurrentLocale;
-            if (File.Exists($"mods/customraces/data/localization/{currentLocale}.json"))
+            if (File.Exists($"{Main.ModPath}/data/localization/{currentLocale}.json"))
             {
-                strings = JsonBlueprints.Load<Dictionary<string, string>>($"mods/customraces/data/localization/{currentLocale}.json");
-            } else if(File.Exists($"mods/customraces/data/localization/{currentLocale}.json"))
+                strings = JsonBlueprints.Load<Dictionary<string, string>>($"{Main.ModPath}/data/localization/{currentLocale}.json");
+            } else if(File.Exists($"{Main.ModPath}/data/localization/enGB.json"))
             {
-                strings = JsonBlueprints.Load<Dictionary<string, string>>($"mods/customraces/data/localization/enGB.json");
+                Main.DebugLog($"Could not find locale {currentLocale}");
+                strings = JsonBlueprints.Load<Dictionary<string, string>>($"{Main.ModPath}/data/localization/enGB.json");
+            } else
+            {
+                Main.DebugLog($"Could not find any localization file");
             }
             if (strings == null) return;
             foreach(var kv in strings)

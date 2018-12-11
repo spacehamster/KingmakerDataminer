@@ -5,10 +5,10 @@
   "ReapplyOnLevelUp": false,
   "HideInUI": false,
   "m_AllowNonContextActions": false,
-  "m_DisplayName": "LocalizedString::",
-  "m_Description": "LocalizedString::",
+  "m_DisplayName": "CustomString:PerfectBalanceFeatureName",
+  "m_Description": "CustomString:PerfectBalanceFeatureDescription",
   "m_Icon": null,
   "Components": [],
   "m_AssetGuid": "PerfectBalanceFeature",
-  "name": "ImprovedBalanceFeature"
+  "name": "PerfectBalanceFeature"
 }

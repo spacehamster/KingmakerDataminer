@@ -1,8 +1,8 @@
 {
   "$type": "Kingmaker.Blueprints.Classes.BlueprintArchetype, Assembly-CSharp",
   "m_Icon": null,
-  "LocalizedName": "CustomString:ArcherArchtypeName",
-  "LocalizedDescription": "CustomString:ArcherArchtypeDescription",
+  "LocalizedName": "CustomString:ArcherArchetypeName",
+  "LocalizedDescription": "CustomString:ArcherArchetypeDescription",
   "ReplaceSpellbook": null,
   "RemoveSpellbook": false,
   "AddFeatures": [
@@ -192,6 +192,6 @@
   "ReflexSave": null,
   "WillSave": null,
   "Components": [],
-  "m_AssetGuid": "ArcherArchtype",
-  "name": "ArcherArchtype"
+  "m_AssetGuid": "ArcherArchetype",
+  "name": "ArcherArchetype"
 }

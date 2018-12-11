@@ -1,8 +1,8 @@
 {
   "$type": "Kingmaker.Blueprints.Classes.BlueprintArchetype, Assembly-CSharp",
   "m_Icon": null,
-  "LocalizedName": "CustomString:TwoWeaponWarriorName",
-  "LocalizedDescription": "CustomString:TwoWeaponWarriorDescription",
+  "LocalizedName": "CustomString:TwoWeaponWarriorArchetypeName",
+  "LocalizedDescription": "CustomString:TwoWeaponWarriorArchetypeDescription",
   "ReplaceSpellbook": null,
   "RemoveSpellbook": false,
   "AddFeatures": [
@@ -193,6 +193,6 @@
   "ReflexSave": null,
   "WillSave": null,
   "Components": [],
-  "m_AssetGuid": "TwoWeaponWarriorArchtype",
-  "name": "TwoWeaponWarriorArchtype"
+  "m_AssetGuid": "TwoWeaponWarriorArchetype",
+  "name": "TwoWeaponWarriorArchetype"
 }

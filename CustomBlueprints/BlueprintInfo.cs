@@ -19,7 +19,7 @@ namespace CustomBlueprints
         public List<BlueprintScriptableObject> Register = new List<BlueprintScriptableObject>();
         public static BlueprintInfo Load()
         {
-            return JsonBlueprints.Load<BlueprintInfo>("mods/customraces/data/BlueprintInfo.json");
+            return JsonBlueprints.Load<BlueprintInfo>("mods/customblueprints/data/BlueprintInfo.json");
         }
     }
 }

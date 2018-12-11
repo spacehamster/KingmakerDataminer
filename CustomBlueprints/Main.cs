@@ -3,12 +3,9 @@ using Harmony12;
 using UnityModManagerNet;
 using System.Reflection;
 using System;
-using Kingmaker;
 using UnityEngine.SceneManagement;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
 using Kingmaker.Visual.CharacterSystem;
-using Newtonsoft.Json;
 using Kingmaker.Blueprints.CharGen;
 
 namespace CustomBlueprints
@@ -26,6 +23,7 @@ namespace CustomBlueprints
         public static Settings settings;
         static int torso = -1;
         public static BlueprintManager raceManager;
+        public static string ModPath = null;
         static bool Load(UnityModManager.ModEntry modEntry)
         {
             try
@@ -37,6 +35,7 @@ namespace CustomBlueprints
                 modEntry.OnGUI = OnGUI;
                 modEntry.OnSaveGUI = OnSaveGUI;
                 modEntry.Logger.Log("Loaded CustomRaces");
+                ModPath = modEntry.Path;
                 logger = modEntry.Logger;
                 SceneManager.sceneLoaded += BlueprintManager.OnSceneManagerOnSceneLoaded;
             }

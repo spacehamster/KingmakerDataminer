@@ -46,7 +46,7 @@ namespace CustomBlueprints
             if (text.StartsWith("File:"))
             {
                 var parts = text.Split(':');
-                var path = $"mods/customblueprints/data/{parts[1]}";
+                var path = $"{Main.ModPath}/data/{parts[1]}";
                 if (JsonBlueprints.ResourceAssetIds.ContainsKey(path))
                 {
                     var link = (WeakResourceLink)Activator.CreateInstance(type);

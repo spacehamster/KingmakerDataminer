@@ -49,14 +49,6 @@ namespace CustomBlueprints
             var realType = Type.GetType(typeName);
             var settings = JsonBlueprints.CreateSettings(realType);
             var serializer = JsonSerializer.Create(settings);
-            if (name == null)
-            {
-                throw new System.Exception("Missing name");
-            }
-            if (JsonBlueprints.Blueprints.ContainsKey(name))
-            {
-                throw new System.Exception("Cannot create blueprint twice");
-            }
             BlueprintScriptableObject result = null;
             if (jObject["$append"] != null)
             {
@@ -64,6 +56,7 @@ namespace CustomBlueprints
                 jObject.Remove("$append");
                 var parts = copy.Split(':');
                 result = ResourcesLibrary.TryGetBlueprint(parts[1]);
+                name = result.name;
                 Main.DebugLog($"Appending to {result.name}");
             }
             if (jObject["$copy"] != null)
@@ -75,7 +68,15 @@ namespace CustomBlueprints
                 result = (BlueprintScriptableObject)BlueprintUtil.ShallowClone(resource);
                 Main.DebugLog($"Copying {resource.name}");
             }
-            if(result == null)
+            if (name == null)
+            {
+                throw new System.Exception("Missing name");
+            }
+            if (JsonBlueprints.Blueprints.ContainsKey(name))
+            {
+                throw new System.Exception("Cannot create blueprint twice");
+            }
+            if (result == null)
             {
                 result = ScriptableObject.CreateInstance(realType) as BlueprintScriptableObject;
             }
