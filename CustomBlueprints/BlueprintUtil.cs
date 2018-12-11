@@ -16,7 +16,7 @@ using System.Threading;
 using System.Linq;
 using UnityEngine;
 
-namespace CustomRaces
+namespace CustomBlueprints
 {
     static public class BlueprintUtil
     {

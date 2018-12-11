@@ -49,7 +49,7 @@ namespace CustomBlueprints
                 var copy = (string)jObject["$append"];
                 jObject.Remove("$append");
                 var parts = copy.Split(':');
-                result = ResourcesLibrary.TryGetResource<BlueprintScriptableObject>(parts[1]);
+                result = ResourcesLibrary.TryGetResource<ScriptableObject>(parts[1]);
                 Main.DebugLog($"Appending to {result.name}");
             }
             if (jObject["$copy"] != null)
@@ -57,8 +57,8 @@ namespace CustomBlueprints
                 var copy = (string)jObject["$copy"];
                 jObject.Remove("$copy");
                 var parts = copy.Split(':');
-                var resource = ResourcesLibrary.TryGetResource<BlueprintScriptableObject>(parts[1]);
-                result = (BlueprintScriptableObject)BlueprintUtil.ShallowClone(resource);
+                var resource = ResourcesLibrary.TryGetResource<ScriptableObject>(parts[1]);
+                result = (ScriptableObject)BlueprintUtil.ShallowClone(resource);
                 Main.DebugLog($"Copying {resource.name}");
             }
             if (result == null)

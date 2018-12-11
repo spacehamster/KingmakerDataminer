@@ -14,7 +14,7 @@ using System.IO;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
-namespace CustomRaces
+namespace CustomBlueprints
 {
     public class BlueprintManager
     {
