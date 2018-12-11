@@ -34,7 +34,7 @@
     "Blueprint:0a6a7bbf0ddcebb4f8c4c7bd5d20c003:PotionOfReducePerson",
     "Blueprint:d52566ae8cbe8dc4dae977ef51c27d91:PotionOfCureLightWounds"
   ],
-  "PrimaryColor": 13,
+  "PrimaryColor": 31,
   "SecondaryColor": 7,
   "EquipmentEntities": [
     "Blueprint:f1bca33555f534c408bebaaa12571570:KEE_Ranger_Cap"

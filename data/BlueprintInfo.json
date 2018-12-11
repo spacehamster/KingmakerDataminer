@@ -10,5 +10,8 @@
 	],
 	"Weapons":[
 		"File:FalcataRedeemer.json"
+	],
+	"Register":[
+		"File:FighterAddArchtype.json"
 	]
 }

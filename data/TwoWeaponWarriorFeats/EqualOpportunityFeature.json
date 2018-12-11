@@ -1,0 +1,14 @@
+{
+  "$type": "Kingmaker.Blueprints.Classes.BlueprintFeature, Assembly-CSharp",
+  "Groups": [],
+  "Ranks": 1,
+  "ReapplyOnLevelUp": false,
+  "HideInUI": false,
+  "m_AllowNonContextActions": false,
+  "m_DisplayName": "LocalizedString::",
+  "m_Description": "LocalizedString::",
+  "m_Icon": null,
+  "Components": [],
+  "m_AssetGuid": "EqualOpportunityFeature",
+  "name": "EqualOpportunityFeature"
+}
