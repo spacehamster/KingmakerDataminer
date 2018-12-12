@@ -54,9 +54,9 @@ namespace CustomBlueprints
         });
 
         private static readonly BlueprintAssetIdConverter BlueprintAssetIdConverter
-          = new BlueprintAssetIdConverter(true);
+          = new BlueprintAssetIdConverter();
         private static readonly BlueprintConverter BlueprintConverter
-            = new BlueprintConverter(true);
+            = new BlueprintConverter();
 
         private static readonly JsonConverter[] PreferredConverters = {
           new StringEnumConverter(true),
@@ -64,11 +64,12 @@ namespace CustomBlueprints
           new XmlNodeConverter(),
           new VersionConverter(),
           new RegexConverter(),
-          new ScriptableObjectConverter(true),
-          new LocalizedStringConverter(true),
-          new WeakResourceLinkConverter(true),
-          new UnityJsonConverter(true),
-          new GameObjectAssetIdConverter(true)
+          new ArrayConverter(),
+          new ScriptableObjectConverter(),
+          new LocalizedStringConverter(),
+          new WeakResourceLinkConverter(),
+          new UnityJsonConverter(),
+          new GameObjectAssetIdConverter()
         };
         void OnDeserializing(object o, StreamingContext context)
         {

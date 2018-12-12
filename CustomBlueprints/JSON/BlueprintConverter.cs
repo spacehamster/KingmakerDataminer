@@ -3,6 +3,7 @@ using System.Linq;
 using Harmony12;
 using JetBrains.Annotations;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
@@ -11,8 +12,6 @@ namespace CustomBlueprints
 {
     public class BlueprintConverter : JsonConverter
     {
-        [UsedImplicitly]
-        public bool Enabled { get; set; }
 
         public override bool CanWrite
         {
@@ -21,12 +20,8 @@ namespace CustomBlueprints
                 return true;
             }
         }
-        private BlueprintConverter() { }
+        public BlueprintConverter() { }
 
-        public BlueprintConverter(bool enabled)
-        {
-            Enabled = enabled;
-        }
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
             var settings = JsonBlueprints.CreateSettings(null);
@@ -40,8 +35,7 @@ namespace CustomBlueprints
             }
             j.WriteTo(w);
         }
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer szr
-        )
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer szr)
         {
             JObject jObject = JObject.Load(reader);
             var name = (string)jObject["name"];
@@ -52,12 +46,22 @@ namespace CustomBlueprints
             BlueprintScriptableObject result = null;
             if (jObject["$append"] != null)
             {
+                serializer.ObjectCreationHandling = ObjectCreationHandling.Reuse;
                 var copy = (string)jObject["$append"];
                 jObject.Remove("$append");
                 var parts = copy.Split(':');
                 result = ResourcesLibrary.TryGetBlueprint(parts[1]);
                 name = result.name;
                 Main.DebugLog($"Appending to {result.name}");
+            }
+            if (jObject["$replace"] != null)
+            {
+                var copy = (string)jObject["$replace"];
+                jObject.Remove("$replace");
+                var parts = copy.Split(':');
+                result = ResourcesLibrary.TryGetBlueprint(parts[1]);
+                name = result.name;
+                Main.DebugLog($"replacing to {result.name}");
             }
             if (jObject["$copy"] != null)
             {
@@ -74,7 +78,7 @@ namespace CustomBlueprints
             }
             if (JsonBlueprints.Blueprints.ContainsKey(name))
             {
-                throw new System.Exception("Cannot create blueprint twice");
+                //throw new System.Exception("Cannot create blueprint twice");
             }
             if (result == null)
             {
@@ -89,7 +93,6 @@ namespace CustomBlueprints
         // ReSharper disable once IdentifierTypo
         private static readonly Type _tBlueprintScriptableObject = typeof(BlueprintScriptableObject);
 
-        public override bool CanConvert(Type type) => Enabled
-          && _tBlueprintScriptableObject.IsAssignableFrom(type);
+        public override bool CanConvert(Type type) => _tBlueprintScriptableObject.IsAssignableFrom(type);
     }
 }

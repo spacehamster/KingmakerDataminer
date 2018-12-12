@@ -32,15 +32,7 @@ namespace CustomBlueprints
             }
         );
 
-        [UsedImplicitly]
-        public bool Enabled { get; set; }
-
-        private UnityJsonConverter() { }
-
-        public UnityJsonConverter(bool enabled)
-        {
-            Enabled = enabled;
-        }
+        public UnityJsonConverter() { }
 
         private static readonly JsonConverter[] NoConverters = Array.Empty<JsonConverter>();
 
@@ -274,6 +266,6 @@ namespace CustomBlueprints
             return null;
         }
 
-        public override bool CanConvert(Type objectType) => Enabled && SupportedTypes.Contains(objectType);
+        public override bool CanConvert(Type objectType) => SupportedTypes.Contains(objectType);
     }
 }

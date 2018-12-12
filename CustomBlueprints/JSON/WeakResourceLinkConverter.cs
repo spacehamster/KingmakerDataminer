@@ -12,15 +12,9 @@ namespace CustomBlueprints
 {
     public class WeakResourceLinkConverter : JsonConverter
     {
-        [UsedImplicitly]
-        public bool Enabled { get; set; }
 
-        private WeakResourceLinkConverter() { }
+        public WeakResourceLinkConverter() { }
 
-        public WeakResourceLinkConverter(bool enabled)
-        {
-            Enabled = enabled;
-        }
 
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
@@ -78,7 +72,6 @@ namespace CustomBlueprints
         // ReSharper disable once IdentifierTypo
         private static readonly Type _tWeakResourceLink = typeof(WeakResourceLink);
 
-        public override bool CanConvert(Type type) => Enabled
-            && _tWeakResourceLink.IsAssignableFrom(type);
+        public override bool CanConvert(Type type) => _tWeakResourceLink.IsAssignableFrom(type);
     }
 }

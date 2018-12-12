@@ -13,8 +13,6 @@ namespace CustomBlueprints
 {
     public class ScriptableObjectConverter : JsonConverter
     {
-        [UsedImplicitly]
-        public bool Enabled { get; set; }
 
         public override bool CanWrite
         {
@@ -23,20 +21,14 @@ namespace CustomBlueprints
                 return false;
             }
         }
-        private ScriptableObjectConverter() { }
-
-        public ScriptableObjectConverter(bool enabled)
-        {
-            Enabled = enabled;
-        }
+        public ScriptableObjectConverter() { }
 
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
             throw new NotImplementedException();
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer szr
-        )
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer szr)
         {
             JObject jObject = JObject.Load(reader);
             var name = (string)jObject["name"];
@@ -46,12 +38,24 @@ namespace CustomBlueprints
             ScriptableObject result = null;
             if (jObject["$append"] != null)
             {
+                var settings = JsonBlueprints.CreateSettings(null);
+                szr = JsonSerializer.Create(settings);
+                szr.ObjectCreationHandling = ObjectCreationHandling.Reuse;
                 var copy = (string)jObject["$append"];
                 jObject.Remove("$append");
                 var parts = copy.Split(':');
                 result = ResourcesLibrary.TryGetResource<ScriptableObject>(parts[1]);
                 name = result.name;
                 Main.DebugLog($"Appending to {result.name}");
+            }
+            if (jObject["$replace"] != null)
+            {
+
+                var copy = (string)jObject["$replace"];
+                jObject.Remove("$replace");
+                var parts = copy.Split(':');
+                result = ResourcesLibrary.TryGetBlueprint(parts[1]);
+                name = result.name;
             }
             if (jObject["$copy"] != null)
             {
@@ -76,8 +80,7 @@ namespace CustomBlueprints
             var isResourceType = type == typeof(EquipmentEntity)
                 || type == typeof(BakedCharacter)
                 || type == typeof(SimClothTopology);
-            var result = Enabled
-              && isResourceType
+            var result = isResourceType
               && !typeof(BlueprintScriptableObject).IsAssignableFrom(type);
             return result;
         }

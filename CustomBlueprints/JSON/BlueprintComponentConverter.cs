@@ -15,15 +15,8 @@ namespace CustomBlueprints
 {
     public class BlueprintComponentConverter : JsonConverter
     {
-        [UsedImplicitly]
-        public bool Enabled { get; set; }
 
-        private BlueprintComponentConverter() { }
-
-        public BlueprintComponentConverter(bool enabled)
-        {
-            Enabled = enabled;
-        }
+        public BlueprintComponentConverter() { }
 
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
@@ -49,7 +42,6 @@ namespace CustomBlueprints
         // ReSharper disable once IdentifierTypo
         private static readonly Type _tBlueprintComponent = typeof(BlueprintComponent);
 
-        public override bool CanConvert(Type type) => Enabled
-            && _tBlueprintComponent.IsAssignableFrom(type);
+        public override bool CanConvert(Type type) => _tBlueprintComponent.IsAssignableFrom(type);
     }
 }

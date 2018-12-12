@@ -10,15 +10,8 @@ namespace CustomBlueprints
 {
     public class GameObjectAssetIdConverter : JsonConverter
     {
-        [UsedImplicitly]
-        public bool Enabled { get; set; }
 
-        private GameObjectAssetIdConverter() { }
-
-        public GameObjectAssetIdConverter(bool enabled)
-        {
-            Enabled = enabled;
-        }
+        public GameObjectAssetIdConverter() { }
 
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
@@ -51,7 +44,6 @@ namespace CustomBlueprints
         // ReSharper disable once IdentifierTypo
         private static readonly Type _tGameObject = typeof(GameObject);
 
-        public override bool CanConvert(Type type) => Enabled
-          && _tGameObject.IsAssignableFrom(type);
+        public override bool CanConvert(Type type) => _tGameObject.IsAssignableFrom(type);
     }
 }

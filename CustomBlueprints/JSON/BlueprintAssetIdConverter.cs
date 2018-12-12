@@ -11,15 +11,8 @@ namespace CustomBlueprints
 {
     public class BlueprintAssetIdConverter : JsonConverter
     {
-        [UsedImplicitly]
-        public bool Enabled { get; set; }
 
-        private BlueprintAssetIdConverter() { }
-
-        public BlueprintAssetIdConverter(bool enabled)
-        {
-            Enabled = enabled;
-        }
+        public BlueprintAssetIdConverter() { }
 
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
@@ -45,7 +38,7 @@ namespace CustomBlueprints
                 BlueprintScriptableObject blueprintScriptableObject = ResourcesLibrary.TryGetBlueprint(parts[1]);
                 if (blueprintScriptableObject == null)
                 {
-                    throw new JsonSerializationException(string.Format("Failed to load blueprint by guid {0}", text));
+                    //throw new JsonSerializationException(string.Format("Failed to load blueprint by guid {0}", text));
                 }
                 return blueprintScriptableObject;
             }
@@ -68,7 +61,6 @@ namespace CustomBlueprints
         // ReSharper disable once IdentifierTypo
         private static readonly Type _tBlueprintScriptableObject = typeof(BlueprintScriptableObject);
 
-        public override bool CanConvert(Type type) => Enabled
-          && _tBlueprintScriptableObject.IsAssignableFrom(type);
+        public override bool CanConvert(Type type) => _tBlueprintScriptableObject.IsAssignableFrom(type);
     }
 }

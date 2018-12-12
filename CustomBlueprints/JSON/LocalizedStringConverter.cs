@@ -13,15 +13,9 @@ namespace CustomBlueprints
 {
     public class LocalizedStringConverter : JsonConverter
     {
-        [UsedImplicitly]
-        public bool Enabled { get; set; }
 
-        private LocalizedStringConverter() { }
+        public LocalizedStringConverter() { }
 
-        public LocalizedStringConverter(bool enabled)
-        {
-            Enabled = enabled;
-        }
 
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
@@ -80,7 +74,6 @@ namespace CustomBlueprints
         // ReSharper disable once IdentifierTypo
         private static readonly Type _tBlueprintScriptableObject = typeof(LocalizedString);
 
-        public override bool CanConvert(Type type) => Enabled
-          && _tBlueprintScriptableObject.IsAssignableFrom(type);
+        public override bool CanConvert(Type type) => _tBlueprintScriptableObject.IsAssignableFrom(type);
     }
 }
