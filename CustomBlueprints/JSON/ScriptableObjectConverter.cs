@@ -27,8 +27,7 @@ namespace CustomBlueprints
         {
             throw new NotImplementedException();
         }
-
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer szr)
+        public object ReadResource(JsonReader reader, Type objectType, object existingValue, JsonSerializer szr)
         {
             JObject jObject = JObject.Load(reader);
             var name = (string)jObject["name"];
@@ -68,21 +67,30 @@ namespace CustomBlueprints
             }
             if (result == null)
             {
-                result = ScriptableObject.CreateInstance(realType) as BlueprintScriptableObject;
+                result = ScriptableObject.CreateInstance(realType);
             }
             szr.Populate(jObject.CreateReader(), result);
             return result;
         }
-        // ReSharper disable once IdentifierTypo
-        private static readonly Type _tScriptableObject = typeof(ScriptableObject);
+        public override object ReadJson(JsonReader reader, Type type, object existingValue, JsonSerializer szr)
+        {
+            if (type == typeof(EquipmentEntity)
+                || type == typeof(BakedCharacter)
+                || type == typeof(SimClothTopology))
+            {
+                return ReadResource(reader, type, existingValue, szr);
+            }
+            JObject jObject = JObject.Load(reader);
+            var typeName = (string)jObject["$type"];
+            var realType = Type.GetType(typeName);
+            var result = ScriptableObject.CreateInstance(realType);
+            szr.Populate(jObject.CreateReader(), result);
+            return result;
+        }
         public override bool CanConvert(Type type)
         {
-            var isResourceType = type == typeof(EquipmentEntity)
-                || type == typeof(BakedCharacter)
-                || type == typeof(SimClothTopology);
-            var result = isResourceType
+            return typeof(ScriptableObject).IsAssignableFrom(type)
               && !typeof(BlueprintScriptableObject).IsAssignableFrom(type);
-            return result;
         }
     }
 }
