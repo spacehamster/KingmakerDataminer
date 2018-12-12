@@ -14,12 +14,11 @@ namespace CustomBlueprints
     {
         public List<BlueprintCharacterClass> Classes = new List<BlueprintCharacterClass>();
         public List<BlueprintRace> Races = new List<BlueprintRace>();
-        public List<BlueprintItemWeapon> Weapons = new List<BlueprintItemWeapon>();
         public List<BlueprintFeature> Feats = new List<BlueprintFeature>();
         public List<BlueprintScriptableObject> Register = new List<BlueprintScriptableObject>();
         public static BlueprintInfo Load()
         {
-            return JsonBlueprints.Load<BlueprintInfo>("mods/customblueprints/data/BlueprintInfo.json");
+            return JsonBlueprints.Load<BlueprintInfo>($"{Main.ModPath}/data/BlueprintInfo.json");
         }
     }
 }

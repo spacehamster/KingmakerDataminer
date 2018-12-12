@@ -8,7 +8,15 @@
   "m_DisplayName": "CustomString:VolleyFeatureName",
   "m_Description": "CustomString:VolleyFeatureDescription",
   "m_Icon": null,
-  "Components": [],
+  "Components": [
+      {
+      "$type": "Kingmaker.UnitLogic.FactLogic.AddFacts, Assembly-CSharp",
+      "Facts": [
+        "File:ArcherFeats/VolleyAbility.json"
+      ],
+      "name": "$AddFacts$ecfd10d7-acb4-4643-93d0-392739e014c3"
+    },
+  ],
   "m_AssetGuid": "VolleyFeature",
   "name": "VolleyFeature"
 }

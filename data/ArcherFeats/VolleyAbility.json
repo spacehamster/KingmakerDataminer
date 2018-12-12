@@ -1,0 +1,201 @@
+{
+  "$type": "Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility, Assembly-CSharp",
+  "m_TargetMapObjects": false,
+  "m_IsFullRoundAction": false,
+  "Type": "special",
+  "Range": "long",
+  "CustomRange": {
+    "$id": "1",
+    "$type": "Kingmaker.Utility.Feet, Assembly-CSharp",
+    "m_Value": 0.0
+  },
+  "CanTargetPoint": true,
+  "CanTargetEnemies": true,
+  "CanTargetFriends": false,
+  "CanTargetSelf": false,
+  "SpellResistance": false,
+  "ActionBarAutoFillIgnored": false,
+  "NeedEquipWeapons": false,
+  "EffectOnAlly": "none",
+  "EffectOnEnemy": "harmful",
+  "Parent": null,
+  "Animation": "directional",
+  "HasFastAnimation": false,
+  "AnimationStyle": "castActionDirectional",
+  "ActionType": "standard",
+  "AvailableMetamagic": 0,
+  "LocalizedDuration": null,
+  "LocalizedSavingThrow": "LocalizedString:dccd7029-0a51-4e5b-9cb2-7a2969b61516:Reflex half",
+  "MaterialComponent": {
+    "$id": "2",
+    "$type": "Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility+MaterialComponentData, Assembly-CSharp",
+    "Item": null,
+    "Count": 1
+  },
+  "DisableLog": false,
+  "ResourceAssetIds": [
+    "bc3759a5cecc41a4ca47ed87b676c847",
+    "2c17c9fd2d8a2314cb1efe869dba4b4a",
+    "85c681ca38c69834a96c3255c99a152c",
+    "85c681ca38c69834a96c3255c99a152c"
+  ],
+  "m_AllowNonContextActions": false,
+  "m_DisplayName": "CustomString:VolleyFeatureName",
+  "m_Description": "CustomString:VolleyFeatureDescription",
+  "m_Icon": {
+    "$type": "Sprite",
+    "name": "Fireball",
+    "InstanceId": 53382
+  },
+  "Components": [
+    {
+      "$id": "5",
+      "$type": "Kingmaker.UnitLogic.Abilities.Components.AbilityDeliverProjectile, Assembly-CSharp",
+      "Projectiles": [
+        "Blueprint:8927afa172e0fc54484a29fa0c4c40c4:Fireball00"
+      ],
+      "Type": "simple",
+      "IsHandOfTheApprentice": false,
+      "Length": {
+        "$id": "6",
+        "$type": "Kingmaker.Utility.Feet, Assembly-CSharp",
+        "m_Value": 0.0
+      },
+      "LineWidth": {
+        "$id": "7",
+        "$type": "Kingmaker.Utility.Feet, Assembly-CSharp",
+        "m_Value": 5.0
+      },
+      "NeedAttackRoll": false,
+      "Weapon": null,
+      "ReplaceAttackRollBonusStat": false,
+      "AttackRollBonusStat": "unknown",
+      "UseMaxProjectilesCount": false,
+      "MaxProjectilesCountRank": "default",
+      "DelayBetweenProjectiles": 0.0,
+      "name": "$AbilityDeliverProjectile$049a7080-601d-4c6c-9cbd-3d19458b1cb6"
+    },
+    {
+      "$id": "8",
+      "$type": "Kingmaker.UnitLogic.Abilities.Components.AbilityEffectRunAction, Assembly-CSharp",
+      "SavingThrowType": "reflex",
+      "Actions": {
+        "$id": "9",
+        "$type": "Kingmaker.ElementsSystem.ActionList, Assembly-CSharp",
+        "Actions": [
+          {
+            "$id": "10",
+            "$type": "Kingmaker.UnitLogic.Mechanics.Actions.ContextActionDealDamage, Assembly-CSharp",
+            "m_Type": "damage",
+            "DamageType": {
+              "$id": "11",
+              "$type": "Kingmaker.RuleSystem.Rules.Damage.DamageTypeDescription, Assembly-CSharp",
+              "Type": "energy",
+              "Common": {
+                "$id": "12",
+                "$type": "Kingmaker.RuleSystem.Rules.Damage.DamageTypeDescription+CommomData, Assembly-CSharp",
+                "Reality": 0,
+                "Alignment": 0,
+                "Precision": false
+              },
+              "Physical": {
+                "$id": "13",
+                "$type": "Kingmaker.RuleSystem.Rules.Damage.DamageTypeDescription+PhysicalData, Assembly-CSharp",
+                "Material": 0,
+                "Form": 0,
+                "Enhancement": 0,
+                "EnhancementTotal": 0
+              },
+              "Energy": "fire"
+            },
+            "Drain": false,
+            "AbilityType": "unknown",
+            "EnergyDrainType": "temporary",
+            "Duration": {
+              "$id": "14",
+              "$type": "Kingmaker.UnitLogic.Mechanics.ContextDurationValue, Assembly-CSharp",
+              "m_IsExtendable": true,
+              "Rate": "rounds",
+              "DiceType": "zero",
+              "DiceCountValue": {
+                "$id": "15",
+                "$type": "Kingmaker.UnitLogic.Mechanics.ContextValue, Assembly-CSharp",
+                "ValueType": "simple",
+                "Value": 0,
+                "ValueRank": "default",
+                "ValueShared": "damage"
+              },
+              "BonusValue": {
+                "$id": "16",
+                "$type": "Kingmaker.UnitLogic.Mechanics.ContextValue, Assembly-CSharp",
+                "ValueType": "simple",
+                "Value": 0,
+                "ValueRank": "default",
+                "ValueShared": "damage"
+              }
+            },
+            "Value": {
+              "$id": "17",
+              "$type": "Kingmaker.UnitLogic.Mechanics.ContextDiceValue, Assembly-CSharp",
+              "DiceType": "d6",
+              "DiceCountValue": {
+                "$id": "18",
+                "$type": "Kingmaker.UnitLogic.Mechanics.ContextValue, Assembly-CSharp",
+                "ValueType": "rank",
+                "Value": 0,
+                "ValueRank": "default",
+                "ValueShared": "damage"
+              },
+              "BonusValue": {
+                "$id": "19",
+                "$type": "Kingmaker.UnitLogic.Mechanics.ContextValue, Assembly-CSharp",
+                "ValueType": "simple",
+                "Value": 0,
+                "ValueRank": "default",
+                "ValueShared": "damage"
+              }
+            },
+            "Half": false,
+            "IsAoE": true,
+            "HalfIfSaved": true,
+            "IgnoreCritical": false,
+            "IsShadowEvocation": false,
+            "IsShadowEvocationGreater": false,
+            "UseMinHPAfterDamage": false,
+            "MinHPAfterDamage": 0,
+            "WriteResultToSharedValue": false,
+            "ResultSharedValue": "damage",
+            "WriteCriticalToSharedValue": false,
+            "CriticalSharedValue": "damage",
+            "name": "$ContextActionDealDamage$69a81185-5482-4c7b-85c5-8a25d6e00cb0"
+          }
+        ]
+      },
+      "name": "$AbilityEffectRunAction$3493f694-44e6-43e4-b22d-0805f4d922b7"
+    },
+    {
+      "$id": "20",
+      "$type": "Kingmaker.UnitLogic.Abilities.Components.AbilityTargetsAround, Assembly-CSharp",
+      "m_Radius": {
+        "$id": "21",
+        "$type": "Kingmaker.Utility.Feet, Assembly-CSharp",
+        "m_Value": 20.0
+      },
+      "m_TargetType": "any",
+      "m_Condition": {
+        "$id": "22",
+        "$type": "Kingmaker.ElementsSystem.ConditionsChecker, Assembly-CSharp",
+        "Operation": "and",
+        "Conditions": []
+      },
+      "m_SpreadSpeed": {
+        "$id": "23",
+        "$type": "Kingmaker.Utility.Feet, Assembly-CSharp",
+        "m_Value": 0.0
+      },
+      "name": "$AbilityTargetsAround$2b6b8f68-609f-4173-ab29-3053fef431bf"
+    }
+  ],
+  "m_AssetGuid": "VolleyAbility",
+  "name": "VolleyAbility"
+}

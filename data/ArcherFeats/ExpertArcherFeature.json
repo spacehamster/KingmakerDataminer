@@ -1,14 +1,39 @@
 {
   "$type": "Kingmaker.Blueprints.Classes.BlueprintFeature, Assembly-CSharp",
-  "Groups": [],
-  "Ranks": 1,
+  "Groups": [
+    "weaponTraining"
+  ],
+  "Ranks": 5,
   "ReapplyOnLevelUp": false,
   "HideInUI": false,
   "m_AllowNonContextActions": false,
   "m_DisplayName": "CustomString:ExpertArcherFeatureName",
   "m_Description": "CustomString:ExpertArcherFeatureDescription",
   "m_Icon": null,
-  "Components": [],
+  "Components": [
+    {
+      "$type": "Kingmaker.Designers.Mechanics.Facts.WeaponGroupAttackBonus, Assembly-CSharp",
+      "WeaponGroup": "bows",
+      "AttackBonus": 1,
+      "Descriptor": "none",
+      "name": "$WeaponGroupAttackBonus$f1fc5e14-7895-40f3-bdb7-54f9990831c4"
+    },
+    {
+      "$type": "Kingmaker.Designers.Mechanics.Facts.WeaponGroupDamageBonus, Assembly-CSharp",
+      "WeaponGroup": "bows",
+      "DamageBonus": 1,
+      "AdditionalValue": {
+        "$id": "3",
+        "$type": "Kingmaker.UnitLogic.Mechanics.ContextValue, Assembly-CSharp",
+        "ValueType": "simple",
+        "Value": 0,
+        "ValueRank": "default",
+        "ValueShared": "damage"
+      },
+      "Descriptor": "none",
+      "name": "$WeaponGroupDamageBonus$26e6c0c9-e6d2-40e2-8692-90260e450cb3"
+    }
+  ],
   "m_AssetGuid": "ExpertArcherFeature",
   "name": "ExpertArcherFeature"
 }

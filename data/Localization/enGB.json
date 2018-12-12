@@ -51,7 +51,7 @@
 	"DefensiveFlurryFeatureName":"Defensive Flurry",
 	"DefensiveFlurryFeatureDescription":"At 3rd level, when a two-weapon warrior makes a full-attack with both weapons, he gains a +1 dodge bonus to AC against melee attacks until the beginning of his next turn. This bonus increases by +1 every four levels after 3rd.",
 	"TwinBladesFeatureName":"Twin Blades",
-	"TwinBladesDescription":"At 5th level, a two-weapon warrior gains a +1 bonus on attack and damage rolls when making a full-attack with two weapons or a double weapon. This bonus increases by +1 for every four levels after 5th.",
+	"TwinBladesFeatureDescription":"At 5th level, a two-weapon warrior gains a +1 bonus on attack and damage rolls when making a full-attack with two weapons or a double weapon. This bonus increases by +1 for every four levels after 5th.",
 	"DoubleStrikeFeatureName":"Doublestrike",
 	"DoubleStrikeFeatureDescription":"At 9th level, a two-weapon warrior may, as a standard action, make one attack with both his primary and secondary weapons. The penalties for attacking with two weapons apply normally.",
 	"ImprovedBalanceFeatureName":"Improved Balance",
@@ -62,6 +62,6 @@
 	"PerfectBalanceFeatureDescription":"At 15th level, the penalties for fighting with two weapons are reduced by an additional –1 for a two-weapon warrior. This benefit stacks with improved balance. If he is using a one-handed weapon in his off hand, treating it as a light weapon, he uses the normal light weapon penalties.",
 	"DeftDoubleStrikeFeatureName":"Deft Doublestrike",
 	"DeftDoubleStrikeFeatureDescription":"At 17th level, when a two-weapon warrior hits an opponent with both weapons, he can make a disarm or sunder attempt (or trip, if one or both weapons can be used to trip) against that opponent as an immediate action that does not provoke attacks of opportunity.",
-	"DeadlyDefenceFeatureName":"Deadly Defense",
-	"DeadlyDefenceFeatureDescription":"At 19th level, when a two-weapon warrior makes a full-attack with both weapons, every creature that hits him with a melee attack before the beginning of his next turn provokes an attack of opportunity from the warrior."
+	"DeadlyDefenseFeatureName":"Deadly Defense",
+	"DeadlyDefenseFeatureDescription":"At 19th level, when a two-weapon warrior makes a full-attack with both weapons, every creature that hits him with a melee attack before the beginning of his next turn provokes an attack of opportunity from the warrior."
 }

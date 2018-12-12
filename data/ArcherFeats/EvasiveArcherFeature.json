@@ -1,14 +1,35 @@
 {
   "$type": "Kingmaker.Blueprints.Classes.BlueprintFeature, Assembly-CSharp",
   "Groups": [],
-  "Ranks": 1,
+  "Ranks": 2,
   "ReapplyOnLevelUp": false,
   "HideInUI": false,
   "m_AllowNonContextActions": false,
   "m_DisplayName": "CustomString:EvasiveArcherFeatureName",
   "m_Description": "CustomString:EvasiveArcherFeatureDescription",
   "m_Icon": null,
-  "Components": [],
+  "Components": [
+    {
+      "$type": "Kingmaker.Designers.Mechanics.Facts.ACBonusAgainstAttacks, Assembly-CSharp",
+      "AgainstMeleeOnly": false,
+      "AgainstRangedOnly": true,
+      "NotTouch": false,
+      "OnlyAttacksOfOpportunity": false,
+      "Value": {
+        "$type": "Kingmaker.UnitLogic.Mechanics.ContextValue, Assembly-CSharp",
+        "ValueType": "simple",
+        "Value": 0,
+        "ValueRank": "default",
+        "ValueShared": "damage"
+      },
+      "ArmorClassBonus": 2,
+      "Descriptor": "dodge",
+      "CheckArmorCategory": false,
+      "NotArmorCategory": [],
+      "NoShield": false,
+      "name": "$ACBonusAgainstAttacks$d84d9a26-7557-4dae-b38c-7f3a5d1734bb"
+    },
+  ],
   "m_AssetGuid": "EvasiveArcherFeature",
   "name": "EvasiveArcherFeature"
 }

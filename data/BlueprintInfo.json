@@ -9,9 +9,9 @@
 		"File:ExoticProficiency/ExoticWeaponGroupSelection.json"
 	],
 	"Weapons":[
-		"File:FalcataRedeemer.json"
 	],
 	"Register":[
-		"File:FighterAddArchetypes.json"
+		"File:FighterAddArchetypes.json",
+		"File:AddElinaTavernkeeperVendorTable.json"
 	]
 }
