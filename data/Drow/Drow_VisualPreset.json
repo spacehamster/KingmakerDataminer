@@ -1,0 +1,7 @@
+{
+  "$type": "Kingmaker.Blueprints.CharGen.BlueprintRaceVisualPreset, Assembly-CSharp",
+  "$copy": "Blueprint:33c5153d85a687d40ab3a56f8c391f0c:Elf_VisualPreset",
+  "Skin": "File:KEE_Body_Drow.json",
+  "m_AssetGuid": "Drow_Standard_VisualPreset",
+  "name": "Drow_Standard_VisualPreset"
+}

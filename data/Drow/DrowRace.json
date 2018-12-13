@@ -11,9 +11,9 @@
     "Blueprint:03fd1e043fc678a4baf73fe67c3780ce:ElvenWeaponFamiliarity"
   ],
   "Presets": [
-    "File:RacePresets/Drow_VisualPreset.json",
-    "File:RacePresets/Drow_VisualPreset_fat.json",
-    "File:RacePresets/Drow_VisualPreset_thin.json"
+    "File:Drow_VisualPreset.json",
+    "File:Drow_VisualPreset_fat.json",
+    "File:Drow_VisualPreset_thin.json"
   ],
   "MaleOptions": {
     "$type": "Kingmaker.Blueprints.CharGen.CustomizationOptions, Assembly-CSharp",

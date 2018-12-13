@@ -1,0 +1,11 @@
+{
+  "$type": "Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity, Assembly-CSharp",
+  "m_MaleArray": [
+    "File:DrowEE/EE_Naked_M_DROW.json"
+  ],
+  "m_FemaleArray": [
+    "File:DrowEE/EE_Nude_F_DROW.json"
+  ],
+  "m_AssetGuid": "KEE_Body_Drow",
+  "name": "KEE_Body_Drow"
+}
