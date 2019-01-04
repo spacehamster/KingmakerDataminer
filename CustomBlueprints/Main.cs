@@ -88,6 +88,14 @@ namespace CustomBlueprints
                 {
                     AssetsDump.DumpList();
                 }
+                if (GUILayout.Button("DumpAssetBundles"))
+                {
+                    AssetsDump.DumpAssetBundles();
+                }
+                if (GUILayout.Button("DumpUI"))
+                {
+                    AssetsDump.DumpUI();
+                }
                 if (GUILayout.Button("TestLoad"))
                 {
                     //var bp = JsonBlueprints.Load<BlueprintCharacterClass>("mods/customraces/data/slayerclass.json");

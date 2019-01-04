@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
 using Harmony12;
 using JetBrains.Annotations;
 using Kingmaker.Blueprints;
@@ -28,10 +29,16 @@ namespace CustomBlueprints
             var newSerializer = JsonSerializer.Create(settings);
             var j = new JObject();
             j.AddFirst(new JProperty("$type", JsonBlueprints.GetTypeName(o.GetType())));
-            foreach (var field in JsonBlueprints.GetUnitySerializableMembers(o.GetType()))
+            foreach (var memberInfo in JsonBlueprints.GetUnitySerializableMembers(o.GetType()))
             {
-                var value = Traverse.Create(o).Field(field.Name).GetValue();
-                j.Add(field.Name, value != null ? JToken.FromObject(value, newSerializer) : null);
+                object value = null;
+                if (memberInfo.MemberType == MemberTypes.Field) {
+                    value = ((FieldInfo)memberInfo).GetValue(o);
+                } else if(memberInfo.MemberType == MemberTypes.Property)
+                {
+                   value = ((PropertyInfo)memberInfo).GetValue(o);
+                }
+                j.Add(memberInfo.Name, value != null ? JToken.FromObject(value, newSerializer) : null);
             }
             j.WriteTo(w);
         }
@@ -89,10 +96,7 @@ namespace CustomBlueprints
             serializer.Populate(jObject.CreateReader(), result);
             return result;
         }
-
-        // ReSharper disable once IdentifierTypo
         private static readonly Type _tBlueprintScriptableObject = typeof(BlueprintScriptableObject);
-
         public override bool CanConvert(Type type) => _tBlueprintScriptableObject.IsAssignableFrom(type);
     }
 }

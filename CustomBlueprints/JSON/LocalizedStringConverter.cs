@@ -26,11 +26,6 @@ namespace CustomBlueprints
             }
             int previewLength = 20;
             var text = ls.ToString();
-            if (text.Length > previewLength + 1)
-            {
-                text = text.Remove(previewLength);
-            }
-            if (ls.ToString().Length > previewLength) text += "...";
             w.WriteValue($"LocalizedString:{ls.Key}:{text}");
         }
 

@@ -37,7 +37,7 @@ namespace CustomBlueprints
         private static readonly JsonConverter[] NoConverters = Array.Empty<JsonConverter>();
 
         private static readonly JsonConverter[] SafeConverters = {
-      new StringEnumConverter(true), new UnityJsonConverter()
+        new StringEnumConverter(true), new UnityJsonConverter()
     };
 
         private static readonly string AqnTexture2D = typeof(Texture2D).AssemblyQualifiedName;
@@ -265,7 +265,6 @@ namespace CustomBlueprints
             }
             return null;
         }
-
         public override bool CanConvert(Type objectType) => SupportedTypes.Contains(objectType);
     }
 }

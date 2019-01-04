@@ -131,5 +131,16 @@ namespace CustomBlueprints
                 serializer.Serialize(writer, ee);
             }
         }
+        public static void Dump(object obj, string path)
+        {
+            Directory.CreateDirectory($"{path}");
+            JsonSerializer serializer
+                            = JsonSerializer.Create(CreateSettings(null));
+            using (StreamWriter sw = new StreamWriter($"{path}/{obj.GetType()}/{obj.GetType().Name}{obj.GetHashCode()}.json"))
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+                serializer.Serialize(writer, obj);
+            }
+        }
     }
 }

@@ -111,7 +111,7 @@ namespace CustomBlueprints
                 scene.name == SceneName.MainMenu ||
                 scene.name == SceneName.MainMenuBoard)
             {
-                try
+                /*try
                 {
                     if (!loaded) Init();
                     loaded = true;
@@ -123,7 +123,7 @@ namespace CustomBlueprints
                     Main.DebugLog(e.ToString() + "\n" + e.StackTrace);
                     loaded = true;
                     throw e;
-                }
+                }*/
             }
         }
         static public void AddFeature(BlueprintFeature feature)
