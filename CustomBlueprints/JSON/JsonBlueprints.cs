@@ -26,9 +26,14 @@ namespace CustomBlueprints
 
             if (objectType == null)
                 return new List<MemberInfo>();
-            MemberInfo[] publicFields = objectType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly);
-            MemberInfo[] privateFields = objectType.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
-            MemberInfo[] nameProperty = objectType == typeof(UnityEngine.Object) ?
+            IEnumerable<MemberInfo> publicFields = objectType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly)
+                .Where(f => !f.IsInitOnly);
+            IEnumerable<MemberInfo> privateFields = objectType.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
+            IEnumerable<MemberInfo> newtonsoftFields = objectType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly)
+                .Where(f => (f.IsPublic && f.IsInitOnly || f.IsPrivate) && Attribute.IsDefined(f, typeof(JsonPropertyAttribute)));
+            IEnumerable<MemberInfo> newtonsoftProperties = objectType.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly)
+                .Where(p => Attribute.IsDefined(p, typeof(JsonPropertyAttribute)));
+            IEnumerable<MemberInfo> nameProperty = objectType == typeof(UnityEngine.Object) ?
                     new MemberInfo[] { objectType.GetProperty("name") } :
                     Array.Empty<MemberInfo>();
             var result = privateFields
@@ -36,6 +41,8 @@ namespace CustomBlueprints
                 .Concat(publicFields)
                 .Concat(GetUnitySerializableMembers(objectType.BaseType))
                 .Concat(nameProperty)
+                .Concat(newtonsoftProperties)
+                .Concat(newtonsoftFields)
                 .Where(field => !FieldBlacklist.Contains(field))
                 .ToList();
             return result;
@@ -122,6 +129,7 @@ namespace CustomBlueprints
         }
         public static void Dump(UnityEngine.Object ee, string assetId)
         {
+            Main.DebugLog($"Dumping {ee.name}");
             Directory.CreateDirectory($"Blueprints/{ee.GetType()}");
             JsonSerializer serializer
                             = JsonSerializer.Create(CreateSettings(null));
@@ -133,7 +141,7 @@ namespace CustomBlueprints
         }
         public static void Dump(object obj, string path)
         {
-            Directory.CreateDirectory($"{path}");
+            Directory.CreateDirectory($"{path}/{obj.GetType()}");
             JsonSerializer serializer
                             = JsonSerializer.Create(CreateSettings(null));
             using (StreamWriter sw = new StreamWriter($"{path}/{obj.GetType()}/{obj.GetType().Name}{obj.GetHashCode()}.json"))

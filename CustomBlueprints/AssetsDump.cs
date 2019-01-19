@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Weapons;
+using Kingmaker.Kingdom;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using Kingmaker.View;
@@ -13,9 +14,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
+using Harmony12;
 
 namespace CustomBlueprints
 {
@@ -115,9 +115,9 @@ namespace CustomBlueprints
             Main.DebugLog($"ResourcePathsByAssetId contains  {blueprintsByAssetId.Count} resources");
             using (var file = new StreamWriter("Blueprints/Resources.txt"))
             {
+                file.WriteLine($"name\tResourcenName\tAssetId\tType\tBaseType\tInstanceId");
                 foreach (var kv in ResourcesLibrary.LibraryObject.ResourceNamesByAssetId)
                 {
-                    file.WriteLine($"name\tAssetId\tType\nResourcenName\nInstanceId");
                     var resource = ResourcesLibrary.TryGetResource<UnityEngine.Object>(kv.Key);
                     if (resource != null)
                     {
@@ -125,8 +125,15 @@ namespace CustomBlueprints
                                          resource.GetType().IsAssignableFrom(typeof(UnityEngine.ScriptableObject)) ? "ScriptableObject" :
                                          resource.GetType().IsAssignableFrom(typeof(UnityEngine.Component)) ? "Component" :
                                          "Object";
+                        var go = resource as GameObject;
+                        var typeName = resource?.GetType().Name ?? "NULL";
+                        if(go != null)
+                        {
+                            typeName = go.GetComponents<MonoBehaviour>().Join(c => c.GetType().Name);
+                        }
+                        file.WriteLine($"{resource?.name ?? "NULL"}\t{kv.Key}\t{kv.Value}\t{typeName}\t{baseType}\t{resource?.GetInstanceID()}");
+                        ResourcesLibrary.CleanupLoadedCache();
                     }
-                    file.WriteLine($"{resource?.name ?? "NULL"}\t{kv.Key}\t{resource?.GetType()?.Name ?? "NULL"}\t{kv.Value}\t{resource?.GetInstanceID()}");
                 }
             }
         }
@@ -184,6 +191,10 @@ namespace CustomBlueprints
             JsonBlueprints.Dump(Game.Instance.UI, "UI");
             JsonBlueprints.Dump(Game.Instance.BlueprintRoot.UIRoot, "UI");
             JsonBlueprints.Dump(Game.Instance.DialogController, "UI");
+        }
+        public static void DumpKingdom()
+        {
+            JsonBlueprints.Dump(KingdomState.Instance, "Kingdom");
         }
     }
 }

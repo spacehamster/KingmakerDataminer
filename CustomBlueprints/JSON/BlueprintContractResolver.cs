@@ -57,9 +57,9 @@ namespace CustomBlueprints
           = new BlueprintAssetIdConverter();
         private static readonly BlueprintConverter BlueprintConverter
             = new BlueprintConverter();
-
+        private static StringEnumConverter stringEnumConverter = new StringEnumConverter(true);
         private static readonly JsonConverter[] PreferredConverters = {
-          new StringEnumConverter(true),
+          stringEnumConverter,
           new IsoDateTimeConverter(),
           new XmlNodeConverter(),
           new VersionConverter(),
@@ -143,16 +143,22 @@ namespace CustomBlueprints
             {
                 jsonProp.Readable = true;
                 jsonProp.Writable = true;
-                //Readonly field
-                if (field.IsInitOnly)
-                {
-                    Skip();
-                    return null;
-                }
+
                 if (FieldBlacklist.Contains(field))
                 {
                     Skip();
                     return null;
+                }
+                if (field.FieldType == typeof(long))
+                {
+                    var attribute = field.GetCustomAttribute<LongAsEnumAttribute>();
+                    if (attribute != null)
+                    {
+                        jsonProp.ValueProvider = new LongAsEnumValueProvider(field, attribute.EnumType);
+                        jsonProp.PropertyType = attribute.EnumType;
+                        jsonProp.MemberConverter = stringEnumConverter;
+                        jsonProp.Converter = stringEnumConverter;
+                    }
                 }
                 if (field.FieldType.IsSubclassOf(BlueprintScriptableObjectType))
                 {
@@ -174,13 +180,9 @@ namespace CustomBlueprints
             return jsonProp;
         }
 
-        protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization)
-        {
-            return base.CreateProperties(type, memberSerialization).ToArray();
-        }
         protected override List<MemberInfo> GetSerializableMembers(Type objectType)
         {
-            return JsonBlueprints.GetUnitySerializableMembers(objectType);
+            return JsonBlueprints.GetUnitySerializableMembers(objectType).Distinct().ToList();
         }
     }
 }

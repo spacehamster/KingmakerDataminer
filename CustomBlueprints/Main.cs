@@ -13,7 +13,7 @@ namespace CustomBlueprints
 
     public class Main
     {
-        public static UnityModManager.ModEntry.ModLogger logger;
+        public static ILogger logger;
         [System.Diagnostics.Conditional("DEBUG")]
         public static void DebugLog(string msg)
         {
@@ -36,7 +36,8 @@ namespace CustomBlueprints
                 modEntry.OnSaveGUI = OnSaveGUI;
                 modEntry.Logger.Log("Loaded CustomRaces");
                 ModPath = modEntry.Path;
-                logger = modEntry.Logger;
+                logger = new UMMLogger(modEntry.Logger);
+
                 SceneManager.sceneLoaded += BlueprintManager.OnSceneManagerOnSceneLoaded;
             }
             catch (Exception e){
@@ -95,6 +96,16 @@ namespace CustomBlueprints
                 if (GUILayout.Button("DumpUI"))
                 {
                     AssetsDump.DumpUI();
+                }
+                if (GUILayout.Button("DumpKingdom"))
+                {
+                    AssetsDump.DumpKingdom();
+                }
+                if (GUILayout.Button("DumpView"))
+                {
+                    var view = ResourcesLibrary.TryGetResource<GameObject>("adf003833b2463543a065d5160c7e8f1");
+                    var character = view.GetComponent<Character>();
+                    JsonBlueprints.Dump(character, "adf003833b2463543a065d5160c7e8f1");
                 }
                 if (GUILayout.Button("TestLoad"))
                 {

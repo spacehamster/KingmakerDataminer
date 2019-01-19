@@ -23,6 +23,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
@@ -103,6 +104,7 @@
     <Compile Include="AssetsDump.cs" />
     <Compile Include="BlueprintInfo.cs" />
     <Compile Include="Dhampir.cs" />
+    <Compile Include="ILogger.cs" />
     <Compile Include="JSON\ArrayConverter.cs" />
     <Compile Include="JSON\BlueprintAssetIdConverter.cs" />
     <Compile Include="JSON\BlueprintContractResolver.cs" />
@@ -111,6 +113,7 @@
     <Compile Include="JSON\GameObjectAssetIdConverter.cs" />
     <Compile Include="JSON\JsonBlueprints.cs" />
     <Compile Include="JSON\LocalizedStringConverter.cs" />
+    <Compile Include="JSON\LongAsEnumValueProvider.cs" />
     <Compile Include="JSON\ScriptableObjectConverter.cs" />
     <Compile Include="JSON\UnityJsonConverter.cs" />
     <Compile Include="JSON\WeakResourceLinkConverter.cs" />
@@ -143,6 +146,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /E /Y "$(SolutionDir)data" "C:\Program Files (x86)\Steam\steamapps\common\Pathfinder Kingmaker\Mods\CustomBlueprints\data\"</PostBuildEvent>
+    <PostBuildEvent>xcopy /E /Y "$(ProjectDir)..\data" "$(TargetDir)\data\"</PostBuildEvent>
   </PropertyGroup>
 </Project>
