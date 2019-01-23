@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.Serialization;
 using JetBrains.Annotations;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
-using UnityEngine;
 
 namespace CustomBlueprints
 {
@@ -44,15 +41,6 @@ namespace CustomBlueprints
 
         [CanBeNull]
         private Type _rootBlueprintType;
-
-        /*
-         * PrototypeLink is only used to check if blueprint is a companion
-         * will need to fix if custom companions are wanted
-         */
-        private static readonly HashSet<FieldInfo> FieldBlacklist = new HashSet<FieldInfo>(new[] {
-          typeof(PrototypeableObjectBase).GetField("PrototypeLink")
-        });
-
         private static readonly BlueprintAssetIdConverter BlueprintAssetIdConverter
           = new BlueprintAssetIdConverter();
         private static readonly BlueprintConverter BlueprintConverter
@@ -65,32 +53,15 @@ namespace CustomBlueprints
           new VersionConverter(),
           new RegexConverter(),
           new ArrayConverter(),
+          new TMPConverter(),
+          new TMPFontConverter(),
+          new UnityEventConverter(),
           new ScriptableObjectConverter(),
           new LocalizedStringConverter(),
           new WeakResourceLinkConverter(),
           new UnityJsonConverter(),
           new GameObjectAssetIdConverter()
         };
-        void OnDeserializing(object o, StreamingContext context)
-        {
-            //After construction, before initialization
-            Main.DebugLog("OnDeserializing BlueprintProgression");
-        }
-        void OnDeserialized(object o, StreamingContext context)
-        {
-            //After construction, after initialization
-            Main.DebugLog("OnDeserialized BlueprintProgression");
-        }
-        protected override JsonContract CreateContract(Type objectType)
-        {
-            JsonContract contract = base.CreateContract(objectType);
-            if (objectType == typeof(BlueprintProgression))
-            {
-                contract.OnDeserializingCallbacks.Add(OnDeserializing);
-                contract.OnDeserializedCallbacks.Add(OnDeserialized);
-            }
-            return contract;
-        }
         protected override JsonConverter ResolveContractConverter(Type objectType)
         {
             if (objectType == null) return null;
@@ -143,8 +114,7 @@ namespace CustomBlueprints
             {
                 jsonProp.Readable = true;
                 jsonProp.Writable = true;
-
-                if (FieldBlacklist.Contains(field))
+                if (JsonBlueprints.IsBlacklisted(field))
                 {
                     Skip();
                     return null;

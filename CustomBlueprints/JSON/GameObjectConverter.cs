@@ -21,10 +21,16 @@ namespace CustomBlueprints
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
 
-            var go = (GameObject)o;
+            var go = (UnityEngine.GameObject)o;
+            var components = new JArray();
+            foreach(var component in go.GetComponents<MonoBehaviour>())
+            {
+                components.Add(component);
+            }
             var j = new JObject {
                 {"$type", go.GetType().Name},
-                {"InstanceId", go.GetInstanceID()},
+                {"transform", JToken.FromObject(go, szr) },
+                {"components", components },
                 {"name", go.name },
             };
             j.WriteTo(w);

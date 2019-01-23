@@ -19,8 +19,12 @@ using Harmony12;
 
 namespace CustomBlueprints
 {
-    class AssetsDump
+    public class AssetsDump
     {
+        public static void DumpBlueprint(BlueprintScriptableObject blueprint)
+        {
+            JsonBlueprints.Dump(blueprint, $"Blueprints/{blueprint.GetType()}/{blueprint.name}.{blueprint.AssetGuid}.json");
+        }
         public static void DumpBlueprints()
         {
             var seen = new HashSet<Type>();
@@ -31,7 +35,7 @@ namespace CustomBlueprints
                 if (!seen.Contains(blueprint.GetType()))
                 {
                     seen.Add(blueprint.GetType());
-                    JsonBlueprints.Dump(blueprint);
+                    DumpBlueprint(blueprint);
                 }
             }
         }
@@ -55,7 +59,7 @@ namespace CustomBlueprints
             };
             foreach (var blueprint in ResourcesLibrary.GetBlueprints<BlueprintScriptableObject>())
             {
-                if (types.Contains(blueprint.GetType())) JsonBlueprints.Dump(blueprint);
+                if (types.Contains(blueprint.GetType())) DumpBlueprint(blueprint);
             }
         }
         public static void DumpAllBlueprints()
@@ -69,7 +73,7 @@ namespace CustomBlueprints
                     if (blueprint.AssetGuid.Length != 32) continue;
                     try
                     {
-                        JsonBlueprints.Dump(blueprint);
+                        DumpBlueprint(blueprint);
                     }
                     catch (Exception ex)
                     {
@@ -78,13 +82,19 @@ namespace CustomBlueprints
                 }
             }
         }
+        static void DumpResource(UnityEngine.Object resource, string assetId)
+        {
+            Directory.CreateDirectory($"Blueprints/{resource.GetType()}");
+            JsonBlueprints.Dump(resource, $"Blueprints/{resource.GetType()}/{resource.name}.{assetId}.json");
+        }
         public static void DumpEquipmentEntities()
         {
             foreach (var kv in ResourcesLibrary.LibraryObject.ResourceNamesByAssetId)
             {
                 var resource = ResourcesLibrary.TryGetResource<EquipmentEntity>(kv.Key);
                 if (resource == null) continue;
-                JsonBlueprints.Dump(resource, kv.Key);
+                DumpResource(resource, kv.Key);
+                ResourcesLibrary.CleanupLoadedCache();
             }
         }
         public static void DumpUnitViews()
@@ -93,7 +103,8 @@ namespace CustomBlueprints
             {
                 var resource = ResourcesLibrary.TryGetResource<UnitEntityView>(kv.Key);
                 if (resource == null) continue;
-                JsonBlueprints.Dump(resource, kv.Key);
+                DumpResource(resource, kv.Key);
+                ResourcesLibrary.CleanupLoadedCache();
             }
         }
         public static void DumpList()
@@ -187,10 +198,44 @@ namespace CustomBlueprints
         }
         public static void DumpUI()
         {
-            JsonBlueprints.Dump(Game.Instance, "UI");
-            JsonBlueprints.Dump(Game.Instance.UI, "UI");
-            JsonBlueprints.Dump(Game.Instance.BlueprintRoot.UIRoot, "UI");
-            JsonBlueprints.Dump(Game.Instance.DialogController, "UI");
+            JsonBlueprints.Dump(Game.Instance, "UI/Game.json");
+            JsonBlueprints.Dump(Game.Instance.UI, "UI/Game.UI.json");
+            JsonBlueprints.Dump(Game.Instance.BlueprintRoot.UIRoot, "UI/Game.BlueprintRoot.UIRoot.json");
+            JsonBlueprints.Dump(Game.Instance.DialogController, "UI/Game.DialogController.json");
+            var ui = Game.Instance.UI;
+            foreach(var field in ui.GetType().GetFields())
+            {
+                try
+                {
+                    var value = field.GetValue(ui);
+                    if (value == null)
+                    {
+                        Main.DebugLog($"Null field {field.Name}");
+                        continue;
+                    }
+                    JsonBlueprints.Dump(value, $"UI/UI.{value.GetType().FullName}.json");
+                } catch(Exception ex)
+                {
+                    Main.DebugLog($"Error dumping UI field {field.Name}");
+                }
+            }
+            foreach (var prop in ui.GetType().GetProperties())
+            {
+                try
+                {
+                    var value = prop.GetValue(ui);
+                    if(value == null)
+                    {
+                        Main.DebugLog($"Null property {prop.Name}");
+                        continue;
+                    }
+                    JsonBlueprints.Dump(value, $"UI/UI.{value.GetType().FullName}.json");
+                }
+                catch (Exception ex)
+                {
+                    Main.DebugLog($"Error dumping UI property {prop.Name}");
+                }
+            }
         }
         public static void DumpKingdom()
         {

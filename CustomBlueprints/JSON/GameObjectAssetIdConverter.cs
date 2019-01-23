@@ -16,7 +16,7 @@ namespace CustomBlueprints
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
 
-            var go = (GameObject)o;
+            var go = (UnityEngine.Object)o;
             var j = new JObject {
                 {"$type", go.GetType().Name},
                 {"InstanceId", go.GetInstanceID()},
@@ -40,10 +40,10 @@ namespace CustomBlueprints
             }
             return result;
         }
-
-        // ReSharper disable once IdentifierTypo
-        private static readonly Type _tGameObject = typeof(GameObject);
-
-        public override bool CanConvert(Type type) => _tGameObject.IsAssignableFrom(type);
+        public override bool CanConvert(Type type)
+        {
+            return typeof(GameObject).IsAssignableFrom(type) ||
+                typeof(Transform).IsAssignableFrom(type);
+        }
     }
 }

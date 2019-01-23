@@ -1,4 +1,5 @@
-﻿using Kingmaker.Blueprints;
+﻿using Harmony12;
+using Kingmaker.Blueprints;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization.Formatters;
+using TMPro;
 using UnityEngine;
 
 namespace CustomBlueprints
@@ -19,8 +21,19 @@ namespace CustomBlueprints
         public static Dictionary<string, UnityEngine.Object> Blueprints = new Dictionary<string, UnityEngine.Object>();
         public static Dictionary<string, string> ResourceAssetIds = new Dictionary<string, string>();
         public static readonly HashSet<FieldInfo> FieldBlacklist = new HashSet<FieldInfo>(new[] {
-          typeof(PrototypeableObjectBase).GetField("PrototypeLink")
+          typeof(PrototypeableObjectBase).GetField("PrototypeLink"),
+          AccessTools.Field(typeof(TextMeshProUGUI), "m_subTextObjects"),
+          AccessTools.Field(typeof(TextMeshProUGUI), "m_textInfo"),
         });
+        public static bool IsBlacklisted(FieldInfo fieldInfo)
+        {
+            return FieldBlacklist.Any(x => fieldInfo.Name == x.Name && fieldInfo.DeclaringType.FullName == x.DeclaringType.FullName);
+        }
+        public static bool IsBlacklisted(MemberInfo memberInfo)
+        {
+            if (memberInfo is FieldInfo fieldInfo) return IsBlacklisted(fieldInfo);
+            return false;
+        }
         public static List<MemberInfo> GetUnitySerializableMembers(Type objectType)
         {
 
@@ -43,7 +56,7 @@ namespace CustomBlueprints
                 .Concat(nameProperty)
                 .Concat(newtonsoftProperties)
                 .Concat(newtonsoftFields)
-                .Where(field => !FieldBlacklist.Contains(field))
+                .Where(field => !IsBlacklisted(field))
                 .ToList();
             return result;
         }
@@ -117,34 +130,31 @@ namespace CustomBlueprints
         {
             return (T)Loads(text, typeof(T));
         }
-        public static void Dump(BlueprintScriptableObject blueprint)
+        public static void Dump(BlueprintScriptableObject blueprint, string path)
         {
-            Directory.CreateDirectory($"Blueprints/{blueprint.GetType()}");
+            Directory.CreateDirectory(Path.GetDirectoryName(path));
             JsonSerializer serializer = JsonSerializer.Create(CreateSettings(blueprint.GetType()));
-            using (StreamWriter sw = new StreamWriter($"Blueprints/{blueprint.GetType()}/{blueprint.name}.{blueprint.AssetGuid}.json"))
+            using (StreamWriter sw = new StreamWriter(path))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
                 serializer.Serialize(writer, blueprint);
             }
         }
-        public static void Dump(UnityEngine.Object ee, string assetId)
+        public static void Dump(object ee, string path)
         {
-            Main.DebugLog($"Dumping {ee.name}");
-            Directory.CreateDirectory($"Blueprints/{ee.GetType()}");
-            JsonSerializer serializer
-                            = JsonSerializer.Create(CreateSettings(null));
-            using (StreamWriter sw = new StreamWriter($"Blueprints/{ee.GetType()}/{ee.name}.json"))
+            Directory.CreateDirectory(Path.GetDirectoryName(path));
+            JsonSerializer serializer = JsonSerializer.Create(CreateSettings(null));
+            using (StreamWriter sw = new StreamWriter(path))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
                 serializer.Serialize(writer, ee);
             }
         }
-        public static void Dump(object obj, string path)
+        public static void DumpResource(object obj, string path)
         {
-            Directory.CreateDirectory($"{path}/{obj.GetType()}");
-            JsonSerializer serializer
-                            = JsonSerializer.Create(CreateSettings(null));
-            using (StreamWriter sw = new StreamWriter($"{path}/{obj.GetType()}/{obj.GetType().Name}{obj.GetHashCode()}.json"))
+            Directory.CreateDirectory(Path.GetDirectoryName(path));
+            JsonSerializer serializer = JsonSerializer.Create();
+            using (StreamWriter sw = new StreamWriter(path))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
                 serializer.Serialize(writer, obj);

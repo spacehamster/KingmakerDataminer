@@ -52,31 +52,31 @@ namespace CustomBlueprints
                 case Vector2 v:
                     {
                         new JArray(v.x, v.y)
-                          .WriteTo(w, NoConverters);
+                          .WriteTo(w);
                         return;
                     }
                 case Vector3 v:
                     {
                         new JArray(v.x, v.y, v.z)
-                          .WriteTo(w, NoConverters);
+                          .WriteTo(w);
                         return;
                     }
                 case Vector4 v:
                     {
                         new JArray(v.x, v.y, v.z, v.w)
-                          .WriteTo(w, NoConverters);
+                          .WriteTo(w);
                         return;
                     }
                 case Vector2Int v:
                     {
                         new JArray(v.x, v.y)
-                          .WriteTo(w, NoConverters);
+                          .WriteTo(w);
                         return;
                     }
                 case Vector3Int v:
                     {
                         new JArray(v.x, v.y, v.z)
-                          .WriteTo(w, NoConverters);
+                          .WriteTo(w);
                         return;
                     }
                 case Matrix4x4 m:
@@ -87,21 +87,21 @@ namespace CustomBlueprints
                             new JArray(m.m20, m.m21, m.m22, m.m23),
                             new JArray(m.m30, m.m31, m.m32, m.m33)
                           )
-                          .WriteTo(w, NoConverters);
+                          .WriteTo(w);
                         return;
                     }
                 case Rect r:
                     {
                         // ReSharper disable once SimilarAnonymousTypeNearby // float
                         JObject.FromObject(new { r.x, r.y, r.width, r.height })
-                          .WriteTo(w, NoConverters);
+                          .WriteTo(w);
                         return;
                     }
                 case RectInt r:
                     {
                         // ReSharper disable once SimilarAnonymousTypeNearby // int
                         JObject.FromObject(new { r.x, r.y, r.width, r.height })
-                          .WriteTo(w, NoConverters);
+                          .WriteTo(w);
                         return;
                     }
                 case Bounds b:
@@ -114,7 +114,7 @@ namespace CustomBlueprints
                             new JArray(b.center.x, b.center.y, b.center.z),
                             new JArray(b.size.x, b.size.y, b.size.z)
                           )
-                          .WriteTo(w, NoConverters);
+                          .WriteTo(w);
                         return;
                     }
                 case BoundsInt b:
@@ -124,22 +124,19 @@ namespace CustomBlueprints
                             new JArray(b.center.x, b.center.y, b.center.z),
                             new JArray(b.size.x, b.size.y, b.size.z)
                           )
-                          .WriteTo(w, NoConverters);
+                          .WriteTo(w);
                         return;
                     }
                 case Color c:
                     {
-                        var lc = c.linear;
-                        // ReSharper disable once SimilarAnonymousTypeNearby // float
-                        JObject.FromObject(new { lc.r, lc.g, lc.b, lc.a })
-                          .WriteTo(w, NoConverters);
+                        var a = new JArray(c.r, c.g, c.b, c.a);
+                        a.WriteTo(w);
                         return;
                     }
                 case Color32 c:
                     {
-                        // ReSharper disable once SimilarAnonymousTypeNearby // byte
-                        JObject.FromObject(new { c.r, c.g, c.b, c.a })
-                          .WriteTo(w, NoConverters);
+                        var a = new JArray(c.r, c.g, c.b, c.a);
+                        a.WriteTo(w);
                         return;
                     }
                 case Texture2D t:
