@@ -1,39 +1,63 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 using UnityEngine;
-using UnityObject = UnityEngine.Object;
 
 namespace CustomBlueprints
 {
     public class GameObjectConverter : JsonConverter
     {
-        public override bool CanWrite
+        public override bool CanRead
         {
             get
             {
-                return true;
+                return false;
             }
         }
-        public GameObjectConverter() { }
+        bool CannotWrite { get; set; }
+        public override bool CanWrite { get { return !CannotWrite; } }
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
-
-            var go = (UnityEngine.GameObject)o;
-            var components = new JArray();
-            foreach(var component in go.GetComponents<MonoBehaviour>())
+            GameObject gameObject = null;
+            JToken t;
+            if (o is GameObject go)
             {
-                components.Add(component);
+                gameObject = go;
             }
-            var j = new JObject {
-                {"$type", go.GetType().Name},
-                {"transform", JToken.FromObject(go, szr) },
-                {"components", components },
-                {"name", go.name },
-            };
-            j.WriteTo(w);
+            else if (o is Transform tf)
+            {
+                gameObject = tf.gameObject;
+            }
+            Console.WriteLine($"Serializing GameObject {gameObject?.name ?? "NULL"} with {this.GetType().Name}");
+            using (new PushValue<bool>(true, () => CannotWrite, (canWrite) => CannotWrite = canWrite))
+            {
+                t = JToken.FromObject(gameObject, szr);
+            }
+            JObject j = (JObject)t;
+            var components = gameObject
+                .GetComponents<Component>()
+                .Where(c => !typeof(Transform).IsAssignableFrom(c.GetType()));
+            j.Add("components", JToken.FromObject(components, szr));
+
+            var transform = new JObject();
+            transform.Add("position", JToken.FromObject(gameObject.transform.localPosition, szr));
+            transform.Add("rotation", JToken.FromObject(gameObject.transform.localEulerAngles, szr));
+            transform.Add("scale", JToken.FromObject(gameObject.transform.localScale, szr));
+            j.Add("transform", transform);
+
+            j.Add("parent", JToken.FromObject(gameObject, szr));
+            var children = new GameObject[gameObject.transform.childCount];
+            for (int i = 0; i < gameObject.transform.childCount; i++)
+            {
+                children[i] = gameObject.transform.GetChild(i).gameObject;
+            }
+            j.Add("children", JToken.FromObject(children, szr));
+            szr.Serialize(w, j);
         }
 
         public override object ReadJson(JsonReader reader, Type type, object existing, JsonSerializer serializer)
@@ -42,7 +66,7 @@ namespace CustomBlueprints
         }
         public override bool CanConvert(Type type)
         {
-            return typeof(GameObject).IsAssignableFrom(type);
+            return typeof(GameObject).IsAssignableFrom(type) || typeof(Transform).IsAssignableFrom(type);
         }
     }
 }

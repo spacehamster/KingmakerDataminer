@@ -1,7 +1,9 @@
 ﻿using Harmony12;
 using Kingmaker.Blueprints;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -132,7 +134,8 @@ namespace CustomBlueprints
         }
         public static void Dump(BlueprintScriptableObject blueprint, string path)
         {
-            Directory.CreateDirectory(Path.GetDirectoryName(path));
+            var folder = Path.GetDirectoryName(path);
+            if (!string.IsNullOrEmpty(folder)) Directory.CreateDirectory(folder);
             JsonSerializer serializer = JsonSerializer.Create(CreateSettings(blueprint.GetType()));
             using (StreamWriter sw = new StreamWriter(path))
             using (JsonWriter writer = new JsonTextWriter(sw))
@@ -142,7 +145,8 @@ namespace CustomBlueprints
         }
         public static void Dump(object ee, string path)
         {
-            Directory.CreateDirectory(Path.GetDirectoryName(path));
+            var folder = Path.GetDirectoryName(path);
+            if (!string.IsNullOrEmpty(folder)) Directory.CreateDirectory(folder);
             JsonSerializer serializer = JsonSerializer.Create(CreateSettings(null));
             using (StreamWriter sw = new StreamWriter(path))
             using (JsonWriter writer = new JsonTextWriter(sw))
@@ -152,13 +156,29 @@ namespace CustomBlueprints
         }
         public static void DumpResource(object obj, string path)
         {
-            Directory.CreateDirectory(Path.GetDirectoryName(path));
-            JsonSerializer serializer = JsonSerializer.Create();
+            var folder = Path.GetDirectoryName(path);
+            if(!string.IsNullOrEmpty(folder)) Directory.CreateDirectory(folder);
+            var settings = CreateSettings(null);
+            //settings.PreserveReferencesHandling = PreserveReferencesHandling.All;
+            settings.Error = HandleDeserializationError;
+            //settings.EqualityComparer = new UnityEqualityComparer();
+            var contractResolver = settings.ContractResolver as BlueprintContractResolver;
+            contractResolver.PreferredConverters.Insert(0, new GameObjectConverter());
+            contractResolver.PreferredConverters.RemoveAll(c => c.GetType() == typeof(GameObjectAssetIdConverter));
+            JsonSerializer serializer = JsonSerializer.Create(settings);
             using (StreamWriter sw = new StreamWriter(path))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
                 serializer.Serialize(writer, obj);
             }
+        }
+
+        private static void HandleDeserializationError(object sender, 
+            Newtonsoft.Json.Serialization.ErrorEventArgs e)
+        {
+            var currentError = e.ErrorContext.Error.Message;
+            Main.DebugLog(currentError);
+            e.ErrorContext.Handled = true;
         }
     }
 }

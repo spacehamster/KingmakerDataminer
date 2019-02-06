@@ -46,7 +46,7 @@ namespace CustomBlueprints
         private static readonly BlueprintConverter BlueprintConverter
             = new BlueprintConverter();
         private static StringEnumConverter stringEnumConverter = new StringEnumConverter(true);
-        private static readonly JsonConverter[] PreferredConverters = {
+        public List<JsonConverter> PreferredConverters = new List<JsonConverter>() {
           stringEnumConverter,
           new IsoDateTimeConverter(),
           new XmlNodeConverter(),

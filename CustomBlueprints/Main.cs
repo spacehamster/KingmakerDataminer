@@ -168,13 +168,6 @@ namespace CustomBlueprints
                 {
                     BlueprintManager.Reload();
                 }
-                int newTorso = (int)GUILayout.HorizontalSlider(torso, -1, MeshTestRace.testAssets.Length - 1, GUILayout.Width(300));
-                GUILayout.Label("Torso: " + newTorso);
-                if(torso != newTorso)
-                {
-                    torso = newTorso;
-                    MeshTestRace.ChooseTorso(torso);
-                }
 #endif
             } catch(Exception e)
             {

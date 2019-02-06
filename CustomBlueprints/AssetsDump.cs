@@ -198,10 +198,10 @@ namespace CustomBlueprints
         }
         public static void DumpUI()
         {
-            JsonBlueprints.Dump(Game.Instance, "UI/Game.json");
-            JsonBlueprints.Dump(Game.Instance.UI, "UI/Game.UI.json");
-            JsonBlueprints.Dump(Game.Instance.BlueprintRoot.UIRoot, "UI/Game.BlueprintRoot.UIRoot.json");
-            JsonBlueprints.Dump(Game.Instance.DialogController, "UI/Game.DialogController.json");
+            JsonBlueprints.DumpResource(Game.Instance, "UI/Game.json");
+            JsonBlueprints.DumpResource(Game.Instance.UI, "UI/Game.UI.json");
+            JsonBlueprints.DumpResource(Game.Instance.BlueprintRoot.UIRoot, "UI/Game.BlueprintRoot.UIRoot.json");
+            JsonBlueprints.DumpResource(Game.Instance.DialogController, "UI/Game.DialogController.json");
             var ui = Game.Instance.UI;
             foreach(var field in ui.GetType().GetFields())
             {
@@ -213,7 +213,7 @@ namespace CustomBlueprints
                         Main.DebugLog($"Null field {field.Name}");
                         continue;
                     }
-                    JsonBlueprints.Dump(value, $"UI/UI.{value.GetType().FullName}.json");
+                    JsonBlueprints.DumpResource(value, $"UI/UI.{value.GetType().FullName}.json");
                 } catch(Exception ex)
                 {
                     Main.DebugLog($"Error dumping UI field {field.Name}");
@@ -229,7 +229,7 @@ namespace CustomBlueprints
                         Main.DebugLog($"Null property {prop.Name}");
                         continue;
                     }
-                    JsonBlueprints.Dump(value, $"UI/UI.{value.GetType().FullName}.json");
+                    JsonBlueprints.DumpResource(value, $"UI/UI.{value.GetType().FullName}.json");
                 }
                 catch (Exception ex)
                 {
