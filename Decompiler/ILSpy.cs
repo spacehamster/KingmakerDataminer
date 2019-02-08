@@ -9,7 +9,7 @@ using System.IO;
 
 namespace Decompile
 {
-    public class TestILSpy
+    public class ILSpy
     {
         public static void FixReferences(string csprojPath)
         {
@@ -22,7 +22,7 @@ namespace Decompile
             manifest = manifest.Replace("<TargetFrameworkVersion>v4.0", "<TargetFrameworkVersion>v4.6");
             File.WriteAllText(csprojPath, manifest);
         }
-        public static void RunTest(string assemblyName, string outputDirectory)
+        public static void DecompileProject (string assemblyName, string outputDirectory)
         {
             Directory.CreateDirectory(outputDirectory);
             var assemblyFileName = Path.Combine(Program.ManagedDir, assemblyName);

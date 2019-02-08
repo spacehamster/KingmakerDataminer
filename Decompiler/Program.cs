@@ -98,28 +98,27 @@ namespace Decompile
             };
             foreach (var assembly in unityAssemblies)
             {
-                Simplify.RunTest(assembly, $"simplified-{assembly}");
-                TestILSpy.RunTest($"simplified-{assembly}", $"{ProjectDir}/UnityEngine");
+                Simplify.SimplifyLib(assembly, $"simplified-{assembly}");
+                ILSpy.DecompileProject($"simplified-{assembly}", $"{ProjectDir}/UnityEngine");
             }
             foreach (var assembly in mainAssemblies)
             {
-                Simplify.RunTest(assembly, $"simplified-{assembly}");
-                TestILSpy.RunTest($"simplified-{assembly}", $"{ProjectDir}/{assembly.Replace(".dll", "")}");
+                Simplify.SimplifyLib(assembly, $"simplified-{assembly}");
+                ILSpy.DecompileProject($"simplified-{assembly}", $"{ProjectDir}/{assembly.Replace(".dll", "")}");
             }
             foreach (var assembly in thirdParty)
             {
-                Simplify.RunTest(assembly, $"simplified-{assembly}");
-                TestILSpy.RunTest($"simplified-{assembly}", $"{ProjectDir}/ThirdParty");
+                Simplify.SimplifyLib(assembly, $"simplified-{assembly}");
+                ILSpy.DecompileProject($"simplified-{assembly}", $"{ProjectDir}/ThirdParty");
             }
         }
         static void CreateUnityProject()
         {
             Project.Create();
-            Simplify.RunTest("Assembly-CSharp.dll", "simplified-kingmaker.dll");
-            Simplify.RunTest("Assembly-CSharp-FirstPass.dll", "simplified-kingmaker-FirstPass.dll");
-            var outputDir = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            TestILSpy.RunTest("simplified-kingmaker.dll", $"{ProjectDir}/Assets/Kingmaker");
-            TestILSpy.RunTest("simplified-kingmaker-firstPass.dll", $"{ProjectDir}/Assets/Standard Assets");
+            Simplify.SimplifyLib("Assembly-CSharp.dll", "simplified-kingmaker.dll");
+            Simplify.SimplifyLib("Assembly-CSharp-FirstPass.dll", "simplified-kingmaker-FirstPass.dll");
+            ILSpy.DecompileProject("simplified-kingmaker.dll", $"{ProjectDir}/Assets/Kingmaker");
+            ILSpy.DecompileProject("simplified-kingmaker-firstPass.dll", $"{ProjectDir}/Assets/Standard Assets");
         }
         static void Main(string[] args)
         {

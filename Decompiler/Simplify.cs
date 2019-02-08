@@ -11,51 +11,13 @@ namespace Decompile
 {
     public class Simplify
     {
-        public static void LogAssembly(ModuleDefMD mod)
-        {
-            var file = new StreamWriter("Log.txt");
-            foreach (var type in mod.GetTypes())
-            {
-                file.WriteLine($"TypeFullName: {type.FullName}");
-                foreach (var @interface in type.Interfaces)
-                {
-                    file.WriteLine($"  Interface: {@interface.Interface}, {@interface.Interface.GetType()}");
-                    if (@interface.Interface is TypeDef interfaceType)
-                    {
-                        foreach (var method in interfaceType.Methods)
-                        {
-                            file.WriteLine($"    Method: {method.Name}, {method.MethodSig}");
-                        }
-                    } else if(@interface.Interface is TypeSpec typeSpec)
-                    {
-
-                    }
-                }
-                foreach (var method in type.Methods.ToArray())
-                {
-                    file.WriteLine($"  Method: {method.Name}, {method.MethodSig}");
-                }
-                foreach (var property in type.Properties.ToArray())
-                {
-                    file.WriteLine($"  Property: {property.Name}");
-                }
-                foreach (var field in type.Fields.ToArray())
-                {
-                    file.WriteLine($"  Field: {field.Name}");
-                }
-                foreach (var @event in type.Events.ToArray())
-                {
-                    file.WriteLine($"  Event: {@event.Name}");
-                }
-                foreach (var nestedType in type.NestedTypes.ToArray())
-                {
-                    file.WriteLine($"  NestedTypes: {nestedType.Name}");
-                }
-            }
-            file.Close();
-        }
+        List<Instruction> NotImplementedBody;
         public static void RemoveInterfaceProperties(ModuleDefMD mod)
         {
+            /*
+             * Override of generic interface properties are not decompiled properly
+             * TODO: look at fixing decompiler
+             */ 
             HashSet<string> MethodBlacklist = new HashSet<string>()
             {
                 "UnityEngine.UI.ICanvasElement.get_transform",
@@ -101,13 +63,62 @@ namespace Decompile
                 body.Instructions.Add(inst);
             }
         }
-        static void ClearMethod(MethodDef method)
+        void ClearMethod(MethodDef method)
         {
+            /*
+             * Remove method body
+             * void return methods replaced with a return instruction
+             * non-void return methods are replaced with a not implemented exception
+             * TODO: look at returning default values
+             * Try to clear constructors, preserves call to base constructor
+             * struct members must be initialized inside the constructor, so body is left instact
+             * TODO: look at removing struct bodies and initializing members with default values
+             * base constructor calls are in the form
+             * call instance void BaseClass::.ctor(parameters)
+             */ 
+            if (method.Name == ".ctor" && method.HasBody && method.DeclaringType.BaseType?.FullName != "System.ValueType")
+            {
+                var instructions = method.Body.Instructions;
+                var baseCtor = method.Body.Instructions.FirstOrDefault(i =>
+                    i.OpCode == OpCodes.Call &&
+                    i.Operand is IMethod m &&
+                    m.Name == ".ctor" &&
+                    method.DeclaringType.BaseType.FullName != "System.Object");
+                var index = baseCtor == null ? -1 : method.Body.Instructions.IndexOf(baseCtor);
+                while (method.Body.Instructions.Count > index + 1)
+                {
+                    method.Body.Instructions.RemoveAt(index + 1);
+                }
+                method.Body.Instructions.Add(OpCodes.Ret.ToInstruction());
+                method.Body.ExceptionHandlers.Clear();
+                return;
+            }
+            if (method.Name == ".ctor")
+            {
+                return;
+            }
+            /*
+             * convert extern methods into normal methods
+             */ 
+            if (method.IsInternalCall)
+            {
+                method.IsInternalCall = false;
+                method.Body = new CilBody();
+            }
+            method.Body?.ExceptionHandlers.Clear();
+            if (method.Body == null) return;
             method.Body.Instructions.Clear();
-            method.Body.Instructions.Add(OpCodes.Ret.ToInstruction());
+            if (method.ReturnType.TypeName != "Void" || method.IsSetter || method.MethodSig.Params.Any(p => p.IsByRef))
+            {
+                foreach (var inst in NotImplementedBody) method.Body.Instructions.Add(inst);
+            }
+            else
+            {
+                method.Body.Instructions.Add(OpCodes.Ret.ToInstruction());
+            }
             method.Body.ExceptionHandlers.Clear();
         }
-        static void ManualFixes(ModuleDefMD mod)
+        void ManualFixes(ModuleDefMD mod)
         {
             var UMM = mod.Find("UnityModManagerNet.UnityModManager", false);
             if (UMM != null)
@@ -205,8 +216,21 @@ namespace Decompile
                 ClearMethod(DefaultJsonSettings.FindMethod(".cctor"));
             }
         }
-        public static void RunTest(string assemblyName, string outputPath)
+        private Simplify() { }
+        public static void SimplifyLib(string assemblyName, string outputPath)
         {
+            var simplify = new Simplify();
+            ModuleDefMD mod = ModuleDefMD.Load(Path.Combine(Program.ManagedDir, assemblyName));
+            var structRef = new TypeRefUser(mod, "System", "ValueType", mod.CorLibTypes.AssemblyRef);
+            var exceptionRef = new TypeRefUser(mod, "System", "NotImplementedException", mod.CorLibTypes.AssemblyRef);
+            var exceptionCtor = new MemberRefUser(mod, ".ctor",
+                        MethodSig.CreateInstance(exceptionRef.ToTypeSig()),
+                        exceptionRef);
+            simplify.NotImplementedBody = new List<Instruction>(){
+                OpCodes.Nop.ToInstruction(),
+                OpCodes.Newobj.ToInstruction(exceptionCtor),
+                OpCodes.Throw.ToInstruction()
+            };
             Console.WriteLine($"Simplifying {assemblyName}");
             var AttributeBlackList = new HashSet<string>()
             {
@@ -223,67 +247,53 @@ namespace Decompile
                 "System.Void QuickGraph.STaggedEdge`2::remove_TagChanged(System.EventHandler)",
                 "System.Void Steamworks.CallResult`1::add_m_Func(Steamworks.CallResult`1/APIDispatchDelegate<T>)",
                 "System.Void Steamworks.CallResult`1::remove_m_Func(Steamworks.CallResult`1/APIDispatchDelegate<T>)",
-                "System.String UnityEngine.CreateAssetMenuAttribute::get_menuName()",
-                "System.String UnityEngine.CreateAssetMenuAttribute::set_menuName()",
-                "System.String UnityEngine.CreateAssetMenuAttribute::get_fileName()",
-                "System.String UnityEngine.CreateAssetMenuAttribute::set_fileName()",
-                "System.Int32 UnityEngine.CreateAssetMenuAttribute::get_order()",
-                "System.Int32 UnityEngine.CreateAssetMenuAttribute::set_order()",
-                "System.String UnityEngine.Bindings.NativeTypeAttribute::get_Header()",
-                "System.String UnityEngine.Bindings.NativeTypeAttribute::set_Header()",
             };
-            ModuleDefMD mod = ModuleDefMD.Load(Path.Combine(Program.ManagedDir, assemblyName));
-            var structRef = new TypeRefUser(mod, "System", "ValueType", mod.CorLibTypes.AssemblyRef);
-            var exceptionRef = new TypeRefUser(mod, "System", "NotImplementedException", mod.CorLibTypes.AssemblyRef);
-            var exceptionCtor = new MemberRefUser(mod, ".ctor",
-                        MethodSig.CreateInstance(exceptionRef.ToTypeSig()),
-                        exceptionRef);
-            var newBody = new List<Instruction>();
-            newBody.Add(OpCodes.Nop.ToInstruction());
-            newBody.Add(OpCodes.Newobj.ToInstruction(exceptionCtor));
-            newBody.Add(OpCodes.Throw.ToInstruction());
+            var PropertyWhiteList = new HashSet<string>()
+            {
+                "System.String UnityEngine.CreateAssetMenuAttribute::menuName()",
+                "System.String UnityEngine.CreateAssetMenuAttribute::ileName()",
+                "System.Int32 UnityEngine.CreateAssetMenuAttribute::order()",
+                "System.String UnityEngine.Bindings.NativeTypeAttribute::Header()",
+                "Kingmaker.Blueprints.BlueprintComponent Kingmaker.Blueprints.BlueprintScriptableObject::ComponentsArray()",
+            };
             RemoveInterfaceProperties(mod);
             foreach (var type in mod.GetTypes())
             {
+                foreach(var property in type.Properties.ToArray())
+                {
+                    /*
+                     * Properties must be changed or preserved in unison
+                     * removing a getter body while keeping the setter body causes the 
+                     * setter to become recursive
+                     * PropertyName { 
+                     *  getter { throw new NotImplementedException() }
+                     *  setter { PropertyName = value } 
+                     * }
+                     * TODO: Look at replacing properties with default implemtation
+                     * PropertyName { get; set; }
+                     */ 
+                    if (PropertyWhiteList.Contains(property.FullName))
+                    {
+                        continue;
+                    }
+                    var getter = property.GetMethod;
+                    var setter = property.SetMethod;
+                    bool canSkipGetter = getter == null || !getter.HasBody || getter.Body.Instructions.Count <= 3;
+                    bool canSkipSetter = getter == null || !getter.HasBody || getter.Body.Instructions.Count <= 4;
+                    if (canSkipGetter && canSkipSetter)
+                    {
+                        continue;
+                    }
+                    if (getter != null && getter.HasBody) simplify.ClearMethod(getter);
+                    if (setter != null && setter.HasBody) simplify.ClearMethod(setter);
+                }
                 foreach (var method in type.Methods.ToArray())
                 {
-
-                    if (method.Name == ".ctor" && method.HasBody && type.BaseType?.FullName != "System.ValueType")
-                    {
-                        var instructions = method.Body.Instructions;
-                        var baseCtor = method.Body.Instructions.FirstOrDefault(i =>
-                            i.OpCode == OpCodes.Call &&
-                            i.Operand is IMethod m &&
-                            m.Name == ".ctor" &&
-                            type.BaseType.FullName != "System.Object");
-                        var index = baseCtor == null ? -1 : method.Body.Instructions.IndexOf(baseCtor);
-                        while (method.Body.Instructions.Count > index + 1)
-                        {
-                            method.Body.Instructions.RemoveAt(index + 1);
-                        }
-                        method.Body.Instructions.Add(OpCodes.Ret.ToInstruction());
-                        method.Body.ExceptionHandlers.Clear();
-                        continue;
-                    }
-                    if (method.Name == ".ctor")
+                    if (method.IsGetter || method.IsSetter)
                     {
                         continue;
                     }
-                    if (method.IsInternalCall)
-                    {
-                        method.IsInternalCall = false;
-                        method.Body = new CilBody();
-                    }
-                    method.Body?.ExceptionHandlers.Clear();
                     if (MethodWhiteList.Contains(method.FullName))
-                    {
-                        continue;
-                    }
-                    if (method.IsGetter && method.HasBody && method.Body.Instructions.Count <= 3)
-                    {
-                        continue;
-                    }
-                    if (method.IsSetter && method.HasBody && method.Body.Instructions.Count <= 4)
                     {
                         continue;
                     }
@@ -294,20 +304,10 @@ namespace Decompile
                             method.CustomAttributes.Remove(att);
                         }
                     }
-                    if (method.Body == null) continue;
-                    method.Body.Instructions.Clear();
-                    if (method.ReturnType.TypeName != "Void" || method.IsSetter || method.MethodSig.Params.Any(p => p.IsByRef))
-                    {
-                        foreach (var inst in newBody) method.Body.Instructions.Add(inst);
-                    }
-                    else
-                    {
-                        method.Body.Instructions.Add(OpCodes.Ret.ToInstruction());
-                    }
-                    method.Body.ExceptionHandlers.Clear();
+                    simplify.ClearMethod(method);
                 }
             }
-            ManualFixes(mod);
+            simplify.ManualFixes(mod);
             mod.Write(Path.Combine(Program.ManagedDir, outputPath));
         }
     }
