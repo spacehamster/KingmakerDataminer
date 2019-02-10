@@ -274,10 +274,35 @@ namespace Decompile
                 "System.Int32 UnityEngine.CreateAssetMenuAttribute::order()",
                 "System.String UnityEngine.Bindings.NativeTypeAttribute::Header()",
                 "Kingmaker.Blueprints.BlueprintComponent Kingmaker.Blueprints.BlueprintScriptableObject::ComponentsArray()",
+                "UnityEngine.Color UnityEngine.Color::red()",
+                "UnityEngine.Color UnityEngine.Color::green()",
+                "UnityEngine.Color UnityEngine.Color::blue()",
+                "UnityEngine.Color UnityEngine.Color::white()",
+                "UnityEngine.Color UnityEngine.Color::black()",
+                "UnityEngine.Color UnityEngine.Color::yellow()",
+                "UnityEngine.Color UnityEngine.Color::cyan()",
+                "UnityEngine.Color UnityEngine.Color::magenta()",
+                "UnityEngine.Color UnityEngine.Color::gray()",
+                "UnityEngine.Color UnityEngine.Color::grey()",
+                "UnityEngine.Color UnityEngine.Color::clear()",
+                "UnityEngine.Vector3 UnityEngine.Vector3::zero()",
+                "UnityEngine.Vector3 UnityEngine.Vector3::one()",
+                "UnityEngine.Vector3 UnityEngine.Vector3::up()",
+                "UnityEngine.Vector3 UnityEngine.Vector3::down()",
+                "UnityEngine.Vector3 UnityEngine.Vector3::left()",
+                "UnityEngine.Vector3 UnityEngine.Vector3::right()",
+                "UnityEngine.Vector3 UnityEngine.Vector3::forward()",
+                "UnityEngine.Vector3 UnityEngine.Vector3::back()",
+                "UnityEngine.Vector3 UnityEngine.Vector3::positiveInfinity()",
+                "UnityEngine.Vector3 UnityEngine.Vector3::negativeInfinity()",
             };
             RemoveInterfaceProperties(mod);
             foreach (var type in mod.GetTypes())
             {
+                if(type.Name == "Color")
+                {
+
+                }
                 foreach(var property in type.Properties.ToArray())
                 {
                     /*
