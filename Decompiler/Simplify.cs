@@ -215,6 +215,23 @@ namespace Decompile
             {
                 ClearMethod(DefaultJsonSettings.FindMethod(".cctor"));
             }
+            //Change UnitPartVisualChanges.SourceBone from Boo.List to System.List
+            var UnitPartVisualChanges = mod.Find("Kingmaker.UnitLogic.Parts.UnitPartVisualChanges", false);
+            if (DefaultJsonSettings != null)
+            {
+                var booList = UnitPartVisualChanges.FindField("SourceBone");
+                Importer importer = new Importer(mod);
+                TypeSig listGenericInstSig = importer.ImportAsTypeSig(typeof(System.Collections.Generic.List<String>));
+                booList.FieldSig = new FieldSig(listGenericInstSig);
+                var ctor = UnitPartVisualChanges.FindMethod(".ctor");
+                foreach (var inst in ctor.Body.Instructions.ToArray())
+                {
+                    if(inst.OpCode == OpCodes.Newobj && inst.Operand is MemberRef memberRef)
+                    {
+                        memberRef.Class = listGenericInstSig.ToTypeDefOrRef();
+                    }
+                }
+            }
         }
         private Simplify() { }
         public static void SimplifyLib(string assemblyName, string outputPath)
@@ -247,6 +264,8 @@ namespace Decompile
                 "System.Void QuickGraph.STaggedEdge`2::remove_TagChanged(System.EventHandler)",
                 "System.Void Steamworks.CallResult`1::add_m_Func(Steamworks.CallResult`1/APIDispatchDelegate<T>)",
                 "System.Void Steamworks.CallResult`1::remove_m_Func(Steamworks.CallResult`1/APIDispatchDelegate<T>)",
+                "Kingmaker.Utility.Feet Kingmaker.Utility.FeetExtension::Feet(System.Int32)",
+                "Kingmaker.UnitLogic.Mechanics.ContextValue Kingmaker.UnitLogic.Mechanics.ContextValue::op_Implicit(System.Int32)"
             };
             var PropertyWhiteList = new HashSet<string>()
             {
