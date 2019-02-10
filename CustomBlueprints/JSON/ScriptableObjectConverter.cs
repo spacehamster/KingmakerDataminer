@@ -81,6 +81,11 @@ namespace CustomBlueprints
                 return ReadResource(reader, type, existingValue, szr);
             }
             if (reader.TokenType == JsonToken.Null) return null;
+            //TODO: Fix json reading of blueprint fields of type ScriptabeObject (BlueprintCueBase.ParentAsset)
+            if (reader.TokenType == JsonToken.String)
+            {
+                return new BlueprintAssetIdConverter().ReadJson(reader, type, existingValue, szr);
+            }
             JObject jObject = JObject.Load(reader);
             var typeName = (string)jObject["$type"];
             var realType = Type.GetType(typeName);
