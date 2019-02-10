@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Kingmaker.Blueprints.Classes;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,13 @@ namespace CustomBlueprints
     public class ArrayConverter : JsonConverter
     {
         public override bool CanWrite
+        {
+            get
+            {
+                return false;
+            }
+        }
+        public override bool CanRead
         {
             get
             {

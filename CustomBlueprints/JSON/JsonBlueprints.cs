@@ -20,6 +20,20 @@ namespace CustomBlueprints
          * PrototypeLink is only used to check if blueprint is a companion
          * will need to fix if custom companions are wanted
          */
+        private static IAssetProvider m_AssetProvider;
+        public static IAssetProvider AssetProvider
+        {
+            get {
+                if(m_AssetProvider == null)
+                {
+                    m_AssetProvider = new DefaultAssetProvider();
+                }
+                return m_AssetProvider;
+            }
+           set {
+                m_AssetProvider = value;
+            }
+        }
         public static Dictionary<string, UnityEngine.Object> Blueprints = new Dictionary<string, UnityEngine.Object>();
         public static Dictionary<string, string> ResourceAssetIds = new Dictionary<string, string>();
         public static readonly HashSet<FieldInfo> FieldBlacklist = new HashSet<FieldInfo>(new[] {
@@ -90,9 +104,6 @@ namespace CustomBlueprints
                 TypeNameAssemblyFormat = FormatterAssemblyStyle.Simple,
                 TypeNameHandling = TypeNameHandling.Objects
             };
-            var bpCr = (BlueprintContractResolver)RefJsonSerializerSettings.ContractResolver;
-            bpCr.RootBlueprintType = blueprintType;
-
             return RefJsonSerializerSettings;
         }
         public static object Load(string filepath, Type type)
@@ -103,14 +114,7 @@ namespace CustomBlueprints
             using (StreamReader sr = new StreamReader(filepath))
             using (JsonReader jsonReader = new JsonTextReader(sr))
             {
-                try
-                {
-                    return serializer.Deserialize(jsonReader, type);
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception($"Error deserializing {filepath}", ex);
-                }
+                return serializer.Deserialize(jsonReader, type);
             }
         }
         public static T Load<T>(string filepath)

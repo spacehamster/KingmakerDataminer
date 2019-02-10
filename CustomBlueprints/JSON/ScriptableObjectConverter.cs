@@ -80,6 +80,7 @@ namespace CustomBlueprints
             {
                 return ReadResource(reader, type, existingValue, szr);
             }
+            if (reader.TokenType == JsonToken.Null) return null;
             JObject jObject = JObject.Load(reader);
             var typeName = (string)jObject["$type"];
             var realType = Type.GetType(typeName);

@@ -12,38 +12,17 @@ namespace CustomBlueprints
 {
     public sealed class BlueprintContractResolver : DefaultContractResolver
     {
-        private static readonly Type BlueprintScriptableObjectType = typeof(BlueprintScriptableObject);
-        [CanBeNull]
-        public Type RootBlueprintType
-        {
-            [UsedImplicitly]
-            get => _rootBlueprintType;
-            set
-            {
-                _rootBlueprintType = value;
-            }
-        }
-
         public BlueprintContractResolver()
         {
-            RootBlueprintType = null;
-        }
 
-        public BlueprintContractResolver(Type rootType)
-        {
-            RootBlueprintType = rootType;
         }
-
         private static readonly HashSet<Type> ConverterBlacklist = new HashSet<Type>(new[] {
           typeof(Kingmaker.Game).Assembly
             .GetType("Kingmaker.EntitySystem.Persistence.JsonUtility.BlueprintConverter", false)
         });
-
-        [CanBeNull]
-        private Type _rootBlueprintType;
-        private static readonly BlueprintAssetIdConverter BlueprintAssetIdConverter
+        private readonly BlueprintAssetIdConverter BlueprintAssetIdConverter
           = new BlueprintAssetIdConverter();
-        private static readonly BlueprintConverter BlueprintConverter
+        private readonly BlueprintConverter BlueprintConverter
             = new BlueprintConverter();
         private static StringEnumConverter stringEnumConverter = new StringEnumConverter(true);
         public List<JsonConverter> PreferredConverters = new List<JsonConverter>() {
@@ -65,15 +44,11 @@ namespace CustomBlueprints
         protected override JsonConverter ResolveContractConverter(Type objectType)
         {
             if (objectType == null) return null;
-            if (BlueprintScriptableObjectType.IsAssignableFrom(objectType))
-                if (objectType != RootBlueprintType)
-                {
-                    return BlueprintAssetIdConverter;
-                }
-                else
-                {
-                    return BlueprintConverter;
-                }
+            if (typeof(BlueprintScriptableObject).IsAssignableFrom(objectType))
+            {
+                if (BlueprintConverter.CanRead && BlueprintConverter.CanWrite) return BlueprintConverter;
+                else return BlueprintAssetIdConverter;
+            }
             var prefCnv = PreferredConverters.FirstOrDefault(cnv => cnv.CanConvert(objectType));
             if (prefCnv != null)
                 return prefCnv;
@@ -130,12 +105,13 @@ namespace CustomBlueprints
                         jsonProp.Converter = stringEnumConverter;
                     }
                 }
-                if (field.FieldType.IsSubclassOf(BlueprintScriptableObjectType))
+                if (field.FieldType.IsSubclassOf(typeof(BlueprintScriptableObject)))
                 {
                     //MemberConverter required to deserialize see 
                     //https://stackoverflow.com/questions/24946362/custom-jsonconverter-is-ignored-for-deserialization-when-using-custom-contract-r
                     jsonProp.MemberConverter = BlueprintAssetIdConverter;
                     jsonProp.Converter = BlueprintAssetIdConverter;
+                    jsonProp.ItemConverter = BlueprintAssetIdConverter;
                     Allow();
                 }
             }

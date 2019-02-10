@@ -13,43 +13,43 @@ namespace CustomBlueprints
 {
     public class BlueprintConverter : JsonConverter
     {
-
+        public bool CannotWrite;
         public override bool CanWrite
         {
             get
             {
-                return true;
+                return !CannotWrite;
+            }
+        }
+        public bool CannotRead;
+        public override bool CanRead
+        {
+            get
+            {
+                return !CannotRead;
             }
         }
         public BlueprintConverter() { }
 
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
-            var settings = JsonBlueprints.CreateSettings(null);
-            var newSerializer = JsonSerializer.Create(settings);
-            var j = new JObject();
-            j.AddFirst(new JProperty("$type", JsonBlueprints.GetTypeName(o.GetType())));
-            foreach (var memberInfo in JsonBlueprints.GetUnitySerializableMembers(o.GetType()))
+            using (new PushValue<bool>(true, () => CannotWrite, (canWrite) => CannotWrite = canWrite))
             {
-                object value = null;
-                if (memberInfo.MemberType == MemberTypes.Field) {
-                    value = ((FieldInfo)memberInfo).GetValue(o);
-                } else if(memberInfo.MemberType == MemberTypes.Property)
-                {
-                   value = ((PropertyInfo)memberInfo).GetValue(o);
-                }
-                j.Add(memberInfo.Name, value != null ? JToken.FromObject(value, newSerializer) : null);
+                szr.Serialize(w, o);
             }
-            j.WriteTo(w);
         }
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer szr)
         {
+            if(reader.TokenType == JsonToken.String)
+            {
+                throw new Exception("Error");
+                return new BlueprintAssetIdConverter().ReadJson(reader, objectType, existingValue, szr);
+            }
             JObject jObject = JObject.Load(reader);
             var name = (string)jObject["name"];
             var typeName = (string)jObject["$type"];
             var realType = Type.GetType(typeName);
-            var settings = JsonBlueprints.CreateSettings(realType);
-            var serializer = JsonSerializer.Create(settings);
+            var serializer = szr;
             BlueprintScriptableObject result = null;
             if (jObject["$append"] != null)
             {
@@ -57,7 +57,7 @@ namespace CustomBlueprints
                 var copy = (string)jObject["$append"];
                 jObject.Remove("$append");
                 var parts = copy.Split(':');
-                result = ResourcesLibrary.TryGetBlueprint(parts[1]);
+                result = JsonBlueprints.AssetProvider.GetBlueprint(realType, parts[1]);
                 name = result.name;
                 Main.DebugLog($"Appending to {result.name}");
             }
@@ -66,7 +66,7 @@ namespace CustomBlueprints
                 var copy = (string)jObject["$replace"];
                 jObject.Remove("$replace");
                 var parts = copy.Split(':');
-                result = ResourcesLibrary.TryGetBlueprint(parts[1]);
+                result = JsonBlueprints.AssetProvider.GetBlueprint(realType, parts[1]);
                 name = result.name;
                 Main.DebugLog($"replacing to {result.name}");
             }
@@ -75,7 +75,7 @@ namespace CustomBlueprints
                 var copy = (string)jObject["$copy"];
                 jObject.Remove("$copy");
                 var parts = copy.Split(':');
-                var resource = ResourcesLibrary.TryGetBlueprint(parts[1]);
+                var resource = JsonBlueprints.AssetProvider.GetBlueprint(realType, parts[1]);
                 result = (BlueprintScriptableObject)BlueprintUtil.ShallowClone(resource);
                 Main.DebugLog($"Copying {resource.name}");
             }
@@ -91,12 +91,18 @@ namespace CustomBlueprints
             {
                 result = ScriptableObject.CreateInstance(realType) as BlueprintScriptableObject;
             }
-            JsonBlueprints.Blueprints[name] = result;
-            BlueprintUtil.AddBlueprint(result, name);
-            serializer.Populate(jObject.CreateReader(), result);
+            var assetId = (string)jObject["m_AssetGuid"];
+            if (assetId == null) assetId = name;
+            JsonBlueprints.AssetProvider.AddBlueprint(result, assetId);
+            using (new PushValue<bool>(true, () => CannotRead, (canRead) => CannotRead = canRead))
+            {
+                serializer.Populate(jObject.CreateReader(), result);
+            }
             return result;
         }
-        private static readonly Type _tBlueprintScriptableObject = typeof(BlueprintScriptableObject);
-        public override bool CanConvert(Type type) => _tBlueprintScriptableObject.IsAssignableFrom(type);
+        public override bool CanConvert(Type type)
+        {
+            return typeof(BlueprintScriptableObject).IsAssignableFrom(type);
+        }
     }
 }

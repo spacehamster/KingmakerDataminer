@@ -97,6 +97,7 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>..\libs\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UNETModule">
       <HintPath>..\libs\UnityEngine.UNETModule.dll</HintPath>
@@ -111,8 +112,10 @@
     <Compile Include="JSON\BlueprintAssetIdConverter.cs" />
     <Compile Include="JSON\BlueprintContractResolver.cs" />
     <Compile Include="JSON\BlueprintConverter.cs" />
+    <Compile Include="JSON\DefaultAssetProvider.cs" />
     <Compile Include="JSON\GameObjectConverter.cs" />
     <Compile Include="JSON\GameObjectAssetIdConverter.cs" />
+    <Compile Include="JSON\IAssetProvider.cs" />
     <Compile Include="JSON\JsonBlueprints.cs" />
     <Compile Include="JSON\LocalizedStringConverter.cs" />
     <Compile Include="JSON\LongAsEnumValueProvider.cs" />

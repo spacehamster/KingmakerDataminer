@@ -35,7 +35,7 @@ namespace CustomBlueprints
             if (text.StartsWith("Blueprint"))
             {
                 var parts = text.Split(':');
-                BlueprintScriptableObject blueprintScriptableObject = ResourcesLibrary.TryGetBlueprint(parts[1]);
+                BlueprintScriptableObject blueprintScriptableObject = JsonBlueprints.AssetProvider.GetBlueprint(objectType, parts[1]);
                 if (blueprintScriptableObject == null)
                 {
                     //throw new JsonSerializationException(string.Format("Failed to load blueprint by guid {0}", text));
@@ -45,7 +45,7 @@ namespace CustomBlueprints
             if (text.StartsWith("File"))
             {
                 var parts = text.Split(':');
-                var path = $"{Main.ModPath}/data/{parts[1]}";
+                var path = Path.Combine(Main.ModPath, "data", parts[1]);
                 var blueprintName = Path.GetFileNameWithoutExtension(path);
                 if (JsonBlueprints.Blueprints.ContainsKey(blueprintName))
                 {

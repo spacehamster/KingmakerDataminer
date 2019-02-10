@@ -33,7 +33,7 @@ namespace CustomBlueprints
             {
                 return null;
             }
-            if(text.StartsWith("LocalizedString"))
+            if(text.StartsWith("LocalizedString") || text.StartsWith("CustomString"))
             {
                 var parts = text.Split(':');
                 if (parts.Length < 2) return null;
@@ -41,24 +41,10 @@ namespace CustomBlueprints
                 Traverse.Create(localizedString).Field("m_Key").SetValue(parts[1]);
                 return localizedString;
             }
+            else
             {
-                var parts = text.Split(':');
-                string key = null;
-                if (parts.Length < 2 || !text.StartsWith("CustomString"))
-                {
-                    key = "InvalidKey" + text;
-                    LocalizationManager.CurrentPack.Strings[key] = key;
-                }
-                else
-                {
-                    key = parts[1];
-                    if (!LocalizationManager.CurrentPack.Strings.ContainsKey(key))
-                    {
-                        LocalizationManager.CurrentPack.Strings[key] = "Missing" + text;
-                    }
-                }
                 var localizedString = new LocalizedString();
-                Traverse.Create(localizedString).Field("m_Key").SetValue(key);
+                Traverse.Create(localizedString).Field("m_Key").SetValue(text);
                 return localizedString;
             }
         }
