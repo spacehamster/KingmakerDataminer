@@ -21,8 +21,14 @@ namespace CustomBlueprints
                 return false;
             }
         }
-        public ScriptableObjectConverter() { }
-
+        public bool CannotRead;
+        public override bool CanRead
+        {
+            get
+            {
+                return !CannotRead;
+            }
+        }
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
             throw new NotImplementedException();
@@ -86,12 +92,10 @@ namespace CustomBlueprints
             {
                 return new BlueprintAssetIdConverter().ReadJson(reader, type, existingValue, szr);
             }
-            JObject jObject = JObject.Load(reader);
-            var typeName = (string)jObject["$type"];
-            var realType = Type.GetType(typeName);
-            var result = ScriptableObject.CreateInstance(realType);
-            szr.Populate(jObject.CreateReader(), result);
-            return result;
+            using (new PushValue<bool>(true, () => CannotRead, (canRead) => CannotRead = canRead))
+            {
+                return szr.Deserialize(reader);
+            }
         }
         public override bool CanConvert(Type type)
         {

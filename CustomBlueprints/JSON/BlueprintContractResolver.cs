@@ -31,6 +31,7 @@ namespace CustomBlueprints
           new XmlNodeConverter(),
           new VersionConverter(),
           new RegexConverter(),
+          new TagListConverter(),
           new ArrayConverter(),
           new TMPConverter(),
           new TMPFontConverter(),
