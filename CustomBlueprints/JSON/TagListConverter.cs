@@ -33,7 +33,8 @@ namespace CustomBlueprints
             if (type == typeof(BlueprintKingdomEvent.TagList))
             {
                 var tag = new BlueprintKingdomEvent.TagList();
-                foreach(var value in array)
+                tag.Values = new bool[] { };
+                foreach (var value in array)
                 {
                     var tagEnum = (BlueprintKingdomEvent.TagType)Enum.Parse(typeof(BlueprintKingdomEvent.TagType), (string)value, true);
                     tag.SetTag(tagEnum, true);
@@ -42,6 +43,7 @@ namespace CustomBlueprints
             } else
             {
                 var tag = new EventLocationTagList();
+                tag.Values = new bool[] { };
                 foreach (var value in array)
                 {
                     var tagEnum = (EventLocationTagType)Enum.Parse(typeof(EventLocationTagType), (string)value, true);
