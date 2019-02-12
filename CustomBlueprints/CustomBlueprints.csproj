@@ -124,6 +124,7 @@
     <Compile Include="JSON\TagListConverter.cs" />
     <Compile Include="JSON\TMPConverter.cs" />
     <Compile Include="JSON\TMPFontConverter.cs" />
+    <Compile Include="JSON\UnitCustomizationVariationConverter.cs" />
     <Compile Include="JSON\UnityEventConverter.cs" />
     <Compile Include="JSON\UnityJsonConverter.cs" />
     <Compile Include="JSON\WeakResourceLinkConverter.cs" />

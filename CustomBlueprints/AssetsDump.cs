@@ -71,6 +71,7 @@ namespace CustomBlueprints
                 foreach (var blueprint in blueprints)
                 {
                     if (blueprint.AssetGuid.Length != 32) continue;
+                    Main.DebugLog($"Dumping {blueprint.name} - {blueprint.AssetGuid}");
                     try
                     {
                         DumpBlueprint(blueprint);

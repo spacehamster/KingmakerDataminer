@@ -265,7 +265,9 @@ namespace Decompile
                 "System.Void Steamworks.CallResult`1::add_m_Func(Steamworks.CallResult`1/APIDispatchDelegate<T>)",
                 "System.Void Steamworks.CallResult`1::remove_m_Func(Steamworks.CallResult`1/APIDispatchDelegate<T>)",
                 "Kingmaker.Utility.Feet Kingmaker.Utility.FeetExtension::Feet(System.Int32)",
-                "Kingmaker.UnitLogic.Mechanics.ContextValue Kingmaker.UnitLogic.Mechanics.ContextValue::op_Implicit(System.Int32)"
+                "Kingmaker.UnitLogic.Mechanics.ContextValue Kingmaker.UnitLogic.Mechanics.ContextValue::op_Implicit(System.Int32)",
+                "System.Boolean Kingmaker.UnitLogic.Customization.UnitCustomizationVariation::Equals(Kingmaker.UnitLogic.Customization.UnitCustomizationVariation)",
+                "System.Boolean Kingmaker.UnitLogic.Customization.UnitCustomizationVariation::Equals(System.Object)",
             };
             var PropertyWhiteList = new HashSet<string>()
             {
@@ -299,10 +301,6 @@ namespace Decompile
             RemoveInterfaceProperties(mod);
             foreach (var type in mod.GetTypes())
             {
-                if(type.Name == "Color")
-                {
-
-                }
                 foreach(var property in type.Properties.ToArray())
                 {
                     /*

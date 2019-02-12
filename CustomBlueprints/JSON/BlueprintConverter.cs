@@ -42,7 +42,7 @@ namespace CustomBlueprints
         {
             if(reader.TokenType == JsonToken.String)
             {
-                throw new Exception("Error");
+                //TODO: Fix BlueprintConverter receiving string members
                 return new BlueprintAssetIdConverter().ReadJson(reader, objectType, existingValue, szr);
             }
             JObject jObject = JObject.Load(reader);

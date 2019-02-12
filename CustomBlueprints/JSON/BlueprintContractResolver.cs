@@ -24,7 +24,7 @@ namespace CustomBlueprints
           = new BlueprintAssetIdConverter();
         private readonly BlueprintConverter BlueprintConverter
             = new BlueprintConverter();
-        private static StringEnumConverter stringEnumConverter = new StringEnumConverter(true);
+        private static StringEnumConverter stringEnumConverter = new StringEnumConverter(false);
         public List<JsonConverter> PreferredConverters = new List<JsonConverter>() {
           stringEnumConverter,
           new IsoDateTimeConverter(),
@@ -40,7 +40,8 @@ namespace CustomBlueprints
           new LocalizedStringConverter(),
           new WeakResourceLinkConverter(),
           new UnityJsonConverter(),
-          new GameObjectAssetIdConverter()
+          new GameObjectAssetIdConverter(),
+          new UnitCustomizationVariationConverter()
         };
         protected override JsonConverter ResolveContractConverter(Type objectType)
         {
@@ -70,7 +71,16 @@ namespace CustomBlueprints
             }
             return null;
         }
-
+        protected override JsonContract CreateContract(Type objectType)
+        {
+            var contract = base.CreateContract(objectType);
+            if (typeof(BlueprintScriptableObject).IsAssignableFrom(objectType))
+            {
+                //Force Blueprints to use AssetIdConverter, rather then "$ref": 1 for references to root blueprint
+                contract.IsReference = false;
+            }
+            return contract;
+        }
         protected override JsonProperty CreateProperty(MemberInfo member, MemberSerialization memberSerialization)
         {
             var jsonProp = base.CreateProperty(member, memberSerialization);
@@ -106,13 +116,16 @@ namespace CustomBlueprints
                         jsonProp.Converter = stringEnumConverter;
                     }
                 }
-                if (field.FieldType.IsSubclassOf(typeof(BlueprintScriptableObject)))
+                if (typeof(IEnumerable<BlueprintScriptableObject>).IsAssignableFrom(field.FieldType))
+                {
+                    jsonProp.ItemConverter = BlueprintAssetIdConverter;
+                }
+                if (typeof(BlueprintScriptableObject).IsAssignableFrom(field.FieldType))
                 {
                     //MemberConverter required to deserialize see 
                     //https://stackoverflow.com/questions/24946362/custom-jsonconverter-is-ignored-for-deserialization-when-using-custom-contract-r
                     jsonProp.MemberConverter = BlueprintAssetIdConverter;
                     jsonProp.Converter = BlueprintAssetIdConverter;
-                    jsonProp.ItemConverter = BlueprintAssetIdConverter;
                     Allow();
                 }
             }
