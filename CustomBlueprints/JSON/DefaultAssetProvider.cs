@@ -11,6 +11,11 @@ namespace CustomBlueprints
             BlueprintUtil.AddBlueprint(blueprint, assetId);
         }
 
+        public string AddResource<T>(T resource, string path) where T : UnityEngine.Object
+        {
+            return BlueprintUtil.AddResource<T>(resource, path);
+        }
+
         public BlueprintScriptableObject GetBlueprint(Type type, string assetId)
         {
             return ResourcesLibrary.TryGetBlueprint(assetId);

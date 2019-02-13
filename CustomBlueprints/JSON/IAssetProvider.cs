@@ -9,5 +9,6 @@ namespace CustomBlueprints
         BlueprintScriptableObject GetBlueprint(Type type, string assetId);
         UnityEngine.Object GetResource(Type type, string assetId);
         UnityEngine.Object GetUnityObject(Type type, int instanceId);
+        string AddResource<T>(T resource, string path) where T : UnityEngine.Object;
     }
 }

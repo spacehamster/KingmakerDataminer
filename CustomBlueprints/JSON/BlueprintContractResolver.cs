@@ -76,8 +76,15 @@ namespace CustomBlueprints
             var contract = base.CreateContract(objectType);
             if (typeof(BlueprintScriptableObject).IsAssignableFrom(objectType))
             {
-                //Force Blueprints to use AssetIdConverter, rather then "$ref": 1 for references to root blueprint
                 contract.IsReference = false;
+                contract.OnSerializedCallbacks.Add((o, context) =>
+                {
+                    contract.Converter = BlueprintConverter;
+                });
+                contract.OnSerializingCallbacks.Add((o, context) =>
+                {
+                    contract.Converter = BlueprintAssetIdConverter;
+                });
             }
             return contract;
         }
@@ -115,18 +122,6 @@ namespace CustomBlueprints
                         jsonProp.MemberConverter = stringEnumConverter;
                         jsonProp.Converter = stringEnumConverter;
                     }
-                }
-                if (typeof(IEnumerable<BlueprintScriptableObject>).IsAssignableFrom(field.FieldType))
-                {
-                    jsonProp.ItemConverter = BlueprintAssetIdConverter;
-                }
-                if (typeof(BlueprintScriptableObject).IsAssignableFrom(field.FieldType))
-                {
-                    //MemberConverter required to deserialize see 
-                    //https://stackoverflow.com/questions/24946362/custom-jsonconverter-is-ignored-for-deserialization-when-using-custom-contract-r
-                    jsonProp.MemberConverter = BlueprintAssetIdConverter;
-                    jsonProp.Converter = BlueprintAssetIdConverter;
-                    Allow();
                 }
             }
             else if (member is PropertyInfo property)

@@ -80,7 +80,7 @@ namespace CustomBlueprints
         {
             return $"{objectType.FullName}, {objectType.Assembly.GetName().Name}";
         }
-        public static JsonSerializerSettings CreateSettings(Type blueprintType)
+        public static JsonSerializerSettings CreateSettings()
         {
             var RefJsonSerializerSettings = new JsonSerializerSettings
             {
@@ -109,7 +109,7 @@ namespace CustomBlueprints
         public static object Load(string filepath, Type type)
         {
             var settingsType = typeof(BlueprintScriptableObject).IsAssignableFrom(type) ? type : null;
-            var settings = CreateSettings(settingsType);
+            var settings = CreateSettings();
             var serializer = JsonSerializer.Create(settings);
             using (StreamReader sr = new StreamReader(filepath))
             using (JsonReader jsonReader = new JsonTextReader(sr))
@@ -124,7 +124,7 @@ namespace CustomBlueprints
         public static object Loads(string text, Type type)
         {
             var settingsType = typeof(BlueprintScriptableObject).IsAssignableFrom(type) ? type : null;
-            var settings = CreateSettings(settingsType);
+            var settings = CreateSettings();
             var serializer = JsonSerializer.Create(settings);
             using (StringReader sr = new StringReader(text))
             using (JsonReader jsonReader = new JsonTextReader(sr))
@@ -140,32 +140,32 @@ namespace CustomBlueprints
         {
             var folder = Path.GetDirectoryName(path);
             if (!string.IsNullOrEmpty(folder)) Directory.CreateDirectory(folder);
-            JsonSerializer serializer = JsonSerializer.Create(CreateSettings(blueprint.GetType()));
+            var settings = CreateSettings();
+            JsonSerializer serializer = JsonSerializer.Create();
             using (StreamWriter sw = new StreamWriter(path))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
                 serializer.Serialize(writer, blueprint);
             }
         }
-        public static void Dump(object ee, string path)
+        public static void Dump(object obj, string path)
         {
             var folder = Path.GetDirectoryName(path);
             if (!string.IsNullOrEmpty(folder)) Directory.CreateDirectory(folder);
-            JsonSerializer serializer = JsonSerializer.Create(CreateSettings(null));
+            var settings = CreateSettings();
+            JsonSerializer serializer = JsonSerializer.Create();
             using (StreamWriter sw = new StreamWriter(path))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
-                serializer.Serialize(writer, ee);
+                serializer.Serialize(writer, obj);
             }
         }
         public static void DumpResource(object obj, string path)
         {
             var folder = Path.GetDirectoryName(path);
             if(!string.IsNullOrEmpty(folder)) Directory.CreateDirectory(folder);
-            var settings = CreateSettings(null);
-            //settings.PreserveReferencesHandling = PreserveReferencesHandling.All;
+            var settings = CreateSettings();
             settings.Error = HandleDeserializationError;
-            //settings.EqualityComparer = new UnityEqualityComparer();
             var contractResolver = settings.ContractResolver as BlueprintContractResolver;
             contractResolver.PreferredConverters.Insert(0, new GameObjectConverter());
             contractResolver.PreferredConverters.RemoveAll(c => c.GetType() == typeof(GameObjectAssetIdConverter));

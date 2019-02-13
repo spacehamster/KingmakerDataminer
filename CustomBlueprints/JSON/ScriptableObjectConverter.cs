@@ -43,7 +43,7 @@ namespace CustomBlueprints
             ScriptableObject result = null;
             if (jObject["$append"] != null)
             {
-                var settings = JsonBlueprints.CreateSettings(null);
+                var settings = JsonBlueprints.CreateSettings();
                 szr = JsonSerializer.Create(settings);
                 szr.ObjectCreationHandling = ObjectCreationHandling.Reuse;
                 var copy = (string)jObject["$append"];
