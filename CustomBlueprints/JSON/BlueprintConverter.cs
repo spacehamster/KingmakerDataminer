@@ -45,6 +45,10 @@ namespace CustomBlueprints
                 //TODO: Fix BlueprintConverter receiving string members
                 return new BlueprintAssetIdConverter().ReadJson(reader, objectType, existingValue, szr);
             }
+            if (reader.TokenType == JsonToken.Null)
+            {
+                return null;
+            }
             JObject jObject = JObject.Load(reader);
             var name = (string)jObject["name"];
             var typeName = (string)jObject["$type"];

@@ -89,6 +89,10 @@ namespace CustomBlueprints
                 {
                     AssetsDump.DumpList();
                 }
+                if (GUILayout.Button("DumpScriptableObjects"))
+                {
+                    AssetsDump.DumpScriptableObjects();
+                }
                 if (GUILayout.Button("DumpAssetBundles"))
                 {
                     AssetsDump.DumpAssetBundles();

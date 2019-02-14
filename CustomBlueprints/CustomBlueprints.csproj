@@ -127,6 +127,7 @@
     <Compile Include="JSON\UnitCustomizationVariationConverter.cs" />
     <Compile Include="JSON\UnityEventConverter.cs" />
     <Compile Include="JSON\UnityJsonConverter.cs" />
+    <Compile Include="JSON\UnityObjectConverter.cs" />
     <Compile Include="JSON\WeakResourceLinkConverter.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

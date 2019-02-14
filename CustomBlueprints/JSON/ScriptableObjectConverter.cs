@@ -80,13 +80,13 @@ namespace CustomBlueprints
         }
         public override object ReadJson(JsonReader reader, Type type, object existingValue, JsonSerializer szr)
         {
+            if (reader.TokenType == JsonToken.Null) return null;
             if (type == typeof(EquipmentEntity)
                 || type == typeof(BakedCharacter)
                 || type == typeof(SimClothTopology))
             {
                 return ReadResource(reader, type, existingValue, szr);
             }
-            if (reader.TokenType == JsonToken.Null) return null;
             //TODO: Fix json reading of blueprint fields of type ScriptabeObject (BlueprintCueBase.ParentAsset)
             if (reader.TokenType == JsonToken.String)
             {

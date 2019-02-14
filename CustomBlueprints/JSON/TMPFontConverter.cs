@@ -14,13 +14,6 @@ namespace CustomBlueprints
 {
     public class TMPFontConverter : JsonConverter
     {
-        public override bool CanRead
-        {
-            get
-            {
-                return false;
-            }
-        }
         public TMPFontConverter() { }
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
@@ -29,7 +22,9 @@ namespace CustomBlueprints
 
         public override object ReadJson(JsonReader reader, Type type, object existing, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+            if (reader.TokenType == JsonToken.Null) return null;
+            //TODO: Get actual font
+            return new TMP_FontAsset();
         }
         public override bool CanConvert(Type type) {
             return typeof(TMP_FontAsset).IsAssignableFrom(type);

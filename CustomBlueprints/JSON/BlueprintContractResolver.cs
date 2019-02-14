@@ -41,7 +41,8 @@ namespace CustomBlueprints
           new WeakResourceLinkConverter(),
           new UnityJsonConverter(),
           new GameObjectAssetIdConverter(),
-          new UnitCustomizationVariationConverter()
+          new UnitCustomizationVariationConverter(),
+          new UnityObjectConverter(),
         };
         protected override JsonConverter ResolveContractConverter(Type objectType)
         {
@@ -85,6 +86,15 @@ namespace CustomBlueprints
                 {
                     contract.Converter = BlueprintAssetIdConverter;
                 });
+
+                contract.OnDeserializedCallbacks.Add((o, context) =>
+                {
+                    contract.Converter = BlueprintConverter;
+                });
+                contract.OnDeserializingCallbacks.Add((o, context) =>
+                {
+                    contract.Converter = BlueprintAssetIdConverter;
+                });
             }
             return contract;
         }
@@ -112,6 +122,7 @@ namespace CustomBlueprints
                     Skip();
                     return null;
                 }
+                //BodyPartTypes used by EquipmentEntities are stored as longs with a LongAsEnumAttribute
                 if (field.FieldType == typeof(long))
                 {
                     var attribute = field.GetCustomAttribute<LongAsEnumAttribute>();
@@ -123,9 +134,32 @@ namespace CustomBlueprints
                         jsonProp.Converter = stringEnumConverter;
                     }
                 }
+                //BlueprintSettingsRoot contains Action and Func fields
+                if (field.FieldType == typeof(System.Action) || field.FieldType == typeof(System.Func<bool>))
+                {
+                    Skip();
+                    return null;
+                }
+                if (typeof(IEnumerable<BlueprintScriptableObject>).IsAssignableFrom(field.FieldType))
+                {
+                    //Needed to deserialize AbilityFocus.b689c0b78297dda40a6ae2ff3b8adb5c.json
+                    //Newtonsoft.Json.JsonSerializationException
+                    // Error converting value "Blueprint:fc4b01e4c4ebbb4448016c03df01902f:MandragoraSwarmDamageFeature" to type 'Kingmaker.Blueprints.BlueprintScriptableObject'.Path 'CustomParameterVariants[0]'
+                    //ArgumentException: Could not cast or convert from System.String to Kingmaker.Blueprints.BlueprintScriptableObject.
+                    jsonProp.ItemConverter = BlueprintAssetIdConverter;
+                }
+                if (typeof(BlueprintScriptableObject).IsAssignableFrom(field.FieldType))
+                {
+                    //MemberConverter required to deserialize see 
+                    //https://stackoverflow.com/questions/24946362/custom-jsonconverter-is-ignored-for-deserialization-when-using-custom-contract-r
+                    //jsonProp.MemberConverter = BlueprintAssetIdConverter;
+                    //jsonProp.Converter = BlueprintAssetIdConverter;
+                    //Allow();
+                }
             }
             else if (member is PropertyInfo property)
             {
+
             }
             else
             {

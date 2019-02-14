@@ -141,7 +141,7 @@ namespace CustomBlueprints
             var folder = Path.GetDirectoryName(path);
             if (!string.IsNullOrEmpty(folder)) Directory.CreateDirectory(folder);
             var settings = CreateSettings();
-            JsonSerializer serializer = JsonSerializer.Create();
+            JsonSerializer serializer = JsonSerializer.Create(settings);
             using (StreamWriter sw = new StreamWriter(path))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
@@ -153,7 +153,7 @@ namespace CustomBlueprints
             var folder = Path.GetDirectoryName(path);
             if (!string.IsNullOrEmpty(folder)) Directory.CreateDirectory(folder);
             var settings = CreateSettings();
-            JsonSerializer serializer = JsonSerializer.Create();
+            JsonSerializer serializer = JsonSerializer.Create(settings);
             using (StreamWriter sw = new StreamWriter(path))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {

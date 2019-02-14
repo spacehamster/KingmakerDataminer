@@ -19,7 +19,6 @@ namespace CustomBlueprints
             var bp = (BlueprintScriptableObject)o;
             w.WriteValue(string.Format($"Blueprint:{bp.AssetGuid}:{bp.name}"));
         }
-
         public override object ReadJson(
           JsonReader reader,
           Type objectType,
@@ -36,10 +35,6 @@ namespace CustomBlueprints
             {
                 var parts = text.Split(':');
                 BlueprintScriptableObject blueprintScriptableObject = JsonBlueprints.AssetProvider.GetBlueprint(objectType, parts[1]);
-                if (blueprintScriptableObject == null)
-                {
-                    //throw new JsonSerializationException(string.Format("Failed to load blueprint by guid {0}", text));
-                }
                 return blueprintScriptableObject;
             }
             if (text.StartsWith("File"))
@@ -57,10 +52,7 @@ namespace CustomBlueprints
             }
             throw new JsonSerializationException(string.Format("Invalid blueprint format {0}", text));
         }
-
-        // ReSharper disable once IdentifierTypo
         private static readonly Type _tBlueprintScriptableObject = typeof(BlueprintScriptableObject);
-
         public override bool CanConvert(Type type) => _tBlueprintScriptableObject.IsAssignableFrom(type);
     }
 }

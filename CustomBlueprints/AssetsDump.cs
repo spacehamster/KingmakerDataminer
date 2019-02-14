@@ -39,23 +39,45 @@ namespace CustomBlueprints
                 }
             }
         }
+        public static void DumpScriptableObjects()
+        {
+            Directory.CreateDirectory("ScriptableObjects");
+            foreach (var obj in UnityEngine.Object.FindObjectsOfType<ScriptableObject>())
+            {
+                try
+                {
+                    if (obj is BlueprintScriptableObject blueprint &&
+                        !ResourcesLibrary.LibraryObject.BlueprintsByAssetId.ContainsKey(blueprint.AssetGuid))
+                    {
+                        JsonBlueprints.Dump(blueprint, $"ScriptableObjects/{blueprint.GetType()}/{blueprint.name}.{blueprint.AssetGuid}.json");
+                    }
+                    else
+                    {
+                        JsonBlueprints.Dump(obj, $"ScriptableObjects/{obj.GetType()}/{obj.name}.{obj.GetInstanceID()}.json");
+                    }
+                }catch(Exception ex)
+                {
+                    File.WriteAllText($"ScriptableObjects/{obj.GetType()}/{obj.name}.{obj.GetInstanceID()}.txt", ex.ToString());
+                }
+            }
+        }
         public static void DumpQuick()
         {
             var types = new HashSet<Type>()
             {
-                            typeof(BlueprintCharacterClass),
-                            typeof(BlueprintRaceVisualPreset),
-                            typeof(BlueprintRace),
-                            typeof(BlueprintArchetype),
-                            typeof(BlueprintProgression),
-                            typeof(BlueprintStatProgression),
-                            typeof(BlueprintFeature),
-                            typeof(BlueprintFeatureSelection),
-                            typeof(BlueprintSpellbook),
-                            typeof(BlueprintSpellList),
-                            typeof(BlueprintSpellsTable),
-                            typeof(BlueprintItemWeapon),
-                            typeof(BlueprintBuff)
+                typeof(BlueprintCharacterClass),
+                typeof(BlueprintRaceVisualPreset),
+                typeof(BlueprintRace),
+                typeof(BlueprintArchetype),
+                typeof(BlueprintProgression),
+                typeof(BlueprintStatProgression),
+                typeof(BlueprintFeature),
+                typeof(BlueprintFeatureSelection),
+                typeof(BlueprintSpellbook),
+                typeof(BlueprintSpellList),
+                typeof(BlueprintSpellsTable),
+                typeof(BlueprintItemWeapon),
+                typeof(BlueprintBuff)
             };
             foreach (var blueprint in ResourcesLibrary.GetBlueprints<BlueprintScriptableObject>())
             {
