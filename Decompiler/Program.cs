@@ -122,8 +122,8 @@ namespace Decompile
         }
         static void Main(string[] args)
         {
-            //CreateUnityProject();
-            DecompileAll();
+            CreateUnityProject();
+            //DecompileAll();
         }
     }
 }

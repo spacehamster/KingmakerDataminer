@@ -33,7 +33,7 @@ namespace CustomBlueprints
 
         public void Log(string text)
         {
-            logger.Error(text);
+            logger.Log(text);
         }
     }
 }

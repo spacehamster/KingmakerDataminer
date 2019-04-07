@@ -16,6 +16,8 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 using Harmony12;
+using Kingmaker.Visual.Critters;
+using UnityEngine.SceneManagement;
 
 namespace CustomBlueprints
 {
@@ -55,7 +57,8 @@ namespace CustomBlueprints
                     {
                         JsonBlueprints.Dump(obj, $"ScriptableObjects/{obj.GetType()}/{obj.name}.{obj.GetInstanceID()}.json");
                     }
-                }catch(Exception ex)
+                }
+                catch (Exception ex)
                 {
                     File.WriteAllText($"ScriptableObjects/{obj.GetType()}/{obj.name}.{obj.GetInstanceID()}.txt", ex.ToString());
                 }
@@ -132,6 +135,14 @@ namespace CustomBlueprints
         }
         public static void DumpList()
         {
+            var resourceTypes = new Type[]
+            {
+                typeof(EquipmentEntity),
+                typeof(Familiar),
+                typeof(UnitEntityView),
+                typeof(ProjectileView)
+                //Note: PrefabLink : WeakResourceLink<GameObject> exists
+            };
             Directory.CreateDirectory($"Blueprints/");
             var blueprints = ResourcesLibrary.GetBlueprints<BlueprintScriptableObject>().ToList();
             var blueprintsByAssetId = ResourcesLibrary.LibraryObject.BlueprintsByAssetId;
@@ -149,7 +160,7 @@ namespace CustomBlueprints
             Main.DebugLog($"ResourcePathsByAssetId contains  {blueprintsByAssetId.Count} resources");
             using (var file = new StreamWriter("Blueprints/Resources.txt"))
             {
-                file.WriteLine($"name\tResourcenName\tAssetId\tType\tBaseType\tInstanceId");
+                file.WriteLine($"Name\tAssetId\tType\tBaseType\tInstanceId");
                 foreach (var kv in ResourcesLibrary.LibraryObject.ResourceNamesByAssetId)
                 {
                     var resource = ResourcesLibrary.TryGetResource<UnityEngine.Object>(kv.Key);
@@ -161,11 +172,17 @@ namespace CustomBlueprints
                                          "Object";
                         var go = resource as GameObject;
                         var typeName = resource?.GetType().Name ?? "NULL";
-                        if(go != null)
+                        if (go != null)
                         {
-                            typeName = go.GetComponents<MonoBehaviour>().Join(c => c.GetType().Name);
+                            foreach (var type in resourceTypes)
+                            {
+                                if (go.GetComponent(type) != null)
+                                {
+                                    typeName = type.Name;
+                                }
+                            }
                         }
-                        file.WriteLine($"{resource?.name ?? "NULL"}\t{kv.Key}\t{kv.Value}\t{typeName}\t{baseType}\t{resource?.GetInstanceID()}");
+                        file.WriteLine($"{kv.Value}\t{kv.Key}\t{typeName}\t{baseType}\t{resource?.GetInstanceID()}");
                         ResourcesLibrary.CleanupLoadedCache();
                     }
                 }
@@ -194,12 +211,12 @@ namespace CustomBlueprints
                     loadedBundles[bundleName] :
                     AssetBundle.LoadFromFile(bundlePath);
                 file.WriteLine(bundleName);
-                if(bundle == null)
+                if (bundle == null)
                 {
                     file.WriteLine($"  NULL, IsLoaded {loadedBundles.ContainsKey(bundlePath)}");
                     continue;
                 }
-                foreach(var name in bundle.GetAllAssetNames())
+                foreach (var name in bundle.GetAllAssetNames())
                 {
                     file.WriteLine($"  Name: {name}");
                     var asset = bundle.LoadAsset(name);
@@ -209,7 +226,7 @@ namespace CustomBlueprints
                         file.WriteLine($"    SubAsset: {subAsset}, {subAsset.GetType().Name}");
                     }
                 }
-                foreach(var scenePath in bundle.GetAllScenePaths())
+                foreach (var scenePath in bundle.GetAllScenePaths())
                 {
                     file.WriteLine($"  ScenePath: {scenePath}");
                 }
@@ -226,7 +243,7 @@ namespace CustomBlueprints
             JsonBlueprints.DumpResource(Game.Instance.BlueprintRoot.UIRoot, "UI/Game.BlueprintRoot.UIRoot.json");
             JsonBlueprints.DumpResource(Game.Instance.DialogController, "UI/Game.DialogController.json");
             var ui = Game.Instance.UI;
-            foreach(var field in ui.GetType().GetFields())
+            foreach (var field in ui.GetType().GetFields())
             {
                 try
                 {
@@ -237,7 +254,8 @@ namespace CustomBlueprints
                         continue;
                     }
                     JsonBlueprints.DumpResource(value, $"UI/UI.{value.GetType().FullName}.json");
-                } catch(Exception ex)
+                }
+                catch (Exception ex)
                 {
                     Main.DebugLog($"Error dumping UI field {field.Name}");
                 }
@@ -247,7 +265,7 @@ namespace CustomBlueprints
                 try
                 {
                     var value = prop.GetValue(ui);
-                    if(value == null)
+                    if (value == null)
                     {
                         Main.DebugLog($"Null property {prop.Name}");
                         continue;
@@ -263,6 +281,18 @@ namespace CustomBlueprints
         public static void DumpKingdom()
         {
             JsonBlueprints.Dump(KingdomState.Instance, "Kingdom");
+        }
+        public static void DumpSceneList()
+        {
+            string result = "";
+            for(int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+            {
+                var scenePath = SceneUtility.GetScenePathByBuildIndex(i);
+                var scene = SceneManager.GetSceneByBuildIndex(i);
+                result += $"{i}\t{scenePath}\t{scene.name}";
+            }
+            Directory.CreateDirectory("Dump");
+            File.WriteAllText("Dump/SceneList.txt", result);
         }
     }
 }

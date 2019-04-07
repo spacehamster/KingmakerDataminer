@@ -18,9 +18,9 @@ namespace CustomBlueprints
 
             var go = (UnityEngine.Object)o;
             var j = new JObject {
-                {"$type", go.GetType().Name},
-                {"InstanceId", go.GetInstanceID()},
+                {"$type", JsonBlueprints.GetTypeName(o.GetType())},
                 {"name", go.name },
+                {"InstanceId", go.GetInstanceID()},
             };
             j.WriteTo(w);
         }
@@ -39,7 +39,7 @@ namespace CustomBlueprints
         public override bool CanConvert(Type type)
         {
             return typeof(GameObject).IsAssignableFrom(type) ||
-                typeof(Transform).IsAssignableFrom(type);
+                    typeof(Component).IsAssignableFrom(type);
         }
     }
 }

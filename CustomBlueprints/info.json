@@ -3,7 +3,7 @@
   "DisplayName": "Custom Blueprints",
   "Author": "spacehamster",
   "Version": "1.0.0",
-  "ManagerVersion": "0.12.0",
+  "ManagerVersion": "0.13.0",
   "Requirements": [],
   "AssemblyName": "CustomBlueprints.dll",
   "EntryMethod": "CustomBlueprints.Main.Load"

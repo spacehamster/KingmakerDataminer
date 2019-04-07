@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using Kingmaker.Blueprints;
 using Kingmaker.Visual.CharacterSystem;
 using Kingmaker.Blueprints.CharGen;
+using System.IO;
 
 namespace CustomBlueprints
 {
@@ -21,8 +22,7 @@ namespace CustomBlueprints
         }
         public static bool enabled;
         public static Settings settings;
-        static int torso = -1;
-        public static BlueprintManager raceManager;
+        public static BlueprintManager blueprintManager;
         public static string ModPath = null;
         static bool Load(UnityModManager.ModEntry modEntry)
         {
@@ -77,6 +77,27 @@ namespace CustomBlueprints
                 {
                     AssetsDump.DumpAllBlueprints();
                 }
+                if (GUILayout.Button("DumpFlags"))
+                {
+                    var blueprints = ResourcesLibrary.GetBlueprints<BlueprintUnlockableFlag>();
+                    Directory.CreateDirectory("Blueprints");
+                    using (var file = new StreamWriter("Blueprints/log.txt"))
+                    {
+                        foreach (var blueprint in blueprints)
+                        {
+                            if (blueprint.AssetGuid.Length != 32) continue;
+                            Main.DebugLog($"Dumping {blueprint.name} - {blueprint.AssetGuid}");
+                            try
+                            {
+                                AssetsDump.DumpBlueprint(blueprint);
+                            }
+                            catch (Exception ex)
+                            {
+                                file.WriteLine($"Error dumping {blueprint.name}:{blueprint.AssetGuid}:{blueprint.GetType().FullName}, {ex.ToString()}");
+                            }
+                        }
+                    }
+                }
                 if (GUILayout.Button("DumpEquipmentEntities"))
                 {
                     AssetsDump.DumpEquipmentEntities();
@@ -100,6 +121,10 @@ namespace CustomBlueprints
                 if (GUILayout.Button("DumpUI"))
                 {
                     AssetsDump.DumpUI();
+                }
+                if (GUILayout.Button("DumpSceneList"))
+                {
+                    AssetsDump.DumpSceneList();
                 }
                 if (GUILayout.Button("DumpKingdom"))
                 {

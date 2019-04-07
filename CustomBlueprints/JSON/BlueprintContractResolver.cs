@@ -32,6 +32,7 @@ namespace CustomBlueprints
           new VersionConverter(),
           new RegexConverter(),
           new TagListConverter(),
+          new SpellDescriptorWrapperConverter(),
           new ArrayConverter(),
           new TMPConverter(),
           new TMPFontConverter(),

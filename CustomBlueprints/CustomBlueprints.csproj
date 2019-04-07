@@ -103,6 +103,9 @@
       <HintPath>..\libs\UnityEngine.UNETModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityModManager">
+      <HintPath>..\libs\UnityModManager.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssetsDump.cs" />
@@ -121,6 +124,7 @@
     <Compile Include="JSON\LongAsEnumValueProvider.cs" />
     <Compile Include="JSON\PushValue.cs" />
     <Compile Include="JSON\ScriptableObjectConverter.cs" />
+    <Compile Include="JSON\SpellDescriptorWrapperConverter.cs" />
     <Compile Include="JSON\TagListConverter.cs" />
     <Compile Include="JSON\TMPConverter.cs" />
     <Compile Include="JSON\TMPFontConverter.cs" />

@@ -39,14 +39,9 @@ namespace CustomBlueprints
         private static readonly JsonConverter[] SafeConverters = {
         new StringEnumConverter(true), new UnityJsonConverter()
     };
-
-        private static readonly string AqnTexture2D = typeof(Texture2D).AssemblyQualifiedName;
-        private static readonly string AqnSprite = typeof(Sprite).AssemblyQualifiedName;
-        private static readonly string AqnMesh = typeof(Mesh).AssemblyQualifiedName;
-
         public override void WriteJson(JsonWriter w, object value, JsonSerializer szr)
         {
-            var type = value.GetType().Name;
+            var type = JsonBlueprints.GetTypeName(value.GetType());
             switch (value)
             {
                 case Vector2 v:
