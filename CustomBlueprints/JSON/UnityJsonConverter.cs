@@ -28,7 +28,8 @@ namespace CustomBlueprints
                   typeof(Texture2D),
                   typeof(Sprite),
                   typeof(Mesh),
-                  typeof(Material)
+                  typeof(Material),
+                  typeof(AnimationCurve)
             }
         );
 
@@ -171,6 +172,28 @@ namespace CustomBlueprints
                         o.WriteTo(w);
                         return;
                     }
+                case AnimationCurve ac:
+                    {
+                        var o = new JObject();
+                        o.Add("$type", type);
+                        o.Add("preWrapMode", ac.preWrapMode.ToString());
+                        o.Add("postWrapMode", ac.postWrapMode.ToString());
+                        var keys = new JArray();
+                        foreach(var key in ac.keys)
+                        {
+                            var jkey = new JObject();
+                            jkey.Add("time", key.time);
+                            jkey.Add("value", key.value);
+                            jkey.Add("inTangent", key.inTangent);
+                            jkey.Add("outTangent", key.outTangent);
+                            jkey.Add("inWeight", key.inWeight);
+                            jkey.Add("outWeight", key.outWeight);
+                            keys.Add(jkey);
+                        }
+                        o.Add("keys", keys);
+                        o.WriteTo(w);
+                        return;
+                    }
             }
         }
 
@@ -242,6 +265,28 @@ namespace CustomBlueprints
                      new Vector3Int((int)a1[0], (int)a1[1], (int)a1[2]),
                      new Vector3Int((int)a2[0], (int)a2[1], (int)a2[2])
                 );
+            }
+            if (type == typeof(AnimationCurve))
+            {
+                var curve = new AnimationCurve();
+                curve.preWrapMode = (WrapMode)Enum.Parse(typeof(WrapMode), (string)o["preWrapMode"]);
+                curve.preWrapMode = (WrapMode)Enum.Parse(typeof(WrapMode), (string)o["postWrapMode"]);
+                var jkeys = (JArray)o["keys"];
+                var keys = new Keyframe[jkeys.Count];
+                for(int i = 0; i < keys.Length; i++)
+                {
+                    var jkey = jkeys[i];
+                    var key = new Keyframe();
+                    key.time = (float)jkey["time"];
+                    key.value = (float)jkey["value"];
+                    key.inTangent = (float)jkey["inTangent"];
+                    key.outTangent = (float)jkey["outTangent"];
+                    key.inWeight = (float)jkey["inWeight"];
+                    key.outWeight = (float)jkey["outWeight"];
+                    keys[i] = key;
+                }
+                curve.keys = keys;
+                return curve;
             }
             if (type == typeof(Texture2D) || type == typeof(Sprite) || type == typeof(Mesh) || type == typeof(Material))
             {

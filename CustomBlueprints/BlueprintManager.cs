@@ -26,8 +26,6 @@ namespace CustomBlueprints
         public static void Init()
         {
             var blueprints = ResourcesLibrary.LibraryObject.BlueprintsByAssetId;
-            var goblinRace = (BlueprintRace)blueprints["9d168ca7100e9314385ce66852385451"];
-            races.Add(goblinRace);
             LoadStrings();
             info = BlueprintInfo.Load();
             races.AddRange(info.Races);

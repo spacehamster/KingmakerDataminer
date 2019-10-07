@@ -39,7 +39,7 @@ namespace CustomBlueprints
         public override bool CanConvert(Type type)
         {
             return typeof(GameObject).IsAssignableFrom(type) ||
-                    typeof(Component).IsAssignableFrom(type);
+                    typeof(Transform).IsAssignableFrom(type);
         }
     }
 }

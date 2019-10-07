@@ -95,7 +95,6 @@ namespace CustomBlueprints
             {
                 foreach (var blueprint in blueprints)
                 {
-                    if (blueprint.AssetGuid.Length != 32) continue;
                     Main.DebugLog($"Dumping {blueprint.name} - {blueprint.AssetGuid}");
                     try
                     {
@@ -131,7 +130,15 @@ namespace CustomBlueprints
                 if (resource == null) continue;
                 DumpResource(resource, kv.Key);
                 ResourcesLibrary.CleanupLoadedCache();
+                //break;
             }
+        }
+        public static void DumpAssets()
+        {
+            DumpList();
+            DumpAllBlueprints();
+            DumpEquipmentEntities();
+            DumpUnitViews();
         }
         public static void DumpList()
         {
