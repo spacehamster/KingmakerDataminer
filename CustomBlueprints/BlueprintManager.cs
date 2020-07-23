@@ -59,50 +59,6 @@ namespace CustomBlueprints
                 }
             }
         }
-        static public void Reload()
-        {
-            var originalRaces = new List<BlueprintRace>();
-            foreach(var race in Game.Instance.BlueprintRoot.Progression.CharacterRaces)
-            {
-                if (race.AssetGuid.EndsWith(BlueprintUtil.AssetSuffix)) continue;
-                originalRaces.Add(race);
-            }
-            Game.Instance.BlueprintRoot.Progression.CharacterRaces = originalRaces.ToArray();
-            var originalClasses = new List<BlueprintCharacterClass>();
-            foreach (var characterClass in Game.Instance.BlueprintRoot.Progression.CharacterClasses)
-            {
-                if (characterClass.AssetGuid.EndsWith(BlueprintUtil.AssetSuffix)) continue;
-                originalClasses.Add(characterClass);
-            }
-            Game.Instance.BlueprintRoot.Progression.CharacterClasses = originalClasses.ToArray();
-            var blueprintsToRemove = ResourcesLibrary.LibraryObject.BlueprintsByAssetId.Where(
-                (item) => item.Key.EndsWith("CustomFeature")).ToList();
-            foreach(var kv in blueprintsToRemove)
-            {
-                ResourcesLibrary.LibraryObject.BlueprintsByAssetId.Remove(kv.Key);
-            }
-            Main.DebugLog($"Removed {blueprintsToRemove.Count} Blueprints");
-            var loadedResources = ResourcesLibrary.LoadedResources;
-            if (loadedResources == null) throw new Exception("No loaded resources");
-            IDictionary resources = loadedResources as IDictionary;
-            var resourcesToRemove = new List<string>();
-            foreach(DictionaryEntry entry in resources)
-            {
-                if (entry.Key.ToString().EndsWith(BlueprintUtil.AssetSuffix)){
-                    resourcesToRemove.Add(entry.Key);
-                }
-            }
-            foreach(var key in resourcesToRemove)
-            {
-                resources.Remove(key);
-            }
-            Main.DebugLog($"Removing {resourcesToRemove.Count} Resources");
-            races.Clear();
-            characterClasses.Clear();
-            Init();
-            foreach (var race in races) AddRace(race);
-            foreach (var characterClass in characterClasses) AddCharcterClass(characterClass);
-        }
         static public void OnSceneManagerOnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             if (scene.name == SceneName.LoadingScreenUI ||

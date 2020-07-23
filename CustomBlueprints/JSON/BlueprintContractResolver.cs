@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using JetBrains.Annotations;
 using Kingmaker.Blueprints;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -108,7 +107,6 @@ namespace CustomBlueprints
                 jsonProp.ShouldSerialize = o => false;
                 jsonProp.ShouldDeserialize = o => false;
             }
-
             void Allow()
             {
                 jsonProp.ShouldSerialize = o => true;

@@ -1,13 +1,7 @@
 ﻿using Harmony12;
-using JetBrains.Annotations;
-using Kingmaker.Blueprints;
 using Kingmaker.Localization;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CustomBlueprints
 {
@@ -22,7 +16,8 @@ namespace CustomBlueprints
             {
                 ls = ls.Shared.String;
             }
-            var text = ls.ToString();
+            var pack = LocalizationManager.CurrentPack;
+            var text = pack.GetText(ls.Key, false);
             w.WriteValue($"LocalizedString:{ls.Key}:{text}");
         }
 

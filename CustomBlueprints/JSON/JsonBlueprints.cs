@@ -1,9 +1,7 @@
 ﻿using Harmony12;
 using Kingmaker.Blueprints;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,24 +14,6 @@ namespace CustomBlueprints
 {
     public static class JsonBlueprints
     {
-        /*
-         * PrototypeLink is only used to check if blueprint is a companion
-         * will need to fix if custom companions are wanted
-         */
-        private static IAssetProvider m_AssetProvider;
-        public static IAssetProvider AssetProvider
-        {
-            get {
-                if(m_AssetProvider == null)
-                {
-                    m_AssetProvider = new DefaultAssetProvider();
-                }
-                return m_AssetProvider;
-            }
-           set {
-                m_AssetProvider = value;
-            }
-        }
         public static Dictionary<string, UnityEngine.Object> Blueprints = new Dictionary<string, UnityEngine.Object>();
         public static Dictionary<string, string> ResourceAssetIds = new Dictionary<string, string>();
         public static readonly HashSet<FieldInfo> FieldBlacklist = new HashSet<FieldInfo>(new[] {

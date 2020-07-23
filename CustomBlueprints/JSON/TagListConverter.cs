@@ -7,22 +7,11 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CustomBlueprints
 {
     public class TagListConverter : JsonConverter
     {
-        public override bool CanWrite
-        {
-            get
-            {
-                return false;
-            }
-        }
         public override object ReadJson(JsonReader reader, Type type, object existing, JsonSerializer serializer)
         {
             if (reader.TokenType == JsonToken.Null)
@@ -52,9 +41,35 @@ namespace CustomBlueprints
                 return tag;
             }
         }
+        /*
+         * There seems to be a bug in TagLists that allow them to be created without the Values field being initialized.
+         */
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+
+            if (value == null)
+            {
+                serializer.Serialize(writer, null);
+            } else
+            {
+                var values = AccessTools.Field(value.GetType(), "Values").GetValue(value);
+                if (values == null)
+                {
+                    var obj = new JObject();
+                    obj["$type"] = value.GetType().FullName;
+                    obj["Values"] = null;
+                    serializer.Serialize(writer, obj);
+                } else
+                {
+                    var foo = (IEnumerable)value;
+                    var arr = new JArray();
+                    foreach(var item in foo)
+                    {
+                        arr.Add(item);
+                    }
+                    serializer.Serialize(writer, arr);
+                }
+            }
         }
         public override bool CanConvert(Type type)
         {

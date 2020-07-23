@@ -90,6 +90,10 @@ namespace CustomBlueprints
                 {
                     AssetsDump.DumpAllBlueprints();
                 }
+                if (GUILayout.Button("DumpAllBlueprintsVerbose"))
+                {
+                    AssetsDump.DumpAllBlueprintsVerbose();
+                }
                 if (GUILayout.Button("DumpFlags"))
                 {
                     var blueprints = ResourcesLibrary.GetBlueprints<BlueprintUnlockableFlag>();
@@ -153,11 +157,6 @@ namespace CustomBlueprints
                 {
                     var vp = JsonBlueprints.Load<BlueprintRaceVisualPreset>("mods/customraces/data/TestPreset.json");
                     DebugLog("Loaded " + vp.name);
-                }
-
-                if (GUILayout.Button("Reload"))
-                {
-                    BlueprintManager.Reload();
                 }
 #endif
             } catch(Exception e)

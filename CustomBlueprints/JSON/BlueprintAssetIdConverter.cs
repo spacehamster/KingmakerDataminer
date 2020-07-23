@@ -1,23 +1,45 @@
 ﻿using System;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using JetBrains.Annotations;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.DirectSerialization;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace CustomBlueprints
 {
+/*
+TODO:
+ChapterList gets treated as a BlueprintScriptableObject but gives in a BlueprintReference
+public IEnumerator<BlueprintEncyclopediaChapter> GetEnumerator()
+{
+    return (from r in this.m_List
+    select (BlueprintEncyclopediaChapter)r.Get()).GetEnumerator();
+}
+
+IEnumerator IEnumerable.GetEnumerator()
+{
+    return this.m_List.GetEnumerator();
+}
+*/
     public class BlueprintAssetIdConverter : JsonConverter
     {
-
         public BlueprintAssetIdConverter() { }
 
         public override void WriteJson(JsonWriter w, object o, JsonSerializer szr)
         {
-            var bp = (BlueprintScriptableObject)o;
-            w.WriteValue(string.Format($"Blueprint:{bp.AssetGuid}:{bp.name}"));
+            try
+            {
+                BlueprintScriptableObject bp = null;
+                if(o is BlueprintReference bpRef)
+                {
+                    bp = bpRef.Get();
+                } else
+                {
+                    bp = (BlueprintScriptableObject)o;
+                }
+                w.WriteValue(string.Format($"Blueprint:{bp.AssetGuid}:{bp.name}"));
+            } catch(InvalidCastException ex)
+            {
+                w.WriteValue(string.Format($"Blueprint:{o?.GetType().FullName ?? "NULL"}:{ex.ToString()}"));
+            }
         }
         public override object ReadJson(
           JsonReader reader,
@@ -26,31 +48,7 @@ namespace CustomBlueprints
           JsonSerializer serializer
         )
         {
-            string text = (string)reader.Value;
-            if (text == null || text == "null")
-            {
-                return null;
-            }
-            if (text.StartsWith("Blueprint"))
-            {
-                var parts = text.Split(':');
-                BlueprintScriptableObject blueprintScriptableObject = JsonBlueprints.AssetProvider.GetBlueprint(objectType, parts[1]);
-                return blueprintScriptableObject;
-            }
-            if (text.StartsWith("File"))
-            {
-                var parts = text.Split(':');
-                var path = Path.Combine(Main.ModPath, "data", parts[1]);
-                var blueprintName = Path.GetFileNameWithoutExtension(path);
-                if (JsonBlueprints.Blueprints.ContainsKey(blueprintName))
-                {
-                    return JsonBlueprints.Blueprints[blueprintName];
-                }
-                Main.DebugLog($"Reading blueprint from file: {text}");
-                var result = JsonBlueprints.Load(path, objectType);
-                return result;
-            }
-            throw new JsonSerializationException(string.Format("Invalid blueprint format {0}", text));
+            throw new NotImplementedException();
         }
         private static readonly Type _tBlueprintScriptableObject = typeof(BlueprintScriptableObject);
         public override bool CanConvert(Type type) => _tBlueprintScriptableObject.IsAssignableFrom(type);

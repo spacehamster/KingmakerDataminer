@@ -18,14 +18,21 @@ using UnityEngine;
 using Harmony12;
 using Kingmaker.Visual.Critters;
 using UnityEngine.SceneManagement;
+using Newtonsoft.Json;
 
 namespace CustomBlueprints
 {
     public class AssetsDump
     {
-        public static void DumpBlueprint(BlueprintScriptableObject blueprint)
+        public static void DumpBlueprint(BlueprintScriptableObject blueprint, string directory = "Blueprints", bool verbose = false)
         {
-            JsonBlueprints.Dump(blueprint, $"Blueprints/{blueprint.GetType()}/{blueprint.name}.{blueprint.AssetGuid}.json");
+            JsonSerializerSettings settings = null;
+            if (verbose)
+            {
+                settings = JsonBlueprints.CreateSettings();
+                settings.DefaultValueHandling = DefaultValueHandling.Include;
+            }
+            JsonBlueprints.Dump(blueprint, $"{directory}/{blueprint.GetType()}/{blueprint.name}.{blueprint.AssetGuid}.json", settings);
         }
         public static void DumpBlueprints()
         {
@@ -48,15 +55,7 @@ namespace CustomBlueprints
             {
                 try
                 {
-                    if (obj is BlueprintScriptableObject blueprint &&
-                        !ResourcesLibrary.LibraryObject.BlueprintsByAssetId.ContainsKey(blueprint.AssetGuid))
-                    {
-                        JsonBlueprints.Dump(blueprint, $"ScriptableObjects/{blueprint.GetType()}/{blueprint.name}.{blueprint.AssetGuid}.json");
-                    }
-                    else
-                    {
-                        JsonBlueprints.Dump(obj, $"ScriptableObjects/{obj.GetType()}/{obj.name}.{obj.GetInstanceID()}.json");
-                    }
+                    JsonBlueprints.Dump(obj, $"ScriptableObjects/{obj.GetType()}/{obj.name}.{obj.GetInstanceID()}.json");
                 }
                 catch (Exception ex)
                 {
@@ -99,6 +98,26 @@ namespace CustomBlueprints
                     try
                     {
                         DumpBlueprint(blueprint);
+                    }
+                    catch (Exception ex)
+                    {
+                        file.WriteLine($"Error dumping {blueprint.name}:{blueprint.AssetGuid}:{blueprint.GetType().FullName}, {ex.ToString()}");
+                    }
+                }
+            }
+        }
+        public static void DumpAllBlueprintsVerbose()
+        {
+            var blueprints = ResourcesLibrary.GetBlueprints<BlueprintScriptableObject>();
+            Directory.CreateDirectory("BlueprintsVerbose");
+            using (var file = new StreamWriter("BlueprintsVerbose/log.txt"))
+            {
+                foreach (var blueprint in blueprints)
+                {
+                    Main.DebugLog($"Dumping {blueprint.name} - {blueprint.AssetGuid}");
+                    try
+                    {
+                        DumpBlueprint(blueprint, directory: "BlueprintsVerbose", verbose: true);
                     }
                     catch (Exception ex)
                     {
