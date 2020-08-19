@@ -8,6 +8,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Visual.CharacterSystem;
 using Kingmaker.Blueprints.CharGen;
 using System.IO;
+using Kingmaker;
 
 namespace CustomBlueprints
 {
@@ -75,6 +76,7 @@ namespace CustomBlueprints
             {
                 if (!enabled) return;
 #if (DEBUG)
+                GUILayout.Label($"Game Version: {GameVersion.GetVersion()}");
                 if (GUILayout.Button("DumpAssets"))
                 {
                     AssetsDump.DumpAssets();
