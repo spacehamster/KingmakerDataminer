@@ -16,8 +16,7 @@ namespace CustomBlueprints
             {
                 ls = ls.Shared.String;
             }
-            var pack = LocalizationManager.CurrentPack;
-            var text = pack.GetText(ls.Key, false);
+            var text = LocalizationHelper.GetText(ls.Key);
             w.WriteValue($"LocalizedString:{ls.Key}:{text}");
         }
 
