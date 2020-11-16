@@ -25,15 +25,12 @@ namespace CustomBlueprints
         }
         public static bool enabled;
         public static Settings settings;
-        public static BlueprintManager blueprintManager;
         public static string ModPath = null;
         static bool Load(UnityModManager.ModEntry modEntry)
         {
             try
             {
                 settings = UnityModManager.ModSettings.Load<Settings>(modEntry);
-                //var harmony = HarmonyInstance.Create(modEntry.Info.Id);
-                //harmony.PatchAll(Assembly.GetExecutingAssembly());
                 modEntry.OnToggle = OnToggle;
                 modEntry.OnGUI = OnGUI;
                 modEntry.OnSaveGUI = OnSaveGUI;
@@ -42,8 +39,6 @@ namespace CustomBlueprints
 #endif
                 ModPath = modEntry.Path;
                 logger = new UMMLogger(modEntry.Logger);
-
-                SceneManager.sceneLoaded += BlueprintManager.OnSceneManagerOnSceneLoaded;
             }
             catch (Exception e){
                 modEntry.Logger.Log(e.ToString() +"\n" + e.StackTrace);
@@ -52,7 +47,6 @@ namespace CustomBlueprints
         }
         static bool Unload(UnityModManager.ModEntry modEntry)
         {
-            //HarmonyInstance.Create(modEntry.Info.Id).UnpatchAll();
             return true;
         }
         static void OnSaveGUI(UnityModManager.ModEntry modEntry)
@@ -65,22 +59,18 @@ namespace CustomBlueprints
             enabled = value;
             return true; // Permit or not.
         }
-        static UnityEngine.Object FindObject2(int instanceId)
-        {
-            return null; //can't find FindObjectFromInstanceID 
 
-        }
         static void OnGUI(UnityModManager.ModEntry modEntry)
         {
             try
             {
                 if (!enabled) return;
-#if (DEBUG)
                 GUILayout.Label($"Game Version: {GameVersion.GetVersion()}");
                 if (GUILayout.Button("DumpAssets"))
                 {
                     AssetsDump.DumpAssets();
                 }
+#if (DEBUG)
                 if (GUILayout.Button("DumpClassRaceBlueprints"))
                 {
                     AssetsDump.DumpQuick();
@@ -149,16 +139,11 @@ namespace CustomBlueprints
                 {
                     AssetsDump.DumpKingdom();
                 }
-                if (GUILayout.Button("DumpView"))
+                if (GUILayout.Button("Test Dump View"))
                 {
                     var view = ResourcesLibrary.TryGetResource<GameObject>("adf003833b2463543a065d5160c7e8f1");
                     var character = view.GetComponent<Character>();
                     JsonBlueprints.Dump(character, "adf003833b2463543a065d5160c7e8f1");
-                }
-                if (GUILayout.Button("TestLoad"))
-                {
-                    var vp = JsonBlueprints.Load<BlueprintRaceVisualPreset>("mods/customraces/data/TestPreset.json");
-                    DebugLog("Loaded " + vp.name);
                 }
 #endif
             } catch(Exception e)

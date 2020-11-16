@@ -10,8 +10,8 @@
     <ProjectGuid>{DF94F820-89C7-4149-83A4-2DA2F8CFDB99}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CustomBlueprints</RootNamespace>
-    <AssemblyName>CustomBlueprints</AssemblyName>
+    <RootNamespace>KingmakerDataminer</RootNamespace>
+    <AssemblyName>KingmakerDataminer</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>false</Deterministic>
@@ -31,7 +31,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\CustomBlueprints\</OutputPath>
+    <OutputPath>bin\Release\KingmakerDataminer\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -39,7 +39,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Install|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>$(KingmakerInstallDir)\Mods\CustomBlueprints\</OutputPath>
+    <OutputPath>$(KingmakerInstallDir)\Mods\KingmakerDataminer\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>portable</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -113,7 +113,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssetsDump.cs" />
-    <Compile Include="BlueprintInfo.cs" />
     <Compile Include="ILogger.cs" />
     <Compile Include="JSON\ArrayConverter.cs" />
     <Compile Include="JSON\BlueprintAssetIdConverter.cs" />
@@ -139,7 +138,6 @@
     <Compile Include="JSON\WeakResourceLinkConverter.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BlueprintManager.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>
   <ItemGroup>

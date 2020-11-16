@@ -15,7 +15,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
-using Harmony12;
 using Kingmaker.Visual.Critters;
 using UnityEngine.SceneManagement;
 using Newtonsoft.Json;
