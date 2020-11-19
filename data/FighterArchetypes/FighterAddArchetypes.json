@@ -1,8 +1,0 @@
-{
-  "$type": "Kingmaker.Blueprints.Classes.BlueprintCharacterType, Assembly-CSharp",
-  "$append": "Blueprint:48ac8db94d5de7645906c7d0ad3bcfbd:FighterClass",
-  "Archetypes": [
-    "File:ArcherArchetype.json",
-    "File:TwoWeaponWarriorArchetype.json"
-  ],
-}
